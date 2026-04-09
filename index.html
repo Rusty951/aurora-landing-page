@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>오로라의소리 — 콘텐츠 방향 설계 · 채널 구조 아이디어</title>
+  <meta name="description" content="내 업종에 맞는 채널 방향을 먼저 정리하고, 하나의 콘텐츠가 여러 채널로 이어지게 설계합니다. 브랜드 인터뷰로 지금 무엇부터 시작해야 할지 함께 정리합니다." />
+  <meta name="keywords" content="콘텐츠 마케팅, 브랜드 방향, 채널 설계, 오로라의소리, 블로그 유튜브 인스타" />
+  <meta property="og:title" content="오로라의소리 — 콘텐츠 방향부터 함께 정리합니다" />
+  <meta property="og:description" content="무엇부터 시작해야 할지 막막한 브랜드를 위해, 콘텐츠 방향과 채널 구조를 함께 정리합니다." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="style.css?v=11" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    /* CSS 강제 적용을 위한 인라인 스타일 */
+    .quick-grid { position: relative; }
+    @media (min-width: 769px) {
+      .quick-grid::before, .quick-grid::after {
+        content: ''; position: absolute;
+        top: 40px; bottom: 40px; width: 1px;
+        background: rgba(255,255,255,0.08);
+        z-index: 2; pointer-events: none;
+      }
+      .quick-grid::before { left: 33.333%; }
+      .quick-grid::after { left: 66.666%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── 고정 네비게이션 바 ──────────────────── -->
+<header class="site-nav" id="site-nav" role="banner">
+  <div class="container site-nav-inner">
+    <span class="nav-logo">오로라의소리</span>
+    <a id="nav-cta-btn"
+       href="https://open.kakao.com/o/sMBNyzpi"
+       target="_blank" rel="noopener noreferrer"
+       class="nav-cta-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 2C6.477 2 2 5.803 2 10.5c0 2.966 1.775 5.564 4.47 7.164L5.5 22l5.107-2.774C11.058 19.408 11.524 19.5 12 19.5c5.523 0 10-3.803 10-8.5S17.523 2 12 2z" fill="currentColor"/>
+      </svg>
+      방향 물어보기
+    </a>
+  </div>
+</header>
+
+<!-- ── 고정 카카오톡 버튼 ───────────────── -->
+<div class="kakao-float" id="kakao-float" aria-label="카카오톡 문의">
+  <a id="kakao-float-btn"
+     href="https://open.kakao.com/o/sMBNyzpi"
+     target="_blank" rel="noopener noreferrer"
+     class="kakao-float-btn"
+     aria-label="카카오톡으로 방향 물어보기">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2C6.477 2 2 5.803 2 10.5c0 2.966 1.775 5.564 4.47 7.164L5.5 22l5.107-2.774C11.058 19.408 11.524 19.5 12 19.5c5.523 0 10-3.803 10-8.5S17.523 2 12 2z" fill="#191600"/>
+    </svg>
+  </a>
+  <span class="kakao-float-label">카카오톡 문의</span>
+</div>
+
+
+<!-- ── 섹션 1. 히어로 ────────────────────── -->
+<section id="hero">
+  <canvas id="aurora-canvas" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="hero-panel fade-up">
+      <p class="hero-eyebrow">AURORA SOUND · 콘텐츠로 고객을 데려옵니다</p>
+
+      <h1 class="hero-headline">
+        시작이 자꾸 미뤄진다면,<br />
+        의지보다<br class="m-br" /> <span class="highlight">기준의 문제</span>일 수<br />
+        있습니다
+      </h1>
+
+      <p class="hero-sub">
+        내 업종에 맞는 방향을 먼저 정리하고,<br />
+        하나의 콘텐츠가 여러 채널로 이어지게 설계합니다
+      </p>
+
+      <div class="hero-cta-wrap">
+        <a id="hero-cta-btn"
+           href="https://open.kakao.com/o/sMBNyzpi"
+           target="_blank" rel="noopener noreferrer"
+           class="btn-cta">
+          <span class="btn-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2C6.477 2 2 5.803 2 10.5c0 2.966 1.775 5.564 4.47 7.164L5.5 22l5.107-2.774C11.058 19.408 11.524 19.5 12 19.5c5.523 0 10-3.803 10-8.5S17.523 2 12 2z" fill="#FEE500"/>
+            </svg>
+          </span>
+          카카오톡으로 방향 물어보기
+        </a>
+        <a href="https://brunch.co.kr/@730c0631bb2f493" target="_blank" rel="noopener noreferrer" class="btn-cta-outline">오로라의소리의 글 보기</a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 섹션 2. 3칸 즉시 이해 카드 ───────── -->
+<section id="quick-cards" aria-label="오로라의소리가 하는 일">
+  <div class="container">
+    <div class="quick-grid">
+
+      <!-- 1. 채널 방향 정리 -->
+      <div class="quick-card fade-up d1">
+        <div class="icon-box" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 18l-2-1-6 3V7l6-3 6 3 6-3v7"></path>
+            <path d="M9 4v13"></path>
+            <path d="M15 7v5"></path>
+            <circle cx="18" cy="18" r="3"></circle>
+            <path d="M18 15v3"></path>
+          </svg>
+        </div>
+        <div class="quick-card-info">
+          <p class="quick-card-title">채널 방향 정리</p>
+          <p class="quick-card-desc">내 업종에 맞는 채널을<br>함께 정리합니다</p>
+        </div>
+      </div>
+
+      <!-- 2. 핵심 메시지 정리 -->
+      <div class="quick-card fade-up d2">
+        <div class="icon-box" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+          </svg>
+        </div>
+        <div class="quick-card-info">
+          <p class="quick-card-title">핵심 메시지 정리</p>
+          <p class="quick-card-desc">고객에게 먼저 보여줄 말을<br>정리합니다</p>
+        </div>
+      </div>
+
+      <!-- 3. 확장 구조 설계 -->
+      <div class="quick-card fade-up d3">
+        <div class="icon-box" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+        </div>
+        <div class="quick-card-info">
+          <p class="quick-card-title">확장 구조 설계</p>
+          <p class="quick-card-desc">하나의 콘텐츠가 여러 채널로<br>이어지게 만듭니다</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 섹션 3. 문제 공감 + 원인 진단 ───── -->
+<section id="empathy" aria-label="이런 고민이 반복된다면">
+  <div class="container">
+    <span class="section-label fade-up">공감</span>
+    <h2 class="section-title fade-up d1">
+      이런 고민이 반복된다면,<br />
+      채널보다 <em>기준부터</em> 점검해야 합니다
+    </h2>
+
+    <ul class="empathy-list fade-up d2" role="list">
+      <li class="empathy-item">
+        <svg class="empathy-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+        <span>콘텐츠를 해야 한다는 건 아는데, 뭐부터 해야 할지 모르겠다</span>
+      </li>
+      <li class="empathy-item">
+        <svg class="empathy-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+        <span>블로그, 유튜브, 인스타그램 중 내 업종에 뭐가 맞는지 헷갈린다</span>
+      </li>
+      <li class="empathy-item">
+        <svg class="empathy-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg>
+        <span>이것저것 알아보다 지쳐서 시작이 자꾸 미뤄진다</span>
+      </li>
+    </ul>
+
+    <div class="diagnosis fade-up d3">
+      <p>
+        채널마다 역할이 다릅니다.<br /><br />
+        많이 하는 게 아니라, 내 업종에 어떤 채널이 왜 필요한지 먼저 아는 것.<br />
+        그 기준이 없으면 채널만 늘고 쉽게 지칩니다.<br /><br />
+        <strong>오로라의소리는 그 기준부터 함께 정리합니다.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 섹션 4. 채널별 역할 (아코디언) ───── -->
+<section id="channels" aria-label="채널별 역할">
+  <div class="container">
+    <span class="section-label fade-up">채널 역할</span>
+    <h2 class="section-title fade-up d1">
+      채널마다 잘 맞는 업종과<br />역할이 다릅니다
+    </h2>
+
+    <div class="channel-cards fade-up d2" role="list">
+
+      <!-- 블로그 -->
+      <div class="channel-card" id="card-blog" role="listitem">
+        <button class="channel-card-header" aria-expanded="false" aria-controls="blog-body" id="blog-btn">
+          <div class="icon-box" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <div>
+            <p class="channel-name">블로그</p>
+            <p class="channel-role">검색으로 들어오는 고객에게 신뢰를 쌓는 채널</p>
+          </div>
+          <div class="channel-toggle" aria-hidden="true">▼</div>
+        </button>
+        <div class="channel-card-body" id="blog-body" role="region" aria-labelledby="blog-btn">
+          <div class="channel-body-inner">
+            <p>블로그는 검색을 통해 들어오는 고객에게 서비스를 차분히 설명하고 신뢰를 쌓기 좋은 채널입니다.</p>
+            <div class="channel-fit" aria-label="잘 맞는 업종">
+              <span class="channel-fit-tag">전문직</span>
+              <span class="channel-fit-tag">인테리어·공간</span>
+              <span class="channel-fit-tag">교육·컨설팅</span>
+            </div>
+            <div class="channel-why">
+              <p class="channel-why-title">왜 필요할까요?</p>
+              <ul>
+                <li>고객이 검색으로 먼저 찾습니다</li>
+                <li>설명이 필요한 서비스에 유리합니다</li>
+                <li>자주 묻는 질문을 콘텐츠 자산으로 쌓을 수 있습니다</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 유튜브 -->
+      <div class="channel-card" id="card-youtube" role="listitem">
+        <button class="channel-card-header" aria-expanded="false" aria-controls="yt-body" id="yt-btn">
+          <div class="icon-box" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+            </svg>
+          </div>
+          <div>
+            <p class="channel-name">유튜브</p>
+            <p class="channel-role">전문성과 인상을 함께 전하는 채널</p>
+          </div>
+          <div class="channel-toggle" aria-hidden="true">▼</div>
+        </button>
+        <div class="channel-card-body" id="yt-body" role="region" aria-labelledby="yt-btn">
+          <div class="channel-body-inner">
+            <p>유튜브는 말투, 분위기, 관점까지 전달할 수 있어서 브랜드 신뢰를 빠르게 만드는 데 유리합니다.</p>
+            <div class="channel-fit" aria-label="잘 맞는 업종">
+              <span class="channel-fit-tag">전문직</span>
+              <span class="channel-fit-tag">인테리어·공간</span>
+              <span class="channel-fit-tag">교육·컨설팅</span>
+            </div>
+            <div class="channel-why">
+              <p class="channel-why-title">왜 필요할까요?</p>
+              <ul>
+                <li>전문성과 인상을 함께 보여줄 수 있습니다</li>
+                <li>고객이 맡길 사람인지 판단하는 데 도움이 됩니다</li>
+                <li>더 빠르게 관계를 만들 수 있습니다</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 인스타그램 -->
+      <div class="channel-card" id="card-insta" role="listitem">
+        <button class="channel-card-header" aria-expanded="false" aria-controls="insta-body" id="insta-btn">
+          <div class="icon-box" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </div>
+          <div>
+            <p class="channel-name">인스타그램</p>
+            <p class="channel-role">분위기와 접점을 만드는 채널</p>
+          </div>
+          <div class="channel-toggle" aria-hidden="true">▼</div>
+        </button>
+        <div class="channel-card-body" id="insta-body" role="region" aria-labelledby="insta-btn">
+          <div class="channel-body-inner">
+            <p>인스타그램은 짧고 가볍게 브랜드를 발견하게 만드는 채널입니다.</p>
+            <div class="channel-fit" aria-label="잘 맞는 업종">
+              <span class="channel-fit-tag">인테리어·공간</span>
+              <span class="channel-fit-tag">브랜드형 소상공인</span>
+              <span class="channel-fit-tag">교육·컨설팅</span>
+              <span class="channel-fit-tag">비주얼 중심 업종</span>
+            </div>
+            <div class="channel-why">
+              <p class="channel-why-title">왜 필요할까요?</p>
+              <ul>
+                <li>브랜드 분위기를 빠르게 전달할 수 있습니다</li>
+                <li>고객과 자주 접점을 만들 수 있습니다</li>
+                <li>다른 채널로 이어지는 첫 관심을 만들기 좋습니다</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 섹션 5. 서사/공감 브릿지 ─────────── -->
+<section id="story-bridge" aria-label="결국 필요한 건, 각각의 역할이 아니라 흐름이었습니다">
+  <div class="container">
+    <div class="story-bridge-inner fade-up">
+      <h2 class="story-bridge-title">결국 필요한 건,<br />각각의 역할이 아니라 흐름이었습니다</h2>
+
+      <div class="story-bridge-body">
+        <p>직접 해보기도 하고, 외주를 써보기도 하면<br />
+        어느 순간 같은 벽에 부딪힐 때가 있습니다.</p>
+
+        <p>기획은 기획대로, 촬영은 촬영대로, 편집은 편집대로 움직이는데<br />
+        정작 그걸 하나의 흐름으로 보는 시선은 비어 있는 경우가 많습니다.</p>
+
+        <p>누구는 글을 보고, 누구는 영상을 보고,<br />
+        누구는 디자인을 보고, 누구는 운영을 보지만<br />
+        브랜드에 맞게 연결해 함께 보는 사람은 드문 경우가 있습니다.</p>
+
+        <blockquote class="story-bridge-quote">
+          브랜드에 맞게 연결해 함께 보는 시선,<br />결국 필요한 건 그 흐름이었습니다.
+        </blockquote>
+
+        <p>오로라의소리는 그래서<br />
+        흩어진 역할을 따로 넘기기보다,<br />
+        브랜드 안에서 하나의 흐름으로 함께 정리합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 섹션 6. 왜 오로라의소리인가 ───────── -->
+<section id="why-aurora" aria-label="왜 오로라의소리인가">
+  <div class="container">
+    <span class="section-label fade-up">오로라의소리</span>
+    <h2 class="section-title fade-up d1">
+      채널을 늘리기 전에,<br /><em>기준부터</em> 잡습니다
+    </h2>
+
+    <div class="why-body fade-up d2">
+      <p>채널부터 정하지 않습니다. 먼저 브랜드를 봅니다.</p>
+      <p>브랜드의 결, 고객의 시선, 채널의 역할을 함께 정리한 뒤,<br />무엇을 올릴지보다 무엇을 말해야 고객이 움직이는지부터 봅니다.</p>
+    </div>
+
+    <div class="why-quote fade-up d3">
+      <p>오로라의소리는 콘텐츠를 만드는 데서 멈추지 않습니다.<br />콘텐츠로 고객을 데려오는 구조를 함께 만듭니다.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 섹션 6. OSMU 방식 ──────────────────── -->
+<section id="osmu" aria-label="OSMU 콘텐츠 확장 방식">
+  <div class="container">
+    <span class="section-label fade-up">콘텐츠 설계</span>
+    <h2 class="section-title fade-up d1">
+      한 번 만든 콘텐츠가<br /><em>세 개 채널</em>로 이어집니다
+    </h2>
+
+    <div class="osmu-desc fade-up d2">
+      <p>매번 채널마다 새로 만들 필요는 없습니다.</p>
+      <p>하나의 핵심 주제를 먼저 만들고, 블로그 글로 풀고, 유튜브 스크립트로 바꾸고, 인스타그램 콘텐츠로 다시 나눌 수 있게 설계합니다.</p>
+    </div>
+
+    <div class="osmu-diagram fade-up d3"
+         role="img"
+         aria-label="핵심 주제에서 블로그, 유튜브, 인스타그램으로 이어지는 콘텐츠 확장 구조"
+         id="osmu-diagram">
+      <div class="osmu-hub">
+        <span class="osmu-hub-label">HUB</span>
+        <span class="osmu-hub-title">핵심 주제</span>
+      </div>
+      <div class="osmu-connector" id="osmu-connector"></div>
+      <div class="osmu-channels">
+        <div class="osmu-channel-node" id="osmu-node-1">
+          <span class="osmu-node-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </span>
+          <p class="osmu-node-name">블로그</p>
+          <p class="osmu-node-desc">깊이 있는 글로<br />신뢰를 쌓는 채널</p>
+        </div>
+        <div class="osmu-channel-node" id="osmu-node-2">
+          <span class="osmu-node-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </span>
+          <p class="osmu-node-name">유튜브</p>
+          <p class="osmu-node-desc">관점과 인상을<br />함께 전하는 채널</p>
+        </div>
+        <div class="osmu-channel-node" id="osmu-node-3">
+          <span class="osmu-node-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </span>
+          <p class="osmu-node-name">인스타그램</p>
+          <p class="osmu-node-desc">분위기와 접점을<br />만드는 채널</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="osmu-bottom-note fade-up d4">
+      하나만 제대로 잡아도, <span style="color: var(--accent);">다음 채널은 훨씬 덜 힘들어집니다</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 섹션 7. 브랜드 인터뷰 ─────────────── -->
+<section id="interview" aria-label="브랜드 인터뷰">
+  <div class="container">
+    <span class="section-label fade-up">브랜드 인터뷰</span>
+    <h2 class="section-title fade-up d1">
+      브랜드 인터뷰로,<br />지금 무엇부터 시작해야 할지<br /><em>함께 정리합니다</em>
+    </h2>
+
+    <p class="interview-intro fade-up d2">
+      바로 맡기지 않으셔도 괜찮습니다.<br />
+      먼저 지금 브랜드 상황과 고민을 편하게 들려주세요.<br />
+      브랜드 인터뷰를 통해 아래 3가지를 함께 정리합니다.
+    </p>
+
+    <ul class="interview-list fade-up d3" role="list">
+      <li class="interview-item">
+        <span class="interview-num" aria-hidden="true">1</span>
+        <p>내 업종에 어떤 채널이 더 잘 맞는지</p>
+      </li>
+      <li class="interview-item">
+        <span class="interview-num" aria-hidden="true">2</span>
+        <p>어떤 메시지로 시작하면 좋을지</p>
+      </li>
+      <li class="interview-item">
+        <span class="interview-num" aria-hidden="true">3</span>
+        <p>가장 먼저 만들 콘텐츠 방향이 무엇인지</p>
+      </li>
+    </ul>
+
+    <div class="interview-notes fade-up d4">
+      <p class="interview-note">첫 인터뷰는 부담 없이 진행됩니다</p>
+      <p class="interview-note">현재 상황만 편하게 나눠주셔도 괜찮습니다</p>
+      <p class="interview-note">방향부터 차분히 함께 정리합니다</p>
+    </div>
+
+    <div class="interview-cta fade-up d5">
+      <a id="interview-cta-btn"
+         href="https://open.kakao.com/o/sMBNyzpi"
+         target="_blank" rel="noopener noreferrer"
+         class="btn-cta">
+        <span class="btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C6.477 2 2 5.803 2 10.5c0 2.966 1.775 5.564 4.47 7.164L5.5 22l5.107-2.774C11.058 19.408 11.524 19.5 12 19.5c5.523 0 10-3.803 10-8.5S17.523 2 12 2z" fill="#FEE500"/>
+          </svg>
+        </span>
+        브랜드 인터뷰 신청하기
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 섹션 8. 고객 후기 ──────────────────── -->
+<section id="reviews" aria-label="고객 후기">
+  <div class="container">
+    <span class="section-label fade-up">후기</span>
+    <h2 class="section-title fade-up d1">오로라의소리와 함께한<br />분들의 이야기</h2>
+
+    <div class="review-cards" role="list">
+
+      <article class="review-card fade-up d2" role="listitem">
+        <div class="review-stars" aria-label="별점 5점">
+          <span class="review-star">★</span>
+          <span class="review-star">★</span>
+          <span class="review-star">★</span>
+          <span class="review-star">★</span>
+          <span class="review-star">★</span>
+        </div>
+        <p class="review-text">인터뷰 한 번 했을 뿐인데,<br />왜 시작을 못 했는지 이유가 보이기 시작했어요.<br />그게 제일 컸습니다.</p>
+        <p class="review-meta">교육·컨설팅 업종</p>
+      </article>
+
+      <article class="review-card fade-up d3" role="listitem">
+        <div class="review-stars" aria-label="별점 5점">
+          <span class="review-star">★</span>
+          <span class="review-star">★</span>
+          <span class="review-star">★</span>
+          <span class="review-star">★</span>
+          <span class="review-star">★</span>
+        </div>
+        <p class="review-text">원래는 인스타부터 해야 하나 생각했는데,<br />저희 브랜드는 설명이 먼저 필요한 상태라는 걸 알게 됐어요.<br />채널을 늘리기 전에<br />방향부터 잡게 된 점이 가장 좋았습니다.</p>
+        <p class="review-meta">전문 서비스 업종</p>
+      </article>
+
+      <article class="review-card fade-up d4" role="listitem">
+        <div class="review-stars" aria-label="별점 5점">
+          <span class="review-star">★</span>
+          <span class="review-star">★</span>
+          <span class="review-star">★</span>
+          <span class="review-star">★</span>
+          <span class="review-star">★</span>
+        </div>
+        <p class="review-text">매번 새로 기획해야 한다고 생각하니까 엄두가 안 났거든요.<br />근데 하나 잡고 나니까 다음 채널이 진짜 덜 무섭더라고요.<br />이게 이렇게 연결되는 거였구나 싶었어요.</p>
+        <p class="review-meta">인테리어·공간 업종</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 섹션 9. FAQ ──────────────────────────── -->
+<section id="faq" aria-label="자주 묻는 질문">
+  <div class="container">
+    <span class="section-label fade-up">FAQ</span>
+    <h2 class="section-title fade-up d1">문의 전, 많이 물어보시는 것들</h2>
+
+    <div class="faq-list fade-up d2" role="list">
+
+      <!-- Q1 -->
+      <div class="faq-item" id="faq-item-1" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="faq-body-1" id="faq-btn-1">
+          <span class="faq-question">아직 어떤 채널을 해야 할지도 모르는데 문의해도 되나요?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-body" id="faq-body-1" role="region" aria-labelledby="faq-btn-1">
+          <div class="faq-answer">
+            <p>네.<br />오히려 그런 상태일수록<br />먼저 방향을 정리하는 편이 좋습니다.<br /><br />오로라의소리는 채널을 정해놓고 시작하기보다,<br />브랜드와 업종에 맞는 기준부터 함께 봅니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="faq-item" id="faq-item-2" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="faq-body-2" id="faq-btn-2">
+          <span class="faq-question">블로그만 고민 중이거나 유튜브만 생각 중이어도 괜찮나요?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-body" id="faq-body-2" role="region" aria-labelledby="faq-btn-2">
+          <div class="faq-answer">
+            <p>괜찮습니다. 처음부터 모든 채널을 다 할 필요는 없습니다.<br />지금 필요한 채널이 무엇인지 먼저 보고,<br />가장 잘 맞는 시작점을 함께 정리합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="faq-item" id="faq-item-3" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="faq-body-3" id="faq-btn-3">
+          <span class="faq-question">아직 운영 중인 채널이 없어도 괜찮나요?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-body" id="faq-body-3" role="region" aria-labelledby="faq-btn-3">
+          <div class="faq-answer">
+            <p>네. 채널이 없는 상태에서도 가능합니다.<br />무엇부터 시작하면 좋을지,<br />어떤 메시지로 시작하면 좋을지부터 함께 정리해드립니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="faq-item" id="faq-item-4" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="faq-body-4" id="faq-btn-4">
+          <span class="faq-question">브랜드 인터뷰에서는 어떤 이야기를 나누나요?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-body" id="faq-body-4" role="region" aria-labelledby="faq-btn-4">
+          <div class="faq-answer">
+            <p>현재 어떤 일을 하고 있는지, 어떤 고객을 만나고 싶은지,<br />지금 무엇이 가장 막막한지를 중심으로 이야기를 나눕니다.<br />그 과정에서 채널 방향, 메시지, 첫 콘텐츠 방향을 함께 정리합니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="faq-item" id="faq-item-5" role="listitem">
+        <button class="faq-btn" aria-expanded="false" aria-controls="faq-body-5" id="faq-btn-5">
+          <span class="faq-question">인터뷰 후 바로 진행을 결정해야 하나요?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-body" id="faq-body-5" role="region" aria-labelledby="faq-btn-5">
+          <div class="faq-answer">
+            <p>아닙니다. 바로 맡기지 않으셔도 괜찮습니다.<br />먼저 방향을 정리한 뒤,<br />그다음 단계가 필요한지 차분히 판단하셔도 됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 섹션 11. 최종 CTA ───────────────────── -->
+<section id="final-cta" aria-label="최종 문의 유도">
+  <div class="container">
+    <h2 class="final-cta-title fade-up">
+      지금 필요한 건 더 많은 채널이 아니라,<br />
+      흔들리지 않을 시작 기준일 수 있습니다
+    </h2>
+
+    <p class="final-cta-body fade-up d1">
+      무엇부터 해야 할지 정리되면<br />
+      콘텐츠는 덜 막막해지고,<br />
+      한 번 만든 기준은 다음 채널까지 이어질 수 있습니다.
+    </p>
+
+    <div class="fade-up d2 final-cta-btns">
+      <a id="final-cta-btn"
+         href="https://open.kakao.com/o/sMBNyzpi"
+         target="_blank" rel="noopener noreferrer"
+         class="btn-cta">
+        <span class="btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.477 2 2 5.803 2 10.5c0 2.966 1.775 5.564 4.47 7.164L5.5 22l5.107-2.774C11.058 19.408 11.524 19.5 12 19.5c5.523 0 10-3.803 10-8.5S17.523 2 12 2z" fill="#FEE500"/></svg>
+        </span>
+        카카오톡으로 편하게 물어보기
+      </a>
+      <p class="final-cta-sub">브랜드 인터뷰로 방향부터 함께 정리합니다</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 푸터 ────────────────────────────────── -->
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+
+      <!-- 브랜드 블록 -->
+      <div class="footer-brand">
+        <p class="footer-logo">오로라의소리</p>
+        <p class="footer-slogan" style="color: var(--primary);">콘텐츠로 <span style="color: var(--accent);">고객을</span> 데려옵니다</p>
+        <p class="footer-desc">
+          브랜드 방향과 콘텐츠 구조를 함께 정리합니다.<br />
+          문의는 카카오 오픈채팅 또는 이메일로 편하게 남겨주세요.
+        </p>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- 링크 + 이메일 -->
+      <div class="footer-links-wrap">
+        <nav class="footer-links" aria-label="외부 채널 링크">
+          <a id="footer-kakao-link" href="https://open.kakao.com/o/sMBNyzpi" target="_blank" rel="noopener noreferrer" class="footer-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 5.803 2 10.5c0 2.966 1.775 5.564 4.47 7.164L5.5 22l5.107-2.774C11.058 19.408 11.524 19.5 12 19.5c5.523 0 10-3.803 10-8.5S17.523 2 12 2z"/></svg>
+            카카오톡 문의
+          </a>
+          <a id="footer-blog-link" href="https://blog.naver.com/aurorasound_" target="_blank" rel="noopener noreferrer" class="footer-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
+            네이버 블로그
+          </a>
+          <a id="footer-insta-link" href="https://www.instagram.com/aurorasound_marketing?igsh=aWk4dnQ2bnE0N3F0&utm_source=qr" target="_blank" rel="noopener noreferrer" class="footer-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            인스타그램
+          </a>
+          <a id="footer-youtube-link" href="https://youtube.com/channel/UCyhfDPonJBfaKNIf9MDHavg?si=L5ei9bfJGctCqNVz" target="_blank" rel="noopener noreferrer" class="footer-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            유튜브
+          </a>
+        </nav>
+
+        <a id="footer-email-link" href="mailto:aurorasound2425@gmail.com" class="footer-email-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          aurorasound2425@gmail.com
+        </a>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- 하단: 카피라이트 + 개인정보처리방침 -->
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 오로라의소리. All rights reserved.</p>
+        <a href="privacy.html" class="footer-privacy-link">개인정보처리방침</a>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script src="script.js?v=3"></script>
+</body>
+</html>
