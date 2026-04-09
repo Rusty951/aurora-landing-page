@@ -54,7 +54,12 @@
 
 /* ── 리셋 ─────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden; /* 가로 스크롤 전역 차단 */
+  max-width: 100%;
+}
 body {
   font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
                'Segoe UI', sans-serif;
@@ -62,7 +67,9 @@ body {
   color: var(--primary);
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: hidden; /* 인스타 인앱브라우저 포함 가로 스크롤 차단 */
+  max-width: 100%;
+  width: 100%;
 }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
@@ -603,12 +610,12 @@ body::after {
   padding-top: var(--gap);    /* P1: 배율 제거로 여백 통일 */
   padding-bottom: var(--gap);
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* 글로우 레이어 클립 */
 }
 #empathy::before {
   content: '';
   position: absolute;
-  top: 0; left: -10vw; width: 500px; height: 500px;
+  top: 0; left: -10%; width: 500px; height: 500px; /* vw → % 로 변경하여 overflow 방지 */
   background: radial-gradient(circle, rgba(124,58,237,0.08), transparent 70%);
   filter: blur(120px);
   pointer-events: none;
@@ -675,7 +682,7 @@ body::after {
    ───────────────────────────────────────────── */
 #channels {
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* 글로우 레이어 클립 */
 }
 #channels::before {
   content: '';
@@ -845,11 +852,12 @@ body::after {
   background: var(--surface); 
   padding: var(--gap) 0; /* P1: 배율 제거 */
   position: relative;
+  overflow: hidden; /* 글로우 레이어 클립 */
 }
 #why-aurora::before {
   content: '';
   position: absolute;
-  top: 50%; left: 0; width: 600px; height: 600px;
+  top: 50%; left: 0; width: 50%; height: 600px; /* vw 기반 → % 로 변경 */
   transform: translateY(-50%);
   background: radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 60%);
   filter: blur(120px);
@@ -905,11 +913,12 @@ body::after {
 
 #osmu {
   position: relative;
+  overflow: hidden; /* 글로우 레이어 클립 */
 }
 #osmu::after {
   content: '';
   position: absolute;
-  top: 40%; left: 50%; width: 600px; height: 600px;
+  top: 40%; left: 50%; width: 100%; max-width: 600px; height: 600px; /* max-width 제한으로 overflow 방지 */
   transform: translate(-50%, -50%);
   background: radial-gradient(circle, rgba(124, 58, 237, 0.12), transparent 60%);
   filter: blur(120px);
@@ -1234,12 +1243,13 @@ body::after {
   background: linear-gradient(180deg, var(--bg) 0%, rgba(22,27,34,0.6) 100%);
   padding: var(--gap) 0; /* P1: 배율 제거 */
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* 글로우 레이어 클립 */
 }
 #story-bridge::before {
   content: '';
   position: absolute;
-  bottom: 0; right: -5vw; width: 420px; height: 420px;
+  bottom: 0; right: 0; width: 420px; height: 420px; /* -5vw → 0 으로 변경하여 overflow 방지 */
+  transform: translateX(30%); /* 시각적 효과는 transform으로 유지 */
   background: radial-gradient(circle, rgba(124,58,237,0.05), transparent 70%);
   filter: blur(100px);
   pointer-events: none;
@@ -1293,13 +1303,14 @@ body::after {
    ───────────────────────────────────────────── */
 #faq {
   position: relative;
-  overflow: hidden;
+  overflow: hidden; /* 글로우 레이어 클립 */
   padding-bottom: var(--gap); /* P1: 배율 제거 */
 }
 #faq::before {
   content: '';
   position: absolute;
-  top: 30%; right: -10vw; width: 380px; height: 380px;
+  top: 30%; right: 0; width: 380px; height: 380px; /* -10vw → 0 으로 변경하여 overflow 방지 */
+  transform: translateX(30%); /* 시각적 효과는 transform으로 유지 */
   background: radial-gradient(circle, rgba(124,58,237,0.05), transparent 70%);
   filter: blur(100px);
   pointer-events: none;
