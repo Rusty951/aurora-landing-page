@@ -126,9 +126,23 @@ vercel.json      /interview 경로 rewrite 설정
 
 ---
 
+## Meta Pixel 추적
+
+| 항목 | 값 |
+|------|----|
+| Pixel ID | 3182617048583568 |
+| 적용 범위 | `/interview`, `/interview/` 경로에서만 실행 |
+| 설정 위치 | `index.html` `<head>` 상단 인라인 `<script>` |
+
+- `window.location.pathname`으로 경로 분기 — 메인(`/`) 등 다른 페이지에는 픽셀 미실행
+- `PageView` 이벤트: 페이지 로드 시 자동 발송
+- noscript 대체 이미지(`img`) 도 동일 조건 블록 안에서 JS로 동적 삽입
+
+---
+
 ## 다음 단계 (미완료)
 
-- [ ] Meta Pixel 연결 (광고 집행 전)
+- [x] Meta Pixel 연결 (/interview 경로 한정 적용 완료)
 - [ ] GA4 `click_cta_primary` 전환 이벤트 마킹 (GA4 관리 → 이벤트 → 전환으로 표시)
 - [ ] Google Search Console 연결
 - [ ] 루트 `/` 홈페이지 별도 제작 및 연결

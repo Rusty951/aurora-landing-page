@@ -15,6 +15,32 @@
   <link rel="stylesheet" href="style.css?v=12" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Meta Pixel Code (/interview only) -->
+  <script>
+  (function() {
+    var p = window.location.pathname;
+    if (p === '/interview' || p === '/interview/') {
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '3182617048583568');
+      fbq('track', 'PageView');
+      var ns = document.createElement('noscript');
+      var img = document.createElement('img');
+      img.height = 1; img.width = 1; img.style.display = 'none';
+      img.src = 'https://www.facebook.com/tr?id=3182617048583568&ev=PageView&noscript=1';
+      ns.appendChild(img);
+      document.head.appendChild(ns);
+    }
+  })();
+  </script>
+  <!-- End Meta Pixel Code -->
+
   <style>
     /* CSS 강제 적용을 위한 인라인 스타일 */
     .quick-grid { position: relative; }
