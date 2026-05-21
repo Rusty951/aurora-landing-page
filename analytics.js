@@ -25,10 +25,49 @@ var GA_MEASUREMENT_ID = 'G-YQJ3DC2SQN';
 })();
 
 
-/* ── 클릭 이벤트 헬퍼 ───────────────────────── */
+/* ── 랜딩/UTM 컨텍스트 ─────────────────────── */
+function getLandingContext() {
+  var path = window.location.pathname;
+  var landingType = 'other';
+
+  if (path === '/' || path === '/index.html') {
+    landingType = 'organic_root';
+  } else if (path === '/interview' || path === '/interview/') {
+    landingType = 'paid_interview';
+  }
+
+  return {
+    landing_type: landingType,
+    landing_path: path
+  };
+}
+
+function getUtmParams() {
+  var search = new URLSearchParams(window.location.search);
+  return {
+    utm_source: search.get('utm_source') || '',
+    utm_medium: search.get('utm_medium') || '',
+    utm_campaign: search.get('utm_campaign') || '',
+    utm_content: search.get('utm_content') || '',
+    utm_term: search.get('utm_term') || ''
+  };
+}
+
+function trackingParams(params) {
+  return Object.assign({}, getLandingContext(), getUtmParams(), params || {});
+}
+
+
+/* ── 이벤트 헬퍼 ───────────────────────────── */
 function gaTrack(eventName, params) {
   if (typeof window.gtag !== 'function') return;
-  window.gtag('event', eventName, params || {});
+  window.gtag('event', eventName, trackingParams(params));
+}
+
+function metaTrackLead(params) {
+  if (getLandingContext().landing_type !== 'paid_interview') return;
+  if (typeof window.fbq !== 'function') return;
+  window.fbq('track', 'Lead', trackingParams(params));
 }
 
 
@@ -43,18 +82,28 @@ function gaTrack(eventName, params) {
     if (el) el.addEventListener('click', fn);
   }
 
+  function trackKakaoClick(id) {
+    gaTrack('click_kakao_openchat', { button_id: id });
+    metaTrackLead({ button_id: id });
+  }
+
+  function trackPrimaryCta(id) {
+    gaTrack('click_cta_primary', { button_id: id });
+    gaTrack('click_kakao_openchat', { button_id: id });
+    metaTrackLead({ button_id: id });
+  }
+
   /* ── 카카오 오픈채팅 (단순 링크용: 네비, 플로팅, 푸터) ── */
   ['nav-cta-btn', 'kakao-float-btn', 'footer-kakao-link'].forEach(function (id) {
     on(id, function () {
-      gaTrack('click_kakao_openchat', { button_id: id });
+      trackKakaoClick(id);
     });
   });
 
   /* ── CTA 버튼 (카카오 오픈채팅 + CTA 이벤트 동시 발송) ── */
   ['hero-cta-btn', 'interview-cta-btn', 'final-cta-btn'].forEach(function (id) {
     on(id, function () {
-      gaTrack('click_cta_primary', { button_id: id });
-      gaTrack('click_kakao_openchat', { button_id: id });
+      trackPrimaryCta(id);
     });
   });
 

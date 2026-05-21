@@ -146,7 +146,7 @@ if (osmuDiagram) {
           setTimeout(() => {
             document.querySelector('.osmu-channels')?.classList.add('drawn');
           }, 450);
-          // 각 노드 향햐는 연결선 순차적으로
+          // 각 노드로 향하는 연결선 순차 처리
           osmuNodes.forEach((node, i) => {
             setTimeout(() => {
               node.classList.add('drawn');

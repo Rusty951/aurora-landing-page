@@ -3,7 +3,7 @@
 ## 프로젝트 개요
 
 콘텐츠 방향 설계 · 채널 구조 컨설팅 서비스 오로라의소리의 랜딩페이지.  
-브랜드 인터뷰 신청(카카오 오픈채팅)을 유도하는 단일 페이지 구성.
+하나의 공통 랜딩을 운영하되, 루트는 오가닉/대표 유입으로, `/interview`는 광고 유입 확인용으로 구분한다. 정식 홈페이지를 별도로 만들 때까지 두 주소는 같은 화면을 보여준다.
 
 ---
 
@@ -11,14 +11,15 @@
 
 | 항목 | 값 |
 |------|----|
-| 운영 기준 URL | https://www.aurorasound.kr/interview |
-| 루트 URL | https://www.aurorasound.kr/ |
+| 대표/오가닉 URL | https://www.aurorasound.kr/ |
+| 광고 확인용 URL | https://www.aurorasound.kr/interview |
 | Vercel 프로젝트 | aurora-landing-page |
 | GitHub 저장소 | https://github.com/Rusty951/aurora-landing-page |
 | 배포 방식 | Vercel — git push → 자동 배포 (빌드 스텝 없음) |
 
-> `/interview`는 `vercel.json` rewrite로 `index.html`을 서빙.  
-> 루트 `/`는 나중에 별도 홈페이지로 교체 예정.
+> 루트 `/`는 유튜브 고정댓글, 인스타그램, 스레드, 네이버 블로그, 명함 등 모든 대표/오가닉 유입용.
+> `/interview`는 `vercel.json` rewrite로 같은 `index.html`을 서빙하되, 분석상 광고 유입으로 구분.
+> 향후 정식 홈페이지 제작 시 루트 정보 구조와 CTA 흐름을 다시 정리.
 
 ---
 
@@ -34,8 +35,8 @@
 ## 파일 구성
 
 ```
-index.html       메인 랜딩페이지 (전체 섹션 포함)
-style.css        전체 스타일 (v12)
+index.html       공통 랜딩페이지 (`/`, `/interview` 모두 서빙)
+style.css        전체 스타일 (v13)
 script.js        UI 인터랙션 (오로라 캔버스, 아코디언, 스크롤, 플로팅 버튼 등)
 analytics.js     GA4 초기화 + 클릭 이벤트 추적
 privacy.html     개인정보처리방침
@@ -48,7 +49,7 @@ vercel.json      /interview 경로 rewrite 설정
 
 1. 고정 네비게이션 바 (헤더)
 2. 플로팅 카카오톡 버튼
-3. 히어로 — 오로라 캔버스 배경, 메인 카피, CTA 버튼 2개
+3. 히어로 — 오로라 캔버스 배경, 메인 카피, CTA 버튼
 4. 3칸 즉시 이해 카드 (채널 방향 정리 / 핵심 메시지 정리 / 확장 구조 설계)
 5. 공감 섹션 — 문제 제시 + 원인 진단
 6. 채널별 역할 — 블로그 / 유튜브 / 인스타그램 아코디언 카드
@@ -60,6 +61,14 @@ vercel.json      /interview 경로 rewrite 설정
 12. FAQ 아코디언 5개
 13. 최종 CTA
 14. 푸터 (채널 링크, 이메일, 개인정보처리방침)
+
+### 현재 히어로 방향
+
+- 메인 훅: `유튜브가 문의로 이어지지 않는다면`
+- 보조 설명: `영상 문제가 아니라, 고객이 문의할 이유가 막힌 지점이 있을 수 있습니다.`
+- CTA 보조 문구: `막힌 지점, 카카오톡으로 바로 말씀해보세요`
+- CTA: `카카오톡으로 이유 물어보기`
+- 첫 3카드: 메시지 부재 / 약한 CTA / 끊긴 채널 흐름
 
 ---
 
@@ -96,7 +105,8 @@ vercel.json      /interview 경로 rewrite 설정
 | `click_youtube` | footer-youtube-link |
 
 - `page_view`는 페이지 로드 시 자동 발송 (`gtag('config', ...)`)
-- UTM 파라미터 자동 파싱 (별도 코드 불필요)
+- 클릭 이벤트에는 `landing_type`, `landing_path`, UTM 5종 자동 포함
+- `landing_type` 값: `organic_root`(`/`), `paid_interview`(`/interview`), `other`
 - privacy.html에도 analytics.js 로드됨
 
 ---
@@ -111,18 +121,7 @@ vercel.json      /interview 경로 rewrite 설정
 }
 ```
 
-나중에 루트 `/`를 홈페이지로 교체할 때는 아래처럼 확장:
-
-```json
-{
-  "rewrites": [
-    { "source": "/interview", "destination": "/index.html" }
-  ],
-  "routes": [
-    { "src": "/", "dest": "/home.html" }
-  ]
-}
-```
+정식 홈페이지를 별도로 제작하기 전까지는 루트 `/`와 `/interview`가 같은 랜딩을 보여주고, 추적값만 분리한다.
 
 ---
 
@@ -136,6 +135,7 @@ vercel.json      /interview 경로 rewrite 설정
 
 - `window.location.pathname`으로 경로 분기 — 메인(`/`) 등 다른 페이지에는 픽셀 미실행
 - `PageView` 이벤트: 페이지 로드 시 자동 발송
+- 광고 경로(`/interview`) 카카오 CTA 클릭: `analytics.js`에서 Meta `Lead` 이벤트 발송
 - noscript 대체 이미지(`img`) 도 동일 조건 블록 안에서 JS로 동적 삽입
 
 ---
@@ -143,10 +143,11 @@ vercel.json      /interview 경로 rewrite 설정
 ## 다음 단계 (미완료)
 
 - [x] Meta Pixel 연결 (/interview 경로 한정 적용 완료)
+- [x] 공통 랜딩에서 대표 URL(`/`)과 광고 URL(`/interview`) 유입 추적 분리
 - [ ] GA4 `click_cta_primary` 전환 이벤트 마킹 (GA4 관리 → 이벤트 → 전환으로 표시)
 - [ ] Google Search Console 연결
-- [ ] 루트 `/` 홈페이지 별도 제작 및 연결
-- [ ] Meta 광고 UTM 파라미터 규칙 정의
+- [ ] 향후 정식 홈페이지 제작 시 루트 정보 구조와 CTA 흐름 재정리
+- [ ] Meta 광고 캠페인별 UTM 파라미터 세부 규칙 정의
 
 ---
 
@@ -154,5 +155,6 @@ vercel.json      /interview 경로 rewrite 설정
 
 - CSS는 `style.css` 하나로 관리. 인라인 스타일은 `index.html` `<head>` 안 `<style>` 태그에 일부 존재 (`.quick-grid` 분기선).
 - 모바일 가로 스크롤 이슈가 있었음 — `clip-path` 및 오프셋 수정으로 해결. 레이아웃 변경 시 모바일 재확인 필요.
-- `script.js`에 캐시 버스팅 쿼리스트링 있음 (`?v=3`). 수정 후 버전 올려야 브라우저 캐시 무효화됨. `style.css`도 동일 (`?v=12`).
+- `script.js`에 캐시 버스팅 쿼리스트링 있음 (`?v=4`). 수정 후 버전 올려야 브라우저 캐시 무효화됨. `style.css`도 동일 (`?v=13`).
+- `analytics.js`에 캐시 버스팅 쿼리스트링 있음 (`?v=2`). 수정 후 버전 올려야 브라우저 캐시 무효화됨.
 - GA4 측정 ID 변경 시 `analytics.js` 7번째 줄만 수정하면 됨.

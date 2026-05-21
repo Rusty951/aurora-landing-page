@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "dev": "node dev-server.mjs",
+    "preview": "node dev-server.mjs"
+  },
+  "private": true
+}

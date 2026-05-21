@@ -1,0 +1,9 @@
+.DS_Store
+.env
+.env.*
+.claude/
+README.md
+AGENTS.md
+docs/
+prd.md
+dev-server.mjs

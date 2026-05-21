@@ -429,7 +429,7 @@ body::after {
 
 .hero-headline-main {
   display: block;
-  max-width: 10.5ch;
+  max-width: 12ch;
   text-wrap: balance;
 }
 
@@ -485,7 +485,7 @@ body::after {
   }
   /* P3: 모바일 375px 히어로 헤드라인 — 자연스러운 줄바꿈 확보 */
   .hero-headline {
-    font-size: 2.15rem;
+    font-size: 2.08rem;
     letter-spacing: -0.035em;
     gap: 12px;
   }
@@ -494,7 +494,7 @@ body::after {
     letter-spacing: .1em;
   }
   .hero-headline-main {
-    max-width: 11.5ch;
+    max-width: 12ch;
   }
 }
 
@@ -502,9 +502,9 @@ body::after {
 .m-br { display: none; }
 @media (max-width: 480px) {
   .m-br { display: inline; } /* "의지보다" 다음 줄로 "기준의 문제" 시작 */
-  .hero-headline { font-size: 1.95rem; } /* 375px 최소 폰트 추가 조정 */
-  .hero-headline-main { max-width: 12.5ch; }
-  .hero-sub { max-width: 31ch; }
+  .hero-headline { font-size: 1.88rem; } /* 375px 최소 폰트 추가 조정 */
+  .hero-headline-main { max-width: 12ch; }
+  .hero-sub { max-width: 28ch; }
   .hero-footer-sub {
     font-size: .82rem;
     margin-bottom: 24px;
