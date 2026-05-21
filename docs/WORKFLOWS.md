@@ -24,7 +24,7 @@
 ## UI Workflow
 
 1. 브랜드 톤은 `docs/DESIGN.md`와 `prd.md`를 확인한다.
-2. 히어로, CTA, 후기, FAQ의 카피 역할을 구분한다.
+2. 히어로, CTA, 첫 단추 인터뷰, FAQ의 카피 역할을 구분한다.
 3. 레이아웃 변경은 모바일 폭에서 먼저 깨지는지 확인한다.
 4. `style.css` 수정 시 `index.html`의 `style.css?v=`를 갱신한다.
 5. `script.js` 수정 시 `index.html`의 `script.js?v=`를 갱신한다.
