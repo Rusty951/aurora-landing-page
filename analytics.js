@@ -125,6 +125,11 @@ function metaTrackLead(params) {
     gaTrack('click_blog');
   });
 
+  /* ── 워드프레스 블로그 ── */
+  on('footer-wordpress-blog-link', function () {
+    gaTrack('click_wordpress_blog');
+  });
+
   /* ── 인스타그램 ── */
   on('footer-insta-link', function () {
     gaTrack('click_instagram');

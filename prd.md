@@ -77,6 +77,7 @@ vercel.json      /interview 경로 rewrite 설정
 | 카카오 오픈채팅 | https://open.kakao.com/o/sMBNyzpi |
 | 브런치 | https://brunch.co.kr/@730c0631bb2f493 |
 | 네이버 블로그 | https://blog.naver.com/aurorasound_ |
+| 워드프레스 블로그 | https://blog.aurorasound.kr/ |
 | 인스타그램 | https://www.instagram.com/aurorasound_marketing |
 | 유튜브 | https://youtube.com/channel/UCyhfDPonJBfaKNIf9MDHavg |
 | 이메일 | aurorasound2425@gmail.com |
@@ -99,6 +100,7 @@ vercel.json      /interview 경로 rewrite 설정
 | `click_email` | footer-email-link |
 | `click_brunch` | `a[href*="brunch.co.kr"]` 선택자 |
 | `click_blog` | footer-blog-link |
+| `click_wordpress_blog` | footer-wordpress-blog-link |
 | `click_instagram` | footer-insta-link |
 | `click_youtube` | footer-youtube-link |
 
@@ -154,5 +156,5 @@ vercel.json      /interview 경로 rewrite 설정
 - CSS는 `style.css` 하나로 관리. 인라인 스타일은 `index.html` `<head>` 안 `<style>` 태그에 일부 존재 (`.quick-grid` 분기선).
 - 모바일 가로 스크롤 이슈가 있었음 — `clip-path` 및 오프셋 수정으로 해결. 레이아웃 변경 시 모바일 재확인 필요.
 - `script.js`에 캐시 버스팅 쿼리스트링 있음 (`?v=4`). 수정 후 버전 올려야 브라우저 캐시 무효화됨. `style.css`도 동일 (`?v=13`).
-- `analytics.js`에 캐시 버스팅 쿼리스트링 있음 (`?v=2`). 수정 후 버전 올려야 브라우저 캐시 무효화됨.
+- `analytics.js`에 캐시 버스팅 쿼리스트링 있음 (`?v=3`). 수정 후 버전 올려야 브라우저 캐시 무효화됨.
 - GA4 측정 ID 변경 시 `analytics.js` 7번째 줄만 수정하면 됨.

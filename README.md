@@ -95,7 +95,7 @@ Meta Pixel은 [index.html](index.html)에서 `/interview`, `/interview/` 경로�
 
 - `style.css`를 수정하면 [index.html](index.html)의 `style.css?v=13` 버전을 올립니다.
 - `script.js`를 수정하면 [index.html](index.html)의 `script.js?v=4` 버전을 올립니다.
-- `analytics.js`를 수정하면 HTML의 `analytics.js?v=2` 버전을 올립니다.
+- `analytics.js`를 수정하면 HTML의 `analytics.js?v=3` 버전을 올립니다.
 - CTA 또는 외부 링크 id를 바꾸면 [analytics.js](analytics.js)의 이벤트 바인딩도 함께 확인합니다.
 - 모바일 가로 스크롤 이슈가 재발하지 않는지 확인합니다.
 - 운영 메모는 [prd.md](prd.md)에 반영합니다.
