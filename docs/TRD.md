@@ -27,7 +27,7 @@
 ## 배포 표면
 
 - Vercel 정적 배포
-- 공개 페이지: `index.html`, `privacy.html`, `style.css`, `script.js`, `analytics.js`
+- 공개 페이지: `index.html`, `privacy.html`, `robots.txt`, `sitemap.xml`, `style.css`, `script.js`, `analytics.js`
 - 운영 문서와 로컬 도구는 배포 제외: `README.md`, `AGENTS.md`, `docs/`, `prd.md`, `.claude/`, `dev-server.mjs`
 
 ## AI 운영 원칙
@@ -46,6 +46,12 @@
 - 보고 후 진행: 섹션 구조 변경, CTA 문구 변경, 이벤트 바인딩 변경, Vercel 설정 보강.
 - 승인 전 금지: GA4 측정 ID 변경, Meta Pixel ID 변경, 카카오 오픈채팅 URL 변경, `/interview` rewrite 변경, 광고/오가닉 추적 정책 변경.
 - 승인 전 금지: 운영 문서, 로컬 도구, 내부 설정을 공개 배포 표면에 노출하는 변경.
+
+## SEO 기본 파일
+
+- `index.html`: 대표 URL canonical, Open Graph, Twitter card, Organization 구조화 데이터
+- `robots.txt`: 전체 크롤링 허용 및 `https://www.aurorasound.kr/sitemap.xml` 안내
+- `sitemap.xml`: 색인 대상 대표 URL을 명시한다. `privacy.html`은 `noindex`이므로 사이트맵에 넣지 않는다.
 
 ## Definition of Done
 

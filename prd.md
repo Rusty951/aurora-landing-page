@@ -40,6 +40,8 @@ style.css        전체 스타일 (v13)
 script.js        UI 인터랙션 (오로라 캔버스, 아코디언, 스크롤, 플로팅 버튼 등)
 analytics.js     GA4 초기화 + 클릭 이벤트 추적
 privacy.html     개인정보처리방침
+robots.txt       검색 엔진 크롤링 허용 및 sitemap.xml 위치 안내
+sitemap.xml      대표 공개 URL 사이트맵
 vercel.json      /interview 경로 rewrite 설정
 ```
 

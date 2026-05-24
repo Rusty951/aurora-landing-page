@@ -46,6 +46,33 @@
 - 로컬 `/`와 `/interview`에서 같은 화면을 확인한다.
 - JS/MJS check 명령을 통과시킨다.
 
+## 2026-05-21: 랜딩 검색 기본 파일 보강
+
+결정:
+
+- 대표 랜딩에 canonical, Open Graph URL/image, Twitter card, 구조화 데이터를 추가한다.
+- `robots.txt`와 `sitemap.xml`을 공개 배포 표면에 추가한다.
+- `/interview`는 광고 추적용 동일 랜딩 경로이므로 사이트맵에는 대표 URL `/`만 싣는다.
+- `privacy.html`은 `noindex` 페이지라 사이트맵에서 제외한다.
+
+이유:
+
+- 랜딩은 이미 제목과 설명은 갖고 있었지만 검색 엔진에 대표 URL과 사이트맵을 명시하는 기본 파일이 없었다.
+- 광고 경로와 오가닉 대표 경로를 검색 색인에서 혼동시키지 않기 위해 canonical은 대표 URL로 둔다.
+
+영향 문서:
+
+- `index.html`
+- `robots.txt`
+- `sitemap.xml`
+- `README.md`
+- `prd.md`
+- `docs/TRD.md`
+
+검증:
+
+- JS/MJS check 명령을 통과시킨다.
+
 ## Decision Log Template
 
 날짜:
