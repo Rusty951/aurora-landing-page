@@ -32,6 +32,7 @@
 
 - `index.html` 공통 랜딩
 - `privacy.html` 개인정보처리방침
+- `terms.html` 서비스 이용약관
 - `/interview` rewrite
 - GA4 이벤트 추적
 - `/interview` 한정 Meta Pixel 추적
@@ -60,6 +61,7 @@
 - 프로젝트 개요와 실행법: `../README.md`
 - 공개 랜딩: `../index.html`
 - 개인정보처리방침: `../privacy.html`
+- 서비스 이용약관: `../terms.html`
 - 추적 코드: `../analytics.js`
 - UI 인터랙션: `../script.js`
 - 스타일: `../style.css`

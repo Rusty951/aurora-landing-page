@@ -40,6 +40,7 @@ style.css        전체 스타일 (v13)
 script.js        UI 인터랙션 (오로라 캔버스, 아코디언, 스크롤, 플로팅 버튼 등)
 analytics.js     GA4 초기화 + 클릭 이벤트 추적
 privacy.html     개인정보처리방침
+terms.html       서비스 이용약관
 robots.txt       검색 엔진 크롤링 허용 및 sitemap.xml 위치 안내
 sitemap.xml      대표 공개 URL 사이트맵
 vercel.json      /interview 경로 rewrite 설정
@@ -107,7 +108,7 @@ vercel.json      /interview 경로 rewrite 설정
 - `page_view`는 페이지 로드 시 자동 발송 (`gtag('config', ...)`)
 - 클릭 이벤트에는 `landing_type`, `landing_path`, UTM 5종 자동 포함
 - `landing_type` 값: `organic_root`(`/`), `paid_interview`(`/interview`), `other`
-- privacy.html에도 analytics.js 로드됨
+- privacy.html과 terms.html에도 analytics.js 로드됨
 
 ---
 

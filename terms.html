@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>서비스 이용약관 — 오로라의소리</title>
+  <meta name="description" content="오로라의소리 서비스 이용약관입니다." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    :root {
+      --bg: #0B0B12;
+      --surface: #12121C;
+      --primary: #E8E8F0;
+      --secondary: rgba(232,232,240,.72);
+      --muted: rgba(232,232,240,.45);
+      --accent: #A855F7;
+      --border: rgba(255,255,255,.07);
+      --radius-sm: 10px;
+      --max-w: 720px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo',
+                   'Noto Sans KR', 'Malgun Gothic', sans-serif;
+      background: var(--bg);
+      color: var(--primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .terms-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11,11,18,.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    .terms-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .terms-logo {
+      font-size: .9rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .terms-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      color: var(--muted);
+      transition: color .2s;
+    }
+    .terms-back:hover { color: var(--primary); }
+    .terms-back svg { flex-shrink: 0; }
+
+    .terms-main { padding: 56px 0 80px; }
+    .terms-doc-header {
+      margin-bottom: 48px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .terms-eyebrow {
+      display: inline-block;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .terms-title {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .terms-meta {
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    .terms-section { margin-bottom: 40px; }
+    .terms-section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      padding-left: 12px;
+      border-left: 2px solid var(--accent);
+      line-height: 1.5;
+    }
+    .terms-section-body {
+      font-size: .88rem;
+      color: var(--secondary);
+      line-height: 1.9;
+      word-break: keep-all;
+    }
+    .terms-section-body p { margin-bottom: 8px; }
+    .terms-section-body p:last-child { margin-bottom: 0; }
+    .terms-section-body ul {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .terms-section-body li {
+      display: flex;
+      gap: 10px;
+      padding-left: 2px;
+    }
+    .terms-section-body li::before {
+      content: '-';
+      color: var(--accent);
+      flex-shrink: 0;
+      opacity: .7;
+    }
+
+    .terms-contact-box {
+      margin-top: 12px;
+      padding: 18px 20px;
+      background: rgba(168,85,247,.06);
+      border: 1px solid rgba(168,85,247,.15);
+      border-radius: var(--radius-sm);
+      font-size: .85rem;
+      color: var(--secondary);
+      line-height: 1.8;
+    }
+    .terms-contact-box a {
+      color: var(--accent);
+      transition: opacity .2s;
+    }
+    .terms-contact-box a:hover { opacity: .75; }
+
+    .terms-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 48px 0;
+    }
+    .terms-footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+    }
+    .terms-footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .terms-footer-copy {
+      font-size: .7rem;
+      color: rgba(255,255,255,.18);
+    }
+    .terms-footer-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .terms-footer-link {
+      font-size: .75rem;
+      color: rgba(255,255,255,.32);
+      transition: color .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .terms-footer-link:hover { color: rgba(255,255,255,.7); }
+
+    @media (max-width: 600px) {
+      .terms-main { padding: 40px 0 64px; }
+      .terms-doc-header { margin-bottom: 36px; }
+      .terms-section { margin-bottom: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="terms-header" role="banner">
+  <div class="container terms-header-inner">
+    <span class="terms-logo">오로라의소리</span>
+    <a href="index.html" class="terms-back" aria-label="랜딩페이지로 돌아가기">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      돌아가기
+    </a>
+  </div>
+</header>
+
+<main class="terms-main" id="main">
+  <div class="container">
+    <div class="terms-doc-header">
+      <span class="terms-eyebrow">오로라의소리</span>
+      <h1 class="terms-title">서비스 이용약관</h1>
+      <p class="terms-meta">시행일: 2026년 05월 27일</p>
+    </div>
+
+    <div class="terms-section">
+      <div class="terms-section-body">
+        <p>본 약관은 오로라의소리(이하 "브랜드")가 제공하는 홈페이지, 상담, 마케팅 리서치, 콘텐츠 전략 수립, 내부 업무 도구 Aurora Agent 관련 서비스의 이용 조건과 절차를 정합니다.</p>
+      </div>
+    </div>
+
+    <div class="terms-divider"></div>
+
+    <div class="terms-section">
+      <h2 class="terms-section-title">1. 목적</h2>
+      <div class="terms-section-body">
+        <p>본 약관은 브랜드와 이용자 사이의 권리, 의무, 책임사항 및 서비스 이용에 필요한 기본 사항을 정하는 것을 목적으로 합니다.</p>
+      </div>
+    </div>
+
+    <div class="terms-section">
+      <h2 class="terms-section-title">2. 제공 서비스</h2>
+      <div class="terms-section-body">
+        <p>브랜드는 아래 서비스를 제공할 수 있습니다.</p>
+        <ul>
+          <li>마케팅 방향, 콘텐츠, 채널 운영 관련 상담</li>
+          <li>홈페이지, 블로그, 인스타그램 등 콘텐츠 운영 전략 수립</li>
+          <li>키워드 리서치, 검색 수요 분석, 광고 및 콘텐츠 기획 보조</li>
+          <li>Aurora Agent를 활용한 내부 리서치 및 업무 정리</li>
+          <li>기타 브랜드가 별도로 정하는 마케팅 운영 지원</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="terms-section">
+      <h2 class="terms-section-title">3. Aurora Agent 및 Google Ads API 사용</h2>
+      <div class="terms-section-body">
+        <p>브랜드는 마케팅 리서치와 콘텐츠 전략 수립을 위해 내부 업무 도구인 Aurora Agent를 운영할 수 있습니다. Aurora Agent는 Google Ads API를 사용하여 키워드 검색 수요, 평균 월간 검색량, 광고 경쟁도 등 리서치 지표를 확인할 수 있습니다.</p>
+        <p>Google Ads API를 통해 확인한 지표는 마케팅 리서치, 콘텐츠 전략 수립, 검색 수요 분석 목적으로 사용되며, 실제 광고 집행이나 계정 변경은 이용자의 별도 요청 또는 승인 없이 수행하지 않습니다.</p>
+      </div>
+    </div>
+
+    <div class="terms-section">
+      <h2 class="terms-section-title">4. 이용자의 의무</h2>
+      <div class="terms-section-body">
+        <p>이용자는 서비스 이용 과정에서 아래 행위를 해서는 안 됩니다.</p>
+        <ul>
+          <li>타인의 개인정보 또는 계정 정보를 무단으로 제공하거나 사용하는 행위</li>
+          <li>허위 정보 제공, 권리 침해, 불법 목적의 상담 요청</li>
+          <li>브랜드의 업무 도구, 자료, 산출물을 무단 복제, 배포, 판매하는 행위</li>
+          <li>서비스 운영을 방해하거나 부당한 부담을 주는 행위</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="terms-section">
+      <h2 class="terms-section-title">5. 상담 및 산출물</h2>
+      <div class="terms-section-body">
+        <p>브랜드가 제공하는 상담, 리서치, 기획안, 문서, 콘텐츠 초안 등은 이용자가 제공한 정보와 당시 확인 가능한 자료를 바탕으로 작성됩니다.</p>
+        <p>브랜드는 마케팅 성과, 매출, 조회수, 문의 수 증가를 보장하지 않습니다. 서비스 결과는 업종, 예산, 실행 기간, 채널 상태, 시장 상황에 따라 달라질 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="terms-section">
+      <h2 class="terms-section-title">6. 지식재산권</h2>
+      <div class="terms-section-body">
+        <p>브랜드가 보유한 이름, 로고, 운영 방식, 내부 도구, 문서 구조, 리서치 방식 등에 관한 권리는 브랜드에 귀속됩니다.</p>
+        <p>이용자에게 전달된 산출물의 사용 범위는 별도 계약 또는 안내에 따르며, 별도 동의 없이 제3자에게 판매하거나 재배포할 수 없습니다.</p>
+      </div>
+    </div>
+
+    <div class="terms-section">
+      <h2 class="terms-section-title">7. 개인정보 보호</h2>
+      <div class="terms-section-body">
+        <p>브랜드는 서비스 제공 과정에서 수집되는 개인정보와 Google API를 통해 접근하는 데이터를 개인정보처리방침에 따라 처리합니다.</p>
+        <p>자세한 내용은 <a href="privacy.html">개인정보처리방침</a>에서 확인할 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="terms-section">
+      <h2 class="terms-section-title">8. 서비스 변경 및 중단</h2>
+      <div class="terms-section-body">
+        <p>브랜드는 운영상 필요에 따라 서비스의 일부 또는 전부를 변경하거나 중단할 수 있습니다. 중요한 변경이 있는 경우 홈페이지 또는 개별 안내를 통해 고지합니다.</p>
+      </div>
+    </div>
+
+    <div class="terms-section">
+      <h2 class="terms-section-title">9. 책임의 제한</h2>
+      <div class="terms-section-body">
+        <p>브랜드는 천재지변, 외부 플랫폼 정책 변경, API 제공자의 장애, 이용자가 제공한 정보의 부정확성 등 브랜드의 합리적 통제를 벗어난 사유로 발생한 손해에 대해 책임을 지지 않습니다.</p>
+      </div>
+    </div>
+
+    <div class="terms-section">
+      <h2 class="terms-section-title">10. 문의처</h2>
+      <div class="terms-section-body">
+        <p>서비스 이용약관, 개인정보, Google API 데이터 사용 관련 문의는 아래 채널을 통해 접수할 수 있습니다.</p>
+      </div>
+      <div class="terms-contact-box">
+        이메일&nbsp;&nbsp;<a href="mailto:aurorasound2425@gmail.com">aurorasound2425@gmail.com</a><br />
+        카카오 오픈채팅&nbsp;&nbsp;<a href="https://open.kakao.com/o/sMBNyzpi" target="_blank" rel="noopener noreferrer">open.kakao.com/o/sMBNyzpi</a>
+      </div>
+    </div>
+
+    <div class="terms-section">
+      <h2 class="terms-section-title">11. 약관의 변경</h2>
+      <div class="terms-section-body">
+        <p>본 약관은 시행일로부터 적용되며, 관련 내용이 추가 또는 변경될 경우 본 페이지를 통해 안내합니다.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="terms-footer" role="contentinfo">
+  <div class="container terms-footer-inner">
+    <p class="terms-footer-copy">© 2026 오로라의소리. All rights reserved.</p>
+    <div class="terms-footer-links">
+      <a href="privacy.html" class="terms-footer-link">개인정보처리방침</a>
+      <a href="index.html" class="terms-footer-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        랜딩페이지로
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="analytics.js?v=3"></script>
+</body>
+</html>

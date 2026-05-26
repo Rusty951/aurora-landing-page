@@ -14,7 +14,7 @@
 - `vercel.json`이 `/interview`를 `index.html`로 rewrite한다.
 - `script.js`는 UI 인터랙션을 담당한다.
 - `analytics.js`는 GA4 이벤트와 광고 경로의 Meta Lead 전송을 담당한다.
-- `privacy.html`도 `analytics.js`를 로드한다.
+- `privacy.html`과 `terms.html`도 `analytics.js`를 로드한다.
 - CSS/JS/analytics 파일은 HTML에서 쿼리스트링 버전으로 캐시 무효화한다.
 
 ## 운영 원본
@@ -27,7 +27,7 @@
 ## 배포 표면
 
 - Vercel 정적 배포
-- 공개 페이지: `index.html`, `privacy.html`, `robots.txt`, `sitemap.xml`, `style.css`, `script.js`, `analytics.js`
+- 공개 페이지: `index.html`, `privacy.html`, `terms.html`, `robots.txt`, `sitemap.xml`, `style.css`, `script.js`, `analytics.js`
 - 운영 문서와 로컬 도구는 배포 제외: `README.md`, `AGENTS.md`, `docs/`, `prd.md`, `.claude/`, `dev-server.mjs`
 
 ## AI 운영 원칙
@@ -51,7 +51,7 @@
 
 - `index.html`: 대표 URL canonical, Open Graph, Twitter card, Organization 구조화 데이터
 - `robots.txt`: 전체 크롤링 허용 및 `https://www.aurorasound.kr/sitemap.xml` 안내
-- `sitemap.xml`: 색인 대상 대표 URL을 명시한다. `privacy.html`은 `noindex`이므로 사이트맵에 넣지 않는다.
+- `sitemap.xml`: 색인 대상 대표 URL을 명시한다. `privacy.html`과 `terms.html`은 `noindex`이므로 사이트맵에 넣지 않는다.
 
 ## Definition of Done
 

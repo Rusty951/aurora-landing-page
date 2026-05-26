@@ -12,6 +12,7 @@ style.css        전체 스타일
 script.js        UI 인터랙션
 analytics.js     GA4 초기화 및 클릭 이벤트 추적
 privacy.html     개인정보처리방침
+terms.html       서비스 이용약관
 robots.txt       검색 엔진 크롤링 허용 및 사이트맵 위치 안내
 sitemap.xml      대표 공개 URL 사이트맵
 vercel.json      /interview → index.html rewrite 설정
