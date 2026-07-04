@@ -422,8 +422,7 @@ body::after {
   font-size: clamp(.95rem, 2.2vw, 1.2rem);
   font-weight: 700;
   line-height: 1.3;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  letter-spacing: -.01em; /* 한글 카피 — 영문용 광자간(.12em) 제거 */
   color: rgba(232,232,240,.72);
 }
 
@@ -491,7 +490,7 @@ body::after {
   }
   .hero-headline-top {
     font-size: .88rem;
-    letter-spacing: .1em;
+    letter-spacing: -.01em; /* 한글 카피 자간 유지 */
   }
   .hero-headline-main {
     max-width: 12ch;
@@ -638,6 +637,86 @@ body::after {
     margin-top: -20px;
   }
 }
+
+/* ─────────────────────────────────────────────
+   섹션 1.5. 첫 문장 시연 (전/후 교정)
+   ───────────────────────────────────────────── */
+#first-line {
+  padding-top: 0; /* 히어로 하단 여백을 그대로 받음 (quick-cards 체인과 동일) */
+  padding-bottom: clamp(56px, 8vw, 72px); /* 히어로가 quick-cards에 주던 여백을 승계 */
+}
+.demo-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+.demo-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px 30px;
+}
+.demo-industry {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.demo-tag {
+  display: inline-block;
+  min-width: 58px;
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.nb { white-space: nowrap; } /* 기호+한글 복합어(○○인테리어 등) 분리 방지 */
+.demo-before {
+  font-size: .95rem;
+  color: var(--muted);
+  word-break: keep-all;
+  margin-bottom: 8px;
+}
+.demo-after {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--primary);
+  word-break: keep-all;
+  margin-bottom: 16px;
+}
+.demo-why {
+  font-size: .93rem;
+  color: var(--secondary);
+  line-height: 1.7;
+  word-break: keep-all;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+.case-card { margin-top: 16px; }
+.case-main {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  word-break: keep-all;
+  margin-bottom: 8px;
+}
+.case-sub {
+  font-size: .93rem;
+  color: var(--secondary);
+  word-break: keep-all;
+}
+@media (max-width: 768px) {
+  .demo-card { padding: 22px 20px; }
+  .demo-tag { display: block; margin-bottom: 4px; min-width: 0; }
+}
+
+/* ── /interview 광고 유입 — 이탈 경로 축소 (html.ad-mode) ── */
+.ad-mode .btn-cta-outline { display: none; }
+.ad-mode #footer-blog-link,
+.ad-mode #footer-wordpress-blog-link,
+.ad-mode #footer-insta-link,
+.ad-mode #footer-youtube-link { display: none; }
 
 /* ─────────────────────────────────────────────
    섹션 3. 문제 공감 + 원인 진단 (리듬 차이: 더 어두운 배경)
@@ -937,6 +1016,42 @@ body::after {
   letter-spacing: -.02em;
   word-break: keep-all;
   margin-bottom: 0;
+}
+
+/* 만드는 사람 (운영자 이력 한 줄) */
+.who-card {
+  margin-top: 16px;
+  padding: 28px 30px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  position: relative;
+  z-index: 1;
+}
+.who-label {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.who-body {
+  font-size: .98rem;
+  color: var(--secondary);
+  line-height: 1.8;
+  word-break: keep-all;
+}
+.who-proof {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--primary);
+  word-break: keep-all;
+}
+@media (max-width: 768px) {
+  .who-card { padding: 22px 20px; }
 }
 
 /* ─────────────────────────────────────────────

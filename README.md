@@ -1,6 +1,6 @@
 # 오로라의소리 랜딩페이지
 
-마케팅을 시작하려는데 첫 단추부터 막힌 사업자가 채널보다 먼저 첫 문장과 첫 실행 순서를 물어보게 만드는 **오로라의소리** 랜딩페이지입니다.
+콘텐츠는 쌓이는데 문의로 이어지지 않는 사업자가 채널을 늘리기 전에 고객을 멈추게 할 첫 문장부터 물어보게 만드는 **오로라의소리** 랜딩페이지입니다.
 
 대표 URL은 `https://www.aurorasound.kr`이며, 광고 확인용 URL은 `https://www.aurorasound.kr/interview`입니다. 두 URL은 같은 랜딩을 보여주고, 경로와 UTM으로 광고/오가닉 유입만 구분합니다.
 
@@ -94,7 +94,7 @@ Meta Pixel은 [index.html](index.html)에서 `/interview`, `/interview/` 경로�
 
 ## 수정 시 체크리스트
 
-- `style.css`를 수정하면 [index.html](index.html)의 `style.css?v=13` 버전을 올립니다.
+- `style.css`를 수정하면 [index.html](index.html)의 `style.css?v=14` 버전을 올립니다.
 - `script.js`를 수정하면 [index.html](index.html)의 `script.js?v=4` 버전을 올립니다.
 - `analytics.js`를 수정하면 HTML의 `analytics.js?v=3` 버전을 올립니다.
 - CTA 또는 외부 링크 id를 바꾸면 [analytics.js](analytics.js)의 이벤트 바인딩도 함께 확인합니다.

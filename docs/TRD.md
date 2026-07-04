@@ -12,6 +12,7 @@
 
 - `index.html`이 루트 `/`와 광고 경로 `/interview`의 공통 랜딩이다.
 - `vercel.json`이 `/interview`를 `index.html`로 rewrite한다.
+- `index.html`의 인라인 경로 분기가 `/interview`에서 `html.ad-mode`를 적용하고, `style.css`가 브런치 보조 CTA와 푸터 채널 링크를 숨긴다.
 - `script.js`는 UI 인터랙션을 담당한다.
 - `analytics.js`는 GA4 이벤트와 광고 경로의 Meta Lead 전송을 담당한다.
 - `privacy.html`과 `terms.html`도 `analytics.js`를 로드한다.
