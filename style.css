@@ -702,11 +702,7 @@ body::after {
   word-break: keep-all;
   margin-bottom: 14px;
 }
-.case-sub {
-  font-size: .93rem;
-  color: var(--secondary);
-  word-break: keep-all;
-}
+.case-main:last-child { margin-bottom: 0; }
 @media (max-width: 768px) {
   .demo-card { padding: 22px 20px; }
   .demo-tag { display: block; margin-bottom: 4px; min-width: 0; }
