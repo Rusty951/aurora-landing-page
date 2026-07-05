@@ -698,8 +698,9 @@ body::after {
   font-size: 1rem;
   font-weight: 700;
   color: var(--primary);
+  line-height: 1.7;
   word-break: keep-all;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
 }
 .case-sub {
   font-size: .93rem;
