@@ -11,6 +11,7 @@ index.html       공통 랜딩페이지 (`/`, `/interview` 모두 서빙)
 style.css        전체 스타일
 script.js        UI 인터랙션
 analytics.js     GA4 초기화 및 클릭 이벤트 추적
+favicon.svg      브라우저 탭 아이콘
 privacy.html     개인정보처리방침
 terms.html       서비스 이용약관
 robots.txt       검색 엔진 크롤링 허용 및 사이트맵 위치 안내
@@ -88,15 +89,17 @@ https://www.aurorasound.kr/interview?utm_source=meta&utm_medium=paid_social&utm_
 
 GA4 측정 ID는 [analytics.js](analytics.js)의 `GA_MEASUREMENT_ID`에서 관리합니다.
 
-CTA 이벤트에는 `landing_type`, `landing_path`, UTM 5종이 함께 전송됩니다.
+GA4와 Meta Pixel은 `www.aurorasound.kr`, `aurorasound.kr`에서만 실행되며 localhost 미리보기는 수집하지 않습니다. CTA 이벤트에는 `landing_type`, `landing_path`, UTM 5종이 함께 전송됩니다.
 
-Meta Pixel은 [index.html](index.html)에서 `/interview`, `/interview/` 경로에만 실행되며, 광고 경로의 카카오 CTA 클릭은 Meta `Lead`로 전송됩니다.
+GA4에서 `click_cta_primary`는 세션당 한 번 집계하는 주요 이벤트로 설정했고, `button_id`와 `landing_type`은 이벤트 범위 맞춤 측정기준으로 등록했습니다.
+
+Meta Pixel은 [index.html](index.html)에서 운영 도메인의 `/interview`, `/interview/` 경로에만 실행되며, 광고 경로의 카카오 CTA 클릭은 Meta `Contact`로 전송됩니다. 실제 유효 문의와 단순 링크 클릭은 구분합니다.
 
 ## 수정 시 체크리스트
 
-- `style.css`를 수정하면 [index.html](index.html)의 `style.css?v=14` 버전을 올립니다.
-- `script.js`를 수정하면 [index.html](index.html)의 `script.js?v=4` 버전을 올립니다.
-- `analytics.js`를 수정하면 HTML의 `analytics.js?v=3` 버전을 올립니다.
+- `style.css`를 수정하면 [index.html](index.html)의 `style.css?v=15` 버전을 올립니다.
+- `script.js`를 수정하면 [index.html](index.html)의 `script.js?v=5` 버전을 올립니다.
+- `analytics.js`를 수정하면 HTML의 `analytics.js?v=4` 버전을 올립니다.
 - CTA 또는 외부 링크 id를 바꾸면 [analytics.js](analytics.js)의 이벤트 바인딩도 함께 확인합니다.
 - 모바일 가로 스크롤 이슈가 재발하지 않는지 확인합니다.
 - 운영 메모는 [prd.md](prd.md)에 반영합니다.

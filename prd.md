@@ -36,9 +36,10 @@
 
 ```
 index.html       공통 랜딩페이지 (`/`, `/interview` 모두 서빙)
-style.css        전체 스타일 (v13)
+style.css        전체 스타일 (v15)
 script.js        UI 인터랙션 (오로라 캔버스, 아코디언, 스크롤, 플로팅 버튼 등)
 analytics.js     GA4 초기화 + 클릭 이벤트 추적
+favicon.svg      브라우저 탭 아이콘
 privacy.html     개인정보처리방침
 terms.html       서비스 이용약관
 robots.txt       검색 엔진 크롤링 허용 및 sitemap.xml 위치 안내
@@ -111,6 +112,7 @@ vercel.json      /interview 경로 rewrite 설정
 - `page_view`는 페이지 로드 시 자동 발송 (`gtag('config', ...)`)
 - 클릭 이벤트에는 `landing_type`, `landing_path`, UTM 5종 자동 포함
 - `landing_type` 값: `organic_root`(`/`), `paid_interview`(`/interview`), `other`
+- GA4와 Meta Pixel은 `www.aurorasound.kr`, `aurorasound.kr`에서만 실행되며 localhost 미리보기는 수집하지 않음
 - privacy.html과 terms.html에도 analytics.js 로드됨
 
 ---
@@ -137,9 +139,9 @@ vercel.json      /interview 경로 rewrite 설정
 | 적용 범위 | `/interview`, `/interview/` 경로에서만 실행 |
 | 설정 위치 | `index.html` `<head>` 상단 인라인 `<script>` |
 
-- `window.location.pathname`으로 경로 분기 — 메인(`/`) 등 다른 페이지에는 픽셀 미실행
+- 운영 호스트와 `window.location.pathname`으로 분기 — localhost와 메인(`/`) 등 다른 페이지에는 픽셀 미실행
 - `PageView` 이벤트: 페이지 로드 시 자동 발송
-- 광고 경로(`/interview`) 카카오 CTA 클릭: `analytics.js`에서 Meta `Lead` 이벤트 발송
+- 광고 경로(`/interview`) 카카오 CTA 클릭: `analytics.js`에서 Meta `Contact` 이벤트 발송. 실제 유효 문의와 단순 링크 클릭을 구분
 - 광고 경로에서는 `html.ad-mode` 클래스(index.html head 인라인)로 히어로 브런치 보조 CTA·푸터 채널 링크(블로그·인스타·유튜브)를 숨겨 이탈 경로 축소. 카카오·이메일·약관 링크는 유지
 - noscript 대체 이미지(`img`) 도 동일 조건 블록 안에서 JS로 동적 삽입
 
@@ -147,9 +149,10 @@ vercel.json      /interview 경로 rewrite 설정
 
 ## 다음 단계 (미완료)
 
-- [x] Meta Pixel 연결 (/interview 경로 한정 적용 완료)
+- [x] Meta Pixel 연결 (운영 도메인의 /interview 경로 한정 적용 완료)
 - [x] 공통 랜딩에서 대표 URL(`/`)과 광고 URL(`/interview`) 유입 추적 분리
-- [ ] GA4 `click_cta_primary` 전환 이벤트 마킹 (GA4 관리 → 이벤트 → 전환으로 표시)
+- [x] GA4 `click_cta_primary` 주요 이벤트 표시 (세션당 1회, 기본값 없음, 2026-07-21)
+- [x] GA4 이벤트 범위 맞춤 측정기준 `button_id`, `landing_type` 등록 (2026-07-21)
 - [ ] Google Search Console 연결
 - [ ] 향후 정식 홈페이지 제작 시 루트 정보 구조와 CTA 흐름 재정리
 - [ ] Meta 광고 캠페인별 UTM 파라미터 세부 규칙 정의
@@ -160,6 +163,6 @@ vercel.json      /interview 경로 rewrite 설정
 
 - CSS는 `style.css` 하나로 관리. 인라인 스타일은 `index.html` `<head>` 안 `<style>` 태그에 일부 존재 (`.quick-grid` 분기선).
 - 모바일 가로 스크롤 이슈가 있었음 — `clip-path` 및 오프셋 수정으로 해결. 레이아웃 변경 시 모바일 재확인 필요.
-- `script.js`에 캐시 버스팅 쿼리스트링 있음 (`?v=4`). 수정 후 버전 올려야 브라우저 캐시 무효화됨. `style.css`도 동일 (`?v=14`).
-- `analytics.js`에 캐시 버스팅 쿼리스트링 있음 (`?v=3`). 수정 후 버전 올려야 브라우저 캐시 무효화됨.
+- `script.js`에 캐시 버스팅 쿼리스트링 있음 (`?v=5`). 수정 후 버전 올려야 브라우저 캐시 무효화됨. `style.css`도 동일 (`?v=15`).
+- `analytics.js`에 캐시 버스팅 쿼리스트링 있음 (`?v=4`). 수정 후 버전 올려야 브라우저 캐시 무효화됨.
 - GA4 측정 ID 변경 시 `analytics.js` 7번째 줄만 수정하면 됨.

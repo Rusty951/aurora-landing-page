@@ -14,7 +14,7 @@
 - `vercel.json`이 `/interview`를 `index.html`로 rewrite한다.
 - `index.html`의 인라인 경로 분기가 `/interview`에서 `html.ad-mode`를 적용하고, `style.css`가 브런치 보조 CTA와 푸터 채널 링크를 숨긴다.
 - `script.js`는 UI 인터랙션을 담당한다.
-- `analytics.js`는 GA4 이벤트와 광고 경로의 Meta Lead 전송을 담당한다.
+- `analytics.js`는 운영 도메인에서만 GA4 이벤트를 초기화하고 광고 경로의 Meta Contact 전송을 담당한다.
 - `privacy.html`과 `terms.html`도 `analytics.js`를 로드한다.
 - CSS/JS/analytics 파일은 HTML에서 쿼리스트링 버전으로 캐시 무효화한다.
 
@@ -28,7 +28,7 @@
 ## 배포 표면
 
 - Vercel 정적 배포
-- 공개 페이지: `index.html`, `privacy.html`, `terms.html`, `robots.txt`, `sitemap.xml`, `style.css`, `script.js`, `analytics.js`
+- 공개 페이지: `index.html`, `privacy.html`, `terms.html`, `robots.txt`, `sitemap.xml`, `favicon.svg`, `style.css`, `script.js`, `analytics.js`
 - 운영 문서와 로컬 도구는 배포 제외: `README.md`, `AGENTS.md`, `docs/`, `prd.md`, `.claude/`, `dev-server.mjs`
 
 ## AI 운영 원칙
@@ -36,7 +36,7 @@
 - 컨텍스트 원칙: 반복 설명은 문서로 고정하고, 새 작업은 `README.md`, `docs/*`, `prd.md`를 먼저 읽고 시작한다.
 - 토큰 원칙: 긴 배경 설명 대신 Context Map의 원본 문서를 참조한다.
 - 하네스 원칙: 변경은 작게 쪼개고, 커밋 전 단일 check 명령을 통과시킨다.
-- 추적 원칙: CTA id, GA4 이벤트, Meta Pixel 경로 조건을 함께 본다.
+- 추적 원칙: CTA id, GA4 이벤트, Meta Pixel의 운영 호스트·경로 조건을 함께 본다.
 - 캐시 원칙: CSS/JS/analytics 변경 시 HTML의 버전 쿼리를 함께 갱신한다.
 - 배포 표면 원칙: 운영 문서와 로컬 도구가 Vercel 배포 표면에 노출되지 않게 한다.
 - 안전 원칙: 광고/분석 ID, 외부 링크, rewrite 정책은 명시 승인 없이 바꾸지 않는다.

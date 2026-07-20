@@ -10,6 +10,7 @@
   <meta name="description" content="콘텐츠는 쌓이는데 문의가 없다면, 양이 아니라 문장이 문제입니다. 오로라의소리는 채널을 늘리기 전에 고객을 멈추게 할 첫 문장부터 잡고, 막힌 지점을 무료로 진단합니다." />
   <meta name="keywords" content="콘텐츠 마케팅 진단, 브랜드 콘텐츠 제작, 콘텐츠 마케팅, 오로라의소리, 블로그 인스타그램 콘텐츠" />
   <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="canonical" href="https://www.aurorasound.kr/" />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:title" content="오로라의소리 — 고객을 멈추게 할 첫 문장부터 잡습니다" />
@@ -23,9 +24,9 @@
   <meta name="twitter:title" content="오로라의소리 — 고객을 멈추게 할 첫 문장부터 잡습니다" />
   <meta name="twitter:description" content="콘텐츠는 쌓이는데 문의가 없다면, 양이 아니라 방향이 문제입니다. 채널보다 먼저, 고객을 움직일 첫 문장부터 잡습니다." />
   <meta name="twitter:image" content="https://blog.aurorasound.kr/wp-content/uploads/2026/05/Logo.png" />
-  <link rel="stylesheet" href="style.css?v=14" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="style.css?v=15" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -48,7 +49,9 @@
   <script>
   (function() {
     var p = window.location.pathname;
-    if (p === '/interview' || p === '/interview/') {
+    var h = window.location.hostname;
+    var isProductionHost = h === 'www.aurorasound.kr' || h === 'aurorasound.kr';
+    if (isProductionHost && (p === '/interview' || p === '/interview/')) {
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -62,6 +65,7 @@
       var ns = document.createElement('noscript');
       var img = document.createElement('img');
       img.height = 1; img.width = 1; img.style.display = 'none';
+      img.alt = ''; img.setAttribute('aria-hidden', 'true');
       img.src = 'https://www.facebook.com/tr?id=3182617048583568&ev=PageView&noscript=1';
       ns.appendChild(img);
       document.head.appendChild(ns);
@@ -664,7 +668,7 @@
   </div>
 </footer>
 
-<script src="script.js?v=4"></script>
-<script src="analytics.js?v=3"></script>
+<script src="script.js?v=5"></script>
+<script src="analytics.js?v=4"></script>
 </body>
 </html>

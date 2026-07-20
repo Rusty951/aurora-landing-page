@@ -2,9 +2,6 @@
    오로라의소리 — Railway-inspired Dark Matte v3
    ============================================= */
 
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
-@import url('https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css');
-
 /* ── 토큰 (컬러 기준표 v1 적용) ────────────── */
 :root {
   /* ─── 배경 계층 (60%) ─── */
@@ -123,6 +120,7 @@ ul { list-style: none; }
   transition: opacity .2s, transform .2s, box-shadow .2s;
   text-decoration: none;
   white-space: nowrap;
+  min-height: 44px;
 }
 .nav-cta-btn:hover {
   opacity: .92;
@@ -463,6 +461,8 @@ body::after {
   color: rgba(255,255,255,.68);
   font-weight: 600;
   transform: translateY(-10px);
+  word-break: keep-all;
+  text-wrap: balance;
 }
 
 /* 모바일 대응 */
@@ -1005,7 +1005,7 @@ body::after {
   z-index: 1;
 }
 .why-quote p {
-  font-family: 'SUIT Variable', 'SUIT', 'Pretendard Variable', Pretendard, sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, sans-serif;
   font-size: 1.08rem;
   font-weight: 800;
   color: #fff;
@@ -1607,7 +1607,7 @@ body::after {
 }
 
 .final-cta-title {
-  font-family: 'SUIT Variable', 'SUIT', 'Pretendard Variable', Pretendard, sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, sans-serif;
   font-size: clamp(1.3rem, 4vw, 1.8rem);
   font-weight: 800;
   line-height: 1.45;
@@ -1670,7 +1670,7 @@ body::after {
 /* 브랜드 블록 */
 .footer-brand { display: flex; flex-direction: column; gap: 6px; }
 .footer-logo {
-  font-family: 'SUIT Variable', 'SUIT', 'Pretendard Variable', Pretendard, sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, sans-serif;
   font-size: 1.1rem;
   font-weight: 800;
   letter-spacing: -.02em;
@@ -1743,11 +1743,11 @@ body::after {
 }
 .footer-copy {
   font-size: .7rem;
-  color: rgba(255,255,255,.18);
+  color: rgba(232,232,240,.58);
 }
 .footer-privacy-link {
   font-size: .7rem;
-  color: rgba(255,255,255,.28);
+  color: rgba(232,232,240,.68);
   transition: color .2s;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -1822,6 +1822,10 @@ body::after {
    반응형
    ───────────────────────────────────────────── */
 @media (max-width: 600px) {
+  .kakao-float {
+    display: none;
+  }
+
   .quick-grid {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -1858,6 +1862,47 @@ body::after {
   /* CTA 버튼 full-width */
   .hero-cta-wrap, .interview-cta { align-items: stretch; }
   .btn-cta, .btn-cta-kakao { justify-content: center; }
+}
+
+@media (max-width: 360px) {
+  #hero {
+    padding-top: 72px;
+    padding-bottom: 40px;
+  }
+  .hero-panel {
+    padding: 24px 12px 32px;
+  }
+  .hero-eyebrow {
+    margin-bottom: 16px;
+    padding: 5px 12px;
+  }
+  .hero-headline {
+    gap: 8px;
+    margin-bottom: 16px;
+    font-size: 1.68rem;
+  }
+  .hero-sub {
+    margin-bottom: 18px;
+    font-size: .9rem;
+    line-height: 1.52;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .fade-up {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (min-width: 601px) and (max-width: 768px) {

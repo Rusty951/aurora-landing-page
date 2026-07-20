@@ -1,7 +1,9 @@
 /* =============================================
-   오로라의소리 — script.js v3
+   오로라의소리 — script.js v5
    스크롤 페이드인 · 아코디언 · OSMU 라인 드로잉 · 고정 버튼
    ============================================= */
+
+const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 /* ── 0. 오로라 Canvas 배경 애니메이션 ──────── */
 (function initAurora() {
@@ -83,6 +85,12 @@
     raf = requestAnimationFrame(animate);
   }
 
+  if (reduceMotionQuery.matches) {
+    animate(0);
+    cancelAnimationFrame(raf);
+    return;
+  }
+
   raf = requestAnimationFrame(animate);
 
   /* 페이지 숨겨지면 멈추고 다시 보이면 재시작 */
@@ -94,18 +102,22 @@
 
 /* ── 1. 스크롤 페이드인 (stagger) ─────────── */
 const fadeEls = document.querySelectorAll('.fade-up');
-const fadeObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        fadeObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-);
-fadeEls.forEach((el) => fadeObserver.observe(el));
+if (reduceMotionQuery.matches) {
+  fadeEls.forEach((el) => el.classList.add('visible'));
+} else {
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+  fadeEls.forEach((el) => fadeObserver.observe(el));
+}
 
 
 /* ── 2. 채널 아코디언 ───────────────────────── */
@@ -134,31 +146,37 @@ const osmuConnector = document.getElementById('osmu-connector');
 const osmuNodes = document.querySelectorAll('.osmu-channel-node');
 
 if (osmuDiagram) {
-  const osmuObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // 중앙 연결선 먼저
-          setTimeout(() => {
-            osmuConnector?.classList.add('drawn');
-          }, 300);
-          // 가로 분기선 확장
-          setTimeout(() => {
-            document.querySelector('.osmu-channels')?.classList.add('drawn');
-          }, 450);
-          // 각 노드로 향하는 연결선 순차 처리
-          osmuNodes.forEach((node, i) => {
+  if (reduceMotionQuery.matches) {
+    osmuConnector?.classList.add('drawn');
+    document.querySelector('.osmu-channels')?.classList.add('drawn');
+    osmuNodes.forEach((node) => node.classList.add('drawn'));
+  } else {
+    const osmuObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // 중앙 연결선 먼저
             setTimeout(() => {
-              node.classList.add('drawn');
-            }, 600 + i * 120);
-          });
-          osmuObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
-  osmuObserver.observe(osmuDiagram);
+              osmuConnector?.classList.add('drawn');
+            }, 300);
+            // 가로 분기선 확장
+            setTimeout(() => {
+              document.querySelector('.osmu-channels')?.classList.add('drawn');
+            }, 450);
+            // 각 노드로 향하는 연결선 순차 처리
+            osmuNodes.forEach((node, i) => {
+              setTimeout(() => {
+                node.classList.add('drawn');
+              }, 600 + i * 120);
+            });
+            osmuObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    osmuObserver.observe(osmuDiagram);
+  }
 }
 
 

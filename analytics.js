@@ -1,13 +1,20 @@
 /* =============================================
    오로라의소리 — analytics.js
-   GA4 페이지뷰 추적 + 주요 클릭 이벤트
+   운영 환경 GA4 페이지뷰 추적 + 주요 클릭 이벤트
    ============================================= */
 
 // ▼▼▼ GA4 측정 ID를 여기에 입력하세요 (예: G-ABCDE12345)
 var GA_MEASUREMENT_ID = 'G-YQJ3DC2SQN';
 // ▲▲▲
 
+var PRODUCTION_TRACKING_HOSTS = ['www.aurorasound.kr', 'aurorasound.kr'];
+
+function isProductionTrackingHost() {
+  return PRODUCTION_TRACKING_HOSTS.indexOf(window.location.hostname) !== -1;
+}
+
 (function initGA() {
+  if (!isProductionTrackingHost()) return;
   if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') return;
 
   // gtag dataLayer 초기화 (gtag.js보다 먼저 정의해야 config가 큐에 쌓임)
@@ -64,10 +71,13 @@ function gaTrack(eventName, params) {
   window.gtag('event', eventName, trackingParams(params));
 }
 
-function metaTrackLead(params) {
+function metaTrackContactClick(params) {
+  if (!isProductionTrackingHost()) return;
   if (getLandingContext().landing_type !== 'paid_interview') return;
   if (typeof window.fbq !== 'function') return;
-  window.fbq('track', 'Lead', trackingParams(params));
+  window.fbq('track', 'Contact', trackingParams(Object.assign({
+    contact_method: 'kakao_openchat'
+  }, params || {})));
 }
 
 
@@ -84,13 +94,13 @@ function metaTrackLead(params) {
 
   function trackKakaoClick(id) {
     gaTrack('click_kakao_openchat', { button_id: id });
-    metaTrackLead({ button_id: id });
+    metaTrackContactClick({ button_id: id });
   }
 
   function trackPrimaryCta(id) {
     gaTrack('click_cta_primary', { button_id: id });
     gaTrack('click_kakao_openchat', { button_id: id });
-    metaTrackLead({ button_id: id });
+    metaTrackContactClick({ button_id: id });
   }
 
   /* ── 카카오 오픈채팅 (단순 링크용: 네비, 플로팅, 푸터) ── */

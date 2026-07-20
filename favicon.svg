@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="오로라의소리">
+  <defs>
+    <linearGradient id="aurora" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A855F7"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0B0B12"/>
+  <path d="M32 11 13 53h9l4-10h12l4 10h9L32 11Zm-3 24 3-8 3 8h-6Z" fill="url(#aurora)"/>
+</svg>

@@ -35,8 +35,9 @@
 1. GA4 측정 ID는 `analytics.js`의 `GA_MEASUREMENT_ID`에서 확인한다.
 2. `landing_type`이 `/`, `/interview`, 기타 경로에서 의도대로 나뉘는지 확인한다.
 3. CTA id를 바꾸면 `click_cta_primary`, `click_kakao_openchat` 바인딩을 함께 확인한다.
-4. Meta Pixel은 `/interview`, `/interview/`에서만 실행되어야 한다.
-5. 광고 경로 카카오 CTA 클릭은 Meta `Lead`로 전송되는지 확인한다.
+4. GA4와 Meta Pixel은 운영 도메인에서만 실행되어야 한다.
+5. Meta Pixel은 `/interview`, `/interview/`에서만 실행되어야 한다.
+6. 광고 경로 카카오 CTA 클릭은 Meta `Contact`로 전송되고 실제 유효 문의와 구분되는지 확인한다.
 
 ## Deployment Surface Workflow
 

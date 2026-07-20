@@ -51,8 +51,8 @@
 
 - `/`와 `/interview`가 같은 핵심 랜딩을 보여준다.
 - `/interview`에서는 브런치 보조 CTA와 푸터 채널 링크만 숨긴다.
-- `/interview` 경로에서만 Meta Pixel이 실행된다.
-- CTA 클릭 이벤트가 GA4와 Meta Lead 조건에 맞게 발송된다.
+- 운영 도메인의 `/interview` 경로에서만 Meta Pixel이 실행된다.
+- CTA 클릭 이벤트가 GA4와 Meta Contact 조건에 맞게 발송되며 실제 유효 문의와 구분된다.
 - 수정 후 캐시 버스팅 버전이 함께 갱신된다.
 - 운영 문서가 Vercel 배포 표면에 노출되지 않는다.
 
