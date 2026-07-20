@@ -80,7 +80,6 @@ vercel.json      /interview 경로 rewrite 설정
 | 항목 | URL |
 |------|-----|
 | 카카오 오픈채팅 | https://open.kakao.com/o/sMBNyzpi |
-| 브런치 | https://brunch.co.kr/@730c0631bb2f493 |
 | 네이버 블로그 | https://blog.naver.com/aurorasound_ |
 | 워드프레스 블로그 | https://blog.aurorasound.kr/ |
 | 인스타그램 | https://www.instagram.com/aurorasound_marketing |
@@ -103,9 +102,8 @@ vercel.json      /interview 경로 rewrite 설정
 | `click_kakao_openchat` | nav-cta-btn, kakao-float-btn, footer-kakao-link |
 | `click_cta_primary` + `click_kakao_openchat` | hero-cta-btn, interview-cta-btn, final-cta-btn |
 | `click_email` | footer-email-link |
-| `click_brunch` | `a[href*="brunch.co.kr"]` 선택자 |
 | `click_blog` | footer-blog-link |
-| `click_wordpress_blog` | footer-wordpress-blog-link |
+| `click_wordpress_blog` | hero-wordpress-blog-link, footer-wordpress-blog-link |
 | `click_instagram` | footer-insta-link |
 | `click_youtube` | footer-youtube-link |
 
@@ -142,7 +140,7 @@ vercel.json      /interview 경로 rewrite 설정
 - 운영 호스트와 `window.location.pathname`으로 분기 — localhost와 메인(`/`) 등 다른 페이지에는 픽셀 미실행
 - `PageView` 이벤트: 페이지 로드 시 자동 발송
 - 광고 경로(`/interview`) 카카오 CTA 클릭: `analytics.js`에서 Meta `Contact` 이벤트 발송. 실제 유효 문의와 단순 링크 클릭을 구분
-- 광고 경로에서는 `html.ad-mode` 클래스(index.html head 인라인)로 히어로 브런치 보조 CTA·푸터 채널 링크(블로그·인스타·유튜브)를 숨겨 이탈 경로 축소. 카카오·이메일·약관 링크는 유지
+- 광고 경로에서는 `html.ad-mode` 클래스(index.html head 인라인)로 히어로 WordPress 블로그 보조 CTA·푸터 채널 링크(블로그·인스타·유튜브)를 숨겨 이탈 경로 축소. 카카오·이메일·약관 링크는 유지
 - noscript 대체 이미지(`img`) 도 동일 조건 블록 안에서 JS로 동적 삽입
 
 ---

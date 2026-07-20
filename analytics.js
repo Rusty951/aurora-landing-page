@@ -122,22 +122,16 @@ function metaTrackContactClick(params) {
     gaTrack('click_email');
   });
 
-  /* ── 브런치 (id 없음 — href로 탐색) ── */
-  var brunchEl = document.querySelector('a[href*="brunch.co.kr"]');
-  if (brunchEl) {
-    brunchEl.addEventListener('click', function () {
-      gaTrack('click_brunch');
-    });
-  }
-
   /* ── 네이버 블로그 ── */
   on('footer-blog-link', function () {
     gaTrack('click_blog');
   });
 
   /* ── 워드프레스 블로그 ── */
-  on('footer-wordpress-blog-link', function () {
-    gaTrack('click_wordpress_blog');
+  ['hero-wordpress-blog-link', 'footer-wordpress-blog-link'].forEach(function (id) {
+    on(id, function () {
+      gaTrack('click_wordpress_blog', { button_id: id });
+    });
   });
 
   /* ── 인스타그램 ── */
