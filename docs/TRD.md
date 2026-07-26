@@ -14,7 +14,7 @@
 - `vercel.json`이 `/interview`를 `index.html`로 rewrite한다.
 - `index.html`의 인라인 경로 분기가 `/interview`에서 `html.ad-mode`를 적용하고, `style.css`가 WordPress 블로그 보조 CTA와 푸터 채널 링크를 숨긴다.
 - `script.js`는 UI 인터랙션을 담당한다.
-- `analytics.js`는 운영 도메인에서만 GA4 이벤트를 초기화하고 광고 경로의 Meta Contact 전송을 담당한다.
+- `analytics.js`는 운영 도메인에서만 GA4 이벤트를 초기화하고, 실제로 보이는 탭의 누적 열람 10초를 `engaged_10s`로 기록하며, 광고 경로의 Meta Contact 전송을 담당한다.
 - `privacy.html`과 `terms.html`도 `analytics.js`를 로드한다.
 - CSS/JS/analytics 파일은 HTML에서 쿼리스트링 버전으로 캐시 무효화한다.
 

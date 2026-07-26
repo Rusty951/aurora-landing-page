@@ -80,6 +80,84 @@ function metaTrackContactClick(params) {
   }, params || {})));
 }
 
+/* ── 10초 실제 열람 이벤트
+   탭이 보이는 동안의 시간만 합산하고, 랜딩 경로별 세션당 한 번 전송한다.
+   ──────────────────────────────────────────── */
+(function trackTenSecondEngagement() {
+  if (!isProductionTrackingHost()) return;
+
+  var context = getLandingContext();
+  var storageKey = 'aurora_engaged_10s:' + context.landing_path;
+  var activeMs = 0;
+  var visibleSince = document.visibilityState === 'visible' ? Date.now() : null;
+  var timer = null;
+  var sent = false;
+
+  try {
+    if (window.sessionStorage.getItem(storageKey) === '1') return;
+  } catch (error) {
+    // 저장소를 사용할 수 없는 브라우저에서도 이벤트 측정은 계속한다.
+  }
+
+  function cleanup() {
+    if (timer) window.clearTimeout(timer);
+    document.removeEventListener('visibilitychange', onVisibilityChange);
+  }
+
+  function sendEvent() {
+    if (sent) return;
+    sent = true;
+
+    try {
+      window.sessionStorage.setItem(storageKey, '1');
+    } catch (error) {
+      // 저장 실패는 이벤트 전송을 막지 않는다.
+    }
+
+    gaTrack('engaged_10s', { engagement_seconds: 10 });
+    cleanup();
+  }
+
+  function schedule() {
+    if (sent || visibleSince === null) return;
+    if (timer) window.clearTimeout(timer);
+
+    var remaining = Math.max(0, 10000 - activeMs);
+    timer = window.setTimeout(function () {
+      activeMs += Date.now() - visibleSince;
+      visibleSince = Date.now();
+
+      if (activeMs >= 10000) {
+        sendEvent();
+      } else {
+        schedule();
+      }
+    }, remaining);
+  }
+
+  function onVisibilityChange() {
+    if (document.visibilityState === 'hidden') {
+      if (visibleSince !== null) {
+        activeMs += Date.now() - visibleSince;
+        visibleSince = null;
+      }
+      if (timer) window.clearTimeout(timer);
+      timer = null;
+      return;
+    }
+
+    visibleSince = Date.now();
+    if (activeMs >= 10000) {
+      sendEvent();
+    } else {
+      schedule();
+    }
+  }
+
+  document.addEventListener('visibilitychange', onVisibilityChange);
+  schedule();
+})();
+
 
 /* ── 클릭 이벤트 바인딩
    (이 스크립트는 </body> 직전에 로드되므로 DOM이 이미 준비된 상태)
