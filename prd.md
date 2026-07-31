@@ -1,168 +1,122 @@
 # 오로라의소리 랜딩페이지 PRD
 
-## 프로젝트 개요
+## 제품 정의
 
-이미 마케팅을 운영 중인 전문직과 소규모 사업자가 현재 홈페이지·콘텐츠·광고를 놓고 다음 한 달의 우선순위와 수정 기준을 정하는 오로라의소리 1시간 진단 미팅 랜딩페이지.
-하나의 공통 랜딩을 운영하되, 루트는 오가닉/대표 유입으로, `/interview`는 광고 유입 확인용으로 구분한다. 정식 홈페이지를 별도로 만들 때까지 두 주소는 같은 화면을 보여준다.
+오로라의소리는 단품 제작 업체가 아니라, 사업에 필요한 콘텐츠를 판단하고 제작·운영까지 이어가는 외부 실행 파트너다. 상담과 진단은 계약 전 진입 과정이며 최종 상품의 전부가 아니다.
 
----
+## 해결할 문제
 
-## URL / 배포
+이미 블로그·인스타·영상·홈페이지 중 하나 이상을 운영하지만 채널이 따로 움직여 대표가 매번 우선순위와 요청 기준을 다시 정하는 사업자가 있다. 랜딩은 이 방문자가 아래 세 가지를 빠르게 이해하게 해야 한다.
 
-| 항목 | 값 |
-|------|----|
-| 대표/오가닉 URL | https://www.aurorasound.kr/ |
-| 광고 확인용 URL | https://www.aurorasound.kr/interview |
-| Vercel 프로젝트 | aurora-landing-page |
-| GitHub 저장소 | https://github.com/Rusty951/aurora-landing-page |
-| 배포 방식 | Vercel — git push → 자동 배포 (빌드 스텝 없음) |
+1. 오로라가 지금 필요한 콘텐츠의 순서를 정한다.
+2. 결정에서 끝나지 않고 필요한 제작과 운영까지 맡는다.
+3. 첫 행동은 카카오에서 현재 상태를 간단히 보내는 것이다.
 
-> 루트 `/`는 유튜브 고정댓글, 인스타그램, 스레드, 네이버 블로그, 명함 등 모든 대표/오가닉 유입용.
-> `/interview`는 `vercel.json` rewrite로 같은 `index.html`을 서빙하되, 분석상 광고 유입으로 구분.
-> 향후 정식 홈페이지 제작 시 루트 정보 구조와 CTA 흐름을 다시 정리.
+## 핵심 사용자
 
----
+- 이미 홈페이지나 콘텐츠 채널을 운영 중인 사업자
+- 제작자·직원·대행사 사이에서 대표가 방향을 계속 맞추고 있는 사업자
+- 단품 최저가보다 우선순위와 운영 기준이 필요한 사업자
+- 정한 내용을 실제 제작과 운영까지 이어갈 준비가 된 사업자
 
-## 기술 스택
+특정 업종보다 `이미 하고 있지만 흩어진 상태`를 우선 타깃 조건으로 삼는다.
 
-- 순수 HTML / CSS / JavaScript (프레임워크 없음)
-- 빌드 도구 없음 — 파일 그대로 정적 서빙
-- 폰트: Google Fonts (preconnect)
-- 배포: Vercel
+## 가치 제안
 
----
-
-## 파일 구성
-
-```
-index.html       공통 랜딩페이지 (`/`, `/interview` 모두 서빙)
-style.css        전체 스타일 (v17)
-script.js        UI 인터랙션 (오로라 캔버스, 아코디언, 스크롤, 플로팅 버튼 등)
-analytics.js     GA4 초기화 + 클릭 이벤트 추적
-favicon.svg      브라우저 탭 아이콘
-privacy.html     개인정보처리방침
-terms.html       서비스 이용약관
-robots.txt       검색 엔진 크롤링 허용 및 sitemap.xml 위치 안내
-sitemap.xml      대표 공개 URL 사이트맵
-vercel.json      /interview 경로 rewrite 설정
+```text
+사업에 필요한 콘텐츠의 우선순위를 정하고
+제작과 운영까지 맡습니다.
 ```
 
----
+공개 신뢰 문구는 `국내 포털 콘텐츠 매니저 출신`을 사용한다. 회사 이름은 공개하지 않는다.
 
-## 페이지 섹션 구조
+## CTA
 
-1. 고정 네비게이션 바 (헤더)
-2. 플로팅 카카오톡 버튼
-3. 히어로 — 오로라 캔버스 배경, 메인 카피, CTA 버튼
-4. 미팅 결과 3카드 — 이번 달 우선순위 / 수정 기준 / 파트너 판단
-5. 1시간 진단 미팅 — 결과 3가지, 대면 우선, 계약 전 진단 원칙
-6. 판단 시연과 작업 사례 — 첫 문장 전·후 사례 2개 + 실제로 고친 작업 3개
-7. 적합한 고객 — 잘 맞는 조건과 맞지 않는 조건
-8. 왜 오로라의소리인가 — 대표의 판단 방식과 확인 가능한 이력
-9. FAQ 아코디언 4개
-10. 최종 CTA
-11. 푸터 (채널 링크, 이메일, 개인정보처리방침)
+- 통일 문구: `마케팅 상담하기`
+- 연결: `https://open.kakao.com/o/sMBNyzpi`
+- 요청 정보: 업종, 운영 중인 채널, 가장 막힌 일 두세 줄
+- `무료`, 결과 보장, 성과 보장 표현은 사용하지 않는다.
 
-### 현재 히어로 방향 (2026-07 메시지 개편)
+## 페이지 서사
 
-- 대상: `이미 마케팅을 운영 중인 전문직과 소규모 사업자`
-- 메인(가치 제안): `다음 한 달의 우선순위를 정합니다`
-- 보조 설명: 채널을 하나씩 설명하지 않고 현재 하는 일을 놓고 먼저 고칠 일과 실행 순서를 정한다.
-- CTA: `한 달 우선순위 진단받기`
-- 히어로 직후 3카드: 이번 달 우선순위 / 수정 기준 / 파트너 판단
-- 첫 문장 시연은 주된 상품 약속이 아니라 오로라의 판단 방식을 보여주는 증거 섹션으로 둔다.
+1. 히어로: 어디부터 손봐야 할지 모르는 상태와 실행 책임
+2. 실제 상황: 채널·업체·문의 경로가 따로 움직이는 장면
+3. 맡는 일: 우선순위, 메시지, 제작, 운영과 수정
+4. 진행 순서: 현재 상태 확인, 이번 달 우선순위, 제작·운영
+5. 근거: 공개 가능한 경력과 익명화한 실제 작업 범위
+6. 적합성: 이미 운영 중이며 실행 기준을 원하는 사업
+7. FAQ: 범위, 기존 인력·업체, 상담 준비물, 상담 뒤 선택
+8. 최종 CTA
 
----
+## 카피 원칙
 
-## 주요 외부 링크
+- `브랜드`, `솔루션`, `통합 생태계`처럼 규모를 부풀리는 표현을 피한다.
+- 채널명 나열보다 대표가 겪는 장면과 오로라가 맡는 판단을 먼저 말한다.
+- 확인되지 않은 조회수·매출·전환 수치를 쓰지 않는다.
+- 네이버 경력은 `국내 포털`로만 표현한다.
+- 짧고 구체적인 현장 언어를 쓴다.
 
-| 항목 | URL |
-|------|-----|
-| 카카오 오픈채팅 | https://open.kakao.com/o/sMBNyzpi |
-| 네이버 블로그 | https://blog.naver.com/aurorasound_ |
-| 워드프레스 블로그 | https://blog.aurorasound.kr/ |
-| 인스타그램 | https://www.instagram.com/aurorasound_marketing |
-| 유튜브 | https://youtube.com/channel/UCyhfDPonJBfaKNIf9MDHavg |
-| 이메일 | aurorasound2425@gmail.com |
+## URL 정책
 
----
+| 역할 | URL | 분석 값 |
+|---|---|---|
+| 대표·오가닉 | `https://www.aurorasound.kr/` | `organic_root` |
+| 광고 | `https://www.aurorasound.kr/interview` | `paid_interview` |
 
-## GA4 추적
+- 두 경로는 같은 `index.html`을 보여준다.
+- `/interview/`는 `/interview`로 308 정규화한다.
+- `/interview`에서는 푸터의 보조 채널 링크를 숨겨 상담 집중도를 높인다.
+- canonical과 sitemap은 대표 URL `/`만 사용한다.
 
-| 항목 | 값 |
-|------|----|
-| 측정 ID | G-YQJ3DC2SQN |
-| 설정 파일 | `analytics.js` 7번째 줄 `GA_MEASUREMENT_ID` |
+## 추적 계약
 
-### 추적 이벤트 목록
+### GA4
 
-| 이벤트명 | 트리거 요소 (HTML id) |
-|----------|----------------------|
-| `click_kakao_openchat` | nav-cta-btn, kakao-float-btn, footer-kakao-link |
-| `click_cta_primary` + `click_kakao_openchat` | hero-cta-btn, interview-cta-btn, final-cta-btn |
-| `click_email` | footer-email-link |
-| `click_blog` | footer-blog-link |
-| `click_wordpress_blog` | hero-wordpress-blog-link, footer-wordpress-blog-link |
-| `click_instagram` | footer-insta-link |
-| `click_youtube` | footer-youtube-link |
-| `engaged_10s` | 운영 도메인에서 실제로 보이는 탭의 누적 열람 10초 |
+| 이벤트 | 의미 |
+|---|---|
+| `click_cta_primary` | 주요 카카오 CTA 클릭 |
+| `click_kakao_openchat` | 카카오 외부 링크 클릭 |
+| `click_blog` | 네이버 블로그 클릭 |
+| `click_wordpress_blog` | 오로라 블로그 클릭 |
+| `click_instagram` | 인스타그램 클릭 |
+| `click_youtube` | 유튜브 클릭 |
+| `click_email` | 이메일 클릭 |
+| `engaged_10s` | 보이는 탭의 누적 열람 10초 |
 
-- `page_view`는 페이지 로드 시 자동 발송 (`gtag('config', ...)`)
-- `engaged_10s`는 탭이 보이는 동안의 시간만 합산하고 랜딩 경로별 세션당 한 번 발송
-- 클릭 이벤트에는 `landing_type`, `landing_path`, UTM 5종 자동 포함
-- `landing_type` 값: `organic_root`(`/`), `paid_interview`(`/interview`), `other`
-- GA4와 Meta Pixel은 `www.aurorasound.kr`, `aurorasound.kr`에서만 실행되며 localhost 미리보기는 수집하지 않음
-- privacy.html과 terms.html에도 analytics.js 로드됨
+HTML의 `data-track`이 이벤트 연결의 단일 원본이다. 모든 추적 링크는 고유 `id`를 가져야 하며, 카카오 링크에는 `data-cta-location`, 주요 CTA에는 `data-primary-cta="true"`를 둔다.
 
----
+### Meta Pixel
 
-## vercel.json 구성
+- 운영 호스트의 `/interview`에서만 `PageView`를 한 번 전송한다.
+- 같은 경로의 카카오 외부 링크 클릭만 `Contact`로 보낸다.
+- `Contact`는 `contact_method=kakao_openchat`, `contact_stage=outbound_click`으로 정의한다.
+- 실제 문의가 확인되지 않으므로 클라이언트에서 `Lead`를 전송하지 않는다.
 
-```json
-{
-  "rewrites": [
-    { "source": "/interview", "destination": "/index.html" }
-  ]
-}
-```
+## 기술 범위
 
-정식 홈페이지를 별도로 제작하기 전까지는 루트 `/`와 `/interview`가 같은 랜딩을 보여주고, 추적값만 분리한다.
+- 순수 HTML/CSS/JavaScript
+- Vercel 정적 배포
+- 반응형 320px 이상
+- 네이티브 `<details>` FAQ
+- 단일 생성 이미지 배경과 1200×630 공유 이미지
+- 로컬 정적 서버와 `npm run check`
 
----
+## 비목표
 
-## Meta Pixel 추적
+- 다중 페이지 서비스몰
+- 상담 가격·기간의 임의 확정
+- 실제 사례 수치의 추정
+- 새 CRM 또는 서버 폼
+- 사용자 승인 전 운영 배포
 
-| 항목 | 값 |
-|------|----|
-| Pixel ID | 3182617048583568 |
-| 적용 범위 | `/interview`, `/interview/` 경로에서만 실행 |
-| 설정 위치 | `index.html` `<head>` 상단 인라인 `<script>` |
+## 완료 기준
 
-- 운영 호스트와 `window.location.pathname`으로 분기 — localhost와 메인(`/`) 등 다른 페이지에는 픽셀 미실행
-- `PageView` 이벤트: 페이지 로드 시 자동 발송
-- 광고 경로(`/interview`) 카카오 CTA 클릭: `analytics.js`에서 Meta `Contact` 이벤트 발송. 실제 유효 문의와 단순 링크 클릭을 구분
-- 광고 경로에서는 `html.ad-mode` 클래스(index.html head 인라인)로 히어로 WordPress 블로그 보조 CTA·푸터 채널 링크(블로그·인스타·유튜브)를 숨겨 이탈 경로 축소. 카카오·이메일·약관 링크는 유지
-- noscript 대체 이미지(`img`) 도 동일 조건 블록 안에서 JS로 동적 삽입
-
----
-
-## 다음 단계 (미완료)
-
-- [x] Meta Pixel 연결 (운영 도메인의 /interview 경로 한정 적용 완료)
-- [x] 공통 랜딩에서 대표 URL(`/`)과 광고 URL(`/interview`) 유입 추적 분리
-- [x] GA4 `click_cta_primary` 주요 이벤트 표시 (세션당 1회, 기본값 없음, 2026-07-21)
-- [x] GA4 이벤트 범위 맞춤 측정기준 `button_id`, `landing_type` 등록 (2026-07-21)
-- [x] GA4 실제 열람 10초 이벤트 `engaged_10s` 추가 (2026-07-26)
-- [ ] Google Search Console 연결
-- [ ] 향후 정식 홈페이지 제작 시 루트 정보 구조와 CTA 흐름 재정리
-- [ ] Meta 광고 캠페인별 UTM 파라미터 세부 규칙 정의
-
----
-
-## 수정 시 주의사항
-
-- CSS는 `style.css` 하나로 관리. 인라인 스타일은 `index.html` `<head>` 안 `<style>` 태그에 일부 존재 (`.quick-grid` 분기선).
-- 모바일 가로 스크롤 이슈가 있었음 — `clip-path` 및 오프셋 수정으로 해결. 레이아웃 변경 시 모바일 재확인 필요.
-- `script.js`에 캐시 버스팅 쿼리스트링 있음 (`?v=5`). 수정 후 버전 올려야 브라우저 캐시 무효화됨. `style.css`도 동일 (`?v=17`).
-- `analytics.js`에 캐시 버스팅 쿼리스트링 있음 (`?v=6`). 수정 후 버전 올려야 브라우저 캐시 무효화됨.
-- GA4 측정 ID 변경 시 `analytics.js` 7번째 줄만 수정하면 됨.
+- 5초 안에 `무엇을 정하고 어디까지 맡는지`가 읽힌다.
+- CTA 문구와 카카오 링크가 페이지 전체에서 일관된다.
+- 데스크톱과 390px 모바일에서 가로 스크롤이나 잘림이 없다.
+- `/`, `/interview`가 로컬에서 정상이며 `/interview/` 운영 정규화 설정이 있다.
+- 로컬에서는 GA4·Meta 네트워크 요청이 없다.
+- Meta PageView 중복과 클라이언트 `Lead`가 없다.
+- Open Graph 이미지가 실제로 존재하고 1200×630이다.
+- `npm run check`가 통과한다.
+- 공개 배포는 별도 승인을 받은 뒤 진행한다.

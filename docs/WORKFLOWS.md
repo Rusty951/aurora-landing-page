@@ -1,105 +1,51 @@
 # Workflows
 
-## Existing Project Mode
+## 작업 전
 
-이 프로젝트는 기존 `README.md`와 `prd.md`가 강한 운영 원본이다. 새 표준 문서는 기존 원본을 대체하지 않고 AI가 빠르게 맥락을 찾는 지도 역할을 한다.
+1. `README.md`, `AGENTS.md`, `prd.md`를 읽는다.
+2. 작업 성격에 맞는 `docs/*`를 읽는다.
+3. 카피 변경이면 최신 오로라 Voice와 사용자 직접 발언을 우선한다.
+4. 현재 `git status`와 배포 경계를 확인한다.
 
-작업 전 확인 순서:
+## 랜딩 수정
 
-1. `README.md`
-2. `AGENTS.md`
-3. `prd.md`
-4. 관련 `docs/*`
-5. 실제 수정 대상 파일
+1. 문제·타깃·약속·CTA 중 무엇을 바꾸는지 고정한다.
+2. `/`와 `/interview`가 같은 핵심 화면을 유지하는지 확인한다.
+3. CTA는 `id`, `data-track`, `data-cta-location`, 필요 시 `data-primary-cta`를 함께 갱신한다.
+4. 스타일·UI·추적 파일을 바꾸면 캐시 버전을 올린다.
+5. `npm run check`를 실행한다.
+6. 로컬 데스크톱과 390px 모바일을 캡처하고 육안 비교한다.
 
-## Landing Page Workflow
+## 분석 수정
 
-1. `docs/PRD.md`와 `prd.md`에서 URL/추적 의도를 확인한다.
-2. 루트 `/`와 `/interview`가 같은 화면을 보여야 하는지 확인한다.
-3. CTA id나 외부 링크를 건드리면 `analytics.js` 이벤트 바인딩을 함께 확인한다.
-4. CSS/JS/analytics를 수정하면 `index.html`과 `privacy.html`의 버전 쿼리를 확인한다.
-5. 모바일 가로 스크롤과 CTA 노출을 확인한다.
-6. check 명령을 실행한다.
+1. HTML `data-track` 계약을 단일 원본으로 유지한다.
+2. GA4·Meta가 운영 호스트에서만 실행되는지 확인한다.
+3. Meta `PageView`가 광고 경로에서 한 번만 전송되는지 확인한다.
+4. 카카오 클릭 `Contact`와 실제 문의·`Lead`를 구분한다.
+5. 루트·광고 경로·UTM 5종이 이벤트에 붙는지 확인한다.
+6. localhost에서 네트워크 수집이 없는지 확인한다.
 
-## UI Workflow
+## UI QA
 
-1. 브랜드 톤은 `docs/DESIGN.md`와 `prd.md`를 확인한다.
-2. 히어로, CTA, 첫 단추 인터뷰, FAQ의 카피 역할을 구분한다.
-3. 레이아웃 변경은 모바일 폭에서 먼저 깨지는지 확인한다.
-4. `style.css` 수정 시 `index.html`의 `style.css?v=`를 갱신한다.
-5. `script.js` 수정 시 `index.html`의 `script.js?v=`를 갱신한다.
-6. `analytics.js` 수정 시 `index.html`과 `privacy.html`의 `analytics.js?v=`를 갱신한다.
+1. 1440px 데스크톱과 390×844 모바일을 확인한다.
+2. 가로 스크롤, 텍스트 잘림, 배경 대비, 섹션 여백을 본다.
+3. 헤더, 모든 CTA, 외부 링크, FAQ를 직접 작동시킨다.
+4. 키보드 포커스와 터치 영역을 확인한다.
+5. 레퍼런스와 구현을 하나의 비교 이미지로 본다.
+6. P0·P1·P2 문제를 수정하고 `design-qa.md`에 결과를 기록한다.
 
-## Analytics Workflow
+## 배포
 
-1. GA4 측정 ID는 `analytics.js`의 `GA_MEASUREMENT_ID`에서 확인한다.
-2. `landing_type`이 `/`, `/interview`, 기타 경로에서 의도대로 나뉘는지 확인한다.
-3. CTA id를 바꾸면 `click_cta_primary`, `click_kakao_openchat` 바인딩을 함께 확인한다.
-4. GA4와 Meta Pixel은 운영 도메인에서만 실행되어야 한다.
-5. Meta Pixel은 `/interview`, `/interview/`에서만 실행되어야 한다.
-6. 광고 경로 카카오 CTA 클릭은 Meta `Contact`로 전송되고 실제 유효 문의와 구분되는지 확인한다.
+1. 기능 브랜치에서 로컬 검수를 완료한다.
+2. 변경 파일, 검증 결과, 남은 위험을 보고한다.
+3. 사용자의 명시적 공개 승인을 받는다.
+4. 그 뒤에만 commit, push, production 배포를 진행한다.
+5. 운영 `/`, `/interview`, `/interview/` 정규화와 실제 이벤트를 다시 확인한다.
 
-## Deployment Surface Workflow
+## 문서 갱신
 
-1. Vercel 배포 표면을 확인한다.
-2. 운영 문서와 로컬 도구가 배포되지 않도록 `.vercelignore`를 확인한다.
-3. `README.md`, `AGENTS.md`, `docs/`, `prd.md`, `.claude/`, `dev-server.mjs`는 배포 제외를 유지한다.
-4. `/interview` rewrite를 바꾸면 `vercel.json`, `prd.md`, `docs/TRD.md`, `docs/DECISIONS.md`를 함께 갱신한다.
-
-## Bugfix Workflow
-
-1. 재현 조건과 기대 동작을 고정한다.
-2. 발생 경로가 `/`, `/interview`, `privacy.html` 중 어디인지 분리한다.
-3. 브라우저 콘솔, DOM, 이벤트 바인딩, 네트워크 요청을 순서대로 본다.
-4. 한 번에 하나의 가설만 검증한다.
-5. 최소 수정 후 같은 조건으로 재검증한다.
-6. check 명령을 실행한다.
-
-## Refactor Workflow
-
-1. 리팩터링 의도와 보존해야 할 동작을 한 문장으로 고정한다.
-2. `/`와 `/interview` 동작, CTA 이벤트, Pixel 경로 조건을 보존한다.
-3. 작은 단위로 변경한다.
-4. 캐시 버스팅 버전과 문서 갱신 필요를 확인한다.
-5. check 명령을 실행한다.
-
-## Code Review Workflow
-
-리뷰는 스타일보다 위험을 먼저 본다.
-
-1. `/`와 `/interview` 추적 분리가 깨졌는지 확인한다.
-2. CTA id, 외부 링크, GA4/Meta 이벤트 회귀를 확인한다.
-3. 모바일 가로 스크롤과 CTA 노출 회귀를 확인한다.
-4. 캐시 버스팅 버전 누락을 확인한다.
-5. 운영 문서와 로컬 도구가 배포 표면에 노출되는지 확인한다.
-6. 테스트/check 누락을 확인한다.
-7. 문서와 실제 코드 상태가 어긋나는지 확인한다.
-
-## Debugging Workflow
-
-1. 문제를 한 문장으로 정의한다.
-2. 실제 결과, 기대 결과, 발생 경로를 분리한다.
-3. 콘솔 오류, 이벤트 발송, 경로 조건, 캐시 버전을 확인한다.
-4. 가능한 원인 가설을 2-3개로 좁힌다.
-5. 한 번에 하나의 원인만 수정한다.
-6. 같은 조건으로 재검증한다.
-7. 반복될 문제는 `README.md`, `prd.md`, 관련 `docs/*`에 반영한다.
-
-## Commit Safety Review
-
-1. 변경된 파일과 의도를 요약한다.
-2. 범위 밖 수정이 없는지 확인한다.
-3. URL/추적/CTA 정책이 유지됐는지 확인한다.
-4. 배포 제외 규칙이 유지됐는지 확인한다.
-5. 문서 갱신 필요 여부를 확인한다.
-6. check 명령을 실행한다.
-7. 실패한 검증이나 남은 위험을 보고한다.
-
-## Documentation Freshness Review
-
-- 제품 목표, URL 전략, 비목표 변경: `docs/PRD.md`, `prd.md`
-- 브랜드/카피/디자인 변경: `docs/DESIGN.md`, `prd.md`
-- 기술 구조, Vercel, check 변경: `docs/TRD.md`, `README.md`
-- 추적 정책 변경: `prd.md`, `docs/TRD.md`, `docs/DECISIONS.md`
-- 배포 제외 변경: `.vercelignore`, `docs/TRD.md`, `docs/DECISIONS.md`
-- 주요 결정 변경: `docs/DECISIONS.md`
+- 제품·CTA·URL: `prd.md`, `README.md`, `docs/PRD.md`
+- 디자인·카피: `docs/DESIGN.md`
+- 기술·추적·check: `docs/TRD.md`, `README.md`
+- 반복 절차: `docs/WORKFLOWS.md`
+- 공통 전제 변경: `docs/DECISIONS.md`

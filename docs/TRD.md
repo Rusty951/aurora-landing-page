@@ -2,88 +2,78 @@
 
 ## 기술 스택
 
-- Frontend: HTML, CSS, vanilla JavaScript
-- Local server: Node.js `dev-server.mjs`
-- Hosting: Vercel static deployment
-- Analytics: GA4, Meta Pixel
-- Build: 없음
+- HTML, CSS, vanilla JavaScript
+- 로컬 서버: Node.js `dev-server.mjs`
+- 호스팅: Vercel 정적 배포
+- 분석: GA4, Meta Pixel
+- 빌드 스텝 없음
 
 ## 실행 구조
 
-- `index.html`이 루트 `/`와 광고 경로 `/interview`의 공통 랜딩이다.
-- `vercel.json`이 `/interview`를 `index.html`로 rewrite한다.
-- `index.html`의 인라인 경로 분기가 `/interview`에서 `html.ad-mode`를 적용하고, `style.css`가 WordPress 블로그 보조 CTA와 푸터 채널 링크를 숨긴다.
-- `script.js`는 UI 인터랙션을 담당한다.
-- `analytics.js`는 운영 도메인에서만 GA4 이벤트를 초기화하고, 실제로 보이는 탭의 누적 열람 10초를 `engaged_10s`로 기록하며, 광고 경로의 Meta Contact 전송을 담당한다.
-- `privacy.html`과 `terms.html`도 `analytics.js`를 로드한다.
-- CSS/JS/analytics 파일은 HTML에서 쿼리스트링 버전으로 캐시 무효화한다.
+- `index.html`: `/`, `/interview` 공통 랜딩
+- `style.css`: 디자인과 반응형, `/interview` 보조 채널 숨김
+- `script.js`: 고정 헤더 스크롤 상태만 담당
+- `analytics.js`: 운영 호스트 GA4, `engaged_10s`, 외부 링크, 광고 경로 Meta `Contact`
+- `assets/aurora-wave-bg.png`: 히어로·최종 CTA 배경
+- `assets/aurora-og.png`: 1200×630 공유 이미지
+- `vercel.json`: `trailingSlash: false`, `/interview` rewrite
+- `scripts/check-site.mjs`: 정적 계약 검사
 
-## 운영 원본
+## 경로 정책
 
-- `README.md`: 프로젝트 구조, 실행, 배포, 수정 체크리스트
-- `prd.md`: 제품 요구사항, URL/추적/운영 메모
-- `vercel.json`: `/interview` rewrite
-- `.vercelignore`: 운영 문서 배포 제외
+- `/interview`는 `index.html`로 rewrite한다.
+- `trailingSlash: false`로 `/interview/`를 `/interview`에 308 정규화한다.
+- 루트 상대 자산 경로를 사용해 두 랜딩 경로에서 동일하게 로드한다.
+- canonical과 sitemap에는 `/`만 둔다.
+
+## 분석 계약
+
+### 환경
+
+GA4와 Meta Pixel은 `www.aurorasound.kr`, `aurorasound.kr`에서만 실행한다. localhost와 Vercel preview는 데이터를 보내지 않는다.
+
+### HTML 원본
+
+- 추적 요소: 고유 `id` + `data-track`
+- 카카오 링크: `data-cta-location`
+- 주요 CTA: `data-primary-cta="true"`
+- `analytics.js`는 `[data-track]` 이벤트 위임 하나만 사용한다.
+
+### 이벤트 의미
+
+- 주요 카카오 클릭: GA4 `click_cta_primary` + `click_kakao_openchat`
+- 일반 카카오 클릭: GA4 `click_kakao_openchat`
+- 광고 경로의 모든 카카오 클릭: Meta `Contact`
+- `Contact`: 카카오 외부 링크 클릭. 실제 문의나 `Lead`가 아님
+- Meta PageView: 광고 경로 문서 로드당 한 번
+- `engaged_10s`: 보이는 탭의 누적 10초, 경로별 세션당 한 번
+
+`cta_location`을 GA4 보고서에서 사용하려면 이벤트 범위 맞춤 측정기준으로 등록한다.
 
 ## 배포 표면
 
-- Vercel 정적 배포
-- 공개 페이지: `index.html`, `privacy.html`, `terms.html`, `robots.txt`, `sitemap.xml`, `favicon.svg`, `style.css`, `script.js`, `analytics.js`
-- 운영 문서와 로컬 도구는 배포 제외: `README.md`, `AGENTS.md`, `docs/`, `prd.md`, `.claude/`, `dev-server.mjs`
+공개: HTML, CSS, JS, 이미지, favicon, robots, sitemap, Vercel 설정.
 
-## AI 운영 원칙
+제외: `README.md`, `AGENTS.md`, `docs/`, `prd.md`, `.claude/`, `dev-server.mjs`, `scripts/`, `design-qa.md`.
 
-- 컨텍스트 원칙: 반복 설명은 문서로 고정하고, 새 작업은 `README.md`, `docs/*`, `prd.md`를 먼저 읽고 시작한다.
-- 토큰 원칙: 긴 배경 설명 대신 Context Map의 원본 문서를 참조한다.
-- 하네스 원칙: 변경은 작게 쪼개고, 커밋 전 단일 check 명령을 통과시킨다.
-- 추적 원칙: CTA id, GA4 이벤트, Meta Pixel의 운영 호스트·경로 조건을 함께 본다.
-- 캐시 원칙: CSS/JS/analytics 변경 시 HTML의 버전 쿼리를 함께 갱신한다.
-- 배포 표면 원칙: 운영 문서와 로컬 도구가 Vercel 배포 표면에 노출되지 않게 한다.
-- 안전 원칙: 광고/분석 ID, 외부 링크, rewrite 정책은 명시 승인 없이 바꾸지 않는다.
+## 위험 경계
 
-## 위험 작업 규칙
+- GA4 ID, Meta Pixel ID, 카카오 URL 변경은 별도 승인 없이 하지 않는다.
+- 실제 문의가 확인되지 않는 클라이언트 이벤트에 `Lead`를 사용하지 않는다.
+- 운영 배포·main push는 사용자 승인 전 금지한다.
+- 쿠키·동의 정책의 법적 적합성은 코드 검수와 별도의 법률 검토 대상이다.
 
-- 즉시 가능: 문서 보강, 오탈자 수정, 작은 CSS/JS 수정, 명확한 링크 불일치 수정.
-- 보고 후 진행: 섹션 구조 변경, CTA 문구 변경, 이벤트 바인딩 변경, Vercel 설정 보강.
-- 승인 전 금지: GA4 측정 ID 변경, Meta Pixel ID 변경, 카카오 오픈채팅 URL 변경, `/interview` rewrite 변경, 광고/오가닉 추적 정책 변경.
-- 승인 전 금지: 운영 문서, 로컬 도구, 내부 설정을 공개 배포 표면에 노출하는 변경.
-
-## SEO 기본 파일
-
-- `index.html`: 대표 URL canonical, Open Graph, Twitter card, Organization 구조화 데이터
-- `robots.txt`: 전체 크롤링 허용 및 `https://www.aurorasound.kr/sitemap.xml` 안내
-- `sitemap.xml`: 색인 대상 대표 URL을 명시한다. `privacy.html`과 `terms.html`은 `noindex`이므로 사이트맵에 넣지 않는다.
-
-## Definition of Done
-
-- 요청 범위 안에서만 변경했다.
-- URL/추적/CTA 정책을 보존했다.
-- CSS/JS/analytics 변경 시 캐시 버스팅 버전을 확인했다.
-- 문서나 배포 표면이 바뀌면 관련 문서를 갱신했다.
-- 커밋 전 check 명령을 통과시켰다.
-- 실패한 검증, 남은 위험, 미해결 TODO를 보고했다.
-
-## 검증 루틴
-
-커밋 전 아래 명령을 통과시킨다.
+## 검증
 
 ```bash
-rg --files -g '*.js' -g '*.mjs' -g '!node_modules' -g '!dist' -g '!build' -g '!coverage' -g '!.next' -g '!out' -g '!output' -g '!preview' -g '!.cache' | xargs -n1 node --check
+npm run check
 ```
 
-UI/카피 변경은 로컬 서버에서 `/`와 `/interview`를 모두 확인한다.
+추가 수동 확인:
 
-## check 명령 탐색 기록
-
-- `package.json`에 `dev`, `preview`만 있음
-- 빌드 스텝 없음
-- Node.js 문법 검사를 단일 check로 사용
-
-## 문서 유지 규칙
-
-- 제품 범위/URL 전략 변경: `docs/PRD.md`, `prd.md`, `README.md`
-- 기술 구조/check 변경: `docs/TRD.md`, `README.md`
-- 작업 루틴 변경: `docs/WORKFLOWS.md`
-- 디자인/카피 방향 변경: `docs/DESIGN.md`, `prd.md`
-- 배포 제외 규칙 변경: `.vercelignore`, `docs/TRD.md`, `docs/DECISIONS.md`
-- 추적 정책 변경: `prd.md`, `docs/TRD.md`, `docs/DECISIONS.md`
+- `/`, `/interview` 데스크톱과 390px 모바일
+- 핵심 CTA 링크와 새 탭 동작
+- FAQ 열기·닫기와 키보드 포커스
+- 로컬 GA4·Meta 네트워크 요청 0건
+- 콘솔 오류 0건
+- 레퍼런스 시안과 구현 캡처 비교
