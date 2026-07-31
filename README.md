@@ -1,105 +1,90 @@
 # 오로라의소리 랜딩페이지
 
-이미 마케팅을 운영 중인 전문직과 소규모 사업자가 다음 한 달의 우선순위, 직원·기존 업체에 전달할 수정 기준, 직접 할 일과 맡길 일을 정하는 **오로라의소리 1시간 진단 미팅** 랜딩페이지입니다.
+이미 마케팅을 하고 있지만 채널과 방향이 흩어진 사업을 위해, 지금 필요한 콘텐츠의 우선순위를 정하고 제작·운영까지 맡는 오로라의소리 랜딩페이지입니다.
 
-대표 URL은 `https://www.aurorasound.kr`이며, 광고 확인용 URL은 `https://www.aurorasound.kr/interview`입니다. 두 URL은 같은 랜딩을 보여주고, 경로와 UTM으로 광고/오가닉 유입만 구분합니다.
+- 대표 URL: `https://www.aurorasound.kr/`
+- 광고 URL: `https://www.aurorasound.kr/interview`
+- 상담 CTA: `마케팅 상담하기`
+
+두 URL은 같은 랜딩을 보여줍니다. 루트는 대표·오가닉 유입, `/interview`는 광고 유입으로 분석 맥락만 구분합니다. `/interview/`는 Vercel에서 `/interview`로 정규화합니다.
 
 ## 구조
 
 ```text
-index.html       공통 랜딩페이지 (`/`, `/interview` 모두 서빙)
-style.css        전체 스타일
-script.js        UI 인터랙션
-analytics.js     GA4 초기화 및 클릭 이벤트 추적
-favicon.svg      브라우저 탭 아이콘
-privacy.html     개인정보처리방침
-terms.html       서비스 이용약관
-robots.txt       검색 엔진 크롤링 허용 및 사이트맵 위치 안내
-sitemap.xml      대표 공개 URL 사이트맵
-vercel.json      /interview → index.html rewrite 설정
-prd.md           제품 요구사항 및 운영 메모
-dev-server.mjs   로컬 정적 서버
+index.html          공통 랜딩페이지
+style.css           반응형 디자인
+script.js           헤더 스크롤 상태
+analytics.js        GA4·Meta Pixel 이벤트
+assets/             히어로·공유 이미지
+privacy.html        개인정보처리방침
+terms.html          서비스 이용약관
+robots.txt          크롤링 정책
+sitemap.xml         대표 URL 사이트맵
+vercel.json         경로 정규화와 /interview rewrite
+scripts/check-site.mjs  정적 계약 검사
+dev-server.mjs      로컬 정적 서버
 ```
 
 ## 로컬 실행
-
-이 프로젝트는 프레임워크와 빌드 도구가 없는 정적 사이트입니다.
 
 ```bash
 npm run dev
 ```
 
-브라우저에서 오가닉 경로 또는 광고 경로를 엽니다.
+기본 주소는 아래와 같습니다. `4173`이 사용 중이면 다음 포트를 자동으로 찾습니다.
 
 ```text
 http://localhost:4173/
 http://localhost:4173/interview
 ```
 
-`4173` 포트가 이미 사용 중이면 서버가 다음 포트로 자동 실행됩니다. 터미널에 출력되는 주소를 확인하세요.
-
-포트를 바꾸려면 `PORT`를 지정합니다.
+## 검증
 
 ```bash
-PORT=3000 npm run dev
+npm run check
 ```
+
+검사는 HTML 구조, CTA·추적 계약, Meta 이벤트 의미, 필수 이미지 크기, Vercel 경로 정책과 JS 문법을 확인합니다. UI 변경은 데스크톱과 모바일에서 `/`, `/interview`를 모두 직접 확인합니다.
 
 ## 배포
 
-Vercel 프로젝트 `aurora-landing-page`에 연결되어 있으며, GitHub `main` 브랜치 push 후 자동 배포됩니다.
+Vercel 프로젝트 `aurora-landing-page`가 GitHub `main` 브랜치 push 후 자동 배포합니다. 빌드 스텝은 없습니다. 운영 문서와 로컬 검수 파일은 `.vercelignore`로 제외합니다.
 
-빌드 스텝은 없습니다. 정적 파일이 그대로 배포됩니다.
+브랜치·로컬 미리보기에서 검수하기 전에는 `main`에 push하지 않습니다.
 
-운영 문서와 로컬 도구는 [.vercelignore](.vercelignore)로 배포에서 제외합니다.
+## URL과 추적
 
-## 검증
+- GA4는 운영 호스트에서만 실행합니다.
+- Meta Pixel `PageView`는 운영 호스트의 `/interview`에서만 한 번 실행합니다.
+- 광고 경로의 카카오 외부 링크 클릭은 Meta `Contact`로 기록합니다. 이것은 실제 문의나 `Lead`가 아닙니다.
+- 모든 추적 링크는 HTML의 `data-track`을 원본으로 사용합니다.
+- 주요 카카오 CTA는 GA4 `click_cta_primary`와 `click_kakao_openchat`을 함께 보냅니다.
+- 모든 클릭 이벤트에 `landing_type`, `landing_path`, UTM 5종, `button_id`, `cta_location`, `is_primary_cta`를 붙입니다.
+- `engaged_10s`는 보이는 탭의 누적 열람 10초를 경로별 세션당 한 번 기록합니다.
 
-커밋 전 아래 명령을 통과시킵니다.
-
-```bash
-rg --files -g '*.js' -g '*.mjs' -g '!node_modules' -g '!dist' -g '!build' -g '!coverage' -g '!.next' -g '!out' -g '!output' -g '!preview' -g '!.cache' | xargs -n1 node --check
-```
-
-## Context Map
-
-- 제품 의도: `docs/PRD.md`, 원본 `prd.md`
-- 디자인/카피 규칙: `docs/DESIGN.md`, 원본 `prd.md`
-- 리뉴얼 기획: `docs/RENEWAL_BRIEF.md`
-- 기술 구조와 위험 규칙: `docs/TRD.md`
-- 작업 루틴과 리뷰/디버깅: `docs/WORKFLOWS.md`
-- 주요 결정 기록: `docs/DECISIONS.md`
-- AI 작업 규칙: `AGENTS.md`
-- 운영 원본: `README.md`, `prd.md`
-- 배포 표면: Vercel 정적 배포, `vercel.json`, `.vercelignore`
-
-## URL / 유입 구분
-
-- `https://www.aurorasound.kr`: 유튜브 고정댓글, 인스타그램, 스레드, 네이버 블로그, 명함, QR 등 모든 오가닉/대표 유입
-- `https://www.aurorasound.kr/interview`: Meta 광고 등 광고 캠페인 유입 확인용
-
-두 주소는 같은 랜딩을 보여줍니다. 향후 정식 홈페이지를 만들 때 루트 정보 구조와 CTA 흐름을 다시 정리합니다.
-
-광고 URL에는 UTM을 붙입니다.
+광고 URL 예시:
 
 ```text
 https://www.aurorasound.kr/interview?utm_source=meta&utm_medium=paid_social&utm_campaign=...
 ```
 
-## 추적 설정
+## 수정 체크리스트
 
-GA4 측정 ID는 [analytics.js](analytics.js)의 `GA_MEASUREMENT_ID`에서 관리합니다.
+- 스타일 변경 시 `style.css?v=`를 올립니다.
+- UI 스크립트 변경 시 `script.js?v=`를 올립니다.
+- 추적 변경 시 모든 HTML의 `analytics.js?v=`를 올립니다.
+- CTA는 고유 `id`, `data-track`, 카카오 링크의 `data-cta-location`을 유지합니다.
+- 실제 문의가 확인되지 않는 클라이언트 이벤트에 Meta `Lead`를 쓰지 않습니다.
+- 모바일 390px에서 가로 스크롤, 잘린 제목, CTA 터치 영역을 확인합니다.
+- 구조·정책 변경은 `prd.md`, 관련 `docs/*`, `docs/DECISIONS.md`에 반영합니다.
+- 마지막에 `npm run check`를 실행합니다.
 
-GA4와 Meta Pixel은 `www.aurorasound.kr`, `aurorasound.kr`에서만 실행되며 localhost 미리보기는 수집하지 않습니다. CTA 이벤트에는 `landing_type`, `landing_path`, UTM 5종이 함께 전송됩니다.
+## Context Map
 
-GA4에서 `click_cta_primary`는 세션당 한 번 집계하는 주요 이벤트로 설정했고, `button_id`와 `landing_type`은 이벤트 범위 맞춤 측정기준으로 등록했습니다.
-
-Meta Pixel은 [index.html](index.html)에서 운영 도메인의 `/interview`, `/interview/` 경로에만 실행되며, 광고 경로의 카카오 CTA 클릭은 Meta `Contact`로 전송됩니다. 실제 유효 문의와 단순 링크 클릭은 구분합니다.
-
-## 수정 시 체크리스트
-
-- `style.css`를 수정하면 [index.html](index.html)의 `style.css?v=17` 버전을 올립니다.
-- `script.js`를 수정하면 [index.html](index.html)의 `script.js?v=5` 버전을 올립니다.
-- `analytics.js`를 수정하면 HTML의 `analytics.js?v=6` 버전을 올립니다.
-- CTA 또는 외부 링크 id를 바꾸면 [analytics.js](analytics.js)의 이벤트 바인딩도 함께 확인합니다.
-- 모바일 가로 스크롤 이슈가 재발하지 않는지 확인합니다.
-- 운영 메모는 [prd.md](prd.md)에 반영합니다.
+- 제품 원본: `prd.md`
+- 디자인·카피: `docs/DESIGN.md`
+- 기술·추적: `docs/TRD.md`
+- 작업 절차: `docs/WORKFLOWS.md`
+- 이번 리뉴얼 기준: `docs/RENEWAL_BRIEF.md`
+- 주요 결정: `docs/DECISIONS.md`
+- AI 작업 규칙: `AGENTS.md`

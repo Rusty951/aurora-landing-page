@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "node dev-server.mjs",
-    "preview": "node dev-server.mjs"
+    "preview": "node dev-server.mjs",
+    "check": "node scripts/check-site.mjs && node --check analytics.js && node --check script.js && node --check dev-server.mjs"
   },
   "private": true
 }
