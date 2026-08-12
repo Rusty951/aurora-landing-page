@@ -1,8 +1,8 @@
 # 오로라의소리 랜딩페이지
 
-Status: `LOCAL RELEASE CANDIDATE r2 READY / PRODUCTION V2 / PUBLIC DEPLOYMENT APPROVED — RELEASE IN PROGRESS`
+Status: `LIVE r2 / PRODUCTION VERIFIED`
 
-> `codex/landing-rebrand-r2`에는 승인된 `creative-brief-r2.md`를 반영한 카피·디자인·정적 코드·OG가 구현돼 있다. 2026-08-12 대표가 exact final 공개 배포를 승인했으며 branch preview와 production 검증을 진행한다. production 확인이 끝나기 전까지 운영 `https://www.aurorasound.kr/`는 V2로 기록한다.
+> 승인된 `creative-brief-r2.md`를 반영한 r2는 2026-08-12 release commit `d96151e842d2fb3a3573ead56bebf1ea1b6ff371`로 `main`에 공개됐다. Vercel production Ready, 운영 경로·화면·자산·추적 계약 검증을 통과했으며 `https://www.aurorasound.kr/`의 현재 운영 버전은 r2다.
 
 사업이 바뀌는 순간 고객에게 무엇으로 보일지 정하고, 첫 콘텐츠와 우선 접점에 적용하는 `리브랜딩 실행 파트너` 랜딩페이지다.
 

@@ -1,5 +1,11 @@
 # Decisions
 
+## 2026-08-12: r2를 LIVE로 전환하고 production 검증을 닫는다
+
+- 결정: release commit `d96151e842d2fb3a3573ead56bebf1ea1b6ff371`를 `main`에 fast-forward push하고 Vercel production deployment `5866528146`과 운영 URL을 검증해 현재 버전을 `LIVE r2`로 기록한다.
+- 이유: preview와 production이 같은 release SHA로 Ready였고, 운영 HTML·CSS·JS·analytics·OG 해시, 200·308 경로, 1440·390 계열 화면, 내부 문서 404, GA·Meta 로더와 카카오 CTA 계약이 승인본과 일치했다.
+- 영향: `리브랜딩 실행 파트너`, 두 상품과 적합성 대화가 현재 공개 제품이다. 랜딩 단독 인바운드 성과는 아직 미검증이며 타 클라이언트 사례·검증 전 경력·가격·성과 수치는 계속 공개하지 않는다.
+
 ## 2026-08-12: r2 exact final 공개 배포를 승인받고 릴리스를 시작한다
 
 - 결정: 대표가 `r2 최종본 공개 배포 승인`을 명시해 `codex/landing-rebrand-r2`의 현재 카피·디자인·코드·OG·문서 exact final을 commit하고 branch preview 검수 뒤 plain `main` push로 공개할 수 있게 한다.

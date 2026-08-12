@@ -1,8 +1,8 @@
 # 오로라의소리 랜딩페이지 PRD
 
-Status: `LOCAL RELEASE CANDIDATE r2 READY / PRODUCTION V2 / PUBLIC DEPLOYMENT APPROVED — RELEASE IN PROGRESS`
+Status: `LIVE r2 / PRODUCTION VERIFIED`
 
-> 제품 정본은 승인된 Desktop `aurora-landing-revamp/creative-brief-r2.md`와 C001 `20_STRATEGY/positioning-and-offers.md`다. 2026-08-12 대표가 현재 브랜치의 exact final 공개 배포를 승인했다. branch preview와 production 검증까지 끝나야 상태를 `LIVE r2`로 바꾼다.
+> 제품 정본은 승인된 Desktop `aurora-landing-revamp/creative-brief-r2.md`와 C001 `20_STRATEGY/positioning-and-offers.md`다. 2026-08-12 공개 승인 뒤 release commit `d96151e842d2fb3a3573ead56bebf1ea1b6ff371`의 branch preview와 production 검증을 마쳤다.
 
 ## 제품 정의
 

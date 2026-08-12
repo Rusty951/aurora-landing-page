@@ -1,6 +1,6 @@
 # PRD Map
 
-Status: `LOCAL RELEASE CANDIDATE r2 READY / PRODUCTION V2 / PUBLIC DEPLOYMENT APPROVED — RELEASE IN PROGRESS`
+Status: `LIVE r2 / PRODUCTION VERIFIED`
 
 상세 제품 원본은 루트 `prd.md`다. 제품 범위, URL, CTA, 추적 의미가 바뀌면 `prd.md`, `README.md`, 이 문서를 함께 갱신한다.
 

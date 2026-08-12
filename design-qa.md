@@ -1,6 +1,6 @@
 # Design QA — Landing r2 Release Candidate
 
-Status: `LOCAL PASS / P0·P1·P2 0 / PRODUCTION NOT YET TESTED`
+Status: `LIVE r2 / PRODUCTION PASS / P0·P1·P2 0`
 
 ## 검수 대상
 
@@ -10,7 +10,7 @@ Status: `LOCAL PASS / P0·P1·P2 0 / PRODUCTION NOT YET TESTED`
 - 화면: 1440×1024, 390×844, 320×568
 - 캡처: `/Users/bananabk/Desktop/codex-output/aurora-landing-revamp/qa-r2/`
 
-2026-08-12 대표가 exact final 공개 배포를 승인했다. 운영 `https://www.aurorasound.kr/`는 production 검증이 끝나기 전까지 V2로 기록하며, 이 문서의 현재 r2 visual pass는 로컬 release candidate에 적용한다.
+2026-08-12 대표가 exact final 공개 배포를 승인했고 release commit `d96151e842d2fb3a3573ead56bebf1ea1b6ff371`를 `main`에 공개했다. 로컬·preview·운영 `https://www.aurorasound.kr/` 검증 결과를 이 문서에 함께 기록한다.
 
 ## 선택한 방향
 
@@ -144,14 +144,16 @@ PASS
 
 1440·390·320 화면, 두 상품, 진행 순서, 적합성, FAQ와 OG를 재검수했다. 로컬 기준에서 남은 P0·P1·P2는 없다.
 
-## production에서만 남은 검증
+## production 검증 결과
 
-- Vercel preview·production Ready와 source SHA
-- `/interview/` 308 및 query 유지
-- 내부 문서·OG 렌더 원본 404
-- 운영 GA4·Meta PageView·Contact event payload
-- 클라이언트 `Lead` 미전송
+- Vercel preview와 production이 release SHA `d96151e842d2fb3a3573ead56bebf1ea1b6ff371`로 Ready
+- `/` 200, `/interview` 200, `/interview/` 308와 QA UTM query 유지
+- 운영 `/`와 `/interview` HTML SHA-256가 승인본 `2c8d04288b0fb057598923819969c449b2ba4541ad240fb3e5a2f06dce4dd521`로 동일
+- CSS v19, script v6, analytics v7, 1200×630 OG 해시가 승인 manifest와 동일
+- 법적 문서·robots·sitemap 200, 내부 문서와 `scripts/og-card.html` 404
+- preview 1440·390, production desktop·390에서 가로 넘침 0과 히어로·CTA 위계 유지
+- 운영 root는 GA 로더 1·Meta 로더 0, `/interview`는 GA·Meta 로더 각 1과 PageView 초기화 1
+- QA UTM의 hero CTA 실제 클릭이 승인된 카카오 오픈채팅으로 열렸고 콘솔 오류 0
+- 클라이언트 `Lead` 호출 0, Meta `Contact=outbound_click`과 GA CTA 이벤트 계약 유지
 
-최종 변경본의 공개 승인을 받았으며 branch preview와 production에서 수행한다.
-
-final result: `LOCAL PASS / PUBLIC DEPLOYMENT APPROVED / RELEASE IN PROGRESS`
+final result: `LIVE r2 / PRODUCTION PASS / P0·P1·P2 0`
