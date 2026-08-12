@@ -1,5 +1,9 @@
 # PRD Map
 
+Status: `CURRENT LIVE V2 / REVAMP HELD / NO PRODUCTION`
+
+> 2026-08-12 대표 결정으로 준비한 리브랜딩 개편은 실제 제작하지 않는다. 이 문서는 현재 라이브 V2만 설명하며, 재개에는 새 명시 요청과 새 `APPROVED` 브리프가 필요하다.
+
 상세 제품 원본은 루트 `prd.md`다. 제품 범위, URL, CTA, 추적 의미가 바뀌면 `prd.md`, `README.md`, 이 문서를 함께 갱신한다.
 
 ## 현재 제품

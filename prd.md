@@ -1,5 +1,9 @@
 # 오로라의소리 랜딩페이지 PRD
 
+Status: `CURRENT LIVE V2 / 2026-08-12 REVAMP HELD / NO PRODUCTION`
+
+> 이 문서는 현재 라이브 제품을 설명한다. 준비했던 `리브랜딩 실행 파트너` 개편은 2026-08-12 대표 결정으로 실제 제작하지 않는다. Desktop의 `aurora-landing-revamp/creative-brief.md`는 `HELD` 기록이며 이 PRD와 운영 source를 덮지 않는다. 재개에는 새 명시 요청과 새 `APPROVED` 브리프가 필요하다.
+
 ## 제품 정의
 
 오로라의소리는 단품 제작 업체가 아니라, 사업에 필요한 콘텐츠를 판단하고 제작·운영까지 이어가는 외부 실행 파트너다. 상담과 진단은 계약 전 진입 과정이며 최종 상품의 전부가 아니다.
