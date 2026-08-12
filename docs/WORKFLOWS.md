@@ -9,12 +9,13 @@
 
 ## 랜딩 수정
 
-1. 문제·타깃·약속·CTA 중 무엇을 바꾸는지 고정한다.
-2. `/`와 `/interview`가 같은 핵심 화면을 유지하는지 확인한다.
-3. CTA는 `id`, `data-track`, `data-cta-location`, 필요 시 `data-primary-cta`를 함께 갱신한다.
-4. 스타일·UI·추적 파일을 바꾸면 캐시 버전을 올린다.
-5. `npm run check`를 실행한다.
-6. 로컬 데스크톱과 390px 모바일을 캡처하고 육안 비교한다.
+1. 현재 Creative Brief 상태를 확인한다. `DRAFT`·`HELD`면 브리프 검토에서 멈추고 source·카피·디자인·OG를 수정하지 않는다.
+2. `APPROVED` 브리프에서 문제·타깃·약속·CTA 중 무엇을 바꾸는지 고정한다.
+3. `/`와 `/interview`가 같은 핵심 화면을 유지하는지 확인한다.
+4. CTA는 `id`, `data-track`, `data-cta-location`, 필요 시 `data-primary-cta`를 함께 갱신한다.
+5. 스타일·UI·추적 파일을 바꾸면 캐시 버전을 올린다.
+6. `npm run check`를 실행한다.
+7. 로컬 데스크톱과 390px 모바일을 캡처하고 육안 비교한다.
 
 ## 분석 수정
 

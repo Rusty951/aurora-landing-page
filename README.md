@@ -1,33 +1,33 @@
 # 오로라의소리 랜딩페이지
 
-Status: `CURRENT LIVE V2 / 2026-08-12 REBRAND REVAMP HELD / NO PRODUCTION`
+Status: `LOCAL RELEASE CANDIDATE r2 READY / PRODUCTION V2 / PUBLIC DEPLOYMENT APPROVED — RELEASE IN PROGRESS`
 
-> 아래 내용은 현재 운영 중인 V2를 설명한다. 준비했던 `리브랜딩 실행 파트너` 개편은 2026-08-12 대표 결정으로 `HELD`됐으며 실제 제작하지 않는다. source·카피·OG·제품 문서와 운영 배포는 현재 상태를 유지한다. 재개에는 새 명시 요청과 당시 기준으로 다시 검토한 별도 `APPROVED` 브리프가 필요하다.
+> `codex/landing-rebrand-r2`에는 승인된 `creative-brief-r2.md`를 반영한 카피·디자인·정적 코드·OG가 구현돼 있다. 2026-08-12 대표가 exact final 공개 배포를 승인했으며 branch preview와 production 검증을 진행한다. production 확인이 끝나기 전까지 운영 `https://www.aurorasound.kr/`는 V2로 기록한다.
 
-이미 마케팅을 하고 있지만 채널과 방향이 흩어진 사업을 위해, 지금 필요한 콘텐츠의 우선순위를 정하고 제작·운영까지 맡는 오로라의소리 랜딩페이지입니다.
+사업이 바뀌는 순간 고객에게 무엇으로 보일지 정하고, 첫 콘텐츠와 우선 접점에 적용하는 `리브랜딩 실행 파트너` 랜딩페이지다.
 
 - 대표 URL: `https://www.aurorasound.kr/`
 - 광고 URL: `https://www.aurorasound.kr/interview`
-- 상담 CTA: `마케팅 상담하기`
+- 주력 상품: `리브랜딩 실행 프로젝트`
+- 별도 반복 상품: `월간 브랜드 마케팅`
+- 주요 CTA: `적합성 대화 요청하기`
+- 연결: `https://open.kakao.com/o/sMBNyzpi`
+- 문의 첫 줄: `리브랜딩 / 월간 / 기타`
 
-두 URL은 같은 랜딩을 보여줍니다. 루트는 대표·오가닉 유입, `/interview`는 광고 유입으로 분석 맥락만 구분합니다. `/interview/`는 Vercel에서 `/interview`로 정규화합니다.
+카카오 링크 자체가 문의 유형을 자동 분류하지는 않는다. 페이지의 첫 메시지 안내로 방문자가 유형을 직접 적게 하고, 실제 대화·적합 문의·제안·계약은 클릭 이벤트와 별도로 기록한다.
 
-## 구조
+## 페이지 흐름
 
-```text
-index.html          공통 랜딩페이지
-style.css           반응형 디자인
-script.js           헤더 스크롤 상태
-analytics.js        GA4·Meta Pixel 이벤트
-assets/             히어로·공유 이미지
-privacy.html        개인정보처리방침
-terms.html          서비스 이용약관
-robots.txt          크롤링 정책
-sitemap.xml         대표 URL 사이트맵
-vercel.json         경로 정규화와 /interview rewrite
-scripts/check-site.mjs  정적 계약 검사
-dev-server.mjs      로컬 정적 서버
-```
+1. 사업 변화 시점과 오로라의 역할
+2. 리브랜딩이 필요한 실제 상태
+3. 콘텐츠 중심 역할과 로고·UI·공간·경영 컨설팅 경계
+4. 리브랜딩 실행 프로젝트와 월간 브랜드 마케팅 분리
+5. 적합성 대화부터 인계·종료까지의 승인형 진행 순서
+6. 대표·AI·전문 파트너의 책임 구조와 제외 업무
+7. 적합·비적합 조건
+8. FAQ와 20~30분 적합성 대화 CTA
+
+공개 승인된 C001 자체 사례·성과·후기·경력 문구가 아직 없으므로 타 클라이언트 사례, 검증 전 경력, 가상 성과를 증거로 쓰지 않는다. 첫 배포 후보는 진행 순서·책임 구조·제외 경계만 확인 가능한 운영 기준으로 제시한다.
 
 ## 로컬 실행
 
@@ -35,60 +35,60 @@ dev-server.mjs      로컬 정적 서버
 npm run dev
 ```
 
-기본 주소는 아래와 같습니다. `4173`이 사용 중이면 다음 포트를 자동으로 찾습니다.
+- 대표/오가닉: `http://localhost:4173/`
+- 광고 랜딩: `http://localhost:4173/interview`
 
-```text
-http://localhost:4173/
-http://localhost:4173/interview
-```
-
-## 검증
+## 검사
 
 ```bash
 npm run check
+git diff --check
 ```
 
-검사는 HTML 구조, CTA·추적 계약, Meta 이벤트 의미, 필수 이미지 크기, Vercel 경로 정책과 JS 문법을 확인합니다. UI 변경은 데스크톱과 모바일에서 `/`, `/interview`를 모두 직접 확인합니다.
+정적 검사는 HTML 구조, r2 필수·금지 카피, CTA·카카오 URL·추적 계약, SEO 메타, CSS 캐시 버전, reduced motion, AVIF 우선 자산, Meta 이벤트 의미, OG 1200×630 PNG와 Vercel 경로 정책을 확인한다.
+
+로컬 시각 검수 기준은 다음과 같다.
+
+- `/`, `/interview`: 1440×1024, 390×844, 320×568
+- 가로 넘침 0
+- 한 개 H1, 네이티브 FAQ, 44px 이상 주요 조작 영역
+- `/interview` 비필수 채널 숨김
+- localhost GA4·Meta 미실행과 콘솔 오류 0
+- 캡처: `~/Desktop/codex-output/aurora-landing-revamp/qa-r2/`
+
+## 파일 구조
+
+- `index.html`: `/`, `/interview` 공통 랜딩과 SEO·Meta Pixel 원본
+- `style.css`: r2 다크 편집형 디자인과 반응형
+- `script.js`: 고정 헤더 상태
+- `analytics.js`: 운영 호스트 GA4와 광고 경로 Meta 이벤트
+- `assets/aurora-wave-bg.avif`: 히어로·최종 CTA 배경
+- `assets/aurora-og.png`: r2 1200×630 공유 이미지
+- `scripts/og-card.html`: 배포 제외 OG 렌더 원본
+- `scripts/check-site.mjs`: 정적 계약 검사
+- `vercel.json`: `/interview` rewrite와 trailing slash 정책
 
 ## 배포
 
-Vercel 프로젝트 `aurora-landing-page`가 GitHub `main` 브랜치 push 후 자동 배포합니다. 빌드 스텝은 없습니다. 운영 문서와 로컬 검수 파일은 `.vercelignore`로 제외합니다.
+Vercel 프로젝트 `aurora-landing-page`가 GitHub `main` push 뒤 자동 배포한다. 빌드 스텝은 없다.
 
-브랜치·로컬 미리보기에서 검수하기 전에는 `main`에 push하지 않습니다.
+1. 기능 브랜치에서 로컬 검수를 완료한다.
+2. 정확한 변경 파일·검증 결과·남은 위험을 사용자에게 제시한다.
+3. 명시적 공개 승인을 받는다.
+4. 그 뒤에만 commit·branch push·preview 검수·`main` push를 진행한다.
+5. 운영 `/`, `/interview`, `/interview/` 정규화, 배포 표면과 실제 이벤트를 다시 검증한다.
+
+force push는 사용하지 않는다. 실패하면 이전 Vercel production 재승격 또는 새 revert commit으로 복구한다.
 
 ## URL과 추적
 
-- GA4는 운영 호스트에서만 실행합니다.
-- Meta Pixel `PageView`는 운영 호스트의 `/interview`에서만 한 번 실행합니다.
-- 광고 경로의 카카오 외부 링크 클릭은 Meta `Contact`로 기록합니다. 이것은 실제 문의나 `Lead`가 아닙니다.
-- 모든 추적 링크는 HTML의 `data-track`을 원본으로 사용합니다.
-- 주요 카카오 CTA는 GA4 `click_cta_primary`와 `click_kakao_openchat`을 함께 보냅니다.
-- 모든 클릭 이벤트에 `landing_type`, `landing_path`, UTM 5종, `button_id`, `cta_location`, `is_primary_cta`를 붙입니다.
-- `engaged_10s`는 보이는 탭의 누적 열람 10초를 경로별 세션당 한 번 기록합니다.
+- GA4는 운영 호스트에서만 실행한다.
+- Meta Pixel `PageView`는 운영 호스트의 `/interview`에서만 한 번 실행한다.
+- 광고 경로의 카카오 외부 링크 클릭은 Meta `Contact`로 기록한다. 실제 문의나 `Lead`가 아니다.
+- 주요 카카오 CTA는 GA4 `click_cta_primary`와 `click_kakao_openchat`을 함께 보낸다.
+- 이벤트에는 `landing_type`, `landing_path`, UTM 5종, `button_id`, `cta_location`, `is_primary_cta`가 붙는다.
+- `script.js?v=6`, `analytics.js?v=7`의 의미는 바꾸지 않았고 `style.css`만 `v=19`로 올렸다.
 
-광고 URL 예시:
+## 공개 표면
 
-```text
-https://www.aurorasound.kr/interview?utm_source=meta&utm_medium=paid_social&utm_campaign=...
-```
-
-## 수정 체크리스트
-
-- 스타일 변경 시 `style.css?v=`를 올립니다.
-- UI 스크립트 변경 시 `script.js?v=`를 올립니다.
-- 추적 변경 시 모든 HTML의 `analytics.js?v=`를 올립니다.
-- CTA는 고유 `id`, `data-track`, 카카오 링크의 `data-cta-location`을 유지합니다.
-- 실제 문의가 확인되지 않는 클라이언트 이벤트에 Meta `Lead`를 쓰지 않습니다.
-- 모바일 390px에서 가로 스크롤, 잘린 제목, CTA 터치 영역을 확인합니다.
-- 구조·정책 변경은 `prd.md`, 관련 `docs/*`, `docs/DECISIONS.md`에 반영합니다.
-- 마지막에 `npm run check`를 실행합니다.
-
-## Context Map
-
-- 제품 원본: `prd.md`
-- 디자인·카피: `docs/DESIGN.md`
-- 기술·추적: `docs/TRD.md`
-- 작업 절차: `docs/WORKFLOWS.md`
-- 이번 리뉴얼 기준: `docs/RENEWAL_BRIEF.md`
-- 주요 결정: `docs/DECISIONS.md`
-- AI 작업 규칙: `AGENTS.md`
+`.vercelignore`는 `README.md`, `AGENTS.md`, `CLAUDE.md`, `docs/`, `prd.md`, `dev-server.mjs`, `scripts/`, `design-qa.md`를 배포에서 제외한다. production 배포 후 이 경로들이 404인지 다시 확인한다.

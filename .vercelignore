@@ -4,6 +4,7 @@
 .claude/
 README.md
 AGENTS.md
+CLAUDE.md
 docs/
 prd.md
 dev-server.mjs

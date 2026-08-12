@@ -1,8 +1,8 @@
 # Landing V2 Renewal Brief
 
-Status: `HISTORICAL / CURRENT LIVE V2 SOURCE / 2026-08-12 REVAMP HELD / NO PRODUCTION`
+Status: `HISTORICAL / CURRENT PRODUCTION V2 / r2 PUBLIC RELEASE IN PROGRESS`
 
-> 이 문서는 2026-07-31 V2 개편 이력이다. 새 랜딩 제작 정본이 아니며, 준비했던 다음 개편은 2026-08-12 대표 결정으로 실제 제작하지 않는다. Desktop 브리프는 `HELD` 기록으로만 보존하고 자동 재개하지 않는다.
+> 이 문서는 2026-07-31 V2 개편 이력이며 새 랜딩 제작 정본이 아니다. 기존 Desktop `creative-brief.md`는 `HELD` 기록으로 보존한다. 현재 r2 정본은 별도 `creative-brief-r2.md`이고, 로컬 구현과 exact final 공개 승인이 완료돼 branch preview와 production 검증을 진행한다.
 
 ## 목적
 

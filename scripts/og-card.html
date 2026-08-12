@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1200, initial-scale=1" />
+  <title>오로라의소리 OG 카드</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <style>
+    * { box-sizing: border-box; }
+    html,
+    body { width: 1200px; height: 630px; }
+    body {
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+      background: #09090e url("/assets/aurora-wave-bg.avif") center right / cover no-repeat;
+      color: #f5f3f8;
+      font-family: "Pretendard Variable", Pretendard, sans-serif;
+      word-break: keep-all;
+    }
+    body::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(5, 5, 9, .28), rgba(5, 5, 9, .04) 67%, rgba(5, 5, 9, .16));
+    }
+    main {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 60px 72px 52px;
+    }
+    .wordmark {
+      font-size: 22px;
+      font-weight: 770;
+      letter-spacing: -.04em;
+    }
+    .content {
+      margin-top: auto;
+    }
+    .eyebrow {
+      color: #d1bcff;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 20px 0 0;
+      font-size: 70px;
+      font-weight: 820;
+      line-height: 1.06;
+      letter-spacing: -.06em;
+    }
+    h1 span { color: #a276ff; }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-top: 32px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, .22);
+      color: #cbc7d2;
+      font-size: 17px;
+    }
+    .footer strong {
+      color: #f5f3f8;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="wordmark">오로라의소리</p>
+    <div class="content">
+      <p class="eyebrow">리브랜딩 실행 파트너</p>
+      <h1>사업이 바뀌는 순간,<br /><span>고객에게 보이는 것</span>부터 바꿉니다</h1>
+      <div class="footer">
+        <p>새 인식 → 콘텐츠 기준 → 첫 적용</p>
+        <p><strong>aurorasound.kr</strong></p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

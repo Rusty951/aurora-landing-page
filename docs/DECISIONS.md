@@ -1,16 +1,40 @@
 # Decisions
 
-## 2026-08-12: 리브랜딩 실행 파트너 개편은 실제 제작하지 않는다
+## 2026-08-12: r2 exact final 공개 배포를 승인받고 릴리스를 시작한다
+
+- 결정: 대표가 `r2 최종본 공개 배포 승인`을 명시해 `codex/landing-rebrand-r2`의 현재 카피·디자인·코드·OG·문서 exact final을 commit하고 branch preview 검수 뒤 plain `main` push로 공개할 수 있게 한다.
+- 이유: 승인된 r2 구현과 로컬 QA, 공개될 파일·유지한 추적 계약·제거한 V2 요소를 릴리스 manifest로 확인한 뒤 운영 반영을 결정했다.
+- 영향: DNS·GA4·Meta ID·카카오 URL·이벤트 의미·유료 또는 생성 도구 범위는 바꾸지 않는다. preview와 production source SHA, 경로, 화면, 내부 문서 차단, 운영 추적을 확인하기 전에는 상태를 `LIVE r2`로 올리지 않는다.
+
+## 2026-08-12: r2 로컬 릴리스 후보를 완성하고 공개 승인에서 멈춘다
+
+- 결정: `codex/landing-rebrand-r2`에 승인된 r2 카피·다크 편집형 디자인·정적 코드·1200×630 OG를 구현하고 로컬 QA를 통과시킨 뒤, exact final 변경본의 공개 승인 전에는 commit·push·production 배포하지 않는다.
+- 이유: 최신 C001 포지션과 두 상품을 운영 V2에 반영하되 타 클라이언트 사례·검증 전 경력·무료 전략 오인을 제거해야 하고, 공개 배포는 사용자가 실제 후보를 확인한 뒤 승인하는 순서를 지켜야 한다.
+- 영향: 운영 URL은 계속 V2다. 카카오 URL, GA4·Meta ID와 이벤트 의미, `/`·`/interview` 라우팅은 유지했고 `style.css?v=19`, r2 의미 검사, 새 OG와 `CLAUDE.md` 배포 제외만 추가했다. 다음 단계는 공개 승인 → commit → branch preview → 검수 → plain main push → 운영 검증이다.
+
+## 2026-08-12: 리브랜딩 실행 파트너 개편 r2 Creative Brief를 APPROVED한다
+
+- 결정: 대표가 Desktop `aurora-landing-revamp/creative-brief-r2.md`에 `APPROVED`를 명시해 r2 범위의 카피·디자인·로컬 코드·OG 제작 게이트를 연다.
+- 이유: 현재 라이브 V2와 과거 진단·HELD 기록을 최신 C001 포지션·두 상품·증거 경계·적합성 대화에 맞춰 다시 검토하고 8필드 제작 기준을 r2에 고정했다.
+- 영향: 승인 기록만으로 제작을 자동 실행하지 않아 라이브 V2와 source·카피·OG·추적·배포는 유지한다. r2 범위 밖 변경은 revision을 올려 `DRAFT`로 되돌리고 유료·생성 도구 호출과 운영 배포는 각각 별도 승인받는다.
+
+## 2026-08-12: [완료 — 같은 날 r2 APPROVED] 리브랜딩 실행 파트너 개편 검토를 ACTIVE DRAFT로 다시 연다
+
+- 결정: 대표의 `열자` 지시로 개편 검토를 `ACTIVE DRAFT / NO PRODUCTION`으로 다시 열고 Desktop `aurora-landing-revamp/creative-brief-r2.md`를 현재 검토면으로 쓴다. 기존 `creative-brief.md`는 `HELD` 역사 기록으로 보존한다.
+- 이유: 현재 라이브 V2의 구현은 안정적이지만 최신 C001 포지션·두 상품·증거 경계·적합성 대화와 제품 서사가 다르므로 제작 전에 새 기준으로 다시 동결해야 한다.
+- 영향: 현재 라이브 V2와 source·카피·OG·추적·배포는 바꾸지 않았다. 같은 날 r2 브리프가 `APPROVED`돼 제작 게이트는 열렸고 운영 배포는 여전히 별도 승인 대상이다.
+
+## 2026-08-12: [부분 대체됨 — 같은 날 ACTIVE DRAFT 재개] 리브랜딩 실행 파트너 개편은 실제 제작하지 않는다
 
 - 결정: 현재 라이브 V2와 source·카피·OG·추적·배포 상태를 그대로 유지하고, 준비한 `리브랜딩 실행 파트너` 개편은 `HELD / NO PRODUCTION`으로 닫는다.
 - 이유: 대표가 이번 랜딩 실제 제작을 진행하지 않기로 명시했다. 승인 대기로 남기면 후속 작업이 이를 미완료 제작 과제로 오인할 수 있다.
 - 영향: Desktop 브리프는 중단 기록으로 보존한다. 새 카피·디자인·코드·OG 제작과 main push·운영 배포를 하지 않으며, 향후 재개에는 새 명시 요청과 당시 기준의 새 `APPROVED` 브리프가 필요하다.
 
-## 2026-08-12: [대체됨 — 같은 날 NO PRODUCTION 결정] 리브랜딩 실행 파트너 개편은 Creative Brief 승인 전 실행하지 않는다
+## 2026-08-12: [역사 기록 — 현재 r2 APPROVED] 리브랜딩 실행 파트너 개편은 Creative Brief 승인 전 실행하지 않는다
 
 - 결정: 현재 라이브 V2와 그 설명 문서는 보존하고, Desktop `aurora-landing-revamp/creative-brief.md`의 8필드가 완전한 상태에서 대표가 `APPROVED`로 명시한 뒤에만 source·카피·OG·제품·디자인 문서를 함께 바꾼다.
 - 이유: 현재 V2는 최신 C001 포지션과 증거 경계에 맞지 않지만, 승인되지 않은 DRAFT를 바로 구현하면 공통 Creative Brief 게이트를 우회한다.
-- 영향: 이 승인 대기 상태는 같은 날 `HELD / NO PRODUCTION` 결정으로 대체됐다. 현재는 브리프 승인 요청이나 로컬 구현을 자동 재개하지 않는다.
+- 영향: 이 초기 승인 대기 상태는 같은 날 한 번 `HELD / NO PRODUCTION`으로 닫혔다. 이후 대표가 별도 r2 브리프를 만들고 `APPROVED`했으며, 현재 제작은 시작하지 않았고 운영 배포는 승인되지 않았다.
 
 ## 2026-07-31: 랜딩의 주인공을 진단에서 제작·운영 실행으로 바꾼다
 
