@@ -96,3 +96,73 @@ V2의 안정적인 다크 편집형 골격을 버리지 않고, 최신 포지션
 - 세부 결과: `../design-qa.md`
 - P0·P1·P2 0건일 때만 공개 승인 요청
 - 공개 승인 뒤 preview와 production에서 같은 화면·자산·정규화를 다시 확인
+
+## 2026-09-29 — 리브랜딩 후보 v2 / 로컬 검토
+
+사용자가 평가 후 실제 3D 핵심 장면의 제작을 요청했다. 기존 색·진주빛·서체 방향을 이어가며 `/rebrand/` 후보를 수정했다. 운영 r2의 디자인은 그대로다.
+
+- 첫 화면은 읽을 수 있는 크기의 한국어 H1과 업무 설명을 중심으로 한다. DM Sans/Instrument Serif는 영문 조형 요소, Pretendard는 한국어를 담당한다.
+- 실시간 조형물은 4개의 실제 리본 메시와 원근 카메라, 환경 조명을 사용한다. 이미지를 흔드는 초기 2.5D 방식은 제거했다.
+- 약 3개 화면 길이의 자연 스크롤에서 닫힌 곡면 → 펼쳐진 리본 → 새로 정돈된 곡면을 보여준다. 커서는 공간과 곡면을, 클릭은 표면의 파동을 바꾼다. 장면 번호 버튼으로 직접 이동할 수도 있다.
+- 같은 이미지가 반복되던 구역은 자체 브랜드 메시지·타이포 시안으로 대체했다. 선명함/온기/깊이 선택에 따라 문장·색·타이포가 함께 달라진다. 실제 고객 작업·성과로 표시하지 않는다.
+- 서비스·과정·문의는 한국어 정보의 위계를 높였다. 음악·모션 컨트롤은 12px 글자, 46px 높이. 주요 본문은 모바일 14~15px 이상을 사용한다.
+- 390px에서는 읽기 영역 아래에 조형물을 배치한다. 320×568처럼 높이가 짧은 화면에서는 부차적 영문과 보조 링크를 덜고 장면 버튼을 세로로 배치한다.
+- 정적 대체 이미지는 v2 실시간 장면을 직접 캡처해 WebP로 인코딩했다. 화면을 막는 로딩/입장 버튼은 없다.
+- 초기 ImageGen 이미지 `resonance.webp`는 원본을 보존하며 마지막 섹션의 흐린 배경 질감에 사용한다. 최초 프롬프트와 생성 이력은 이 작업 대화에 남아 있다.
+
+검수 목표는 실제 3D·장면 전개·읽기 위계·반응형 동작이다. 레퍼런스 스튜디오와 동일한 제작 규모나 시장 성과를 주장하지 않는다.
+
+## 2026-09-29 — v3: 첫 버전의 미감으로 복귀
+
+v2를 본 사용자가 이전보다 별로라고 피드백했다. 규칙적인 금속 띠가 주인공이 되면서 원본의 섬세한 주름·비대칭 구도·큰 타이포가 약해진 점을 수정한다.
+
+- 기본 첫 화면은 원본 실크 이미지와 `Beyond the ordinary.`의 큰 타이포로 복원한다. 한국어 역할 설명은 11~13px, 약속 문장은 14~19px로 보조한다.
+- 세 화면 길이의 도입부를 기본 경로에서 제거한다. 한 화면을 본 뒤 브랜드 설명·적용 시안으로 자연스럽게 이동한다.
+- 모션은 질감을 크게 비틀지 않는 작은 흐름, 커서 근처 굴절, 클릭 파동과 빛, 스크롤 확대에 집중한다.
+- v2의 한국어 본문 위계, 고정 문의, 음악·모션 컨트롤, 자체 시안은 유지한다.
+- 실제 3D 메시 소스는 개발용 `?render=mesh`에 보존한다. 기본 경로의 이미지 기반 효과를 실제 3D 조형이라고 주장하지 않는다.
+
+## 2026-09-29 — 첫 화면 확인 후 다음 구성 방향
+
+사용자는 v3의 첫 화면을 좋다고 확인했다. 현재의 실크 이미지·큰 타이포 첫 화면을 기준으로 유지한다. 본문은 글 비중을 줄이는 방향으로 레퍼런스를 다시 조사했으며, 제안 순서와 확인 범위는 `REFERENCE_SITES.md`의 최신 절을 따른다. 제안된 나머지 섹션 구성은 아직 채택된 최종 화면으로 기록하지 않는다.
+
+## 2026-09-29 — v4: 첫 화면에 맞춘 자체 콘셉트 시각물
+
+사용자가 기존 시각물을 준비하는 대신 사이트의 수준과 분위기에 맞게 만들어 넣도록 요청했다. 승인된 실크 첫 화면은 유지하고, 그 소재가 인쇄물·디지털 화면·클로즈업으로 이어지는 한 가족의 시각물을 만든다. 길던 설명 섹션을 3개 자체 콘셉트 쇼케이스와 짧은 소개·문의로 정리한다.
+
+### 생성 범위와 출처
+
+- Provider: 내장 ImageGen. 현재 도구 세션의 기본 서비스 모델을 사용했으며 별도 모델/계정 ID는 도구에서 노출하지 않는다. 외부 API 전환·크레딧 구매·공개 게시 없음.
+- 사용자 권한: 현재 대화의 ‘사이트 수준에 맞게 만들어서 넣자’ 요청과 앞서 합의한 자체 프로젝트/콘셉트 시안 범위.
+- 입력은 직접 생성했던 `rebrand/assets/resonance.webp` 1개를 소재·색 참고로 사용했다. 비공개 고객 자료·인물 identity 입력 없음.
+- 입력 SHA-256: `451f499976fdf668ad4e3359be816378448c1066a06d5923089c7d1448d4ee38`.
+- 총 범위: 3개 이미지 각 1회, 필요 시 같은 소재·조명·크롭 범위의 보정 1회로 최대 4회/4출력. 실제 실행 3회/3출력, 보정 0회. 세 이미지 모두 첫 검수에서 채택해 종료했다.
+- 첫 화면 HTML 보존 SHA-256: `362756b0b8aa13e03019d19c71bb81e250b4fd7094f6360f7990686de60e6117`. 통합 후 동일함을 확인했다.
+
+| 결과 | 파일 | 크기 | 용도 |
+| --- | --- | --- | --- |
+| Aurora, in print. | `rebrand/assets/showcase-identity.webp` | 1536×1024, 211,622 bytes | 큰 첫 쇼케이스, 브랜드 인쇄물 콘셉트 |
+| Aura archive. | `rebrand/assets/showcase-digital.webp` | 1536×1024, 165,876 bytes | 디지털 화면 콘셉트 |
+| Soft resonance. | `rebrand/assets/showcase-material.webp` | 1536×1024, 165,638 bytes | 빛과 소재의 비주얼 연구 |
+
+원본 PNG는 tool-owned 생성 경로 `/Users/bananabk/.codex/generated_images/01a0ecc5-86ef-7c51-afa8-0b3465c20b8d/` 아래 각각 `exec-c6b69940-ffa0-473a-8d35-77dcbb24061a.png`, `exec-bcfea74b-81cd-4879-b25d-8fd37ed61778.png`, `exec-d13d8247-f3e0-4d70-8f59-1924e1ff8567.png`로 보존한다. 실사용 자산은 WebP 품질 86/87/86으로 인코딩했다.
+
+### 최종 생성 프롬프트
+
+모든 호출에 같은 원본 실크 이미지를 `referenced_image_paths`로 실제 첨부했으며, 배경 투명도는 false였다.
+
+**Identity**
+
+> Use case: product-mockup derived from the supplied reference. Image 1 is a MATERIAL AND PALETTE REFERENCE only, not a layout to reproduce. Create a new premium editorial photograph of a self-initiated brand identity study for Aurora Sound, a sophisticated creative studio. Landscape 1536 x 1024. One coherent physical still life, not a collage or moodboard. A thick pearl-white art book rests diagonally on an oversized matte charcoal portfolio folder on a warm light-grey plaster table. The book cover has a beautiful restrained embossed crop of iridescent folded silk, inspired by the reference's fine grooves and pearl-lilac-ice-blue reflections, like sculptural foil pressed into paper. Sophisticated extremely large black serif title 'AURORA' on the cover with tiny 'SOUND' underneath. A single small lilac business card tucked beside the book bears 'aurora sound' in refined black sans serif. One partially visible translucent vellum page adds depth. Three objects maximum. Printed objects appear professionally art-directed, real premium papers with subtle tactile grain, crisp typography, authentic embossing and foil. Camera elevated three-quarter angle, editorial fashion-book photography, huge soft north window light, long soft shadow, quiet luxurious composition, unexpected asymmetry, image fills the frame, generous but intentional negative space. Warm white paper occupies roughly half the frame, deep charcoal and soft lavender balance it. This must look like a world-class branding studio portfolio photograph. NO screens, NO website chrome, NO scattered random stationery, NO stock mockup template, NO lorem ipsum, NO registration symbol, NO other brands, NO watermark. The image is the finished asset itself, not a page design.
+
+**Digital**
+
+> Use case: product-mockup derived from supplied artwork. Image 1 is a material, lighting, and color reference only. Create a new art-directed digital design concept photograph for Aurora Sound's own studio exploration. Landscape 1536 x 1024. A single impossibly thin landscape glass display with a subtle dark metallic edge is standing at a gentle three-quarter angle on a low charcoal monolith in a dark violet architectural studio. The screen is the hero, taking 70 percent of the composition, with enough surrounding space to see the physical edge and contact shadow. On the display: an exceptionally sophisticated editorial website concept. Its off-white screen has the large precise black serif word 'AURA' at upper left, the small restrained text 'An archive of light.' beneath, and a single enormous luminous pearlescent sculptural folded-glass form occupying most of the right and lower screen. The sculpture is a new abstract crystalline silk shape, not a ring or donut, and inherits silver/lilac/ice-blue highlights from the reference. A very fine black typographic navigation at top right reads 'Collection   About'. The screen composition is elegant and spacious, no app dashboard, no cards, no fake tiny paragraphs. Outside the screen the setting stays nearly black, with subtle diffused pale-violet light from the display and one soft reflected streak on the plinth. Premium luxury-product photography, true-to-life glass reflections, slight atmospheric depth, cinematic clean focus, remarkable balance. A single screen, no phone, no keyboard, no desk clutter, no Apple or other manufacturer logo, no humans, no browser chrome, no watermark. Keep the display's contents sharp and visually plausible. This is a fictional self-initiated concept, not a client case study. Finished portfolio image only.
+
+**Material**
+
+> Use case: stylized-concept derived from supplied artwork. Image 1 is ONLY a reference for pearlescent optical-silk material and the restrained silver, pale lilac, ice blue, peach palette. Create a NEW finished visual art-direction study for the same sophisticated creative studio, matching its luxurious aesthetic while clearly different in composition. Landscape 1536 x 1024. Extreme macro photograph of a monumental, delicately folded translucent glass-and-silk membrane. Three broad organic folds sweep diagonally through the frame from bottom-left toward top-right, with exceptionally fine closely spaced striations. The frame is immersive and abstract, as though entering the material's landscape: luminous frosted pearl foreground, one clear glass edge with subtle prismatic dispersion, deep lavender shadow inside the fold, a small pool of inky charcoal negative space in the upper-left. Shallow but controlled depth of field, a restrained studio light makes the grooves and layered translucency visible. Tactile detail, fluid elegant shapes, exquisite soft highlights, fine analog grain, editorial beauty-campaign sophistication. NOT a ring, NOT a donut, NOT plastic, NOT a rainbow blob, NOT liquid chrome bubbles, NOT a recognizable flower or seashell, NO stars, NO text, NO logo, NO watermarks. Avoid blown out whites and oversaturated neon. This should feel like a sophisticated visual identity film still: a quiet, sensual, luxurious continuation of the reference, not a duplicate of its silhouette. Image only.
+
+### 화면 적용
+
+인쇄물을 큰 첫 장면으로, 디지털 화면과 소재 연구를 높이가 다른 두 장면으로 배치한다. 이미지를 선택하면 전체 이미지와 짧은 콘셉트 설명을 dialog로 보여준다. 본문은 이름·분야 라벨 중심으로 줄이고, 자체 콘셉트/AI 제작 표기를 유지한다. 문의·계약 범위는 접힌 설명으로 남긴다. 실제 고객 납품·인쇄·운영 실적으로 표현하지 않는다.

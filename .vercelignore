@@ -10,3 +10,11 @@ prd.md
 dev-server.mjs
 scripts/
 design-qa.md
+
+# Keep the private comparison HTML out; production uses its shared assets.
+rebrand/index.html
+
+# Static deployment needs prebuilt modules only.
+node_modules/
+package.json
+package-lock.json

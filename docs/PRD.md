@@ -1,6 +1,15 @@
 # PRD Map
 
-Status: `LIVE r2 / PRODUCTION VERIFIED`
+## 2026-09-30 운영 교체
+
+사용자가 현재 v4의 커밋·GitHub 푸시·기존 홈페이지 교체를 명시적으로 요청했다. 페이지는 승인한 실크 첫 화면, AI 제작 자체 콘셉트 3개, 짧은 역할 소개, 문의의 네 구역으로 운영한다. 상품 구분·적합성 대화·첫 메시지 안내는 유지하고 상세 진행 설명은 접었다.
+
+운영 진입점은 `index.html`, 시각 자산·모듈은 `rebrand/`에 둔다. 비교용 `rebrand/index.html`만 배포에서 제외하며 `/rebrand`는 운영 루트로 이동한다. SEO·Organization·기존 1200×630 OG·법적 페이지·`/interview` 정책을 유지한다. GA4·Meta의 호스트/경로 조건과 이벤트 의미를 바꾸지 않으며 단일 문의 CTA는 `final-cta-btn` 추적 ID를 사용한다. 이전 위치별 CTA 건수와 새 페이지 합계를 구분한다.
+
+v4 검증은 `npm run check`와 `design-qa.md` 최신 항목을 따른다. 아래 r2 상세는 역사적 기준이며 화면 수·카카오 진입점 수·AVIF 히어로·기존 스타일 로딩은 위 v4 구조로 대체한다.
+
+
+Status: `v4 RELEASE READY / PUBLIC REPLACEMENT AUTHORIZED`
 
 상세 제품 원본은 루트 `prd.md`다. 제품 범위, URL, CTA, 추적 의미가 바뀌면 `prd.md`, `README.md`, 이 문서를 함께 갱신한다.
 
@@ -59,3 +68,7 @@ Status: `LIVE r2 / PRODUCTION VERIFIED`
 - 기술·추적: `TRD.md`
 - 결정: `DECISIONS.md`
 - 역사적 V2: `RENEWAL_BRIEF.md`
+
+## 2026-09-29 — 별도 제작 후보
+
+사용자 위임으로 `/rebrand/`에 별도 리브랜딩 후보를 제작했다. 사업·상품·카카오 연결·성과의 사실 경계는 유지하고 시각 구조와 표현을 바꾼다. 현재 운영 r2와 분리되며 후보의 제작/검수 상태는 `README.md`, `DESIGN.md`, `../design-qa.md`에서 확인한다.

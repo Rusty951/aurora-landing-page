@@ -1,6 +1,15 @@
 # 오로라의소리 랜딩페이지 PRD
 
-Status: `LIVE r2 / PRODUCTION VERIFIED`
+## 2026-09-30 운영 교체
+
+사용자가 현재 v4의 커밋·GitHub 푸시·기존 홈페이지 교체를 명시적으로 요청했다. 페이지는 승인한 실크 첫 화면, AI 제작 자체 콘셉트 3개, 짧은 역할 소개, 문의의 네 구역으로 운영한다. 상품 구분·적합성 대화·첫 메시지 안내는 유지하고 상세 진행 설명은 접었다.
+
+운영 진입점은 `index.html`, 시각 자산·모듈은 `rebrand/`에 둔다. 비교용 `rebrand/index.html`만 배포에서 제외하며 `/rebrand`는 운영 루트로 이동한다. SEO·Organization·기존 1200×630 OG·법적 페이지·`/interview` 정책을 유지한다. GA4·Meta의 호스트/경로 조건과 이벤트 의미를 바꾸지 않으며 단일 문의 CTA는 `final-cta-btn` 추적 ID를 사용한다. 이전 위치별 CTA 건수와 새 페이지 합계를 구분한다.
+
+v4 검증은 `npm run check`와 `design-qa.md` 최신 항목을 따른다. 아래 r2 상세는 역사적 기준이며 화면 수·카카오 진입점 수·AVIF 히어로·기존 스타일 로딩은 위 v4 구조로 대체한다.
+
+
+Status: `v4 RELEASE READY / PUBLIC REPLACEMENT AUTHORIZED`
 
 > 제품 정본은 승인된 Desktop `aurora-landing-revamp/creative-brief-r2.md`와 C001 `20_STRATEGY/positioning-and-offers.md`다. 2026-08-12 공개 승인 뒤 release commit `d96151e842d2fb3a3573ead56bebf1ea1b6ff371`의 branch preview와 production 검증을 마쳤다.
 

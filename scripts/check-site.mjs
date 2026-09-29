@@ -13,7 +13,7 @@ const assert = (condition, message) => {
 const count = (source, pattern) => (source.match(pattern) || []).length;
 
 const html = read('index.html');
-const styles = read('style.css');
+const styles = read('rebrand/style.css');
 const analytics = read('analytics.js');
 const script = read('script.js');
 const ogCard = read('scripts/og-card.html');
@@ -23,7 +23,7 @@ const vercel = JSON.parse(read('vercel.json'));
 assert(count(html, /<main\b/gi) === 1, 'index.html must contain exactly one <main>.');
 assert(count(html, /<h1\b/gi) === 1, 'index.html must contain exactly one <h1>.');
 assert(count(html, /<details\b/gi) >= 1, 'FAQ must use native <details>.');
-assert(!/<svg\b/i.test(html), 'Do not add inline SVG assets to index.html.');
+assert(html.includes('자체 시안') && html.includes('AI로 제작'), 'Generated studies must be labeled as own concepts.');
 
 [
   '리브랜딩 실행 파트너',
@@ -52,9 +52,9 @@ assert(html.includes('<title>오로라의소리 | 리브랜딩 실행 파트너<
 assert(/<meta name="description" content="새 매장·서비스, 리뉴얼, 이전·확장처럼 사업이 바뀌는 순간/.test(html), 'SEO description must begin with the approved change moment.');
 assert(!html.includes('필요한 콘텐츠를 정하고 제작까지 맡습니다'), 'Old V2 positioning remains in metadata or body.');
 assert(!html.includes('콘텐츠 마케팅"'), 'Old V2 Open Graph alt or metadata remains.');
-assert(/href=["']\/style\.css\?v=19["']/.test(html), 'index.html must load style.css?v=19.');
+assert(/href=["']\/rebrand\/style\.css\?v=5["']/.test(html), 'Production must load the released stylesheet.');
 assert(/prefers-reduced-motion/.test(styles), 'Reduced-motion handling is required.');
-assert(/aurora-wave-bg\.avif/.test(styles) && /image-set\(/.test(styles), 'Hero wave must keep its AVIF-first image-set.');
+assert(/resonance\.webp/.test(html) && /resonance\.webp/.test(styles), 'Hero must keep a static silk fallback.');
 assert(ogCard.includes('리브랜딩 실행 파트너') && ogCard.includes('고객에게 보이는 것'), 'OG render source must match the approved r2 position.');
 
 ['README.md', 'AGENTS.md', 'CLAUDE.md', 'docs/', 'prd.md', 'dev-server.mjs', 'scripts/', 'design-qa.md'].forEach((privatePath) => {
@@ -65,7 +65,7 @@ const ids = Array.from(html.matchAll(/\bid=["']([^"']+)["']/gi), (match) => matc
 const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
 assert(duplicateIds.length === 0, `Duplicate HTML ids: ${[...new Set(duplicateIds)].join(', ')}`);
 
-const allAnchors = html.match(/<a\b[\s\S]*?<\/a>/gi) || [];
+const allAnchors = html.match(/<a\b[\s\S]*?<\/a\s*>/gi) || [];
 const trackedElements = allAnchors.filter((tag) => /\bdata-track=/.test(tag));
 const allowedTrackTypes = new Set(['kakao', 'naver_blog', 'wordpress_blog', 'instagram', 'youtube', 'email']);
 const approvedKakaoUrl = 'https://open.kakao.com/o/sMBNyzpi';
@@ -86,17 +86,17 @@ for (const tag of trackedElements) {
   }
 }
 
-['nav-cta-btn', 'hero-cta-btn', 'interview-cta-btn', 'final-cta-btn', 'footer-kakao-link'].forEach((id) => {
+['final-cta-btn', 'footer-email-link', 'footer-insta-link', 'footer-wordpress-blog-link'].forEach((id) => {
   assert(ids.includes(id), `Required CTA id is missing: ${id}`);
 });
 
 const allKakaoLinks = allAnchors.filter((tag) => /href=["']https:\/\/open\.kakao\.com\//i.test(tag));
-assert(allKakaoLinks.length === 5, `Expected five Kakao entry points, found ${allKakaoLinks.length}.`);
+assert(allKakaoLinks.length === 1 && /data-primary-cta="true"/.test(allKakaoLinks[0]), 'Single primary Kakao CTA must retain tracking.');
 assert(allKakaoLinks.every((tag) => tag.includes(approvedKakaoUrl)), 'All Kakao entry points must use the same approved URL.');
 
 assert(/href=["']\/terms\.html["']/.test(html), 'Terms link must be root-relative.');
 assert(/href=["']\/privacy\.html["']/.test(html), 'Privacy link must be root-relative.');
-assert(/src=["']\/script\.js\?v=6["']/.test(html), 'index.html must load script.js?v=6.');
+assert(/type="module" src="\/rebrand\/app\.js\?v=4"/.test(html), 'Production must load the rebrand application.');
 assert(/src=["']\/analytics\.js\?v=7["']/.test(html), 'index.html must load analytics.js?v=7.');
 
 assert(count(html, /fbq\(['"]track['"],\s*['"]PageView['"]\)/g) === 1, 'Meta PageView must be sent exactly once.');
@@ -122,4 +122,11 @@ const ogBuffer = fs.readFileSync(ogAsset);
 assert(ogBuffer.subarray(1, 4).toString() === 'PNG', 'Open Graph image must be a PNG.');
 assert(ogBuffer.readUInt32BE(16) === 1200 && ogBuffer.readUInt32BE(20) === 630, 'Open Graph image must be 1200x630.');
 
+assert(/name="robots" content="index, follow"/.test(html), 'Production must allow indexing.');
+assert(/rel="canonical" href="https:\/\/www\.aurorasound\.kr\/"/.test(html), 'Production canonical must remain the root domain.');
+for (const match of html.matchAll(/(?:src|href)="(\/[^"]+)"/g)) {
+  assert(fs.existsSync(path.join(projectRoot, match[1].split('?')[0])), `Missing production asset: ${match[1]}`);
+}
+assert(!vercelIgnore.split(/\r?\n/).includes('rebrand/'), 'Production modules cannot be excluded.');
+assert(styles.includes('.ad-mode footer [data-track="instagram"]'), 'Paid landing must hide secondary social links.');
 console.log(`Site contract check passed (${trackedElements.length} tracked links, ${ids.length} unique ids).`);

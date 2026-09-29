@@ -2,6 +2,21 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/interview", "destination": "/index.html" }
+    {
+      "source": "/interview",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/rebrand",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/rebrand/index.html",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }

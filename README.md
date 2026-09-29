@@ -1,8 +1,8 @@
 # 오로라의소리 랜딩페이지
 
-Status: `LIVE r2 / PRODUCTION VERIFIED`
+Status: `v4 RELEASE READY / PUBLIC REPLACEMENT AUTHORIZED`
 
-> 승인된 `creative-brief-r2.md`를 반영한 r2는 2026-08-12 release commit `d96151e842d2fb3a3573ead56bebf1ea1b6ff371`로 `main`에 공개됐다. Vercel production Ready, 운영 경로·화면·자산·추적 계약 검증을 통과했으며 `https://www.aurorasound.kr/`의 현재 운영 버전은 r2다.
+> 승인된 `creative-brief-r2.md`를 반영한 r2는 2026-08-12 release commit `d96151e842d2fb3a3573ead56bebf1ea1b6ff371`로 `main`에 공개됐다. Vercel production Ready, 운영 경로·화면·자산·추적 계약 검증을 통과했으며 r2 소스는 Git 이력에 보존되며 아래 v4 교체의 복구 기준이다.
 
 사업이 바뀌는 순간 고객에게 무엇으로 보일지 정하고, 첫 콘텐츠와 우선 접점에 적용하는 `리브랜딩 실행 파트너` 랜딩페이지다.
 
@@ -16,79 +16,78 @@ Status: `LIVE r2 / PRODUCTION VERIFIED`
 
 카카오 링크 자체가 문의 유형을 자동 분류하지는 않는다. 페이지의 첫 메시지 안내로 방문자가 유형을 직접 적게 하고, 실제 대화·적합 문의·제안·계약은 클릭 이벤트와 별도로 기록한다.
 
-## 페이지 흐름
+## 현재 페이지 흐름
 
-1. 사업 변화 시점과 오로라의 역할
-2. 리브랜딩이 필요한 실제 상태
-3. 콘텐츠 중심 역할과 로고·UI·공간·경영 컨설팅 경계
-4. 리브랜딩 실행 프로젝트와 월간 브랜드 마케팅 분리
-5. 적합성 대화부터 인계·종료까지의 승인형 진행 순서
-6. 대표·AI·전문 파트너의 책임 구조와 제외 업무
-7. 적합·비적합 조건
-8. FAQ와 20~30분 적합성 대화 CTA
+승인된 실크 첫 화면 → 자체 콘셉트 쇼케이스 3개 → 역할 소개 3개 → 문의. 진행·계약 설명은 문의 아래 네이티브 `<details>`로 접었다. 시각물은 AI로 제작한 자체 콘셉트로 표시하며 실제 고객 납품·성과를 주장하지 않는다.
 
-공개 승인된 C001 자체 사례·성과·후기·경력 문구가 아직 없으므로 타 클라이언트 사례, 검증 전 경력, 가상 성과를 증거로 쓰지 않는다. 첫 배포 후보는 진행 순서·책임 구조·제외 경계만 확인 가능한 운영 기준으로 제시한다.
-
-## 로컬 실행
+## 실행과 검증
 
 ```bash
 npm run dev
-```
-
-- 대표/오가닉: `http://localhost:4173/`
-- 광고 랜딩: `http://localhost:4173/interview`
-
-## 검사
-
-```bash
 npm run check
 git diff --check
 ```
 
-정적 검사는 HTML 구조, r2 필수·금지 카피, CTA·카카오 URL·추적 계약, SEO 메타, CSS 캐시 버전, reduced motion, AVIF 우선 자산, Meta 이벤트 의미, OG 1200×630 PNG와 Vercel 경로 정책을 확인한다.
-
-로컬 시각 검수 기준은 다음과 같다.
-
-- `/`, `/interview`: 1440×1024, 390×844, 320×568
-- 가로 넘침 0
-- 한 개 H1, 네이티브 FAQ, 44px 이상 주요 조작 영역
-- `/interview` 비필수 채널 숨김
-- localhost GA4·Meta 미실행과 콘솔 오류 0
-- 캡처: `~/Desktop/codex-output/aurora-landing-revamp/qa-r2/`
+로컬 `/`, `/interview`는 같은 v4 본문을 제공한다. 광고 경로에서는 footer의 Instagram·Journal을 숨긴다. `npm run check`는 운영 SEO·자산·제품 의미·추적 계약, 후보 HTML의 격리, JS 문법과 가상 브라우저의 환경별 이벤트 통합을 검사한다. 실제 화면·모바일·상세 dialog 검수는 `design-qa.md`에 기록한다.
 
 ## 파일 구조
 
-- `index.html`: `/`, `/interview` 공통 랜딩과 SEO·Meta Pixel 원본
-- `style.css`: r2 다크 편집형 디자인과 반응형
-- `script.js`: 고정 헤더 상태
-- `analytics.js`: 운영 호스트 GA4와 광고 경로 Meta 이벤트
-- `assets/aurora-wave-bg.avif`: 히어로·최종 CTA 배경
-- `assets/aurora-og.png`: r2 1200×630 공유 이미지
-- `scripts/og-card.html`: 배포 제외 OG 렌더 원본
-- `scripts/check-site.mjs`: 정적 계약 검사
-- `vercel.json`: `/interview` rewrite와 trailing slash 정책
+- `index.html`: `/`, `/interview` 운영 v4, SEO·Organization·광고 경로 Meta 초기화
+- `rebrand/style.css?v=5`, `rebrand/app.js?v=4`: 승인된 화면·반응형·입력·접근성
+- `rebrand/silk.js`, `audio.js`, `showcase.js`: 이미지 기반 WebGL, opt-in 음악, 상세 dialog
+- `rebrand/assets/`: 진주빛 실크와 자체 콘셉트 이미지
+- `rebrand/field.js`, `vendor/`: `?render=mesh` 실험의 소스·MIT 라이선스
+- `analytics.js?v=7`: 기존 운영 호스트·광고 이벤트 의미 유지
+- `assets/aurora-og.png`: 기존 1200×630 PNG 공유 이미지 유지
+- `scripts/check-site.mjs`, `check-rebrand.mjs`, `check-tracking.mjs`: 정적·추적 통합 검증
+- `style.css`, `script.js`: r2의 소스 이력, 새 운영 문서에서는 로드하지 않는다.
 
-## 배포
+## 배포와 복구
 
-Vercel 프로젝트 `aurora-landing-page`가 GitHub `main` push 뒤 자동 배포한다. 빌드 스텝은 없다.
+Vercel 프로젝트 `aurora-landing-page`는 GitHub `main` push 뒤 자동 배포하며 빌드 스텝은 없다. 사용자가 2026-09-30 현재 디자인의 커밋·푸시·기존 홈페이지 교체를 명시적으로 요청했다. 로컬 검수 → 기능 브랜치 push와 preview 확인 → `main` fast-forward push → 운영 도메인 확인 순서로 진행한다. 같은 승인 범위에서 추가 확인은 요구하지 않는다.
 
-1. 기능 브랜치에서 로컬 검수를 완료한다.
-2. 정확한 변경 파일·검증 결과·남은 위험을 사용자에게 제시한다.
-3. 명시적 공개 승인을 받는다.
-4. 그 뒤에만 commit·branch push·preview 검수·`main` push를 진행한다.
-5. 운영 `/`, `/interview`, `/interview/` 정규화, 배포 표면과 실제 이벤트를 다시 검증한다.
+force push는 사용하지 않는다. 배포가 실패하면 이전 production 재승격 또는 새 revert commit으로 복구한다. 기존 r2는 이전 Git 커밋에 보존된다.
 
-force push는 사용하지 않는다. 실패하면 이전 Vercel production 재승격 또는 새 revert commit으로 복구한다.
+## URL과 측정
 
-## URL과 추적
+- canonical·sitemap은 `https://www.aurorasound.kr/`를 유지한다. 운영 문서는 `index, follow`다.
+- `/interview`는 같은 `index.html`로 rewrite하고 `/interview/`는 query를 유지해 정규화한다.
+- 이전 `/rebrand` 프리뷰 주소는 운영에서 `/`로 이동한다. 비교용 `rebrand/index.html`은 배포에서 제외한다.
+- GA4는 기존 두 운영 호스트에서만 실행한다. 로컬·Tailscale·Vercel preview에서는 GA4·Meta 모두 미실행이다.
+- Meta Pixel PageView는 `/interview`에서만 한 번, 카카오 외부 클릭은 Contact(`outbound_click`)로 기록한다. 실제 문의나 Lead가 아니다.
+- 단일 주요 카카오 CTA는 기존 `final-cta-btn` ID와 `cta_location=final`을 유지하며 GA4 `click_cta_primary`·`click_kakao_openchat`을 함께 보낸다. 이전 5개 카카오 진입점을 하나로 압축해 위치별 건수는 직접 비교할 수 없다.
+- 이메일·Instagram·Journal의 기존 footer ID·이벤트를 유지한다. UTM 5종과 경로 맥락은 바꾸지 않았다.
+- 내부 문서·스크립트 검사 원본·패키지 매니페스트·node_modules는 배포 제외다. production에서 404와 핵심 자산 200을 확인한다.
 
-- GA4는 운영 호스트에서만 실행한다.
-- Meta Pixel `PageView`는 운영 호스트의 `/interview`에서만 한 번 실행한다.
-- 광고 경로의 카카오 외부 링크 클릭은 Meta `Contact`로 기록한다. 실제 문의나 `Lead`가 아니다.
-- 주요 카카오 CTA는 GA4 `click_cta_primary`와 `click_kakao_openchat`을 함께 보낸다.
-- 이벤트에는 `landing_type`, `landing_path`, UTM 5종, `button_id`, `cta_location`, `is_primary_cta`가 붙는다.
-- `script.js?v=6`, `analytics.js?v=7`의 의미는 바꾸지 않았고 `style.css`만 `v=19`로 올렸다.
+아래 9월 29일 항목은 후보 제작 당시의 이력이다. 현재 운영 연결과 배포 판단은 위 내용을 따른다.
 
-## 공개 표면
+## 2026-09-29 — 리브랜딩 후보 v3 / 실크 방향 복원
 
-`.vercelignore`는 `README.md`, `AGENTS.md`, `CLAUDE.md`, `docs/`, `prd.md`, `dev-server.mjs`, `scripts/`, `design-qa.md`를 배포에서 제외한다. production 배포 후 이 경로들이 404인지 다시 확인한다.
+현재 검토 주소는 `http://localhost:4173/rebrand/`이며 Tailscale에서는 `http://100.111.129.29:4173/rebrand/?v=3`으로 열린다. 공개 운영 r2는 그대로다.
+
+사용자가 v2의 3D 결과보다 앞 버전이 낫다고 피드백해, 첫 버전의 실크 원본 이미지와 큰 영문 타이포를 메인의 기준으로 복원했다. 기본 도입부는 한 화면으로 줄이고 본문·문의 가독성 개선과 브랜드 적용 시안, 음악·모션 컨트롤을 유지한다.
+
+- `silk.js`: 원본 이미지의 세부 질감을 유지하는 WebGL 굴절·빛·클릭 파동·스크롤 확대. 이미지 기반 효과이며 실제 조형물의 3D 모델이라고 표현하지 않는다.
+- `field.js`: 실제 3D 메시 실험을 보존한다. `?render=mesh`를 붙인 개발 프리뷰에서만 로드한다. 기본 경로는 Three.js 번들을 다운로드하지 않는다.
+- `app.js`: 기본 실크 장면과 개발용 메시 장면의 공통 입력·음악·접근성 상태를 담당한다.
+- `assets/resonance.webp`: 최초 직접 생성한 실크 원본이자 기본 경로의 정적 대체 이미지.
+- `assets/sculpture-*.webp`: v2 렌더 캡처를 보존한다. 원본 캡처는 Desktop 검수 폴더에 있다.
+- 한국어 업무 설명, 브랜드 적용 시안, 네이티브 FAQ, 고정 문의 버튼, 12px/46px 음악·모션 컨트롤은 유지한다.
+- 이미지·renderer 실패 시 정적 원본과 본문을 읽을 수 있고, reduced-motion과 수동 정지를 지원한다.
+- `npm run check`, `git diff --check`로 기존 r2와 후보를 검사한다. 시각 검수는 `design-qa.md`의 최신 항목을 따른다.
+- 후보는 noindex, 분석 미탑재, `.vercelignore` 배포 제외 상태다. 운영 `/`, `/interview`, CTA·광고 추적 코드는 변경하지 않았다.
+
+Three.js는 0.186.1로 고정하고 MIT 라이선스와 함께 보관한다. `npm install` 후 `npm run vendor:three`로 esbuild 0.25.10을 사용해 재생성할 수 있다. 일반 실행에는 빌드가 필요 없다. `?poster=1`은 개발용 캡처 모드다.
+
+운영 교체 전 기존 분석·메타·광고 경로 계약을 이식하고 최종 공개 승인을 받는다. 후보를 파일명만 바꿔 배포하지 않는다.
+
+## 2026-09-29 — v4 조화로운 쇼케이스 적용
+
+사용자가 사이트 수준에 맞는 시각물을 제작해 넣도록 요청했다. 승인된 첫 화면의 HTML은 변경하지 않고, 아래 본문을 쇼케이스·짧은 소개·문의로 압축했다.
+
+- 기본 주소: `http://localhost:4173/rebrand/?v=4`, 원격: `http://100.111.129.29:4173/rebrand/?v=4#approach`.
+- 구조: 첫 화면 → 3개 자체 콘셉트 이미지 → 3개 역할 소개 → 문의. 진행·계약 설명은 문의 아래 `<details>`로 접었다.
+- 새 이미지: `rebrand/assets/showcase-identity.webp`, `showcase-digital.webp`, `showcase-material.webp`. 모두 내장 ImageGen으로 직접 만든 자체 콘셉트이며 실제 고객 사례가 아니다.
+- `showcase.js`: 이미지 선택 시 상세 dialog, Escape/닫기/포커스 복귀, 줄인 움직임 설정을 따르는 이미지 호버. JS/dialog 미지원 시 이미지 링크로 접근한다.
+- 모바일 문의 구간에서는 음악·모션 컨트롤을 헤더 쪽으로 옮겨 CTA를 가리지 않는다. 첫 화면의 컨트롤 위치는 유지한다.
+- 이미지 제작 범위·프롬프트·파일 정보: `docs/DESIGN.md` 최신 항목. 검수: `design-qa.md` 최신 항목.

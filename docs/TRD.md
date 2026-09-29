@@ -1,6 +1,15 @@
 # TRD
 
-Status: `LIVE r2 / PRODUCTION VERIFIED`
+## 2026-09-30 운영 교체
+
+사용자가 현재 v4의 커밋·GitHub 푸시·기존 홈페이지 교체를 명시적으로 요청했다. 페이지는 승인한 실크 첫 화면, AI 제작 자체 콘셉트 3개, 짧은 역할 소개, 문의의 네 구역으로 운영한다. 상품 구분·적합성 대화·첫 메시지 안내는 유지하고 상세 진행 설명은 접었다.
+
+운영 진입점은 `index.html`, 시각 자산·모듈은 `rebrand/`에 둔다. 비교용 `rebrand/index.html`만 배포에서 제외하며 `/rebrand`는 운영 루트로 이동한다. SEO·Organization·기존 1200×630 OG·법적 페이지·`/interview` 정책을 유지한다. GA4·Meta의 호스트/경로 조건과 이벤트 의미를 바꾸지 않으며 단일 문의 CTA는 `final-cta-btn` 추적 ID를 사용한다. 이전 위치별 CTA 건수와 새 페이지 합계를 구분한다.
+
+v4 검증은 `npm run check`와 `design-qa.md` 최신 항목을 따른다. 아래 r2 상세는 역사적 기준이며 화면 수·카카오 진입점 수·AVIF 히어로·기존 스타일 로딩은 위 v4 구조로 대체한다.
+
+
+Status: `v4 RELEASE READY / PUBLIC REPLACEMENT AUTHORIZED`
 
 ## 기술 스택
 
@@ -131,3 +140,24 @@ git diff --check
 - `/`에서 GA4만, `/interview`에서 GA4 + Meta PageView 1회
 - 카카오 CTA에서 승인된 GA·Meta 이벤트와 매개변수 확인
 - 클라이언트 `Lead` 없음
+
+## 2026-09-29 — 격리된 리브랜딩 후보 v2
+
+`rebrand/`는 기존 정적 서버의 디렉터리 요청으로 실행하며 production 배포에서 제외한다. 루트·광고 랜딩과 분석 코드는 그대로다. 공개 교체 전 기존 분석·메타·광고 경로 계약을 이식해야 한다.
+
+- Three.js 0.186.1을 package-lock으로 고정하고 `vendor/three.js`로 번들링했다. MIT 라이선스를 함께 둔다. `npm run vendor:three`는 재현 가능한 esbuild 0.25.10 명령이다.
+- `field.js`: WebGL2 renderer, 4개의 indexed PlaneGeometry를 vertex shader에서 공간 곡면으로 계산한다. 데스크톱 153,600 triangles, 모바일 초기 로드 44,800 triangles. 라이브 조형물은 이미지 텍스처를 쓰지 않는다.
+- 환경 맵은 자체 스튜디오 조명 장면에서 PMREM으로 계산한다. DPR 상한은 데스크톱 1.6, 모바일 초기 로드 1.15다. 화면 밖에서는 render를 생략하고 숨겨진 탭에서는 프레임 루프를 취소한다.
+- `app.js`: 자연 스크롤 위치를 장면 진행률로 변환한다. 비활성 장면에는 inert/aria-hidden을 적용한다. 모션 정지 중에도 스크롤이나 장면 버튼으로 읽을 내용과 대표 프레임을 바꿀 수 있다.
+- `audio.js`: 클릭 후 AudioContext 생성. 84 BPM의 시퀀스 기준 시각으로 pulse를 계산한다. 저역 통과 필터와 전환음을 장면에 연결한다. 외부 음원은 없다.
+- `assets/sculpture-{desktop,mobile}.webp`: live scene을 캡처한 대체 이미지. WebGL 실패 시 남는다. `?poster=1`은 캡처용으로 UI와 자율 움직임을 감추는 개발 모드다.
+- `scripts/check-rebrand.mjs`: 내부 앵커·자산·핵심 문구, noindex·배포 제외, 추적 미실행, vendor/라이선스·버전·장면 링크 계약을 검사한다. GPU 의미 검증은 실제 브라우저 검사로 별도 수행한다.
+- 개발 서버 MIME에 AVIF·WOFF2를 추가했다. 서버 경로와 production rewrite는 바꾸지 않았다.
+
+## 2026-09-29 — v3 기본 renderer 분리
+
+기본 경로는 `silk.js`의 WebGL 이미지 효과를 동적 import한다. `?render=mesh`에서만 기존 `field.js`와 Three.js가 로드된다. 공통 `render(state)`/`resize()` 계약을 유지해 음악·입력·정지 상태를 재사용한다. 기본 경로에서는 `.staged`를 붙이지 않고 장면 0만 표시한다. 원본 `resonance.webp`가 정적 대체 이미지다. 버전 캐시는 CSS·app·silk v3를 사용한다.
+
+## 2026-09-29 — v4 쇼케이스 통합
+
+`showcase.js`가 3개 이미지의 상세 dialog와 제한된 호버 이동을 담당한다. 이미지 링크는 JS/dialog 미지원 시 원본 WebP로 동작한다. native dialog의 Escape·닫기 후 원래 링크로 포커스를 복원하며 backdrop 클릭도 지원한다. 모바일 문의 구간에서는 IntersectionObserver로 컨트롤을 헤더로 옮겨 문의 CTA와 겹치지 않게 한다. 사진의 크기를 미리 예약하고 lazy decoding/loading을 사용한다. 세 WebP 합계는 543,136 bytes다. 처음 승인한 hero HTML·silk renderer·운영 분석 경계는 유지한다.

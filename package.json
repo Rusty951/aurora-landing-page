@@ -2,7 +2,11 @@
   "scripts": {
     "dev": "node dev-server.mjs",
     "preview": "node dev-server.mjs",
-    "check": "node scripts/check-site.mjs && node --check analytics.js && node --check script.js && node --check dev-server.mjs"
+    "check": "node scripts/check-site.mjs && node --check analytics.js && node --check script.js && node --check dev-server.mjs && node scripts/check-rebrand.mjs && node --check rebrand/app.js && node --check rebrand/field.js && node --check rebrand/audio.js && node --check rebrand/silk.js && node --check rebrand/showcase.js && node scripts/check-tracking.mjs",
+    "vendor:three": "node scripts/vendor-three.mjs"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "three": "0.186.1"
+  }
 }
