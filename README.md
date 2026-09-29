@@ -1,8 +1,8 @@
 # 오로라의소리 랜딩페이지
 
-Status: `v4 RELEASE READY / PUBLIC REPLACEMENT AUTHORIZED`
+Status: `LIVE v4 / PRODUCTION VERIFIED`
 
-> 승인된 `creative-brief-r2.md`를 반영한 r2는 2026-08-12 release commit `d96151e842d2fb3a3573ead56bebf1ea1b6ff371`로 `main`에 공개됐다. Vercel production Ready, 운영 경로·화면·자산·추적 계약 검증을 통과했으며 r2 소스는 Git 이력에 보존되며 아래 v4 교체의 복구 기준이다.
+> 2026-09-30 사용자의 공개 교체 승인 뒤 구현 커밋 `0ab4b0637c4413cda4bbe75777eadd4753f061e1`을 GitHub `main`에 반영했다. Vercel Production 배포 `6745006073`가 성공했으며 `https://www.aurorasound.kr/`와 `/interview`의 응답이 해당 소스와 일치함을 확인했다. 기존 r2는 `6ef92d4f13707b579e9824135469949279c4cab6` 이전 Git 이력에 보존한다.
 
 사업이 바뀌는 순간 고객에게 무엇으로 보일지 정하고, 첫 콘텐츠와 우선 접점에 적용하는 `리브랜딩 실행 파트너` 랜딩페이지다.
 

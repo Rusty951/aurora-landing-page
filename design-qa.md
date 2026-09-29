@@ -325,3 +325,19 @@ final result: passed
 - 로컬 루트: 실제 브라우저에서 승인한 첫 화면, canonical, 가로 넘침 0, 4개 추적 링크, GA4·Meta 미정의 확인. `/interview`에서 같은 본문과 비필수 footer 숨김 확인. error/warn 0.
 - 추적 통합 검사: 로컬·Tailscale·Vercel preview 미실행, 운영 organic/paid·CTA·UTM·Contact 의미를 외부 전송 없는 VM에서 확인한다. 실제 문의 클릭으로 운영 데이터에 시험 전환을 만들지 않는다.
 - 배포 결과는 아래 후속 확인에 기록한다.
+
+
+## 운영 확인 결과
+
+final result: passed
+
+- 구현 커밋: `0ab4b0637c4413cda4bbe75777eadd4753f061e1`. GitHub `main` fast-forward push 완료. force push 없음.
+- Vercel: 기능 브랜치 Preview `6744980181`, Production `6745006073` 모두 success. Preview 화면은 Vercel 로그인으로 보호돼 있어 화면 검수는 동일 소스의 로컬과 운영 도메인에서 수행했다.
+- 운영 `/`, `/interview` 200 및 응답 HTML SHA-256과 로컬 구현 원본 일치. `/interview/?utm_source=release-check`는 query를 유지한 308. `/rebrand?v=4`, `/rebrand/index.html`는 루트로 308.
+- 운영 CSS·app/silk/audio/showcase 모듈·실크와 3개 콘셉트 이미지·analytics·OG·legal·robots·sitemap 200, 올바른 MIME. README·AGENTS·docs·scripts·패키지 매니페스트·design-qa는 404.
+- 실제 운영 브라우저에서 승인된 첫 화면, 쇼케이스, 큰 제목과 실크 렌더를 확인했다. canonical 유지, 데스크톱 가로 넘침 0, 콘솔 error/warn 0.
+- 운영 root의 DOM에서 GA4 스크립트만, `/interview`의 DOM에서 GA4·Meta 스크립트 로드를 확인했다. 광고 경로의 footer Instagram·Journal은 숨김. 이벤트 횟수·CTA·UTM·Contact/Lead 구분은 VM 통합 검사로 확인했고 실제 카카오 전환 이벤트를 시험 발송하지 않았다.
+- 390×844 운영 root에서 가로 넘침 0. 문의 화면에서 CTA는 top 489.7/bottom 562.7, 음악·모션 컨트롤은 top 19/bottom 63으로 겹치지 않았다. viewport는 검수 후 기본값으로 복원했다.
+- 운영 캡처: `/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-showcase/production-home.png`, `production-mobile-contact.png`.
+- 기존 r2 복구 기준: `6ef92d4f13707b579e9824135469949279c4cab6`. 실패 시 새 revert commit 또는 기존 Vercel production 재승격을 사용한다.
+- 실제 모바일 기기의 장시간 GPU 성능과 측정 대시보드 수신 여부는 이번 확인에 포함하지 않는다.

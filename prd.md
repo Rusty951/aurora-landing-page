@@ -9,7 +9,7 @@
 v4 검증은 `npm run check`와 `design-qa.md` 최신 항목을 따른다. 아래 r2 상세는 역사적 기준이며 화면 수·카카오 진입점 수·AVIF 히어로·기존 스타일 로딩은 위 v4 구조로 대체한다.
 
 
-Status: `v4 RELEASE READY / PUBLIC REPLACEMENT AUTHORIZED`
+Status: `LIVE v4 / PRODUCTION VERIFIED`
 
 > 제품 정본은 승인된 Desktop `aurora-landing-revamp/creative-brief-r2.md`와 C001 `20_STRATEGY/positioning-and-offers.md`다. 2026-08-12 공개 승인 뒤 release commit `d96151e842d2fb3a3573ead56bebf1ea1b6ff371`의 branch preview와 production 검증을 마쳤다.
 

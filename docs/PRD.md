@@ -9,7 +9,7 @@
 v4 검증은 `npm run check`와 `design-qa.md` 최신 항목을 따른다. 아래 r2 상세는 역사적 기준이며 화면 수·카카오 진입점 수·AVIF 히어로·기존 스타일 로딩은 위 v4 구조로 대체한다.
 
 
-Status: `v4 RELEASE READY / PUBLIC REPLACEMENT AUTHORIZED`
+Status: `LIVE v4 / PRODUCTION VERIFIED`
 
 상세 제품 원본은 루트 `prd.md`다. 제품 범위, URL, CTA, 추적 의미가 바뀌면 `prd.md`, `README.md`, 이 문서를 함께 갱신한다.
 
