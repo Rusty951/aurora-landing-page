@@ -7,7 +7,7 @@
   --accent: #c8c1f8;
   --gutter: clamp(24px, 5vw, 88px);
   --serif: "Instrument Serif", Georgia, serif;
-  --sans: "DM Sans", "Pretendard Variable", sans-serif;
+  --sans: "DM Sans", "Asta Sans", sans-serif;
   color-scheme: dark;
 }
 * {
@@ -148,8 +148,10 @@ section {
   border-radius: 40px;
   font-size: 14px;
   display: flex;
-  gap: 25px;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  line-height: 1.4;
   transition:
     background 0.3s,
     color 0.3s;
@@ -262,7 +264,7 @@ section {
 }
 .chapter h1,
 .chapter h2 {
-  font-family: "Pretendard Variable", sans-serif;
+  font-family: "Asta Sans", sans-serif;
   font-size: clamp(46px, 5.1vw, 82px);
   font-weight: 550;
   letter-spacing: -0.06em;
@@ -575,7 +577,7 @@ section {
   font-weight: 600;
 }
 .poster-title em {
-  font-family: "Pretendard Variable", sans-serif;
+  font-family: "Asta Sans", sans-serif;
   font-style: normal;
   font-weight: 350;
 }
@@ -2300,7 +2302,7 @@ body:not(.enhanced) .resonate-trigger {
   margin: 42px 0 70px;
 }
 .studio-intro h2 {
-  font-family: "Pretendard Variable", sans-serif;
+  font-family: "Asta Sans", sans-serif;
   font-size: clamp(38px, 4.2vw, 65px);
   font-weight: 500;
   line-height: 1.32;
@@ -2758,13 +2760,13 @@ body.project-open {
 @media(max-width:700px) {
   .home-work-mobile { display:block; margin-left:auto; font-size:12px; padding:14px 0; }
   .header:has(.home-work-mobile) { gap:14px; }
-  .header:has(.home-work-mobile) .contact-link { margin-left:0; padding:10px 12px; font-size:12px; gap:10px; }
+  .header:has(.home-work-mobile) .contact-link { margin-left:0; padding:10px 12px; font-size:13px; gap:10px; }
 }
 .ad-mode .home-work-mobile,.ad-mode .showcase-work-link,.ad-mode .header nav a[href="/work"] { display:none; }
 
 @media(max-width:420px) {
   .header:has(.home-work-mobile) { gap:10px; }
-  .header:has(.home-work-mobile) .contact-link { padding:10px; font-size:11px; gap:0; }
+  .header:has(.home-work-mobile) .contact-link { padding:10px; font-size:13px; gap:0; }
   .header:has(.home-work-mobile) .contact-link span { display:none; }
 }
 
@@ -2787,7 +2789,6 @@ body.project-open {
 .studio-services p.service-examples { color:#d0c4dc; font-size:13px; margin-top:18px; }
 .studio-scope { color:#afa3bc; font-size:12px; line-height:1.9; margin-top:36px; word-break:keep-all; }
 .contact-action { flex-shrink:0; }
-.contact-action #contact-destination { color:#b6a9c2; font-size:12px; line-height:1.7; margin:10px 0 0; text-align:right; }
 @media(max-width:700px) {
   .silk-mode .hero-discover { min-width:82px; height:44px; padding:0; gap:9px; font-size:13px; }
   .silk-mode .hero-copy-row { flex-direction:column; align-items:flex-start; gap:12px; margin-top:28px; }
@@ -2796,7 +2797,6 @@ body.project-open {
   .showcase-heading .showcase-work-link { margin-top:24px; font-size:13px; }
   .home-project-grid .project-caption { padding-top:13px; }
   .home-project-grid .project-view { right:14px; bottom:14px; min-height:44px; }
-  .contact-action #contact-destination { text-align:left; }
 }
 @media(max-width:360px) {
   .silk-mode .hero-copy-row { gap:10px; margin-top:22px; }
@@ -2969,11 +2969,15 @@ body:not(.silk-mode) .hero-controls {
 .contact-invitation > p {
   padding-bottom: 0;
   margin-top: 24px;
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.015em;
+  word-break: keep-all;
 }
 .contact-compact .contact-bottom {
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   gap: clamp(32px, 4.5vw, 72px);
   max-width: 900px;
   margin-top: 34px;
@@ -2981,19 +2985,24 @@ body:not(.silk-mode) .hero-controls {
   border: 0;
 }
 .contact-compact .contact-guidance {
-  font-size: 16px;
-  line-height: 1.85;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.75;
   color: #c5bacf;
-  padding-top: 4px;
+  padding-top: 0;
+  letter-spacing: -0.015em;
+  word-break: keep-all;
 }
 .contact-action .cta {
-  min-height: 60px;
-  padding: 16px 26px;
-}
-.contact-action #contact-destination {
-  text-align: left;
-  margin-top: 9px;
-  color: #c5bacf;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 230px;
+  min-height: 64px;
+  padding: 18px 30px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
 }
 .contact-details {
   max-width: 900px;
@@ -3003,16 +3012,21 @@ body:not(.silk-mode) .hero-controls {
 .contact-details summary {
   justify-content: flex-start;
   width: fit-content;
-  gap: 30px;
-  font-size: 15px;
+  gap: 24px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
   padding: 12px 0;
 }
 .contact-details-body {
   gap: 42px;
   padding-top: 20px;
 }
+.contact-details-body h3 {
+  font-size: 19px;
+}
 .contact-details-body p {
-  font-size: 15px;
+  font-size: 17px;
   color: #c5bacf;
 }
 footer {
@@ -3110,7 +3124,7 @@ footer {
     font-size: clamp(70px, 20vw, 106px);
   }
   .contact-invitation > p {
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 20px;
   }
   .contact-compact .contact-bottom {
@@ -3119,7 +3133,7 @@ footer {
   }
   .contact-compact .contact-guidance {
     padding-top: 0;
-    font-size: 15px;
+    font-size: 20px;
   }
   .contact-action .cta {
     margin-top: 22px;

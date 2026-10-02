@@ -1,3 +1,12 @@
+## 2026-10-02 문의 타이포그래피와 CTA 정렬
+
+- Kakao 연결 안내 문장과 연결된 aria-describedby를 제거한다. 카카오톡 문의하기 버튼은 유지하며 홈페이지·포트폴리오의 프로젝트 문의에서 화살표를 제거한다. 두 버튼의 글자는 flex 양축 center와 중앙 텍스트로 정렬한다.
+- 문의 초대24px/모바일20px, 첫 메시지 안내22px/모바일20px, 함께 일하는 방법18px, 펼친 설명17px/제목19px. 본문과 버튼의 대비·행간 및 기존 라벤더 색을 유지한다. 모바일 상단 문의는13px이며 터치 높이44px다.
+- 한글 기본/제목은 Asta Sans, 영문 기본은 DM Sans, 이탤릭 강조는 Instrument Serif. 글자 폭 변경 후320/390px 줄바꿈을 확인했고 작업 설명은 keep-all로 단어가 중간에 끊기지 않게 한다. 4:5 작품과 작은 작품 캡션 원칙을 유지한다.
+- Asta Sans는 Google Fonts 동적 서브셋으로 제공한다. 공식 설계·OFL 출처: https://github.com/42dot/Asta-Sans 및 https://github.com/google/fonts/tree/main/ofl/astasans . 시스템 폰트를 설치하거나 작업 이미지 내부 글자를 변경하지 않는다.
+
+최종 판정은 운영 가능한 수정본이다. 엄격한 전체 검토에서 추상적인 첫 화면의 차별성, 서비스 구역의 상대적으로 평평한 위계, 모바일 영문 Disclaimer의 큰 비중은 추가 개선 여지로 남았다. 고객 이해도·문의 효과를 검증했다는 뜻은 아니다. 최신 화면·측정 근거는 design-qa.md 및 Desktop 검토 보고서를 따른다.
+
 ## 2026-10-02 엄격한 디자인 검토 반영
 
 Status: `LOCAL QA PASSED / RELEASE CANDIDATE`

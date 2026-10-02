@@ -30,8 +30,7 @@ assert(html.includes('자체 시안') && html.includes('AI로 제작'), 'Generat
   '리브랜딩 실행 프로젝트',
   '월간 브랜드 마케팅',
   '카카오톡 문의하기',
-  '필요한 작업과 현재 상황',
-  '카카오톡으로 연결됩니다.'
+  '필요한 작업과 현재 상황'
 ].forEach((requiredCopy) => {
   assert(html.includes(requiredCopy), `Missing approved site copy: ${requiredCopy}`);
 });
@@ -53,7 +52,7 @@ assert(html.includes('<title>오로라의소리 | 리브랜딩 실행 파트너<
 assert(/<meta name="description" content="새 매장·서비스, 리뉴얼, 이전·확장처럼 사업이 바뀌는 순간/.test(html), 'SEO description must begin with the approved change moment.');
 assert(!html.includes('필요한 콘텐츠를 정하고 제작까지 맡습니다'), 'Old V2 positioning remains in metadata or body.');
 assert(!html.includes('콘텐츠 마케팅"'), 'Old V2 Open Graph alt or metadata remains.');
-assert(/href=["']\/rebrand\/style\.css\?v=12["']/.test(html), 'Production must load the released stylesheet.');
+assert(/href=["']\/rebrand\/style\.css\?v=13["']/.test(html), 'Production must load the released stylesheet.');
 assert(/prefers-reduced-motion/.test(styles), 'Reduced-motion handling is required.');
 assert(/resonance\.webp/.test(html) && /resonance\.webp/.test(styles), 'Hero must keep a static silk fallback.');
 assert(ogCard.includes('리브랜딩 실행 파트너') && ogCard.includes('고객에게 보이는 것'), 'OG render source must match the approved r2 position.');

@@ -1,3 +1,7 @@
+## 2026-10-02 문의·서체 후속 변경
+
+기본 한글 CDN을 Pretendard에서 기존 Google Fonts 연결의 Asta Sans300–800 가변 서체로 변경했다. DM Sans/Instrument Serif는 보존한다. 공통 CSS v13·포트폴리오 CSS v14, 공개 HTML42개 폰트 설정이 동일하다. check-site의 폐기된 연결 안내 문구 요구와 공통CSS 버전 기대값을 갱신했다. CTA의 href/id/data 속성과 JavaScript·광고/오가닉 수집 경계는 변경하지 않는다. DOM 폰트 체크뿐 아니라 Chrome CSS.getPlatformFontsForNode에서 실제 한글 glyph의 AstaSans Regular/Medium 사용을 확인했다.
+
 ## 2026-10-02 디자인 검토 반영 구현
 
 Status: `LOCAL QA PASSED / RELEASE CANDIDATE`

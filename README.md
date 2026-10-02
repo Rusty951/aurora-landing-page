@@ -1,3 +1,9 @@
+## 2026-10-02 문의 영역·한글 타이포그래피 후속 수정
+
+대표 요청에 따라 문의 버튼의 화살표와 중복 연결 안내를 제거하고 글자를 가로·세로 중앙에 배치했다. 문의 문구는 PC24/22px, 모바일20px, 함께 일하는 방법은18px다. 모바일 상단 문의도13px로 확대했다. 기본 한글은 Asta Sans로 변경하고 DM Sans·Instrument Serif 강조 조합을 유지한다.
+
+홈·목록·상세42개 HTML에 같은 Google Fonts 설정을 사용한다. 공통 CSS v13, 포트폴리오 CSS v14이며 JavaScript와 문의 URL·분석 이벤트 계약은 변경하지 않았다. 실제320/390/1440px 검수, 기존 npm 검사 및 별도 코드 검토를 통과했다. 최신 근거는 design-qa.md, 배포 확인은 Desktop/aurora-contact-type-2026-10-02에 기록한다. 아래 날짜별 항목은 당시 이력이다.
+
 ## 2026-10-02 엄격한 디자인 검토 반영
 
 Status: `LOCAL QA PASSED / RELEASE CANDIDATE`
