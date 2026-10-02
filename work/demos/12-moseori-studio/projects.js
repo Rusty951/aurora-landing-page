@@ -35,7 +35,7 @@ window.moseoriProjects = [
   id: index + 1,
   title,
   area,
-  image: `assets/space-${String(
+  image: `/work/demos/12-moseori-studio/assets/space-${String(
     [
       28, 17, 21, 20, 16, 22, 15, 14, 18, 30, 2, 8, 24, 29, 3, 11, 7, 12, 23,
       27, 25, 26, 5, 4, 19, 10, 31, 13, 9, 6, 1,

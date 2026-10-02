@@ -162,3 +162,25 @@ select('carousel');carouselLink.dataset.slides='malformed';assert(imageClick(car
 assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 1');assert(b.nodes['work-lightbox-next'].disabled);
 b.dialog.close();
 console.log('Series passed: all 17 source images connected, no private paths, static fallback and malformed metadata fallback.');
+
+
+// Demo documents must resolve assets at Vercel's canonical URL without a slash.
+let demoDocuments = 0;
+for (const rule of config.rewrites.filter(r => r.source.startsWith('/work/demos/'))) {
+ const folder = dirname(resolve(root, '.' + rule.destination));
+ for (const file of readdirSync(folder).filter(file => file.endsWith('.html'))) {
+  const documentPath = file === 'index.html' ? rule.source : rule.source + '/' + file;
+  const html = readFileSync(resolve(folder, file), 'utf8');
+  const refs = [...html.matchAll(/(?:src|href|poster)=["']([^"']+)["']/g)].map(m => m[1]);
+  refs.push(...[...html.matchAll(/url\(&quot;([^&]+)&quot;\)/g)].map(m => m[1]));
+  for (const ref of refs) {
+   if (ref.startsWith('#')) continue;
+   const url = new URL(ref.replace(/&amp;/g, '&'), 'https://www.aurorasound.kr' + documentPath);
+   if (url.origin !== 'https://www.aurorasound.kr') continue;
+   const target = resolve(root, '.' + decodeURIComponent(url.pathname));
+   assert(existsSync(target), 'Demo URL after canonical redirect: ' + documentPath + ' -> ' + url.pathname);
+  }
+  demoDocuments++;
+ }
+}
+console.log('Demo canonical routes passed: ' + demoDocuments + ' HTML documents.');

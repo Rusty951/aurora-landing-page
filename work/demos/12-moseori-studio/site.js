@@ -34,7 +34,7 @@ if (cards) {
     const link = document.createElement("a");
     link.className = "project-card";
     link.hidden = index >= 6;
-    link.href = `detail.html?id=${project.id}`;
+    link.href = `/work/demos/12-moseori-studio/detail.html?id=${project.id}`;
     const image = document.createElement("img");
     image.src = project.image;
     image.alt = `${project.title}의 분위기를 보여주는 연출용 공간 사진`;
