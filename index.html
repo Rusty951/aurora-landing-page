@@ -42,8 +42,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
     />
-    <link rel="stylesheet" href="/rebrand/style.css?v=11" />
-    <script type="module" src="/rebrand/app.js?v=5"></script>
+    <link rel="stylesheet" href="/rebrand/style.css?v=12" />
+    <script type="module" src="/rebrand/app.js?v=6"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -89,7 +89,7 @@
   }
   </script>
   </head>
-  <body>
+  <body class="silk-mode">
     <a class="skip" href="#main">본문으로 바로가기</a>
     <div class="scroll-progress" aria-hidden="true"></div>
     <div class="cursor" aria-hidden="true"><span></span></div>
@@ -132,7 +132,7 @@
           </div>
           <div class="chapter chapter-first" data-chapter="0">
             <p class="chapter-kicker">
-              <span class="status-dot"></span> A NEW RESONANCE
+              <span class="status-dot" aria-hidden="true"></span>
               <span class="hero-role">리브랜딩 실행 파트너</span>
             </p>
             <h1 class="hero-title">
@@ -181,12 +181,6 @@
             >
           </div>
           <div class="stage-bottom">
-            <span class="hero-discipline"
-              >REBRANDING · CONTENT · EXPERIENCE</span
-            >
-            <a class="hero-scroll" href="#approach"
-              >SCROLL TO DISCOVER <span aria-hidden="true">↓</span></a
-            >
             <nav class="chapter-nav" aria-label="브랜드 이야기 장면 선택">
               <button
                 type="button"
@@ -201,11 +195,6 @@
                 <span>03</span> 존재감
               </button>
             </nav>
-            <div class="stage-hint">
-              <span class="hint-desktop">MOVE TO FEEL. CLICK TO RESONATE.</span
-              ><span class="hint-mobile">조형물을 터치해보세요</span
-              ><span aria-hidden="true">↓</span>
-            </div>
           </div>
           <button
             type="button"
@@ -214,6 +203,12 @@
           >
             <span aria-hidden="true">↗</span> 파동 보내기
           </button>
+          <div class="experience-controls hero-controls" role="group" aria-label="첫 화면 재생 설정">
+            <button class="sound-toggle" type="button" aria-pressed="false" aria-label="배경 음악 켜기">
+              <span class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound-label">음악 켜기</span>
+            </button>
+            <button class="motion-toggle" type="button" aria-pressed="false" aria-label="움직임 일시 정지">움직임 켜짐</button>
+          </div>
         </div>
       </section>
 
@@ -244,8 +239,8 @@
           </article>
           <article class="project reveal">
             <a class="project-link" href="/work/aurora-in-print" data-project="identity" aria-haspopup="dialog" aria-label="Aurora, in print. 브랜드 자체 시안 자세히 보기">
-              <div class="project-visual project-preserve">
-                <img src="/rebrand/assets/showcase-identity.webp" alt="브랜드를 손에 닿게" width="1536" height="1024" loading="lazy" decoding="async" style="object-position:50% 50%">
+              <div class="project-visual">
+                <img src="/rebrand/assets/showcase-identity.webp" alt="브랜드를 손에 닿게" width="1536" height="1024" loading="lazy" decoding="async" style="object-position:39% 50%">
                 <span class="project-view">자세히 보기 <span aria-hidden="true">↗</span></span>
               </div>
               <div class="project-caption"><p>브랜드 / 자체 시안</p><span aria-hidden="true">↗</span></div>
@@ -344,7 +339,7 @@
     <footer>
       <div class="footer-top"><a href="#home" class="footer-brand">aurora sound</a><div class="footer-contact"><a class="footer-email" id="footer-email-link" data-track="email" href="mailto:contact@aurorasound.kr">contact@aurorasound.kr <span aria-hidden="true">↗</span></a><nav class="footer-socials" aria-label="소셜 채널"><a id="footer-youtube-link" data-track="youtube" href="https://www.youtube.com/channel/UCWKI1K2qTf8H1AMfu9pCC3A" target="_blank" rel="noopener noreferrer" aria-label="유튜브 (새 탭)" title="유튜브"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29.3 29.3 0 0 0 2 12a29.3 29.3 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29.3 29.3 0 0 0 22 12a29.3 29.3 0 0 0-.4-4.8ZM10 15.2V8.8l5.5 3.2-5.5 3.2Z"/></svg></a><a id="footer-facebook-link" href="https://www.facebook.com/profile.php?id=61591953249965" target="_blank" rel="noopener noreferrer" aria-label="페이스북 (새 탭)" title="페이스북"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.6 22v-9.1h3.1l.5-3.6h-3.6V7c0-1 .3-1.7 1.8-1.7h1.9V2.1C17 2 15.8 2 14.6 2c-2.7 0-4.5 1.6-4.5 4.6v2.7H7v3.6h3.1V22h3.5Z"/></svg></a><a id="footer-insta-link" data-track="instagram" href="https://www.instagram.com/aurorasound_branding/" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 (새 탭)" title="인스타그램"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/></svg></a></nav></div></div>
       <aside class="site-notice" lang="en" aria-label="Disclaimer"><h2>Disclaimer</h2><p>Work featured on this website includes self-initiated concepts, AI-generated images, and sample projects for fictional businesses. Unless otherwise stated, these works do not represent actual client deliverables, collaborations, or results.</p><p>Please contact us before copying, modifying, redistributing, or using these materials for commercial purposes. Third-party materials are subject to their respective rights holders’ terms. Uses permitted by law are not restricted.</p></aside>
-    <div class="experience-controls">
+    <div class="experience-controls footer-controls" role="group" aria-label="하단 재생 설정">
       <button
         class="sound-toggle"
         type="button"

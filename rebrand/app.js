@@ -15,8 +15,8 @@ const chapters = [...document.querySelectorAll("[data-chapter]")],
 const cursor = $(".cursor"),
   progressBar = $(".scroll-progress"),
   header = $(".header");
-const motionButton = $(".motion-toggle"),
-  soundButton = $(".sound-toggle"),
+const motionButtons = [...document.querySelectorAll(".motion-toggle")],
+  soundButtons = [...document.querySelectorAll(".sound-toggle")],
   status = $("#experience-status");
 const pointer = { x: 0, y: 0 },
   targetPointer = { x: 0, y: 0 },
@@ -64,13 +64,7 @@ new IntersectionObserver(([entry]) => {
   sceneVisible = entry.isIntersecting;
   if (sceneVisible) needsRender = true;
 }).observe(experience);
-// Keep sound controls available without covering the mobile contact button.
-new IntersectionObserver(
-  ([entry]) => {
-    document.body.classList.toggle("contact-view", entry.isIntersecting);
-  },
-  { rootMargin: "0px 0px -10% 0px" },
-).observe($("#contact"));
+// Playback controls stay in the hero and footer flow. They never cover work.
 function measure() {
   range = sculptureMode
     ? Math.max(1, experience.offsetHeight - stage.offsetHeight)
@@ -132,37 +126,46 @@ jumps.forEach((button, i) =>
 function motionState() {
   document.body.classList.toggle("motion-paused", paused);
   document.documentElement.style.scrollBehavior = paused ? "auto" : "";
-  motionButton.textContent = paused ? "움직임 멈춤" : "움직임 켜짐";
-  motionButton.setAttribute("aria-pressed", String(paused));
-  motionButton.setAttribute(
-    "aria-label",
-    paused ? "움직임 재생" : "움직임 일시 정지",
-  );
+  motionButtons.forEach((button) => {
+    button.textContent = paused ? "움직임 멈춤" : "움직임 켜짐";
+    button.setAttribute("aria-pressed", String(paused));
+    button.setAttribute(
+      "aria-label",
+      paused ? "움직임 재생" : "움직임 일시 정지",
+    );
+  });
   needsRender = true;
   setChapter(targetProgress);
 }
-motionButton.addEventListener("click", () => {
+motionButtons.forEach((button) => button.addEventListener("click", () => {
   paused = !paused;
   motionState();
   status.textContent = paused
     ? "움직임을 멈췄습니다. 스크롤로 다음 장면을 볼 수 있습니다."
     : "움직임을 재생합니다.";
-});
+}));
 reduced.addEventListener("change", () => {
   paused = reduced.matches;
   motionState();
 });
 function soundState() {
-  soundButton.setAttribute("aria-pressed", String(score.enabled));
-  soundButton.setAttribute(
-    "aria-label",
-    score.enabled ? "배경 음악 끄기" : "배경 음악 켜기",
-  );
-  $(".sound-label").textContent = score.enabled ? "음악 켜짐" : "음악 켜기";
+  soundButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(score.enabled));
+    button.setAttribute("aria-disabled", String(soundBusy));
+    button.setAttribute("aria-busy", String(soundBusy));
+    button.setAttribute(
+      "aria-label",
+      score.enabled ? "배경 음악 끄기" : "배경 음악 켜기",
+    );
+    button.querySelector(".sound-label").textContent = score.enabled
+      ? "음악 켜짐"
+      : "음악 켜기";
+  });
 }
-soundButton.addEventListener("click", async () => {
+soundButtons.forEach((button) => button.addEventListener("click", async () => {
   if (soundBusy) return;
   soundBusy = true;
+  soundState();
   try {
     if (score.enabled) score.stop();
     else await score.start();
@@ -171,12 +174,15 @@ soundButton.addEventListener("click", async () => {
       ? "배경 음악을 재생합니다."
       : "배경 음악을 껐습니다.";
   } catch {
+    score.stop();
+    soundState();
     status.textContent =
       "배경 음악을 재생할 수 없습니다. 다시 눌러 시도해주세요.";
   } finally {
     soundBusy = false;
+    soundState();
   }
-});
+}));
 window.addEventListener(
   "pointermove",
   (event) => {
@@ -291,7 +297,10 @@ document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
     cancelAnimationFrame(raf);
     resumeAudio = score.enabled;
-    if (resumeAudio) score.stop();
+    if (resumeAudio) {
+      score.stop();
+      soundState();
+    }
   } else {
     cancelAnimationFrame(raf);
     last = performance.now();

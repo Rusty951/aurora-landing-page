@@ -41,66 +41,88 @@ assert(config.headers.some(r=>r.source==='/work/demos/:path*'&&r.headers.some(h=
 // Verify the real catalog through both browsing modes and enlargement interactions.
 const gallery = read('work/index.html');
 assert.equal((gallery.match(/data-full-image=/g)||[]).length,34);
-assert.equal((gallery.match(/target="_blank" rel="noopener"/g)||[]).length,6);
+assert.equal((gallery.match(/target="_blank" rel="noopener"/g)||[]).length,7,'Six website links plus original image');
 assert.match(gallery,/<dialog class="work-lightbox" aria-labelledby="work-lightbox-title">/);
 for (const p of catalog.filter(p=>p.category==='website')) {
  const card=gallery.match(new RegExp('<article class="work-card"[^>]*data-category="website"[^>]*>.*?href="/work/'+p.slug+'".*?</article>'))?.[0];
  assert(card && /href="\/work\/demos\//.test(card),'Website opens live demo and offers description');
 }
-function browser(start='http://localhost/work',nativeDialog=true) {
- const subButtons=['images','food','product','brand','carousel','character'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
+function browser(start='http://localhost/work',nativeDialog=true,withObserver=false) {
+ const subButtons=['images','product','food','brand','carousel','character'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
  const kinds=['images','website'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
  const links=catalog.map(p=>p.category==='website'?null:{
   dataset:{fullImage:p.image,imageTitle:p.subtitle,imageBadge:p.badge,slides:p.slides?JSON.stringify(p.slides):undefined}, href:'http://localhost/work/'+p.slug, isConnected:true, focused:false,
   querySelector:()=>({alt:p.subtitle+' 자체 AI 이미지'}), focus(){this.focused=true;}
  });
- const cards=catalog.map((p,i)=>({dataset:{category:p.category},hidden:false,querySelector:()=>links[i]}));
+ const cards=catalog.map((p,i)=>({dataset:{category:p.category,collection:p.slug.startsWith('bb-')?'sketch':'curated'},hidden:false,querySelector:()=>links[i]}));
  const callbacks={};const filters={hidden:false,querySelectorAll:()=>subButtons};
- const controls={hidden:true,querySelector:s=>filters,querySelectorAll:s=>s.includes('work-kinds')?kinds:[...kinds,...subButtons],contains:b=>[...kinds,...subButtons].includes(b),addEventListener:(e,fn)=>{callbacks[e]=fn;}};
- const nodes=Object.fromEntries(['work-count','work-section-title','work-hint','work-lightbox-image','work-lightbox-title','work-lightbox-badge','work-lightbox-detail','work-lightbox-prev','work-lightbox-next','work-lightbox-position'].map(id=>[id,{textContent:'',events:{},addEventListener(e,fn){this.events[e]=fn;},removeAttribute(k){delete this[k];}}]));
+ const controls={hidden:true,querySelector:()=>filters,querySelectorAll:s=>s.includes('work-kinds')?kinds:[...kinds,...subButtons],contains:b=>[...kinds,...subButtons].includes(b),addEventListener:(e,fn)=>{callbacks[e]=fn;},getBoundingClientRect:()=>({height:104})};
+ const ids=['work-count','work-section-title','work-hint','work-sketches','work-curated','work-websites','work-curated-count','work-sketch-count','gallery','work-lightbox-image','work-lightbox-title','work-lightbox-badge','work-lightbox-detail','work-lightbox-original','work-lightbox-transcript','work-lightbox-text','work-lightbox-prev','work-lightbox-next','work-lightbox-position'];
+ const nodes=Object.fromEntries(ids.map(id=>[id,{textContent:'',open:false,hidden:false,events:{},addEventListener(e,fn){this.events[e]=fn;},removeAttribute(k){delete this[k];},getBoundingClientRect:()=>({top:240})}]));
  const grid={addEventListener:(e,fn)=>{callbacks.gridClick=fn;}};nodes['work-grid']=grid;
  const dialogEvents={};const dialog={open:false,isConnected:true,showModal:nativeDialog?function(){this.open=true;}:undefined,close(){this.open=false;dialogEvents.close();},addEventListener:(e,fn)=>{dialogEvents[e]=fn;},getBoundingClientRect:()=>({left:10,top:10,right:100,bottom:100})};
- const classNames=new Set();const pop={};const context={document:{querySelector:s=>s==='.work-controls'?controls:dialog,querySelectorAll:()=>cards,getElementById:id=>nodes[id],body:{classList:{add:v=>classNames.add(v),remove:v=>classNames.delete(v)}}},window:{addEventListener:(e,fn)=>{pop[e]=fn;}},location:{href:start},URL,history:{replaceState:(s,t,u)=>{context.location.href=u.href;}}};
+ const classNames=new Set();const pop={};const styles={};const header={height:88,getBoundingClientRect(){return{height:this.height};}};const observed=[];let observerCallback;
+ const context={document:{querySelector:s=>s==='.work-controls'?controls:s==='.header'?header:dialog,querySelectorAll:()=>cards,getElementById:id=>nodes[id],body:{style:{setProperty:(k,v)=>{styles[k]=v;}},classList:{add:v=>classNames.add(v),remove:v=>classNames.delete(v)}}},window:{scrollY:0,scrollTo:v=>{callbacks.scroll=v;},addEventListener:(e,fn)=>{pop[e]=fn;}},location:{href:start},URL,history:{replaceState:(s,t,u)=>{context.location.href=u.href;}}};
+ if(withObserver)context.ResizeObserver=class {constructor(cb){observerCallback=cb;}observe(node){observed.push(node);}};
  vm.runInNewContext(read('work/work.js'),context);
- return {links,cards,filters,kinds,subButtons,nodes,dialog,dialogEvents,classNames,callbacks,context,pop,controls};
+ const visible=()=>cards.filter(c=>!c.hidden&&(c.dataset.collection!=='sketch'||nodes['work-sketches'].open));
+ const expand=()=>{nodes['work-sketches'].open=true;nodes['work-sketches'].events.toggle();};
+ return {links,cards,filters,kinds,subButtons,nodes,dialog,dialogEvents,classNames,callbacks,context,pop,controls,visible,expand,styles,header,observed,observerCallback};
 }
-const b=browser();assert.equal(b.controls.hidden,false);assert.equal(b.cards.filter(c=>!c.hidden).length,34);assert.equal(b.nodes['work-count'].textContent,'이미지 34개');
-for(const [category,n] of Object.entries({website:6,food:12,product:15,brand:3,carousel:1,character:3,images:34})) {
+const b=browser();assert.equal(b.controls.hidden,false);assert.equal(b.visible().length,16);assert.equal(b.nodes['work-count'].textContent,'이미지 34개 · 16개 표시, 스케치 18개 접힘');
+assert.equal(b.styles['--work-header-height'],'88px');assert.equal(b.styles['--work-controls-height'],'104px');
+b.header.height=96;b.pop.resize();assert.equal(b.styles['--work-header-height'],'96px','Resize fallback updates sticky offset');
+const observed=browser(undefined,true,true);assert.equal(observed.observed.length,2);observed.header.height=102;observed.observerCallback();assert.equal(observed.styles['--work-header-height'],'102px','Header resizing updates sticky offset');
+for(const [category,total,initial,sketches] of [['website',6,6,0],['food',12,6,6],['product',15,3,12],['brand',3,3,0],['carousel',1,1,0],['character',3,3,0],['images',34,16,18]]) {
  const button=[...b.kinds,...b.subButtons].find(x=>x.dataset.filter===category);b.callbacks.click({target:{closest:()=>button}});
- assert.equal(b.cards.filter(c=>!c.hidden).length,n);assert.equal(button.attrs['aria-pressed'],'true');
- assert.equal(b.filters.hidden,category==='website');
- assert.equal(b.nodes['work-count'].textContent,`${category==='website'?'웹사이트':'이미지'} ${n}개`);
+ assert.equal(b.cards.filter(c=>!c.hidden).length,total);assert.equal(b.visible().length,initial);assert.equal(button.attrs['aria-pressed'],'true');
+ assert.equal(b.filters.hidden,category==='website');assert.equal(b.nodes['work-sketches'].hidden,sketches===0);
+ assert.equal(b.nodes['work-curated'].hidden,category==='website');assert.equal(b.nodes['work-websites'].hidden,category!=='website');
+ assert.equal(b.nodes['work-sketch-count'].textContent,sketches);assert.equal(b.nodes['work-curated-count'].textContent,initial);
+ assert.equal(b.nodes['work-hint'].textContent.includes('콘셉트 스케치'),sketches>0,'Sketch guidance only accompanies an available sketch group');
+ assert.equal(b.nodes['work-hint'].textContent.includes('새 탭'),category==='website','Website guidance follows the selected browsing mode');
+ const base=`${category==='website'?'웹사이트':'이미지'} ${total}개`;
+ assert.equal(b.nodes['work-count'].textContent,base+(sketches?` · ${initial}개 표시, 스케치 ${sketches}개 접힘`:''));
  assert.equal(b.kinds[0].attrs['aria-pressed'],String(category!=='website'));
+ if(sketches){b.expand();assert.equal(b.visible().length,total);assert.equal(b.nodes['work-count'].textContent,base);}
+ assert.equal(b.callbacks.scroll.top,144,'New filter returns to gallery below measured header');
 }
 assert(!b.context.location.href.includes('category='));
-for(const [category,n] of Object.entries({website:6,food:12,carousel:1,character:3,unknown:34,all:34})) {
- const state=browser('http://localhost/work?category='+category);assert.equal(state.cards.filter(c=>!c.hidden).length,n,'URL state '+category);
+for(const [category,n] of Object.entries({website:6,food:6,carousel:1,character:3,unknown:16,all:16})) {
+ const state=browser('http://localhost/work?category='+category);assert.equal(state.visible().length,n,'URL state '+category);
 }
-b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.cards.filter(c=>!c.hidden).length,6);
-b.context.location.href='http://localhost/work';b.pop.popstate();
+b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.visible().length,6);
+b.context.location.href='http://localhost/work';b.pop.popstate();assert.equal(b.visible().length,16,'History restores collapsed selection');
 const link=b.links.find(Boolean);
 function imageClick(link,extra={}) {let prevented=false;const event={target:{closest:()=>link},button:0,preventDefault(){prevented=true;},...extra};b.callbacks.gridClick(event);return prevented;}
 assert.equal(imageClick(link,{metaKey:true}),false);assert.equal(b.dialog.open,false,'Modified click retains native link');
+const hiddenSketch=b.links[catalog.findIndex(p=>p.slug.startsWith('bb-'))];assert.equal(imageClick(hiddenSketch),false,'Closed sketches cannot open or leak into viewer');
 assert.equal(imageClick(link),true);assert.equal(b.dialog.open,true);assert.equal(b.nodes['work-lightbox-image'].src,link.dataset.fullImage);assert.equal(b.nodes['work-lightbox-image'].alt,link.querySelector('img').alt);assert.equal(b.nodes['work-lightbox-detail'].href,link.href);assert(b.classNames.has('work-image-open'));
-assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 34');
+assert.equal(b.nodes['work-lightbox-original'].href,link.dataset.fullImage);assert.equal(b.nodes['work-lightbox-transcript'].hidden,true);
+assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 16');
 b.nodes['work-lightbox-next'].events.click();
-assert.equal(b.nodes['work-lightbox-position'].textContent,'2 / 34');
-assert.equal(b.nodes['work-lightbox-title'].textContent,catalog[1].subtitle);
-assert.equal(b.nodes['work-lightbox-detail'].href,b.links[1].href);
+assert.equal(b.nodes['work-lightbox-position'].textContent,'2 / 16');assert.equal(b.nodes['work-lightbox-title'].textContent,catalog[1].subtitle);
+assert.equal(b.nodes['work-lightbox-original'].href,catalog[1].image);assert.equal(b.nodes['work-lightbox-detail'].href,b.links[1].href);
 b.nodes['work-lightbox-prev'].events.click();assert.equal(b.nodes['work-lightbox-image'].src,link.dataset.fullImage);
 b.dialogEvents.click({target:b.dialog,clientX:50,clientY:50});assert.equal(b.dialog.open,true,'Interior does not close image');
-b.dialogEvents.click({target:b.dialog,clientX:150,clientY:150});assert.equal(b.dialog.open,false);assert(link.focused);assert(!b.classNames.has('work-image-open'));assert.equal(b.nodes['work-lightbox-image'].src,undefined);
-// The viewer must stay within the selected category, including at both ends.
+b.dialogEvents.click({target:b.dialog,clientX:150,clientY:150});assert.equal(b.dialog.open,false);assert(link.focused);assert(!b.classNames.has('work-image-open'));assert.equal(b.nodes['work-lightbox-image'].src,undefined);assert.equal(b.nodes['work-lightbox-original'].href,undefined);
+// Expanded sketches become navigable; closing them removes them from the next session.
+b.expand();assert(imageClick(hiddenSketch));assert.equal(b.nodes['work-lightbox-position'].textContent,'17 / 34');b.dialog.close();
+b.nodes['work-sketches'].open=false;b.nodes['work-sketches'].events.toggle();assert(imageClick(link));assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 16');b.dialog.close();
+// The viewer must stay within the selected category and its expanded sections.
 b.context.location.href='http://localhost/work?category=food';b.pop.popstate();
-const food=catalog.map((p,i)=>p.category==='food'?b.links[i]:null).filter(Boolean);
-assert(imageClick(food[0]));assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 12');
-b.nodes['work-lightbox-prev'].events.click();assert.equal(b.nodes['work-lightbox-detail'].href,food.at(-1).href);assert.equal(b.nodes['work-lightbox-position'].textContent,'12 / 12');
+const food=catalog.map((p,i)=>p.category==='food'&&!p.slug.startsWith('bb-')?b.links[i]:null).filter(Boolean);
+assert(imageClick(food[0]));assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 6');
+b.nodes['work-lightbox-prev'].events.click();assert.equal(b.nodes['work-lightbox-detail'].href,food.at(-1).href);assert.equal(b.nodes['work-lightbox-position'].textContent,'6 / 6');
 let prevented=false;b.dialogEvents.keydown({key:'ArrowRight',preventDefault(){prevented=true;}});assert(prevented);assert.equal(b.nodes['work-lightbox-detail'].href,food[0].href);
 b.dialogEvents.keydown({key:'ArrowLeft',metaKey:true,preventDefault(){assert.fail('Modified shortcut intercepted');}});assert.equal(b.nodes['work-lightbox-detail'].href,food[0].href);
 b.dialogEvents.keydown({key:'ArrowLeft',preventDefault(){}});assert.equal(b.nodes['work-lightbox-detail'].href,food.at(-1).href);
 b.nodes['work-lightbox-next'].events.click();assert.equal(b.nodes['work-lightbox-detail'].href,food[0].href);
 b.dialog.close();assert(food[0].focused,'Focus returns to opening card after navigation');
+b.expand();assert(imageClick(food[0]));assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 12');b.dialog.close();
 const fallback=browser('http://localhost/work',false);assert.equal(fallback.callbacks.gridClick,undefined,'Unsupported dialog keeps existing detail links');
+assert.match(gallery,/<details class="work-sketches" id="work-sketches"><summary>/,'Native disclosure works without JavaScript');
+assert.match(gallery,/<a id="work-lightbox-original"[^>]*target="_blank"[^>]*rel="noopener"/);
 const cardMarkup=[...gallery.matchAll(/<article class="work-card".*?<\/article>/gs)].map(m=>m[0]);
 const markupOrder=cardMarkup.map(c=>c.match(/href="\/work\/(?!demos\/)([^"/]+)"/)[1]);
 assert.deepEqual(markupOrder,catalog.map(p=>p.slug),'Catalog and visible order match');
@@ -117,7 +139,7 @@ for (const p of catalog.filter(p=>p.slides)) {
  assert.equal(p.slides.length,p.category==='carousel'?8:3);
  const card=cardMarkup.find(c=>c.includes('href="/work/'+p.slug+'"'));
  const slides=JSON.parse(decodeAttr(card.match(/data-slides="([^"]+)"/)[1]));
- assert.deepEqual(slides,p.slides.map(({image,alt,caption})=>({image,alt,caption})));
+ assert.deepEqual(slides,p.slides.map(({image,alt,caption,text})=>({image,alt,caption,...(text?{text}:{})})));
  const html=read(`work/${p.slug}/index.html`);
  for(const slide of p.slides) {
   assert(slide.width>0&&slide.height>0);
@@ -132,8 +154,9 @@ select('carousel');
 const carouselIndex=catalog.findIndex(p=>p.category==='carousel');
 const carousel=catalog[carouselIndex], carouselLink=b.links[carouselIndex];
 assert(imageClick(carouselLink));assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 8');
+assert.equal(b.nodes['work-lightbox-text'].textContent,carousel.slides[0].text);assert.equal(b.nodes['work-lightbox-transcript'].hidden,false);b.nodes['work-lightbox-transcript'].open=true;
 b.nodes['work-lightbox-prev'].events.click();assert.equal(b.nodes['work-lightbox-position'].textContent,'8 / 8');
-assert.equal(b.nodes['work-lightbox-image'].src,carousel.slides[7].image);
+assert.equal(b.nodes['work-lightbox-image'].src,carousel.slides[7].image);assert.equal(b.nodes['work-lightbox-original'].href,carousel.slides[7].image);assert.equal(b.nodes['work-lightbox-text'].textContent,carousel.slides[7].text);assert.equal(b.nodes['work-lightbox-transcript'].open,true,'Transcript stays open while reading slides');
 assert.equal(b.nodes['work-lightbox-detail'].href,carouselLink.href);
 b.nodes['work-lightbox-next'].events.click();assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 8');
 b.dialogEvents.keydown({key:'ArrowRight',preventDefault(){}});assert.equal(b.nodes['work-lightbox-position'].textContent,'2 / 8');
@@ -144,11 +167,11 @@ swipe([40,100],[160,105]);assert.equal(b.nodes['work-lightbox-position'].textCon
 swipe([100,100],[110,220]);assert.equal(b.nodes['work-lightbox-position'].textContent,'2 / 8','Vertical scroll does not advance');
 imageNode.events.touchstart({touches:[{clientX:160,clientY:100},{clientX:180,clientY:100}]});
 imageNode.events.touchend({changedTouches:[{clientX:40,clientY:100}]});assert.equal(b.nodes['work-lightbox-position'].textContent,'2 / 8','Pinch does not advance');
-b.dialog.close();assert(carouselLink.focused);assert(!b.classNames.has('work-image-open'));
+b.dialog.close();assert(carouselLink.focused);assert(!b.classNames.has('work-image-open'));assert.equal(b.nodes['work-lightbox-text'].textContent,'');assert.equal(b.nodes['work-lightbox-transcript'].hidden,true);assert.equal(b.nodes['work-lightbox-transcript'].open,false);
 select('character');
 for(const [i,p] of catalog.entries()) if(p.category==='character') {
  const link=b.links[i];assert(imageClick(link));
- assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 3');
+ assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 3');assert.equal(b.nodes['work-lightbox-transcript'].hidden,true,'Character series has no stale editorial text');
  for(let j=0;j<3;j++) {
   assert.equal(b.nodes['work-lightbox-image'].src,p.slides[j].image);
   assert.equal(b.nodes['work-lightbox-image'].alt,p.slides[j].alt);
@@ -156,10 +179,10 @@ for(const [i,p] of catalog.entries()) if(p.category==='character') {
   assert.equal(b.nodes['work-lightbox-title'].textContent,p.subtitle+' / '+p.slides[j].caption);
   b.nodes['work-lightbox-next'].events.click();
  }
- assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 3');b.dialog.close();assert(link.focused);
+ assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 3');assert.equal(b.nodes['work-lightbox-transcript'].hidden,true,'Character series has no stale editorial text');b.dialog.close();assert(link.focused);
 }
 select('carousel');carouselLink.dataset.slides='malformed';assert(imageClick(carouselLink));
-assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 1');assert(b.nodes['work-lightbox-next'].disabled);
+assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 1');assert(b.nodes['work-lightbox-next'].disabled);assert.equal(b.nodes['work-lightbox-transcript'].hidden,true,'Invalid metadata retains safe image fallback');
 b.dialog.close();
 console.log('Series passed: all 17 source images connected, no private paths, static fallback and malformed metadata fallback.');
 

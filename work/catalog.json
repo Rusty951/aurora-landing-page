@@ -119,7 +119,8 @@
     "badge": "자체 콘셉트 시안 / AI 제작",
     "width": 1536,
     "height": 1024,
-    "thumbnail_fit": "contain"
+    "thumbnail_fit": "cover",
+    "thumbnail_focus": "39% 50%"
   },
   {
     "slug": "aura-archive",
@@ -132,7 +133,8 @@
     "badge": "자체 콘셉트 시안 / AI 제작",
     "width": 1536,
     "height": 1024,
-    "thumbnail_fit": "contain"
+    "thumbnail_fit": "cover",
+    "thumbnail_focus": "30% 50%"
   },
   {
     "slug": "soft-resonance",
@@ -164,7 +166,8 @@
         "caption": "01 / 08",
         "alt": "오로라 인스타 콘텐츠 1번째 장",
         "width": 1122,
-        "height": 1402
+        "height": 1402,
+        "text": "AI 시대의 실력은 “버리는 기준”에서 드러난다"
       },
       {
         "image": "/work/assets/aurora-carousel-02.webp",
@@ -172,7 +175,8 @@
         "caption": "02 / 08",
         "alt": "오로라 인스타 콘텐츠 2번째 장",
         "width": 1080,
-        "height": 1350
+        "height": 1350,
+        "text": "AI가 잘 만들수록 고르는 일은 더 어려워집니다.\n\n결과물이 많아질수록 모두 그럴듯해 보입니다. 기준이 없으면 선택은 취향으로 끝납니다."
       },
       {
         "image": "/work/assets/aurora-carousel-03.webp",
@@ -180,7 +184,8 @@
         "caption": "03 / 08",
         "alt": "오로라 인스타 콘텐츠 3번째 장",
         "width": 1080,
-        "height": 1350
+        "height": 1350,
+        "text": "“좋아 보인다”는 기준이 아닙니다.\n\n누구의 어떤 문제를 푸는지 먼저 정해야 합니다."
       },
       {
         "image": "/work/assets/aurora-carousel-04.webp",
@@ -188,7 +193,8 @@
         "caption": "04 / 08",
         "alt": "오로라 인스타 콘텐츠 4번째 장",
         "width": 1080,
-        "height": 1350
+        "height": 1350,
+        "text": "AI는 답을 만듭니다.\n\n사람은 그중 지킬 답을 고릅니다."
       },
       {
         "image": "/work/assets/aurora-carousel-05.webp",
@@ -196,7 +202,8 @@
         "caption": "05 / 08",
         "alt": "오로라 인스타 콘텐츠 5번째 장",
         "width": 1080,
-        "height": 1350
+        "height": 1350,
+        "text": "가장 먼저 버릴 것은 우리 문제와 상관없는 답입니다.\n\n그럴듯해도 해결하려는 장면이 다르면 남기지 않습니다."
       },
       {
         "image": "/work/assets/aurora-carousel-06.webp",
@@ -204,7 +211,8 @@
         "caption": "06 / 08",
         "alt": "오로라 인스타 콘텐츠 6번째 장",
         "width": 1080,
-        "height": 1350
+        "height": 1350,
+        "text": "다음으로 버릴 것은 이유를 설명할 수 없는 답입니다.\n\n“좋아 보인다” 말고 왜 이 답이어야 하는지 남깁니다."
       },
       {
         "image": "/work/assets/aurora-carousel-07.webp",
@@ -212,7 +220,8 @@
         "caption": "07 / 08",
         "alt": "오로라 인스타 콘텐츠 7번째 장",
         "width": 1080,
-        "height": 1350
+        "height": 1350,
+        "text": "마지막으로 버릴 것은 계속 지킬 수 없는 답입니다.\n\n한 번 예쁜 결과보다 다음에도 같은 기준으로 고를 수 있어야 합니다."
       },
       {
         "image": "/work/assets/aurora-carousel-08.webp",
@@ -220,7 +229,8 @@
         "caption": "08 / 08",
         "alt": "오로라 인스타 콘텐츠 8번째 장",
         "width": 1080,
-        "height": 1350
+        "height": 1350,
+        "text": "좋은 결과물은 만든 횟수가 아니라 버린 이유로 완성됩니다.\n\nAI가 만든 답 중 끝까지 설명할 수 있는 것만 남깁니다."
       }
     ]
   },
@@ -376,7 +386,7 @@
     "badge": "자체 콘셉트 스터디 / AI 제작",
     "width": 1402,
     "height": 1122,
-    "thumbnail_focus": "25% 50%"
+    "thumbnail_focus": "10% 50%"
   },
   {
     "slug": "bb-p-0013",
@@ -529,7 +539,8 @@
     "thumb": "/work/assets/bb-f-0189-thumb.webp",
     "badge": "자체 콘셉트 스터디 / AI 제작",
     "width": 1402,
-    "height": 1122
+    "height": 1122,
+    "thumbnail_fit": "contain"
   },
   {
     "slug": "bb-f-0223",
@@ -555,7 +566,7 @@
     "badge": "자체 콘셉트 스터디 / AI 제작",
     "width": 1402,
     "height": 1122,
-    "thumbnail_focus": "30% 50%"
+    "thumbnail_focus": "5% 50%"
   },
   {
     "slug": "bb-f-0331",

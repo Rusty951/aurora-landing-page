@@ -7,19 +7,53 @@
   const count = document.getElementById('work-count');
   const title = document.getElementById('work-section-title');
   const hint = document.getElementById('work-hint');
+  const sketches = document.getElementById('work-sketches');
+  const curated = document.getElementById('work-curated');
+  const websites = document.getElementById('work-websites');
+  const curatedCount = document.getElementById('work-curated-count');
+  const sketchCount = document.getElementById('work-sketch-count');
+  const gallery = document.getElementById('gallery');
   const labels = {images:'광고 이미지와 제품 비주얼', food:'푸드', product:'제품', brand:'브랜드', carousel:'인스타', character:'캐릭터', website:'웹사이트 샘플'};
+  let activeFilter = 'images';
   controls.hidden = false;
+  const header = document.querySelector('.header');
+  const measureControls = () => {
+    document.body.style.setProperty('--work-header-height', `${header?.getBoundingClientRect().height || 92}px`);
+    document.body.style.setProperty('--work-controls-height', `${Math.ceil(controls.getBoundingClientRect().height)}px`);
+  };
+  measureControls();
+  if (typeof ResizeObserver === 'function') {
+    const observer = new ResizeObserver(measureControls);
+    if (header) observer.observe(header);
+    observer.observe(controls);
+  }
+  window.addEventListener('resize', measureControls);
+  const visibleCards = () => cards.filter(card => !card.hidden && (card.dataset.collection !== 'sketch' || sketches.open));
+  const updateCount = () => {
+    const total = cards.filter(card => !card.hidden).length;
+    const visible = visibleCards().length;
+    count.textContent = `${activeFilter === 'website' ? '웹사이트' : '이미지'} ${total}개${visible < total ? ` · ${visible}개 표시, 스케치 ${total - visible}개 접힘` : ''}`;
+  };
+  sketches.addEventListener('toggle', updateCount);
   const applyFilter = (value) => {
     if (!Object.hasOwn(labels, value)) value = 'images';
+    activeFilter = value;
     const website = value === 'website';
     kindButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === (website ? 'website' : 'images'))));
     [...filters.querySelectorAll('button')].forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === value)));
     filters.hidden = website;
     cards.forEach(card => { card.hidden = value === 'images' ? card.dataset.category === 'website' : card.dataset.category !== value; });
-    const n = cards.filter(card => !card.hidden).length;
-    count.textContent = `${website ? '웹사이트' : '이미지'} ${n}개`;
+    sketches.open = false;
+    const matchingSketches = cards.filter(card => !card.hidden && card.dataset.collection === 'sketch').length;
+    sketches.hidden = matchingSketches === 0;
+    curated.hidden = website;
+    websites.hidden = !website;
+    curatedCount.textContent = cards.filter(card => !card.hidden && card.dataset.collection !== 'sketch').length;
+    sketchCount.textContent = matchingSketches;
+    updateCount();
     title.textContent = labels[value];
-    hint.textContent = website ? '썸네일을 누르면 샘플 사이트가 새 탭으로 열립니다.' : '이미지를 누르면 더 크게 볼 수 있습니다.';
+    hint.textContent = website ? '썸네일을 누르면 샘플 사이트가 새 탭으로 열립니다.' : '이미지를 누르면 더 크게 볼 수 있습니다.' + (matchingSketches > 0 ? ' 콘셉트 스케치는 아래에서 펼쳐볼 수 있습니다.' : '');
+    measureControls();
   };
   const restoreFilter = () => applyFilter(new URL(location.href).searchParams.get('category') || 'images');
   restoreFilter();
@@ -32,6 +66,7 @@
     if (button.dataset.filter === 'images') url.searchParams.delete('category');
     else url.searchParams.set('category', button.dataset.filter);
     history.replaceState(null, '', url);
+    window.scrollTo({top:gallery.getBoundingClientRect().top + window.scrollY - (header?.getBoundingClientRect().height || 92), behavior:'instant'});
   });
   const dialog = document.querySelector('.work-lightbox');
   if (!dialog || typeof dialog.showModal !== 'function') return;
@@ -39,6 +74,9 @@
   const imageTitle = document.getElementById('work-lightbox-title');
   const badge = document.getElementById('work-lightbox-badge');
   const detail = document.getElementById('work-lightbox-detail');
+  const original = document.getElementById('work-lightbox-original');
+  const transcript = document.getElementById('work-lightbox-transcript');
+  const transcriptText = document.getElementById('work-lightbox-text');
   const previous = document.getElementById('work-lightbox-prev');
   const next = document.getElementById('work-lightbox-next');
   const position = document.getElementById('work-lightbox-position');
@@ -63,6 +101,10 @@
     imageTitle.textContent = link.title;
     badge.textContent = link.badge;
     detail.href = link.href;
+    original.href = link.image;
+    transcriptText.textContent = link.text || '';
+    transcript.hidden = !link.text;
+    if (!link.text) transcript.open = false;
     position.textContent = `${current + 1} / ${items.length}`;
     previous.disabled = next.disabled = items.length < 2;
   };
@@ -79,19 +121,19 @@
     const link = event.target.closest('a[data-full-image]');
     if (!link || event.defaultPrevented || event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     if (!dialog.isConnected || dialog.open) return;
+    const available = visibleCards().map(card => card.querySelector('a[data-full-image]')).filter(Boolean);
+    if (!available.includes(link)) return;
     const fromLink = source => ({source, image:source.dataset.fullImage, alt:source.querySelector('img').alt, title:source.dataset.imageTitle, badge:source.dataset.imageBadge, href:source.href});
     let group = [];
     try { group = JSON.parse(link.dataset.slides || '[]'); } catch { /* Keep the normal image fallback. */ }
     if (!Array.isArray(group)) group = [];
     group = group.filter(slide => slide && typeof slide.image === 'string' && slide.image.startsWith('/work/assets/'));
     if (group.length) {
-      items = group.map(slide => ({image:slide.image, alt:slide.alt || link.querySelector('img').alt, title:`${link.dataset.imageTitle} / ${slide.caption || ''}`, badge:link.dataset.imageBadge, href:link.href}));
+      items = group.map(slide => ({image:slide.image, alt:slide.alt || link.querySelector('img').alt, title:`${link.dataset.imageTitle} / ${slide.caption || ''}`, badge:link.dataset.imageBadge, href:link.href, text:typeof slide.text === 'string' ? slide.text : ''}));
       showImage(0);
     } else {
-      items = cards.filter(card => !card.hidden).map(card => card.querySelector('a[data-full-image]')).filter(Boolean).map(fromLink);
-      const index = items.findIndex(item => item.source === link);
-      if (index < 0) return;
-      showImage(index);
+      items = available.map(fromLink);
+      showImage(items.findIndex(item => item.source === link));
     }
     dialog.showModal();
     trigger = link;
@@ -102,6 +144,10 @@
     document.body.classList.remove('work-image-open');
     if (trigger?.isConnected) trigger.focus();
     image.removeAttribute('src');
+    original.removeAttribute('href');
+    transcript.open = false;
+    transcript.hidden = true;
+    transcriptText.textContent = '';
     items = [];
     touchStart = null;
   });

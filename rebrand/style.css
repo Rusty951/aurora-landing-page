@@ -1013,10 +1013,11 @@ footer {
   padding: 8px 0;
 }
 .experience-controls {
-  position: fixed;
-  z-index: 40;
-  bottom: 20px;
-  left: var(--gutter);
+  position: relative;
+  z-index: 1;
+  width: max-content;
+  max-width: 100%;
+  flex-shrink: 0;
   display: flex;
   gap: 2px;
   border: 1px solid #655975;
@@ -1311,10 +1312,6 @@ footer {
     bottom: 153px;
     font-size: 12px;
     padding: 8px 12px;
-  }
-  .experience-controls {
-    bottom: 16px;
-    left: 20px;
   }
   .experience-controls button {
     font-size: 12px;
@@ -2747,21 +2744,6 @@ body.project-open {
     font-size: 12px;
   }
 }
-@media (max-width: 700px) {
-  body.contact-view .experience-controls {
-    position: static;
-    width: max-content;
-    max-width: 100%;
-    margin: 28px 0;
-    inset: auto;
-    transform: none;
-  }
-  body.contact-view .experience-controls button {
-    min-height: 44px;
-    font-size: 11px;
-    padding-inline: 9px;
-  }
-}
 /* Clip the decorative glow without creating a scrollable ancestor for focus. */
 .contact-compact {
   overflow: clip;
@@ -2821,8 +2803,6 @@ body.project-open {
   .silk-mode .hero-copy-row .hero-services { font-size:18px; }
 }
 
-/* Footer controls use their own space at the contact section at every width. */
-body.contact-view .experience-controls { position:static; width:max-content; max-width:100%; margin:28px 0; inset:auto; transform:none; }
 
 /* The silk remains behind the copy at tablet widths too. */
 .silk-mode .hero-copy-row .chapter-description,.hero-services { text-shadow:0 1px 3px #08090e,0 0 12px #08090e; }
@@ -2844,4 +2824,328 @@ body.contact-view .experience-controls { position:static; width:max-content; max
 @media(max-width:700px) {
   .footer-contact { align-items:flex-start; margin-left:0; }
   .work-footer .footer-contact { flex:0 0 100%; }
+}
+
+
+/* 2026-10-02 design review: readable content, in-flow controls, quieter hierarchy. */
+.silk-mode .experience {
+  height: auto;
+  min-height: max(720px, 100svh);
+}
+.silk-mode .experience-stage {
+  display: flex;
+  flex-direction: column;
+  min-height: inherit;
+  height: auto;
+  padding: clamp(136px, 14svh, 176px) var(--gutter) 32px;
+}
+.silk-mode .chapter-first {
+  position: relative;
+  inset: auto;
+  margin: auto 0;
+  padding-bottom: 44px;
+}
+.silk-mode .chapter-first .chapter-kicker {
+  width: auto;
+  max-width: none;
+  margin-bottom: 26px;
+}
+.silk-mode .hero-role {
+  margin-left: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ded8e8;
+}
+.silk-mode .hero-title {
+  font-size: clamp(84px, 8.6vw, 136px);
+  line-height: 1;
+}
+.silk-mode .hero-copy-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  margin-top: 32px;
+}
+.silk-mode .hero-copy-row .hero-services {
+  font-size: clamp(26px, 2.3vw, 34px);
+  line-height: 1.5;
+  text-shadow: none;
+}
+.silk-mode .hero-discover {
+  width: auto;
+  min-width: 144px;
+  min-height: 52px;
+  height: auto;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 32px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  gap: 30px;
+}
+.silk-mode .hero-discover:hover {
+  background: #d3c2ff;
+}
+.silk-mode .scene-vignette {
+  background:
+    linear-gradient(90deg, #0a0a10e0 0%, #0a0a10b8 43%, #0a0a103d 82%),
+    linear-gradient(0deg, #0a0a10 0%, transparent 35%);
+}
+.silk-mode .stage-bottom {
+  display: none;
+}
+.hero-controls {
+  align-self: flex-start;
+}
+.footer-controls {
+  margin: 28px 0 0;
+}
+.experience-controls button[aria-busy="true"] {
+  cursor: wait;
+  opacity: .6;
+}
+/* The experimental mesh keeps its controls within its own stage too. */
+body:not(.silk-mode) .hero-controls {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 24px;
+}
+.studio-intro {
+  margin: 32px 0 42px;
+  gap: 48px;
+}
+.studio-intro h2 {
+  font-size: clamp(34px, 3.6vw, 54px);
+  line-height: 1.35;
+}
+.studio-intro > p {
+  color: #cbc3d4;
+  font-size: 17px;
+  padding-bottom: 4px;
+}
+.studio-services {
+  gap: clamp(24px, 4vw, 64px);
+}
+.studio-services > div {
+  border: 0;
+  padding-top: 0;
+}
+.studio-services > div > span {
+  color: #b2a8bf;
+}
+.studio-services h3 {
+  margin-top: 18px;
+  font-size: 26px;
+}
+.studio-services p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #c5bacf;
+  max-width: 32ch;
+  margin-top: 14px;
+}
+.studio-services p.service-examples {
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #eee6f7;
+}
+.studio-scope {
+  margin-top: 34px;
+  max-width: 740px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: #c5bacf;
+}
+.contact-compact .contact-invitation {
+  display: block;
+  margin-top: 28px;
+}
+.contact-compact .contact-invitation h2 {
+  font-size: clamp(80px, 8.2vw, 124px);
+}
+.contact-invitation > p {
+  padding-bottom: 0;
+  margin-top: 24px;
+  font-size: 18px;
+}
+.contact-compact .contact-bottom {
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: clamp(32px, 4.5vw, 72px);
+  max-width: 900px;
+  margin-top: 34px;
+  padding-top: 0;
+  border: 0;
+}
+.contact-compact .contact-guidance {
+  font-size: 16px;
+  line-height: 1.85;
+  color: #c5bacf;
+  padding-top: 4px;
+}
+.contact-action .cta {
+  min-height: 60px;
+  padding: 16px 26px;
+}
+.contact-action #contact-destination {
+  text-align: left;
+  margin-top: 9px;
+  color: #c5bacf;
+}
+.contact-details {
+  max-width: 900px;
+  margin-top: 34px;
+  border: 0;
+}
+.contact-details summary {
+  justify-content: flex-start;
+  width: fit-content;
+  gap: 30px;
+  font-size: 15px;
+  padding: 12px 0;
+}
+.contact-details-body {
+  gap: 42px;
+  padding-top: 20px;
+}
+.contact-details-body p {
+  font-size: 15px;
+  color: #c5bacf;
+}
+footer {
+  padding-bottom: 48px;
+}
+.site-notice,
+.work-footer .site-notice {
+  max-width: 88ch;
+  font-size: 13px;
+  line-height: 1.85;
+  word-break: normal;
+}
+.site-notice h2 {
+  font-size: 13px;
+}
+.site-notice p + p {
+  margin-top: 12px;
+}
+@media (max-width: 1000px) {
+  .studio-intro {
+    display: block;
+  }
+  .studio-intro > p {
+    margin-top: 22px;
+  }
+}
+@media (max-width: 700px) {
+  .silk-mode .experience {
+    min-height: max(700px, 100svh);
+  }
+  .silk-mode .experience-stage {
+    padding: 132px var(--gutter) 24px;
+  }
+  .silk-mode .chapter-first {
+    padding-bottom: 36px;
+  }
+  .silk-mode .chapter-first .chapter-kicker {
+    margin-bottom: 26px;
+  }
+  .silk-mode .hero-role {
+    font-size: 13px;
+    text-shadow: none;
+  }
+  .silk-mode .hero-title {
+    font-size: clamp(52px, 15.5vw, 100px);
+    line-height: 1.05;
+  }
+  .silk-mode .hero-copy-row {
+    margin-top: 28px;
+    gap: 22px;
+  }
+  .silk-mode .hero-copy-row .hero-services {
+    font-size: clamp(20px, 5.65vw, 24px);
+    line-height: 1.55;
+    text-shadow: none;
+  }
+  .silk-mode .hero-discover {
+    min-height: 50px;
+    min-width: 144px;
+    padding: 12px 20px;
+    gap: 30px;
+    font-size: 14px;
+  }
+  .silk-mode .scene-vignette {
+    background: linear-gradient(180deg, #0a0a1080 0%, #0a0a10b3 24%, #0a0a10b3 76%, #0a0a10 100%);
+  }
+  .studio-intro {
+    margin: 28px 0 34px;
+  }
+  .studio-intro h2 {
+    font-size: clamp(29px, 8.2vw, 40px);
+  }
+  .studio-intro > p {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  .studio-services {
+    gap: 30px;
+  }
+  .studio-services h3 {
+    margin-top: 12px;
+    font-size: 23px;
+  }
+  .studio-services p {
+    max-width: none;
+    margin-top: 10px;
+  }
+  .studio-services p.service-examples {
+    margin-top: 10px;
+  }
+  .studio-scope {
+    margin-top: 28px;
+  }
+  .contact-compact .contact-invitation h2 {
+    font-size: clamp(70px, 20vw, 106px);
+  }
+  .contact-invitation > p {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  .contact-compact .contact-bottom {
+    display: block;
+    margin-top: 26px;
+  }
+  .contact-compact .contact-guidance {
+    padding-top: 0;
+    font-size: 15px;
+  }
+  .contact-action .cta {
+    margin-top: 22px;
+    padding: 18px 24px;
+  }
+  .contact-details {
+    margin-top: 24px;
+  }
+  .contact-details-body {
+    gap: 24px;
+  }
+  .footer-controls {
+    margin-top: 24px;
+  }
+  footer {
+    padding-bottom: 36px;
+  }
+}
+@media (max-width: 360px) {
+  .silk-mode .experience-stage {
+    padding-top: 120px;
+  }
+  .silk-mode .hero-title {
+    font-size: 50px;
+  }
+  .silk-mode .hero-copy-row .hero-services {
+    font-size: 18px;
+  }
 }
