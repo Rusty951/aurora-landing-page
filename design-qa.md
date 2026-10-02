@@ -1,3 +1,19 @@
+# 2026-10-02 — 하단 작업물 이용 안내
+
+final result: passed
+
+대표 요청에 따라 홈페이지와 포트폴리오 footer에 “작업물 이용 안내” 두 문단을 넣었다. 자체 시안·AI 이미지·가상 사업체와 실제 고객 사례를 구분하고, 재사용 전 문의 및 외부 자료의 이용 조건을 알린다. 법령상 허용되는 이용은 제한하지 않는다. 공통 CSS v8을 홈 1개·포트폴리오 41개 HTML에 적용했다.
+
+- 문구·근거: `/Users/bananabk/Desktop/codex-output/aurora-portfolio-notice-2026-10-02/NOTICE.md`, `SOURCES.md`. copywrite 및 한국어 문체 QA 기준을 적용했다. 기존 약관·개인정보처리방침은 변경하지 않았다.
+- 목록 아래의 중복된 일반 고지는 footer로 통합했다. 개별 작업의 AI/가상 표시와 구체적인 고지는 유지한다. 모든 자료의 권리를 오로라에 귀속시키거나 면책 효력을 보장하지 않는다.
+- 12px 제목과 두 문단을 여백으로 구분한다. 홈페이지 footer 상단의 기존 가로선과 불필요한 여백도 정리했다.
+- 실제 Chrome: 홈페이지 PC 1440×1000·모바일 320×568, 포트폴리오 PC 1440×1000·모바일 390×844에서 가로 넘침 없음, 안내 영역 경계선 없음, 한 페이지당 안내 1개. 작은 모바일에서 음악 버튼과 안내문 겹침 없음·자동 재생 없음.
+- 42개 HTML 모두 footer 내부에 같은 문구와 공통 CSS v8이 한 번씩 포함된 것을 확인했다. 단일 주요 카카오 CTA 및 기존 이메일·SNS 추적 ID를 보존했다.
+- `npm run check`, `git diff --check` 통과. 기존 스타일 버전 검사만 v8로 맞췄다. 검수 중 JS exception·console error/warning·loading failure 0.
+- Desktop 폴더에 적용 전 사본, 반영 파일, SHA-256 manifest, 실제 화면 및 상태 JSON을 보존한다. 공개 반영 후의 커밋·배포 상태와 운영 응답 비교는 `deployment.json`에 기록한다.
+
+---
+
 # 2026-10-02 — 포트폴리오 가로선 정리
 
 final result: passed

@@ -1,3 +1,9 @@
+## 2026-10-02 하단 작업물 이용 안내
+
+홈페이지(`/`, `/interview`), 포트폴리오 목록과 작업 상세 40개 footer에 “작업물 이용 안내”를 추가했다. 자체 시안·AI 이미지·가상 사업체와 실제 고객 사례를 구분하고, 자료 재사용 전 문의를 요청한다. 외부 자료의 개별 이용 조건과 법령상 허용되는 이용은 보존한다. 모든 AI 산출물이나 외부 자료를 오로라의 독점 권리로 주장하지 않는다.
+
+12px의 작은 안내 제목과 두 문단을 구분선 없이 표시한다. 목록 아래의 중복된 일반 고지는 footer 안내로 통합하고 작업별 구체적인 고지와 AI/가상 표기는 유지했다. 공통 CSS v8을 42개 HTML에 적용한다. 기존 문의·메일·SNS 추적 링크, 연락처, 약관 및 개인정보처리방침은 변경하지 않는다.
+
 ## 2026-10-02 포트폴리오 공개 배포 완료
 
 Status: `LIVE / PRODUCTION VERIFIED`
@@ -49,7 +55,7 @@ git diff --check
 ## 파일 구조
 
 - `index.html`: `/`, `/interview` 운영 v4, SEO·Organization·광고 경로 Meta 초기화
-- `rebrand/style.css?v=7`, `rebrand/app.js?v=5`: 승인된 화면·반응형·입력·접근성
+- `rebrand/style.css?v=8`, `rebrand/app.js?v=5`: 승인된 화면·반응형·입력·접근성
 - `rebrand/silk.js`, `audio.js`, `showcase.js`: 이미지 기반 WebGL, opt-in 음악, 상세 dialog
 - `rebrand/assets/`: 진주빛 실크와 자체 콘셉트 이미지
 - `rebrand/field.js`, `vendor/`: `?render=mesh` 실험의 소스·MIT 라이선스

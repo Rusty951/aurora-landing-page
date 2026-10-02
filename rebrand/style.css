@@ -982,8 +982,6 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 30px;
-  border-bottom: 1px solid var(--line);
 }
 .footer-brand {
   font-size: 40px;
@@ -2820,3 +2818,10 @@ body.contact-view .experience-controls { position:static; width:max-content; max
 
 /* The silk remains behind the copy at tablet widths too. */
 .silk-mode .hero-copy-row .chapter-description,.hero-services { text-shadow:0 1px 3px #08090e,0 0 12px #08090e; }
+
+
+/* Shared footer notice; separate it with space, without decorative rules. */
+.site-notice { max-width:1060px; margin:36px 0 0; color:var(--muted); font-size:12px; line-height:1.85; word-break:keep-all; overflow-wrap:anywhere; }
+.site-notice h2 { margin:0 0 10px; color:var(--white); font-size:12px; font-weight:500; line-height:1.6; letter-spacing:0; }
+.site-notice p+p { margin-top:8px; }
+.work-footer .site-notice { flex:0 0 100%; max-width:1060px; margin:0; }
