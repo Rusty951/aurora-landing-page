@@ -50,7 +50,7 @@ force push는 사용하지 않는다. 배포가 실패하면 이전 production �
 
 ## 2026-10-02 연관채널 설정
 
-홈의 Organization JSON-LD `sameAs`에 인스타그램, 스레드, 페이스북의 공식 주소를 연결한다. 인스타그램과 스레드는 현재 공개 프로필에서 확인한 `aurorasound_branding`을 사용하고, 페이스북은 공개 화면 주소를 사용한다. 폐기한 WordPress 블로그와 이전 네이버 회사 블로그는 목록에서 제외하며, 러스티의 개인 블로그를 회사 자체와 같은 정체성으로 선언하지 않는다. 폐기 도메인을 사용하는 logo 값도 제거한다. footer의 Instagram 주소를 현재 주소로 수정하며, 디자인과 클릭 추적은 유지한다. 기존 YouTube Channel ID는 공개 화면에서 존재하지 않는 채널로 표시됐고, selfsky21의 @aurorasound_kr와 @afterlook_art는 모두 AFTERLOOK 이름이다. 브랜드를 잘못 연결하지 않도록 YouTube는 대표 확인 전 목록에서 제외한다. 네이버 연관채널 노출 여부와 시점은 수집 후 검색 엔진이 판단한다.
+홈의 Organization JSON-LD `sameAs`에 인스타그램, 유튜브, 스레드, 페이스북의 공식 주소를 연결한다. 인스타그램과 스레드는 현재 공개 프로필에서 확인한 `aurorasound_branding`을 사용하고, 페이스북은 공개 화면 주소를 사용한다. 폐기한 WordPress 블로그와 이전 네이버 회사 블로그는 목록에서 제외하며, 러스티의 개인 블로그를 회사 자체와 같은 정체성으로 선언하지 않는다. 폐기 도메인을 사용하는 logo 값도 제거한다. footer의 Instagram 주소를 현재 주소로 수정하며, 디자인과 클릭 추적은 유지한다. 기존 YouTube 주소는 열리지 않았다. 대표는 현재 @aurorasound_kr를 먼저 연결하고 채널명은 변경 제한이 풀린 뒤 직접 바꾸겠다고 확인했다. 공개 canonical에서 확인한 고정 Channel ID UCWKI1K2qTf8H1AMfu9pCC3A를 연결한다. 현재 채널명이 AFTERLOOK인 것은 변경 대기 상태이며 이번 작업에서 이름을 바꾸지 않는다. 네이버 연관채널 노출 여부와 시점은 수집 후 검색 엔진이 판단한다.
 
 ## 네이버 소유확인, 2026-10-02
 
