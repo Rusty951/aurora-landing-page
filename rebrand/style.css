@@ -988,11 +988,13 @@ footer {
   letter-spacing: -0.06em;
   font-weight: 500;
 }
-.footer-top > a:last-child {
+.footer-top > a:last-child,
+.footer-email {
   font-size: 14px;
   color: #b6aec4;
 }
-.footer-top > a:last-child span {
+.footer-top > a:last-child span,
+.footer-email span {
   margin-left: 20px;
 }
 .footer-bottom {
@@ -1561,7 +1563,8 @@ footer {
   .footer-brand {
     font-size: 35px;
   }
-  .footer-top > a:last-child {
+  .footer-top > a:last-child,
+  .footer-email {
     font-size: 13px;
   }
   .footer-bottom {
@@ -2765,7 +2768,7 @@ body.project-open {
 }
 
 /* Preserve paid-landing focus while keeping email and legal links. */
-.ad-mode footer [data-track="instagram"] { display: none; }
+.ad-mode footer [data-track="instagram"], .ad-mode .footer-socials { display: none; }
 
 /* Portfolio entry on the existing homepage. */
 .home-work-mobile { display:none; }
@@ -2825,3 +2828,15 @@ body.contact-view .experience-controls { position:static; width:max-content; max
 .site-notice h2 { margin:0 0 10px; color:var(--white); font-size:12px; font-weight:500; line-height:1.6; letter-spacing:0; }
 .site-notice p+p { margin-top:8px; }
 .work-footer .site-notice { flex:0 0 100%; max-width:1060px; margin:0; }
+
+/* The same three social channels on the homepage and portfolio. */
+.footer-top { gap:32px; }
+.footer-contact { display:flex; flex-direction:column; align-items:flex-end; gap:6px; margin-left:auto; }
+.footer-socials { display:flex; gap:6px; }
+.footer-socials a { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; color:var(--white); transition:color .2s; }
+.footer-socials a:hover,.footer-socials a:focus-visible { color:var(--accent); }
+.footer-socials svg { display:block; width:22px; height:22px; pointer-events:none; }
+@media(max-width:700px) {
+  .footer-contact { align-items:flex-start; margin-left:0; }
+  .work-footer .footer-contact { flex:0 0 100%; }
+}

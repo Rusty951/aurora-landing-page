@@ -1,3 +1,12 @@
+## 2026-10-02 — 하단 소셜 아이콘 3개
+
+- 홈페이지, /work와 작업 상세 40개에 유튜브 → 페이스북 → 인스타그램 순서로 연결. 이메일 아래 흰색 22px 아이콘과 44×44px 링크 영역을 사용한다. 모바일에서는 왼쪽 정렬하고 구분선을 추가하지 않는다.
+- 실제 임시 Chrome에서 홈·웹사이트 목록 1440×1024 및 390×844, 작업 상세 320×568을 캡처하고 확인했다. 모든 화면에서 가로 넘침 없이 아이콘과 이메일이 표시되며 링크 영역은 각각 44×44px다.
+- 이메일에서 Tab 키로 유튜브, 페이스북, 인스타그램 순서로 이동하고 각 아이콘의 초점 테두리를 확인했다. 실제 마우스 클릭으로 각각 새 탭이 열렸다. YouTube 고정 Channel ID, Facebook 공식 페이지(aurorasound.branding으로 리다이렉트), Instagram aurorasound_branding 프로필로 연결됐다. YouTube의 현재 AFTERLOOK 채널명은 기존 승인된 이름 변경 대기 상태다.
+- /interview의 세 소셜 링크가 숨겨지는 것을 확인했다. 로컬 분석 제공자 요청과 Chrome 오류·경고·실패 이벤트는 0개다.
+- npm run check 및 git diff --check 통과: 기존 사이트·추적 계약, 40개 작업과 시리즈·필터·상세 동작 검사. YouTube는 기존 click_youtube에 연결하며 Facebook에 새 이벤트를 만들지 않는다.
+- 검토 이미지와 측정 결과: ~/Desktop/codex-output/aurora-footer-socials-2026-10-02/. 커밋 이후 배포 상태는 같은 폴더의 보고서와 GitHub 배포 기록으로 확인한다.
+
 # 2026-10-02 — 하단 작업물 이용 안내
 
 final result: passed

@@ -1,3 +1,9 @@
+## 2026-10-02 하단 소셜 채널
+
+홈페이지와 포트폴리오 목록·상세 40개의 하단 이메일 아래에 유튜브 → 페이스북 → 인스타그램 아이콘을 연결했다. 흰색 22px 아이콘과 44px 클릭 영역을 사용하며 장식 구분선은 추가하지 않는다. 모바일에서도 같은 순서를 유지한다. 기존 Instagram 텍스트 링크는 아이콘으로 통합한다.
+
+공식 YouTube 고정 Channel ID, Facebook 페이지 ID와 Instagram 주소를 사용한다. 홈페이지의 Instagram·이메일 추적 ID와 카카오 이벤트 의미를 유지하고 YouTube는 기존 click_youtube 이벤트에 연결한다. Facebook에 새 분석 이벤트를 만들지 않는다. 광고 경로 /interview에서는 세 소셜 링크를 숨긴다. 공통 CSS v9 및 포트폴리오 CSS v12를 적용한다.
+
 ## 2026-10-02 하단 작업물 이용 안내
 
 홈페이지(`/`, `/interview`), 포트폴리오 목록과 작업 상세 40개 footer에 “작업물 이용 안내”를 추가했다. 자체 시안·AI 이미지·가상 사업체와 실제 고객 사례를 구분하고, 자료 재사용 전 문의를 요청한다. 외부 자료의 개별 이용 조건과 법령상 허용되는 이용은 보존한다. 모든 AI 산출물이나 외부 자료를 오로라의 독점 권리로 주장하지 않는다.
@@ -51,12 +57,12 @@ npm run check
 git diff --check
 ```
 
-로컬 `/`, `/interview`는 같은 v4 본문을 제공한다. 광고 경로에서는 footer의 Instagram을 숨긴다. `npm run check`는 운영 SEO·자산·제품 의미·추적 계약, 후보 HTML의 격리, JS 문법과 가상 브라우저의 환경별 이벤트 통합을 검사한다. 실제 화면·모바일·상세 dialog 검수는 `design-qa.md`에 기록한다.
+로컬 `/`, `/interview`는 같은 v4 본문을 제공한다. 광고 경로에서는 footer의 소셜 채널 세 개를 숨긴다. `npm run check`는 운영 SEO·자산·제품 의미·추적 계약, 후보 HTML의 격리, JS 문법과 가상 브라우저의 환경별 이벤트 통합을 검사한다. 실제 화면·모바일·상세 dialog 검수는 `design-qa.md`에 기록한다.
 
 ## 파일 구조
 
 - `index.html`: `/`, `/interview` 운영 v4, SEO·Organization·광고 경로 Meta 초기화
-- `rebrand/style.css?v=8`, `rebrand/app.js?v=5`: 승인된 화면·반응형·입력·접근성
+- `rebrand/style.css?v=9`, `rebrand/app.js?v=5`: 승인된 화면·반응형·입력·접근성
 - `rebrand/silk.js`, `audio.js`, `showcase.js`: 이미지 기반 WebGL, opt-in 음악, 상세 dialog
 - `rebrand/assets/`: 진주빛 실크와 자체 콘셉트 이미지
 - `rebrand/field.js`, `vendor/`: `?render=mesh` 실험의 소스·MIT 라이선스
