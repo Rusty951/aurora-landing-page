@@ -179,6 +179,8 @@ for (const rule of config.rewrites.filter(r => r.source.startsWith('/work/demos/
    if (url.origin !== 'https://www.aurorasound.kr') continue;
    const target = resolve(root, '.' + decodeURIComponent(url.pathname));
    assert(existsSync(target), 'Demo URL after canonical redirect: ' + documentPath + ' -> ' + url.pathname);
+   assert(!/\/(?:SOURCES|README)\.md$/.test(url.pathname), 'Demo must not link to deployment-excluded notes: ' + documentPath);
+   if (statSync(target).isDirectory()) assert(existsSync(resolve(target, 'index.html')), 'Demo directory link needs an index: ' + url.pathname);
   }
   demoDocuments++;
  }
