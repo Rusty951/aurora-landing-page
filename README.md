@@ -50,11 +50,11 @@ force push는 사용하지 않는다. 배포가 실패하면 이전 production �
 
 ## 2026-10-02 연관채널 설정
 
-홈의 Organization JSON-LD `sameAs`에 인스타그램, 유튜브, 스레드, 페이스북의 공식 주소를 연결한다. 인스타그램과 스레드는 현재 공개 프로필에서 확인한 `aurorasound_branding`을 사용하고, 페이스북은 공개 화면 주소를 사용한다. 폐기한 WordPress 블로그와 이전 네이버 회사 블로그는 목록에서 제외하며, 러스티의 개인 블로그를 회사 자체와 같은 정체성으로 선언하지 않는다. 폐기 도메인을 사용하는 logo 값도 제거한다. footer의 Instagram 주소를 현재 주소로 수정하며, 디자인과 클릭 추적은 유지한다. 기존 YouTube 주소는 열리지 않았다. 대표는 현재 @aurorasound_kr를 먼저 연결하고 채널명은 변경 제한이 풀린 뒤 직접 바꾸겠다고 확인했다. 공개 canonical에서 확인한 고정 Channel ID UCWKI1K2qTf8H1AMfu9pCC3A를 연결한다. 현재 채널명이 AFTERLOOK인 것은 변경 대기 상태이며 이번 작업에서 이름을 바꾸지 않는다. 네이버 연관채널 노출 여부와 시점은 수집 후 검색 엔진이 판단한다.
+홈의 Organization JSON-LD `sameAs`에 인스타그램, 유튜브, 스레드, 페이스북의 공식 주소를 연결한다. 인스타그램과 스레드는 현재 공개 프로필에서 확인한 `aurorasound_branding`을 사용하고, 페이스북은 공개 화면 주소를 사용한다. 폐기한 WordPress 블로그와 이전 네이버 회사 블로그는 목록에서 제외하며, 러스티의 개인 블로그를 회사 자체와 같은 정체성으로 선언하지 않는다. 폐기 도메인을 사용하는 logo 값도 제거한다. footer의 Instagram 주소를 현재 주소로 수정하며, 디자인과 클릭 추적은 유지한다. 기존 YouTube 주소는 열리지 않았다. 대표는 현재 @aurorasound_kr를 먼저 연결하고 채널명은 변경 제한이 풀린 뒤 직접 바꾸겠다고 확인했다. 공개 canonical에서 확인한 고정 Channel ID UCWKI1K2qTf8H1AMfu9pCC3A를 연결한다. 현재 채널명이 AFTERLOOK인 것은 변경 대기 상태이며 이번 작업에서 이름을 바꾸지 않는다. 네이버 연관채널 노출 여부와 시점은 수집 후 검색 엔진이 판단한다. 구현 커밋 `d7fe504a056be34173e9fdea76f063f6e082ed5d`의 Preview와 Production 배포 `6798946654`가 성공했고, 공개 홈과 `/interview` 응답이 소스와 일치하는 것을 확인했다.
 
 ## 네이버 소유확인, 2026-10-02
 
-대표 요청으로 `index.html`의 head에 네이버 인증 태그를 추가했다. 구현 커밋 `1a106b89b67143892112175fc7ff32805acece57`의 Preview와 Production 배포가 성공했고, 공개 홈 및 `/interview` 응답이 소스와 일치함을 확인했다. Production 배포 ID는 `6798686776`이다. 대표의 보안문자 입력 후 네이버 사이트 목록에서 `https://www.aurorasound.kr`가 확인된 사이트 링크로 표시되고 소유확인 안내가 사라진 것을 확인했다. 소유확인은 완료됐으며, 사이트맵 제출과 검색 노출은 별도 상태다.
+대표 요청으로 `index.html`의 head에 네이버 인증 태그를 추가했다. 구현 커밋 `1a106b89b67143892112175fc7ff32805acece57`의 Preview와 Production 배포가 성공했고, 공개 홈 및 `/interview` 응답이 소스와 일치함을 확인했다. Production 배포 ID는 `6798686776`이다. 대표의 보안문자 입력 후 네이버 사이트 목록에서 `https://www.aurorasound.kr`가 확인된 사이트 링크로 표시되고 소유확인 안내가 사라진 것을 확인했다. 소유확인은 완료됐으며, 네이버에 `https://www.aurorasound.kr/sitemap.xml`을 제출해 `26.10.02 10:17:20` 접수 기록을 확인했다. 검색 노출은 별도 상태다.
 
 ## URL과 측정
 
