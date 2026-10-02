@@ -1,3 +1,10 @@
+## 2026-10-02 — 영문 Disclaimer
+
+- 공통 하단 제목을 Disclaimer로 바꾸고 기존 두 문단을 영어로 번역했다. 홈과 포트폴리오 41개 페이지에 같은 문구와 lang="en"을 적용했다. 기존 의미와 작업별 개별 고지를 보존한다.
+- 실제 별도 Chrome에서 홈·포트폴리오 각각 1440×1024 및 390×844의 하단을 확인했다. 12px 크기와 구분선 없는 배치, 자연스러운 영문 줄바꿈을 확인했으며 가로 넘침이나 잘림이 없다.
+- npm run check 및 git diff --check 통과. Chrome 오류·경고·요청 실패 0개. 기존 링크와 추적·스타일은 변경하지 않았다.
+- 원본/번역본, 상태 JSON과 PC·모바일 캡처: ~/Desktop/codex-output/aurora-english-disclaimer-2026-10-02/. 배포 결과는 같은 폴더의 deployment.json, production-http-verification.json 및 REPORT.md에 기록한다.
+
 ## 2026-10-02 — 작업 링크·문의 버튼·저작권 표시
 
 - 요청한 두 링크(작업 보기, 포트폴리오 전체 보기)의 밑줄을 제거했다. 최종 문의 버튼은 카카오톡 문의하기로 바꾸고, 홈과 포트폴리오 41개 페이지의 하단을 © 2026 오로라의소리. All rights reserved.로 통일했다. 공통 CSS v10을 적용했다.
