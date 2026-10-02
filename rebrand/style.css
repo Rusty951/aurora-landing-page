@@ -2789,7 +2789,11 @@ body.project-open {
 /* 2026-10-02: reviewed homepage fixes, using the existing visual system. */
 .silk-mode .hero-discover { display:flex; justify-content:center; gap:14px; width:auto; min-width:112px; height:48px; padding:0 8px; border:0; border-radius:0; font-family:var(--sans); font-size:14px; }
 .silk-mode .hero-discover>span { font-size:22px; }
-.hero-services { margin-top:20px; font-size:14px; line-height:1.8; color:#d5cede; letter-spacing:-.02em; word-break:keep-all; }
+.silk-mode .hero-copy-row .hero-services { margin:0; font-size:clamp(23px,2.1vw,30px); font-weight:500; line-height:1.55; color:var(--white); letter-spacing:-.035em; word-break:keep-all; }
+@media (min-width:701px) and (max-height:800px) {
+  .silk-mode .hero-title { font-size:clamp(96px,min(10.5vw,17vh),136px); }
+  .silk-mode .hero-copy-row .hero-services { font-size:24px; }
+}
 .home-project-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
 .home-project-grid .project-visual { aspect-ratio:4/5; }
 .home-project-grid .project-visual img { transform:none; }
@@ -2804,7 +2808,8 @@ body.project-open {
 .contact-action #contact-destination { color:#b6a9c2; font-size:12px; line-height:1.7; margin:10px 0 0; text-align:right; }
 @media(max-width:700px) {
   .silk-mode .hero-discover { min-width:82px; height:44px; padding:0; gap:9px; font-size:13px; }
-  .hero-services { max-width:320px; font-size:13px; margin-top:18px; text-shadow:0 1px 4px #08090e; }
+  .silk-mode .hero-copy-row { flex-direction:column; align-items:flex-start; gap:12px; margin-top:28px; }
+  .silk-mode .hero-copy-row .hero-services { max-width:100%; font-size:20px; }
   .home-project-grid { grid-template-columns:1fr; gap:30px; }
   .showcase-heading .showcase-work-link { margin-top:24px; font-size:13px; }
   .home-project-grid .project-caption { padding-top:13px; }
@@ -2812,8 +2817,8 @@ body.project-open {
   .contact-action #contact-destination { text-align:left; }
 }
 @media(max-width:360px) {
-  .silk-mode .hero-copy-row { gap:14px; }
-  .hero-services { max-width:260px; font-size:12px; margin-top:14px; }
+  .silk-mode .hero-copy-row { gap:10px; margin-top:22px; }
+  .silk-mode .hero-copy-row .hero-services { font-size:18px; }
 }
 
 /* Footer controls use their own space at the contact section at every width. */
