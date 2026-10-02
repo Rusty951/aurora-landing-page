@@ -5,6 +5,194 @@
     {
       "source": "/interview",
       "destination": "/index.html"
+    },
+    {
+      "source": "/work",
+      "destination": "/work/index.html"
+    },
+    {
+      "source": "/work/veil",
+      "destination": "/work/veil/index.html"
+    },
+    {
+      "source": "/work/food-moon",
+      "destination": "/work/food-moon/index.html"
+    },
+    {
+      "source": "/work/still",
+      "destination": "/work/still/index.html"
+    },
+    {
+      "source": "/work/food-mango",
+      "destination": "/work/food-mango/index.html"
+    },
+    {
+      "source": "/work/daybreak",
+      "destination": "/work/daybreak/index.html"
+    },
+    {
+      "source": "/work/food-sumook",
+      "destination": "/work/food-sumook/index.html"
+    },
+    {
+      "source": "/work/website-moseori",
+      "destination": "/work/website-moseori/index.html"
+    },
+    {
+      "source": "/work/website-bitgyeol",
+      "destination": "/work/website-bitgyeol/index.html"
+    },
+    {
+      "source": "/work/website-neurin",
+      "destination": "/work/website-neurin/index.html"
+    },
+    {
+      "source": "/work/website-haebit",
+      "destination": "/work/website-haebit/index.html"
+    },
+    {
+      "source": "/work/website-jeongo",
+      "destination": "/work/website-jeongo/index.html"
+    },
+    {
+      "source": "/work/website-chaon",
+      "destination": "/work/website-chaon/index.html"
+    },
+    {
+      "source": "/work/food-moss",
+      "destination": "/work/food-moss/index.html"
+    },
+    {
+      "source": "/work/food-pancake",
+      "destination": "/work/food-pancake/index.html"
+    },
+    {
+      "source": "/work/food-watermelon",
+      "destination": "/work/food-watermelon/index.html"
+    },
+    {
+      "source": "/work/bb-p-0001",
+      "destination": "/work/bb-p-0001/index.html"
+    },
+    {
+      "source": "/work/bb-p-0003",
+      "destination": "/work/bb-p-0003/index.html"
+    },
+    {
+      "source": "/work/bb-p-0010",
+      "destination": "/work/bb-p-0010/index.html"
+    },
+    {
+      "source": "/work/bb-p-0013",
+      "destination": "/work/bb-p-0013/index.html"
+    },
+    {
+      "source": "/work/bb-p-0023",
+      "destination": "/work/bb-p-0023/index.html"
+    },
+    {
+      "source": "/work/bb-p-0053",
+      "destination": "/work/bb-p-0053/index.html"
+    },
+    {
+      "source": "/work/bb-p-0060",
+      "destination": "/work/bb-p-0060/index.html"
+    },
+    {
+      "source": "/work/bb-p-0061",
+      "destination": "/work/bb-p-0061/index.html"
+    },
+    {
+      "source": "/work/bb-p-0011",
+      "destination": "/work/bb-p-0011/index.html"
+    },
+    {
+      "source": "/work/bb-p-0015",
+      "destination": "/work/bb-p-0015/index.html"
+    },
+    {
+      "source": "/work/bb-p-0048",
+      "destination": "/work/bb-p-0048/index.html"
+    },
+    {
+      "source": "/work/bb-p-0058",
+      "destination": "/work/bb-p-0058/index.html"
+    },
+    {
+      "source": "/work/bb-f-0150",
+      "destination": "/work/bb-f-0150/index.html"
+    },
+    {
+      "source": "/work/bb-f-0168",
+      "destination": "/work/bb-f-0168/index.html"
+    },
+    {
+      "source": "/work/bb-f-0189",
+      "destination": "/work/bb-f-0189/index.html"
+    },
+    {
+      "source": "/work/bb-f-0223",
+      "destination": "/work/bb-f-0223/index.html"
+    },
+    {
+      "source": "/work/bb-f-0283",
+      "destination": "/work/bb-f-0283/index.html"
+    },
+    {
+      "source": "/work/bb-f-0331",
+      "destination": "/work/bb-f-0331/index.html"
+    },
+    {
+      "source": "/work/aurora-in-print",
+      "destination": "/work/aurora-in-print/index.html"
+    },
+    {
+      "source": "/work/aura-archive",
+      "destination": "/work/aura-archive/index.html"
+    },
+    {
+      "source": "/work/soft-resonance",
+      "destination": "/work/soft-resonance/index.html"
+    },
+    {
+      "source": "/work/demos/12-moseori-studio",
+      "destination": "/work/demos/12-moseori-studio/index.html"
+    },
+    {
+      "source": "/work/demos/02-bitgyeol-curtain",
+      "destination": "/work/demos/02-bitgyeol-curtain/index.html"
+    },
+    {
+      "source": "/work/demos/04-neurin-pajang",
+      "destination": "/work/demos/04-neurin-pajang/index.html"
+    },
+    {
+      "source": "/work/demos/05-haebit-light",
+      "destination": "/work/demos/05-haebit-light/index.html"
+    },
+    {
+      "source": "/work/demos/01-jeongo-eye",
+      "destination": "/work/demos/01-jeongo-eye/index.html"
+    },
+    {
+      "source": "/work/demos/13-chaon-law",
+      "destination": "/work/demos/13-chaon-law/index.html"
+    },
+    {
+      "source": "/work/aurora-carousel-ai",
+      "destination": "/work/aurora-carousel-ai/index.html"
+    },
+    {
+      "source": "/work/aurora-character-01",
+      "destination": "/work/aurora-character-01/index.html"
+    },
+    {
+      "source": "/work/aurora-character-02",
+      "destination": "/work/aurora-character-02/index.html"
+    },
+    {
+      "source": "/work/aurora-character-03",
+      "destination": "/work/aurora-character-03/index.html"
     }
   ],
   "redirects": [
@@ -17,6 +205,17 @@
       "source": "/rebrand/index.html",
       "destination": "/",
       "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/work/demos/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ]
 }

@@ -1,5 +1,5 @@
 /*
- * 오로라의소리 — analytics.js v7
+ * 오로라의소리 — analytics.js v8
  * 운영 환경 GA4 페이지뷰 · 참여 · 외부 링크 클릭 추적
  */
 
@@ -144,7 +144,6 @@ function metaTrackContactClick(params) {
 (function bindTrackedLinks() {
   var eventNames = {
     naver_blog: 'click_blog',
-    wordpress_blog: 'click_wordpress_blog',
     instagram: 'click_instagram',
     youtube: 'click_youtube',
     email: 'click_email'

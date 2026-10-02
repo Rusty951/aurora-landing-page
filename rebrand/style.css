@@ -2747,14 +2747,13 @@ body.project-open {
   }
 }
 @media (max-width: 700px) {
-  body.contact-view .header .contact-link {
-    visibility: hidden;
-  }
   body.contact-view .experience-controls {
-    top: 18px;
-    bottom: auto;
-    left: auto;
-    right: var(--gutter);
+    position: static;
+    width: max-content;
+    max-width: 100%;
+    margin: 28px 0;
+    inset: auto;
+    transform: none;
   }
   body.contact-view .experience-controls button {
     min-height: 44px;
@@ -2768,5 +2767,56 @@ body.project-open {
 }
 
 /* Preserve paid-landing focus while keeping email and legal links. */
-.ad-mode footer [data-track="instagram"],
-.ad-mode footer [data-track="wordpress_blog"] { display: none; }
+.ad-mode footer [data-track="instagram"] { display: none; }
+
+/* Portfolio entry on the existing homepage. */
+.home-work-mobile { display:none; }
+.showcase-work-link { display:inline-flex; gap:36px; align-items:center; margin-top:28px; padding:14px 0; border-bottom:1px solid #15141b; color:#15141b; font-size:14px; }
+@media(max-width:700px) {
+  .home-work-mobile { display:block; margin-left:auto; font-size:12px; padding:14px 0; }
+  .header:has(.home-work-mobile) { gap:14px; }
+  .header:has(.home-work-mobile) .contact-link { margin-left:0; padding:10px 12px; font-size:12px; gap:10px; }
+}
+.ad-mode .home-work-mobile,.ad-mode .showcase-work-link,.ad-mode .header nav a[href="/work"] { display:none; }
+
+@media(max-width:420px) {
+  .header:has(.home-work-mobile) { gap:10px; }
+  .header:has(.home-work-mobile) .contact-link { padding:10px; font-size:11px; gap:0; }
+  .header:has(.home-work-mobile) .contact-link span { display:none; }
+}
+
+/* 2026-10-02: reviewed homepage fixes, using the existing visual system. */
+.silk-mode .hero-discover { display:flex; justify-content:center; gap:14px; width:auto; min-width:112px; height:48px; padding:0 8px; border:0; border-bottom:1px solid #92859e; border-radius:0; font-family:var(--sans); font-size:14px; }
+.silk-mode .hero-discover>span { font-size:22px; }
+.hero-services { margin-top:20px; font-size:14px; line-height:1.8; color:#d5cede; letter-spacing:-.02em; word-break:keep-all; }
+.home-project-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.home-project-grid .project-visual { aspect-ratio:4/5; }
+.home-project-grid .project-visual img { transform:none; }
+.home-project-grid .project-preserve img { object-fit:contain; }
+.home-project-grid .project-preserve { background:#dfdcd6; }
+.home-project-grid .project-caption { padding-top:16px; }
+.home-project-grid .project-caption p { font-size:12px; margin:0; letter-spacing:0; color:#57535e; }
+.showcase-heading .showcase-work-link { margin:0; flex-shrink:0; }
+.studio-services p.service-examples { color:#d0c4dc; font-size:13px; margin-top:18px; }
+.studio-scope { color:#afa3bc; font-size:12px; line-height:1.9; margin-top:36px; word-break:keep-all; }
+.contact-action { flex-shrink:0; }
+.contact-action #contact-destination { color:#b6a9c2; font-size:12px; line-height:1.7; margin:10px 0 0; text-align:right; }
+@media(max-width:700px) {
+  .silk-mode .hero-discover { min-width:82px; height:44px; padding:0; gap:9px; font-size:13px; }
+  .hero-services { max-width:320px; font-size:13px; margin-top:18px; text-shadow:0 1px 4px #08090e; }
+  .home-project-grid { grid-template-columns:1fr; gap:30px; }
+  .showcase-heading .showcase-work-link { margin-top:24px; font-size:13px; }
+  .home-project-grid .project-caption { padding-top:13px; }
+  .home-project-grid .project-view { right:14px; bottom:14px; min-height:44px; }
+  .contact-action #contact-destination { text-align:left; }
+}
+@media(max-width:360px) {
+  .silk-mode .hero-copy-row { gap:14px; }
+  .hero-services { max-width:260px; font-size:12px; margin-top:14px; }
+}
+
+/* Footer controls use their own space at the contact section at every width. */
+body.contact-view .experience-controls { position:static; width:max-content; max-width:100%; margin:28px 0; inset:auto; transform:none; }
+
+/* The silk remains behind the copy at tablet widths too. */
+.silk-mode .hero-copy-row .chapter-description,.hero-services { text-shadow:0 1px 3px #08090e,0 0 12px #08090e; }

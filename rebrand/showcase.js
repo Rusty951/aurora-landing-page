@@ -1,5 +1,19 @@
 // Own-brand concept studies. The images are authored assets, not client cases.
 const studies = {
+  veil: {
+    image: "/work/assets/veil.webp",
+    title: "VEIL",
+    kind: "PRODUCT IMAGE / 자체 시안",
+    alt: "아이보리 세럼 용기와 진주빛 패브릭으로 구성한 VEIL 자체 광고 시안",
+    description: "가상의 스킨케어 제품을 위한 자체 광고 시안입니다. 아이보리 용기와 부드러운 실크, 빛의 질감으로 제품의 인상을 표현했습니다.",
+  },
+  foodMoon: {
+    image: "/work/assets/food-moon.webp",
+    title: "Moon dessert.",
+    kind: "FOOD IMAGE / 자체 시안",
+    alt: "어두운 배경의 유리잔 위로 크림을 붓는 자체 AI 푸드 이미지",
+    description: "디저트의 질감과 빛을 보여주는 자체 AI 이미지입니다. 어두운 배경과 투명한 잔, 흘러내리는 크림으로 한 장면을 구성했습니다.",
+  },
   identity: {
     image: "/rebrand/assets/showcase-identity.webp",
     title: "Aurora, in print.",

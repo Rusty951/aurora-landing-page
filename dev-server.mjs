@@ -16,14 +16,15 @@ const contentTypes = {
   '.jpeg': 'image/jpeg',
   '.webp': 'image/webp',
   '.avif': 'image/avif',
+  '.mp4': 'video/mp4',
   '.woff2': 'font/woff2',
   '.ico': 'image/x-icon',
 };
 
 function mobilePreviewHtml(port, previewPath) {
-  const safePreviewPath = previewPath === '/' ? '/' : '/interview';
+  const safePreviewPath = /^\/work(?:\/[a-z0-9-]+)?$/.test(previewPath) ? previewPath : previewPath === '/' ? '/' : '/interview';
   const targetUrl = `http://localhost:${port}${safePreviewPath}`;
-  const previewLabel = safePreviewPath === '/' ? '대표/오가닉 페이지' : '광고 랜딩';
+  const previewLabel = safePreviewPath.startsWith('/work') ? '포트폴리오' : safePreviewPath === '/' ? '대표/오가닉 페이지' : '광고 랜딩';
 
   return `<!doctype html>
 <html lang="ko">

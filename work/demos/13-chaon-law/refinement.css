@@ -1,0 +1,501 @@
+/* Display, reading, and image treatment for the Chaon identity. */
+:root {
+  --ink: #26332e;
+  --paper: #f8f7f0;
+  --line: #26332e26;
+  --muted: #5a665f;
+}
+body {
+  font-family: var(--font-sans);
+  line-height: 1.85;
+}
+h1,
+h2,
+.brand strong,
+.practice-tabs button,
+.practice-panels h3,
+.contact-columns h3 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+}
+.brand strong {
+  font-size: 38px;
+  line-height: 1.4;
+  letter-spacing: -0.035em;
+}
+.brand small {
+  font-size: 9px;
+  letter-spacing: 0.19em;
+  line-height: 1.6;
+}
+.site-header {
+  height: 102px;
+  border-bottom: 1px solid #ffffff24;
+}
+.site-header.is-scrolled {
+  height: 78px;
+  background: #202d27;
+}
+.site-header.is-scrolled .brand strong {
+  font-size: 28px;
+}
+.main-nav {
+  gap: 34px;
+  font-size: 13px;
+  letter-spacing: 0.015em;
+}
+.main-nav a {
+  position: relative;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.main-nav a:hover {
+  border-bottom-color: currentColor;
+}
+.hero {
+  min-height: 780px;
+  background: #202d27;
+}
+.hero-image img {
+  object-position: center 100%;
+  opacity: 0.86;
+}
+.hero-content {
+  padding-top: 179px;
+  padding-bottom: 39px;
+}
+.hero-content > .eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  margin-bottom: 32px;
+}
+.hero h1 {
+  font-size: 54px;
+  font-weight: 300;
+  line-height: 1.58;
+  letter-spacing: -0.025em;
+  max-width: 770px;
+}
+.hero-story {
+  margin-top: 47px;
+  max-width: 460px;
+}
+.hero-story .eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.17em;
+  margin-bottom: 20px;
+}
+.hero-story h2 {
+  font-size: 23px;
+  line-height: 1.8;
+  letter-spacing: -0.015em;
+  font-weight: 300;
+}
+.hero-story > p:not(.eyebrow) {
+  font-size: 15px;
+  line-height: 1.95;
+  margin-top: 16px;
+  max-width: 420px;
+  color: #e1e5db;
+}
+.link-button {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  border-bottom-width: 1px;
+  gap: 46px;
+}
+.hero-story .link-button {
+  margin-top: 23px;
+  min-width: 215px;
+}
+.hero-practices {
+  margin-top: 34px;
+  gap: 32px;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+.hero-practices a {
+  padding: 5px 0;
+  border-bottom: 1px solid transparent;
+}
+.hero-practices a:hover {
+  border-bottom-color: currentColor;
+  text-decoration: none;
+}
+.fiction-label {
+  font-size: 11px;
+  line-height: 1.8;
+  margin-top: 26px;
+  color: #dbe1d5;
+}
+.office {
+  padding: 96px 0 101px;
+}
+.office h2 {
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1.65;
+  letter-spacing: -0.025em;
+}
+.office p:not(.eyebrow) {
+  font-size: 15px;
+  line-height: 2.05;
+  margin-top: 31px;
+}
+.section-head h2 {
+  font-size: 43px;
+  line-height: 1.65;
+  letter-spacing: -0.025em;
+  font-weight: 300;
+}
+.section-head .eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+.practice-tabs button {
+  font-size: 28px;
+  padding: 25px 0;
+  letter-spacing: -0.015em;
+  font-weight: 300;
+}
+.practice-tabs span,
+.contact-number span {
+  font-family: var(--font-sans);
+}
+.practice-panels {
+  padding-left: 48px;
+  min-height: 412px;
+}
+.practice-panels h3 {
+  font-size: 28px;
+  line-height: 1.8;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+.practice-panels p:not(.eyebrow) {
+  line-height: 1.95;
+}
+.practice-panels ul {
+  padding-left: 1.1em;
+  font-size: 15px;
+  line-height: 2.1;
+  margin-top: 22px;
+}
+.practice-note {
+  font-size: 12px;
+  line-height: 1.9;
+}
+.approach {
+  background: #ebeee5;
+}
+.approach figure img {
+  height: 520px;
+  object-position: center 46%;
+}
+.process h3 {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.process p {
+  font-size: 15px;
+  line-height: 1.9;
+}
+.checklist label {
+  padding: 24px 0;
+}
+.checklist strong {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.checklist small {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 5px;
+}
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 6px;
+}
+.faq summary {
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+.faq details {
+  padding: 25px 0;
+}
+.faq details p {
+  font-size: 15px;
+  line-height: 1.95;
+  max-width: 540px;
+}
+.visit-section {
+  background: #eef0e8;
+}
+.contact-heading h2 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 43px;
+  letter-spacing: -0.025em;
+}
+.contact-columns h3 {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+.contact-columns p,
+.contact-columns dl {
+  font-size: 15px;
+  line-height: 1.9;
+}
+.contact-columns p.note {
+  font-size: 12px;
+}
+.solid-button {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  min-height: 54px;
+  padding: 15px 25px;
+}
+.site-footer {
+  background: #202d27;
+  padding-top: 49px;
+  padding-bottom: 30px;
+}
+.site-footer .brand strong {
+  font-size: 30px;
+  font-weight: 300;
+}
+.site-footer .note {
+  font-size: 12px;
+  line-height: 1.95;
+}
+.footer-bottom {
+  padding-top: 26px;
+  letter-spacing: 0.035em;
+}
+@media (max-width: 1000px) {
+  .hero h1 {
+    font-size: 47px;
+  }
+  .section-head h2 {
+    font-size: 38px;
+  }
+  .main-nav {
+    gap: 23px;
+  }
+  .practice-tabs button {
+    font-size: 25px;
+  }
+  .practice-panels {
+    padding-left: 32px;
+  }
+  .contact-columns h3 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 760px) {
+  .site-header {
+    height: 84px;
+  }
+  .brand strong {
+    font-size: 29px;
+  }
+  .brand small {
+    font-size: 8px;
+  }
+  .site-header.is-scrolled {
+    height: 72px;
+  }
+  .site-header.is-scrolled .brand strong {
+    font-size: 25px;
+  }
+  .main-nav {
+    font-size: 22px;
+    gap: 18px;
+  }
+  .hero {
+    min-height: 780px;
+  }
+  .hero-content {
+    padding-top: 134px;
+    padding-bottom: 32px;
+  }
+  .hero-content > .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.085em;
+    margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-size: clamp(27px, 8.4vw, 35px);
+    line-height: 1.8;
+    letter-spacing: -0.025em;
+  }
+  .hero-image img {
+    object-position: center 100%;
+    opacity: 0.64;
+  }
+  .hero-story {
+    margin-top: 52px;
+    max-width: 320px;
+  }
+  .hero-story h2 {
+    font-size: 22px;
+    line-height: 1.75;
+    letter-spacing: -0.01em;
+  }
+  .hero-story .eyebrow {
+    font-size: 9px;
+  }
+  .hero-story > p:not(.eyebrow) {
+    font-size: 15px;
+    line-height: 1.95;
+    margin-top: 20px;
+  }
+  .hero-story .link-button {
+    font-size: 13px;
+    min-width: 215px;
+    margin-top: 23px;
+  }
+  .hero-practices {
+    gap: 12px 25px;
+    margin-top: 35px;
+    font-size: 12px;
+  }
+  .hero-practices a {
+    border-top: 1px solid #ffffff29;
+    border-bottom: 0;
+    padding: 12px 0;
+  }
+  .fiction-label {
+    font-size: 11px;
+    max-width: 285px;
+  }
+  .office {
+    padding: 68px 0 74px;
+  }
+  .office h2 {
+    font-size: clamp(27px, 8vw, 34px);
+    line-height: 1.8;
+    letter-spacing: -0.015em;
+  }
+  .office p:not(.eyebrow) {
+    font-size: 14px;
+    line-height: 1.95;
+  }
+  .section-head h2 {
+    font-size: 33px;
+    line-height: 1.7;
+  }
+  .practice-tabs {
+    gap: 25px;
+  }
+  .practice-tabs button {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    padding: 13px 0;
+    font-weight: 400;
+  }
+  .practice-panels {
+    padding-left: 0;
+    min-height: 0;
+  }
+  .practice-panels h3 {
+    font-size: 26px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .practice-panels p:not(.eyebrow) {
+    font-size: 15px;
+  }
+  .practice-panels ul {
+    font-size: 14px;
+  }
+  .approach figure img {
+    height: 260px;
+  }
+  .process h3 {
+    font-size: 18px;
+  }
+  .process p {
+    font-size: 15px;
+  }
+  .contact-heading h2 {
+    font-size: 33px;
+  }
+  .contact-columns h3 {
+    font-size: 26px;
+  }
+  .contact-columns p,
+  .contact-columns dl {
+    font-size: 15px;
+  }
+  .faq summary {
+    font-size: 16px;
+  }
+  .site-footer .brand strong {
+    font-size: 28px;
+  }
+  .source-links {
+    font-size: 12px;
+  }
+}
+@media (max-width: 760px) {
+  .hero-image img {
+    transform: scale(1.35);
+    transform-origin: center bottom;
+  }
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #506a5d;
+  outline-offset: 5px;
+}
+.hero a:focus-visible,
+.site-header a:focus-visible,
+.site-header button:focus-visible {
+  outline-color: #eef2e6;
+}
+.main-nav.is-open a:focus-visible,
+.menu-toggle.is-open:focus-visible {
+  outline-color: #506a5d;
+}
+@media (max-width: 760px) {
+  .practice-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 22px;
+    overflow: visible;
+    scrollbar-width: none;
+    padding: 0;
+    border-bottom: 0;
+  }
+  .practice-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .practice-tabs button {
+    width: 100%;
+    min-width: 0;
+    text-align: left;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+    white-space: normal;
+  }
+  .practice-tabs button:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .practice-tabs [aria-selected="true"] {
+    border-bottom: 2px solid #34564a;
+  }
+}

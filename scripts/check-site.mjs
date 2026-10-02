@@ -29,10 +29,11 @@ assert(html.includes('자체 시안') && html.includes('AI로 제작'), 'Generat
   '리브랜딩 실행 파트너',
   '리브랜딩 실행 프로젝트',
   '월간 브랜드 마케팅',
-  '적합성 대화',
-  '리브랜딩 / 월간 / 기타'
+  '프로젝트 문의하기',
+  '필요한 작업과 현재 상황',
+  '카카오톡으로 연결됩니다.'
 ].forEach((requiredCopy) => {
-  assert(html.includes(requiredCopy), `Missing approved r2 copy: ${requiredCopy}`);
+  assert(html.includes(requiredCopy), `Missing approved site copy: ${requiredCopy}`);
 });
 
 [
@@ -52,7 +53,7 @@ assert(html.includes('<title>오로라의소리 | 리브랜딩 실행 파트너<
 assert(/<meta name="description" content="새 매장·서비스, 리뉴얼, 이전·확장처럼 사업이 바뀌는 순간/.test(html), 'SEO description must begin with the approved change moment.');
 assert(!html.includes('필요한 콘텐츠를 정하고 제작까지 맡습니다'), 'Old V2 positioning remains in metadata or body.');
 assert(!html.includes('콘텐츠 마케팅"'), 'Old V2 Open Graph alt or metadata remains.');
-assert(/href=["']\/rebrand\/style\.css\?v=5["']/.test(html), 'Production must load the released stylesheet.');
+assert(/href=["']\/rebrand\/style\.css\?v=7["']/.test(html), 'Production must load the released stylesheet.');
 assert(/prefers-reduced-motion/.test(styles), 'Reduced-motion handling is required.');
 assert(/resonance\.webp/.test(html) && /resonance\.webp/.test(styles), 'Hero must keep a static silk fallback.');
 assert(ogCard.includes('리브랜딩 실행 파트너') && ogCard.includes('고객에게 보이는 것'), 'OG render source must match the approved r2 position.');
@@ -67,7 +68,7 @@ assert(duplicateIds.length === 0, `Duplicate HTML ids: ${[...new Set(duplicateId
 
 const allAnchors = html.match(/<a\b[\s\S]*?<\/a\s*>/gi) || [];
 const trackedElements = allAnchors.filter((tag) => /\bdata-track=/.test(tag));
-const allowedTrackTypes = new Set(['kakao', 'naver_blog', 'wordpress_blog', 'instagram', 'youtube', 'email']);
+const allowedTrackTypes = new Set(['kakao', 'naver_blog', 'instagram', 'youtube', 'email']);
 const approvedKakaoUrl = 'https://open.kakao.com/o/sMBNyzpi';
 
 assert(trackedElements.length > 0, 'At least one tracked link is required.');
@@ -86,7 +87,7 @@ for (const tag of trackedElements) {
   }
 }
 
-['final-cta-btn', 'footer-email-link', 'footer-insta-link', 'footer-wordpress-blog-link'].forEach((id) => {
+['final-cta-btn', 'footer-email-link', 'footer-insta-link'].forEach((id) => {
   assert(ids.includes(id), `Required CTA id is missing: ${id}`);
 });
 
@@ -96,8 +97,8 @@ assert(allKakaoLinks.every((tag) => tag.includes(approvedKakaoUrl)), 'All Kakao 
 
 assert(/href=["']\/terms\.html["']/.test(html), 'Terms link must be root-relative.');
 assert(/href=["']\/privacy\.html["']/.test(html), 'Privacy link must be root-relative.');
-assert(/type="module" src="\/rebrand\/app\.js\?v=4"/.test(html), 'Production must load the rebrand application.');
-assert(/src=["']\/analytics\.js\?v=7["']/.test(html), 'index.html must load analytics.js?v=7.');
+assert(/type="module" src="\/rebrand\/app\.js\?v=5"/.test(html), 'Production must load the rebrand application.');
+assert(/src=["']\/analytics\.js\?v=8["']/.test(html), 'index.html must load analytics.js?v=8.');
 
 assert(count(html, /fbq\(['"]track['"],\s*['"]PageView['"]\)/g) === 1, 'Meta PageView must be sent exactly once.');
 assert(!/createElement\(['"]noscript['"]\)/.test(html), 'Do not create a dynamic Meta noscript fallback.');

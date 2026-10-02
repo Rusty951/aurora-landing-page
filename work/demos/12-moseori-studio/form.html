@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>상담 시연 | 모서리 디자인 스튜디오</title>
+    <meta
+      name="description"
+      content="가상 인테리어 스튜디오의 공간 콘셉트와 상담 과정 시연. 실제 시공 사례나 상담 서비스가 아닙니다."
+    />
+    <link rel="stylesheet" href="style.css?v=12" />
+    <script src="projects.js?v=10" defer></script>
+    <script src="site.js?v=12" defer></script>
+  </head>
+  <body class="form">
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="모서리 디자인 스튜디오 홈"
+        >MOSEORI<span>DESIGN STUDIO</span></a
+      ><button
+        class="menu-toggle"
+        type="button"
+        aria-label="메뉴 열기"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        <span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="주 메뉴">
+        <a href="project.html">PROJECT</a><a href="process.html">PROCESS</a
+        ><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a
+        ><a class="nav-consult" href="notice.html">상담신청</a>
+      </nav>
+    </header>
+    <main class="text-page form-page" id="main">
+      <div class="form-inner">
+        <a class="form-back" href="notice.html">← 뒤로</a>
+        <h1>상담 신청</h1>
+        <p class="form-step-label">
+          STEP <span id="form-step-number">1</span> / 2
+        </p>
+        <div class="form-progress"><span id="form-progress-line"></span></div>
+        <p class="form-instruction">
+          이 화면은 시연용입니다. 입력 내용은 전송하거나 저장하지 않습니다.
+        </p>
+        <form id="demo-form" novalidate>
+          <fieldset id="step-one">
+            <legend class="sr-only">기본 정보</legend>
+            <label
+              >성함 <span>*</span
+              ><input
+                name="name"
+                type="text"
+                autocomplete="off"
+                placeholder="가상 이름을 입력해 주세요"
+                required /></label
+            ><label
+              >연락처 <span>*</span
+              ><input
+                name="phone"
+                type="tel"
+                autocomplete="off"
+                placeholder="가상 번호를 입력해 주세요"
+                required /></label
+            ><label
+              >이메일 <span>*</span
+              ><input
+                name="email"
+                type="email"
+                autocomplete="off"
+                placeholder="example@example.com"
+                required /></label
+            ><button
+              type="button"
+              class="action action-dark form-next"
+              id="go-step-two"
+            >
+              다음 <span>→</span>
+            </button>
+          </fieldset>
+          <fieldset id="step-two" hidden>
+            <legend class="sr-only">공간 정보</legend>
+            <label
+              >공간 유형 <span>*</span
+              ><select name="space" required>
+                <option value="">선택해 주세요</option>
+                <option>아파트</option>
+                <option>주택</option>
+                <option>그 밖의 주거 공간</option>
+              </select></label
+            ><label
+              >예상 면적<input
+                name="area"
+                type="text"
+                placeholder="예) 34평" /></label
+            ><label
+              >생각하는 시기<select name="timing">
+                <option>정하지 않았어요</option>
+                <option>일정을 살펴보는 중</option>
+                <option>가까운 시일 내</option>
+              </select></label
+            ><label
+              >가장 바꾸고 싶은 점<textarea
+                name="message"
+                rows="5"
+                placeholder="공간에서 불편한 점을 적어 주세요"
+              ></textarea>
+            </label>
+            <p class="form-privacy">
+              입력 내용은 이 브라우저에서만 표시됩니다. 실제 상담이 접수되지
+              않습니다.
+            </p>
+            <div class="form-actions">
+              <button
+                type="button"
+                class="action action-light"
+                id="back-step-one"
+              >
+                ← 뒤로</button
+              ><button type="submit" class="action action-dark">
+                시연 확인 <span>→</span>
+              </button>
+            </div>
+          </fieldset>
+        </form>
+        <div class="demo-complete" id="demo-complete" role="status" hidden>
+          <h2>화면 확인이 끝났습니다.</h2>
+          <p>
+            입력한 내용은 어디에도 전송되거나 저장되지 않았습니다. 가상 사이트의
+            상담 흐름 시연입니다.
+          </p>
+          <a class="action action-light" href="project.html"
+            >공간 콘셉트 보기 <span>›</span></a
+          >
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

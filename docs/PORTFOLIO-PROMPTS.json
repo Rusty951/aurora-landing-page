@@ -1,0 +1,30 @@
+[
+  {
+    "key": "veil",
+    "primary_prompt": "Create a single premium commercial still image for a fictional skincare product campaign, landscape 3:2. One ivory matte cylindrical serum bottle with sculptural ivory cap and a small refined charcoal wordmark 'VEIL', with tiny secondary text 'daily serum'. Bottle on an ivory limestone plinth, luminous pearlescent flowing fabric sweeping behind it, muted cream background with faint lavender shadows. Art direction is tactile luxury, quiet, editorial, cinematic soft directional daylight, beautiful realistic material textures and precise product edges. Product entirely legible and complete. Leave generous negative space on left for website caption placed in HTML. No real brands, no additional typography, no watermarks, no collage, one scene. This is Aurora Sound's original fictional campaign concept.",
+    "detail_prompt": "Create a second distinct campaign photograph for this same fictional VEIL serum. Preserve precisely this ivory bottle form, sculptural cap and label. A close-up composition viewed from slightly above with bottle laying diagonally on creamy folded satin, thin pools of glossy translucent serum and soft lavender side light, one large ivory circular stone partly in frame. Elegant still life with product fully visible, 3:2 landscape. Premium realistic material textures. No added text, no collage.",
+    "primary_source": "/Users/bananabk/Documents/Codex/2026-10-02/task-2/generated_images/exec-ade48a0c-c498-4ecd-aea6-912a67c912ea.png",
+    "detail_source": "/Users/bananabk/Documents/Codex/2026-10-02/task-2/generated_images/exec-6e1c6700-4f72-4d57-9195-13fd3600a834.png"
+  },
+  {
+    "key": "still",
+    "primary_prompt": "Create a single premium commercial product photography style campaign still, landscape 3:2. A fictional forest-green translucent glass perfume bottle, low rectangular form with heavy clear glass base and polished metallic cap. Elegant small wordmark 'STILL' on its face. Bottle sits on dark green mossy stone, abstract translucent green botanical shadows behind it. Rich forest green and olive tones with warm sun shafts, subtle lens-like depth, droplets on bottle, dramatic realistic high-end lighting. Moody minimal editorial beauty advertisement, premium impeccably composed, bottle complete and visually clear. No real brands, no other copy, no watermark, no collage. Aurora Sound original fictional product campaign.",
+    "detail_prompt": "Create a second distinct campaign photograph of exactly the same fictional STILL fragrance bottle, preserve this green rectangular heavy glass body, golden metal cap, and STILL label. Now on a minimal olive-green studio background with a horizontal stone shelf, brilliant diagonal beam of golden afternoon light, long elegant cast shadow and subtle glass caustics. Bottle on the right third and negative space left. Clean restrained premium perfume art direction. Full product visible. Landscape3:2. No added text, no collage.",
+    "primary_source": "/Users/bananabk/Documents/Codex/2026-10-02/task-2/generated_images/exec-dadf04a8-b7d7-4612-8ee5-8411bbb416ca.png",
+    "detail_source": "/Users/bananabk/Documents/Codex/2026-10-02/task-2/generated_images/exec-4dae133f-6549-4636-a349-35b53e33fa38.png"
+  },
+  {
+    "key": "daybreak",
+    "primary_prompt": "Create one premium commercial still for a fictional citrus sparkling drink campaign, landscape 3:2. A warm orange slim aluminum can floating upright over a peach-orange sunlit background. Can has an elegant bold cream wordmark 'DAYBREAK' and small 'citrus soda' label. Fresh sliced oranges, clear droplets and a sculptural splash of orange juice suspended around the can, precise appetizing realistic textures, crisp specular highlights, high-end beverage art direction. Bold joyful graphic composition with balanced negative space, warm coral/orange monochrome tonal palette. Full product visible with readable invented wordmark. No real brands, no watermark, no collage, no extra text. Aurora Sound original fictional campaign concept.",
+    "detail_prompt": "Create a second distinct campaign photograph for exactly the same fictional DAYBREAK citrus soda, keep orange can, cream lettering and sun illustration consistent. A top-down still-life of one can resting diagonally in a clear shallow pool of water with rippling sun caustics, cut orange halves and clean geometric pale peach blocks, sunlit summer mood. Fresh droplets, realistic aluminum textures, vivid orange peach yellow. Full can visible and sharp. Landscape3:2. No other copy, no collage.",
+    "primary_source": "/Users/bananabk/Documents/Codex/2026-10-02/task-2/generated_images/exec-155954f3-b0b0-4f38-8264-c222cfdc216e.png",
+    "detail_source": "/Users/bananabk/Documents/Codex/2026-10-02/task-2/generated_images/exec-72a40857-3788-4484-9d23-8adf8a8a2f67.png"
+  },
+  {
+    "key": "aurora-instagram-cover-readable",
+    "tool": "built-in image_gen edit",
+    "primary_prompt": "Use case: text-localization (contrast correction only).\nEdit target: the supplied existing Aurora editorial Instagram cover, portrait 4:5. This is an existing owned portfolio image, not a new design.\nChange ONLY the text ink colors to improve readability on mobile. Make all existing headline text and small labels dark charcoal #202832, including AURORA EDITORIAL, BRAND NOTE / 01, AI 시대의 실력은, “버리는 기준”, 에서 드러난다, 사업이 바뀌는 장면, and 01 / 08. Keep the exact existing Korean spelling, wording, fonts, sizes, line breaks, locations, quotes, editorial hierarchy and thin rules. Preserve the model's face, clothing, body, pose, blue coat, white trousers, boots, flags, quarry, sky, lighting, photo colors, crop, canvas aspect ratio, and navigation dots exactly. Do not add new words, logos, shapes, frames, gradients, or shadows. This is a precise non-destructive typography contrast edit; the underlying photograph must remain visually identical.\n",
+    "primary_source": "/Users/bananabk/Documents/Codex/2026-10-02/task-2/generated_images/exec-910a7838-b319-4f77-8f0f-ebc071840fa2.png",
+    "edit_target": "work/assets/aurora-carousel-01.webp"
+  }
+]

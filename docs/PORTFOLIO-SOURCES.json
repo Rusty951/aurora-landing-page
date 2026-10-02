@@ -1,0 +1,423 @@
+[
+  {
+    "slug": "website-moseori",
+    "kind": "website_sample",
+    "source_repo": "Rusty951/website-portfolio",
+    "source_directory": "12-moseori-studio",
+    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/12-moseori-studio-1280.png",
+    "mobile_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/12-moseori-studio-390.png",
+    "license_scope": "fictional web design with licensed stock imagery; no client cases"
+  },
+  {
+    "slug": "website-bitgyeol",
+    "kind": "website_sample",
+    "source_repo": "Rusty951/website-portfolio",
+    "source_directory": "02-bitgyeol-curtain",
+    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/all-sites-final-polish/after/02-bitgyeol-curtain-desktop.png",
+    "mobile_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/all-sites-final-polish/after/02-bitgyeol-curtain-mobile.png",
+    "license_scope": "fictional web design with licensed stock imagery; no client cases"
+  },
+  {
+    "slug": "website-neurin",
+    "kind": "website_sample",
+    "source_repo": "Rusty951/website-portfolio",
+    "source_directory": "04-neurin-pajang",
+    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/04-neurin-pajang-1280.png",
+    "mobile_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/04-neurin-pajang-390.png",
+    "license_scope": "fictional web design with licensed stock imagery; no client cases"
+  },
+  {
+    "slug": "website-haebit",
+    "kind": "website_sample",
+    "source_repo": "Rusty951/website-portfolio",
+    "source_directory": "05-haebit-light",
+    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/05-haebit-light-1280.png",
+    "mobile_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/05-haebit-light-390.png",
+    "license_scope": "fictional web design with licensed stock imagery; no client cases"
+  },
+  {
+    "slug": "website-jeongo",
+    "kind": "website_sample",
+    "source_repo": "Rusty951/website-portfolio",
+    "source_directory": "01-jeongo-eye",
+    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/01-jeongo-eye-1280.png",
+    "mobile_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/01-jeongo-eye-390.png",
+    "license_scope": "fictional web design with licensed stock imagery; no client cases"
+  },
+  {
+    "slug": "website-chaon",
+    "kind": "website_sample",
+    "source_repo": "Rusty951/website-portfolio",
+    "source_directory": "13-chaon-law",
+    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/professional-reference-polish-20260930/13-chaon-after-desktop.png",
+    "mobile_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/professional-reference-polish-20260930/24-chaon-after-mobile.png",
+    "license_scope": "fictional web design with licensed stock imagery; no client cases"
+  },
+  {
+    "slug": "food-moon",
+    "kind": "finished_ai_visual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/30_CONTENT/moon-hero.png",
+    "extras": [
+      "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/30_CONTENT/moon-scene.png",
+      "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/30_CONTENT/moon-light.png"
+    ],
+    "source_root": "A05 Banana Black Drive",
+    "public_claim": "AI food visual, no actual food shoot or client delivery claimed"
+  },
+  {
+    "slug": "food-moss",
+    "kind": "finished_ai_visual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/30_CONTENT/moss-hero.png",
+    "extras": [
+      "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/30_CONTENT/moss-scene.png",
+      "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/30_CONTENT/moss-light.png"
+    ],
+    "source_root": "A05 Banana Black Drive",
+    "public_claim": "AI food visual, no actual food shoot or client delivery claimed"
+  },
+  {
+    "slug": "food-sumook",
+    "kind": "finished_ai_visual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/30_CONTENT/sumook-hero.png",
+    "extras": [
+      "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/30_CONTENT/sumook-scene.png",
+      "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/30_CONTENT/sumook-light.png"
+    ],
+    "source_root": "A05 Banana Black Drive",
+    "public_claim": "AI food visual, no actual food shoot or client delivery claimed"
+  },
+  {
+    "slug": "food-pancake",
+    "kind": "finished_ai_visual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/2026-09-02_C002_팬케이크커피_01-HERO.png",
+    "extras": [
+      "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/2026-09-02_C002_팬케이크커피_02-SCENE.png",
+      "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/2026-09-02_C002_팬케이크커피_03-COVER.png"
+    ],
+    "source_root": "A05 Banana Black Drive",
+    "public_claim": "AI food visual, no actual food shoot or client delivery claimed"
+  },
+  {
+    "slug": "food-mango",
+    "kind": "finished_ai_visual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/BB-IG-C002-BB-20260901-003-01-MANGO-DESSERT-HERO-v01.png",
+    "extras": [],
+    "source_root": "A05 Banana Black Drive",
+    "public_claim": "AI food visual, no actual food shoot or client delivery claimed"
+  },
+  {
+    "slug": "food-watermelon",
+    "kind": "finished_ai_visual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/BB-IG-C002-BB-20260901-003-03-WATERMELON-DESSERT-HERO-v01.png",
+    "extras": [],
+    "source_root": "A05 Banana Black Drive",
+    "public_claim": "AI food visual, no actual food shoot or client delivery claimed"
+  },
+  {
+    "slug": "bb-p-0001",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/PRODUCT/BB-P-0001/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-P-0001",
+    "source_sha256": "9f64cf2dc014679e6face80abd2fa50547a1ef4cb9c632fb2c7f5c98e362b12c",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-p-0003",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/PRODUCT/BB-P-0003/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-P-0003",
+    "source_sha256": "fc35a8570ee6ee630bc0ffd0dab14c8714ef7c7c20f13095f9400ee9c0fd2235",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-p-0010",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/PRODUCT/BB-P-0010/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-P-0010",
+    "source_sha256": "7edd0c027763c5b62620a6c7b1a89be33ffe6960e284fd7f7813b74744d4c78a",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-p-0013",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/PRODUCT/BB-P-0013/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-P-0013",
+    "source_sha256": "84d36fc921bbc615c27028de738f8e7905c3d04f9de99c03424946a2bd51882c",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-p-0023",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/PRODUCT/BB-P-0023/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-P-0023",
+    "source_sha256": "9db42c446ef31a9ccdae281526055eff457a5df01644dde424b0cca60221407c",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-p-0053",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/PRODUCT/BB-P-0053/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-P-0053",
+    "source_sha256": "6ae1c724eb494ed7f620c92d6cc18e3c8dd2fd4122534d3f8305637d71fb01d9",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-p-0060",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/PRODUCT/BB-P-0060/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-P-0060",
+    "source_sha256": "43764b6188d9536faf84a20744f95634d41f9ee5820c361d0c9546875f94c713",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-p-0061",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/PRODUCT/BB-P-0061/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-P-0061",
+    "source_sha256": "38d12bb847b6c2debbd075f31bb400c631cf0ee04f7102161ddbcf3a8d49a001",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-p-0011",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/PRODUCT/BB-P-0011/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-P-0011",
+    "source_sha256": "597152e072fa03d1b7427c7e20a2258a6949164a8db1b1e18f9a243de8ab399e",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-p-0015",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/PRODUCT/BB-P-0015/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-P-0015",
+    "source_sha256": "8319d193f8b503c965d3be37c556c2fb17713e2170ccd82d140de1ff0b0ce54f",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-p-0048",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/PRODUCT/BB-P-0048/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-P-0048",
+    "source_sha256": "0b62c2f1c38dcf7948494bbb81c1a1a2ebe4bb75bec5ba267031282392e0dce9",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-p-0058",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/PRODUCT/BB-P-0058/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-P-0058",
+    "source_sha256": "3d5a3bbd39de40b74ae01718e9fd81aff21f18602af6963b3f58ce3d7649eb77",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-f-0150",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/FOOD/BB-F-0150/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-F-0150",
+    "source_sha256": "171e5ac1b01ad2c0dbf2052f5b0cc50191dccedba13444c582f375bbce3ee597",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-f-0168",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/FOOD/BB-F-0168/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-F-0168",
+    "source_sha256": "680b739bda44be821f421f198227c0efc8180eb514dd05f18a53b434c7c932c1",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-f-0189",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/FOOD/BB-F-0189/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-F-0189",
+    "source_sha256": "981be949ed5013674fc216ff4de40f5625efb343c916a466f3f341ce58c1697a",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-f-0223",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/FOOD/BB-F-0223/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-F-0223",
+    "source_sha256": "76dfe34e18cb5538f4628e34db1d60c7b4bf35cd0e59d8d87adf037545936d79",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-f-0283",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/FOOD/BB-F-0283/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-F-0283",
+    "source_sha256": "fe5a7685adcc864fd7aebdb6037d61640e31c07930c292e583ace509ad40f70d",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "bb-f-0331",
+    "kind": "generated_previsual",
+    "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A05_바나나블랙/10_PRODUCTION/20260811_visual-concept-archive-v2/FOOD/BB-F-0331/concept-01/02_previsual.png",
+    "archive_asset_id": "BB-F-0331",
+    "source_sha256": "ff8beb399bec795de83c1ab0f32d3c875442f5f5d079d7761592cd4c946e5a05",
+    "public_claim": "original AI concept sketch, not original reference photo, not finished commercial photography"
+  },
+  {
+    "slug": "veil",
+    "kind": "existing_aurora_concept",
+    "source": "/work/assets/veil.webp",
+    "provenance_doc": "docs/DESIGN.md or docs/PORTFOLIO-PROMPTS.json"
+  },
+  {
+    "slug": "still",
+    "kind": "existing_aurora_concept",
+    "source": "/work/assets/still.webp",
+    "provenance_doc": "docs/DESIGN.md or docs/PORTFOLIO-PROMPTS.json"
+  },
+  {
+    "slug": "daybreak",
+    "kind": "existing_aurora_concept",
+    "source": "/work/assets/daybreak.webp",
+    "provenance_doc": "docs/DESIGN.md or docs/PORTFOLIO-PROMPTS.json"
+  },
+  {
+    "slug": "aurora-in-print",
+    "kind": "existing_aurora_concept",
+    "source": "/rebrand/assets/showcase-identity.webp",
+    "provenance_doc": "docs/DESIGN.md or docs/PORTFOLIO-PROMPTS.json"
+  },
+  {
+    "slug": "aura-archive",
+    "kind": "existing_aurora_concept",
+    "source": "/rebrand/assets/showcase-digital.webp",
+    "provenance_doc": "docs/DESIGN.md or docs/PORTFOLIO-PROMPTS.json"
+  },
+  {
+    "slug": "soft-resonance",
+    "kind": "existing_aurora_concept",
+    "source": "/rebrand/assets/showcase-material.webp",
+    "provenance_doc": "docs/DESIGN.md or docs/PORTFOLIO-PROMPTS.json"
+  },
+  {
+    "slug": "aurora-carousel-ai",
+    "kind": "owned_carousel",
+    "owner": "A01 오로라의소리",
+    "publication_status": "Local portfolio preview; source release/brand files verified; public posting status not asserted",
+    "files": [
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/30_CONTENT/instagram/IG-04/releases/PACKET-IG-04-R1-ai-human-check-20260820/final/01-cover.png",
+        "source_sha256": "a84bb37ef03ec1ef6198fea997704fbaf4bf0bd4f922b43166b7253c1f02ba31",
+        "caption": "01 / 08"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/30_CONTENT/instagram/IG-04/releases/PACKET-IG-04-R1-ai-human-check-20260820/final/02-image-bridge.png",
+        "source_sha256": "735cb02b9fdc80c0db180ace70698af8b02a9a5fd803684d2d6f2eafd53cbdaa",
+        "caption": "02 / 08"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/30_CONTENT/instagram/IG-04/releases/PACKET-IG-04-R1-ai-human-check-20260820/final/03-text-principle.png",
+        "source_sha256": "bb9e1c22e26a52bdbad93d3bed9098f002caa31b9c3726864231bf08b361de94",
+        "caption": "03 / 08"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/30_CONTENT/instagram/IG-04/releases/PACKET-IG-04-R1-ai-human-check-20260820/final/04-text-principle.png",
+        "source_sha256": "0c652c861e9b5536e0044942e461771affff59536fb5811764fdff20cc49ce4f",
+        "caption": "04 / 08"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/30_CONTENT/instagram/IG-04/releases/PACKET-IG-04-R1-ai-human-check-20260820/final/05-text-application.png",
+        "source_sha256": "73e9c9f230016ad03000e3f0bb1bbf4ea3800ded879ef1293460e5c2d9ad87e0",
+        "caption": "05 / 08"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/30_CONTENT/instagram/IG-04/releases/PACKET-IG-04-R1-ai-human-check-20260820/final/06-text-application.png",
+        "source_sha256": "c6ad3e601e4d0e40f04b37a8dbd276146307d2927de15cce8e1b184c5785f659",
+        "caption": "06 / 08"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/30_CONTENT/instagram/IG-04/releases/PACKET-IG-04-R1-ai-human-check-20260820/final/07-text-application.png",
+        "source_sha256": "28e38a2859b4b6476c46ffc4d7b13842a53419df6b43d645d259d8dbec1f392f",
+        "caption": "07 / 08"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/30_CONTENT/instagram/IG-04/releases/PACKET-IG-04-R1-ai-human-check-20260820/final/08-closing.png",
+        "source_sha256": "cb6907f75993a1dad64647aacbede1b40ba9ea47f8752714b5f97e0bad5c2634",
+        "caption": "08 / 08"
+      }
+    ],
+    "preview_cover_revision": {
+      "date": "2026-10-02",
+      "tool": "built-in image_gen edit",
+      "purpose": "Mobile contrast improvement after approved whole-site design audit",
+      "source": "/Users/bananabk/Documents/Codex/2026-10-02/task-2/generated_images/exec-910a7838-b319-4f77-8f0f-ebc071840fa2.png",
+      "source_sha256": "931f5b07fbb1a922cd8583028c8badf690c8beccf83ded5cccd6d839a65fe9a0",
+      "image": "/work/assets/aurora-carousel-01-readable.webp",
+      "thumbnail": "/work/assets/aurora-carousel-01-readable-thumb.webp",
+      "note": "Non-destructive preview variant. Existing Drive source and earlier optimized cover retained. AI edit may introduce small photographic differences."
+    }
+  },
+  {
+    "slug": "aurora-character-01",
+    "kind": "owned_character",
+    "owner": "A01 오로라의소리",
+    "publication_status": "Local portfolio preview; source release/brand files verified; public posting status not asserted",
+    "files": [
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/20_BRAND/CHARACTERS/AURORA-CHAR-01_CEO_CHINCHILLA_turnaround_v01.png",
+        "source_sha256": "75c36a8e044c8452c54a09d795007e01afe52a1aa61440306e36b2334ea9123b",
+        "caption": "기본형"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/20_BRAND/CHARACTERS/AURORA-CHAR-01_CEO_CHINCHILLA_expression-sheet_v01.png",
+        "source_sha256": "bdefaf901cb0d18c16fe98b13d292d37ff6a99fb82f7b97478f7e4c1fc50605d",
+        "caption": "표정과 동작"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/30_CONTENT/youtube/shorts/오로라의소리_찰리대표_섬네일_v03.jpg",
+        "source_sha256": "077a89ffb5aa709ce9ed0086cf725fcdfd2a9d178ba469ae2ba8da45c57bea4c",
+        "caption": "콘텐츠 적용"
+      }
+    ]
+  },
+  {
+    "slug": "aurora-character-02",
+    "kind": "owned_character",
+    "owner": "A01 오로라의소리",
+    "publication_status": "Local portfolio preview; source release/brand files verified; public posting status not asserted",
+    "files": [
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/20_BRAND/CHARACTERS/AURORA-CHAR-02_MARKETER_FENNEC_turnaround_v01.png",
+        "source_sha256": "995edce1f063d6d8b053e59e66854966b9eaac343673e762d799571970c1f3d0",
+        "caption": "기본형"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/20_BRAND/CHARACTERS/AURORA-CHAR-02_MARKETER_FENNEC_expression-sheet_v01.png",
+        "source_sha256": "649d524f4f265a10d790075d5c9c4343dfb146673b2735fa5170ceaed904e8d4",
+        "caption": "표정과 동작"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/30_CONTENT/youtube/shorts/오로라의소리_페니마케터_섬네일_v01.jpg",
+        "source_sha256": "3142eebb91f35b3150876857efff57da5417c4403b77aed8f385900bf71facca",
+        "caption": "콘텐츠 적용"
+      }
+    ]
+  },
+  {
+    "slug": "aurora-character-03",
+    "kind": "owned_character",
+    "owner": "A01 오로라의소리",
+    "publication_status": "Local portfolio preview; source release/brand files verified; public posting status not asserted",
+    "files": [
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/20_BRAND/CHARACTERS/AURORA-CHAR-03_OPERATIONS_BEAVER_turnaround_v01.png",
+        "source_sha256": "b7195c5c66c47893c310d0e51d28757ecf3a2a4a3c008fbd05211f1d671fa147",
+        "caption": "기본형"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/20_BRAND/CHARACTERS/AURORA-CHAR-03_OPERATIONS_BEAVER_expression-sheet_v01.png",
+        "source_sha256": "0e27519e809b9353ba42c8f3b8f986294c613dddc534ecd1fde7752f7b437ced",
+        "caption": "표정과 동작"
+      },
+      {
+        "source": "/Users/bananabk/Google Drive/내 드라이브/ASSETS/30_ENTITIES/A01_오로라의소리/30_CONTENT/youtube/shorts/오로라의소리_버디운영팀장_섬네일_v01.jpg",
+        "source_sha256": "3a3964755d7dd7f85a9bb7d3a7aa374f2add1c20eb6251a6f3a98f667cc5a0b5",
+        "caption": "콘텐츠 적용"
+      }
+    ]
+  }
+]

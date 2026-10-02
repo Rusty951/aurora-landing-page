@@ -1,3 +1,57 @@
+# 2026-10-02 — 전체 홈페이지 검토 수정
+
+final result: passed
+
+사용자의 “전부 다 고쳐줘” 승인에 따른 국소 개선이다. 아래 과거 검수 이력과 구별하여 이 항목을 현재 로컬 작업본의 결과로 사용한다. 운영 배포는 하지 않았다.
+
+## 비교 기준과 구현
+
+- 원래 검토: `/Users/bananabk/Desktop/codex-output/aurora-design-audit-2026-10-02/REPORT.md`, `audit.json` 및 실제 Chrome 화면 캡처.
+- 구현: `/Users/bananabk/Documents/Projects/aurora-landing-page`의 `/`, `/interview`, `/work`와 대표 작업 상세. `/rebrand/index.html`은 제외된 과거 비교본이다.
+- 새 증거: `/Users/bananabk/Desktop/codex-output/aurora-design-fixes-2026-10-02`. 수정 전/후를 같은 입력에서 비교한 캡처 쌍과 상태는 `REPORT.html`에 모았다. Desktop `before/`, `staged/`, `manifest.json`에 수정 전 사본 및 반영 파일 SHA-256을 보존한다.
+- 실제 렌더링: Google Chrome 별도 임시 프로필. PC 1440×1000, 태블릿 768×1024, 모바일 390×844 및 320×568. 각 캡처명에 해당 화면/상태를 표시했다. 애니메이션이 있는 실크는 프레임 단위 픽셀 일치를 요구하지 않았다.
+
+## 수정 결과
+
+| 발견 | 수정 | 검증 |
+| --- | --- | --- |
+| P1 모바일 문의에서 포트폴리오 링크가 음악 버튼에 가림 | 문의 구간의 음악/움직임 버튼을 footer의 별도 흐름으로 배치. PC 하단 로고도 가리지 않음 | 390px 실제 클릭으로 `/work` 진입. 320px 링크 중심 hit target 일치, 음악 false 유지. `10`, `17`, `19`, `29` 캡처 |
+| P2 어떤 제작물을 맡길 수 있는지 모호함 | 첫 화면에 제품 이미지/인스타 콘텐츠/웹사이트 안내와 작업 보기 추가 | 1440, 768, 390, 320px에서 줄바꿈/겹침 확인. 태블릿 실크 위 보조 문구 대비 보완 |
+| P2 같은 실크 작업 3개의 긴 나열 | 제품/푸드/브랜드 자체 시안 3개로 구성하고 전체 포트폴리오 링크를 위로 이동 | PC 대표 작업 구간 2558px에서 1037px로 줄어듦. 768px와 모바일 확인. 기존 페이지 내 확대 유지 |
+| P2 제작 범위와 문의 표현이 모호함 | 제작물 예시와 단건/월간 범위 안내. 프로젝트 문의하기, 필요한 작업/현재 상황/희망 시점, 카카오 목적지 명시 | 서비스/문의/접힌 안내 및 펼친 안내를 PC와 모바일에서 확인. 기존 단일 카카오 링크 및 추적 속성 유지 |
+| P2 제품, 캐릭터, 웹 썸네일 잘림 | 4:5 프레임 안에 작업별 초점 또는 contain. 캐릭터 전체 글자 보존, 웹은 16:9 | 원본/기존 크롭 contact sheet 3개 검토 후 처리. `06`, `07`, `08`, `11`, `20` 확인 |
+| P2 모바일 필터 고아 줄 | 3열 2행 | 390px와 320px. 320px 필터 높이 전부 44px, 가로 넘침 없음 |
+| P2 인스타 용어 및 표지 낮은 대비 | 목록/상세/접근성 문구를 인스타로 통일. 밝은 글자를 차콜로 바꾼 AI 편집 사본 사용 | 수정 전후 390px 확대 1/8 비교. `13`, `15` 확인. Drive 및 기존 최적화 원본 보존 |
+
+## 비교 기록: 다섯 영역
+
+- 폰트: 기존 DM Sans, Instrument Serif, Pretendard 사용. 실크 제목과 작은 카드 설명을 유지했다. 새 한국어 제작물/문의 안내의 크기, 줄바꿈, 여백을 네 viewport에서 확인했다.
+- 간격/배치: 큰 타이포와 여백의 구조를 유지하면서 대표 작업만 3열로 압축했다. 작은 화면의 한 열, 필터 두 줄, 하단 컨트롤 공간을 확인했다. 홈페이지 대표 이미지의 브랜드 시안은 전체 구성을 보존하는 여백을 의도적으로 유지했다.
+- 색상: 기존 검정/연보라 UI 및 홈페이지의 기존 밝은 대표 작업 구간을 유지했다. 포트폴리오 배경은 검정이다. 인스타 표지의 글자 색 변경과 태블릿 안내 그림자는 가독성을 위한 승인된 수정이다.
+- 이미지: VEIL 병, 캐릭터 이름, 웹사이트 좌우를 수정 전후 같은 크기의 캡처로 비교했다. 텍스트/여러 피사체가 있는 작업은 contain으로 원본 전체를 보존한다. AI 편집된 인스타 표지는 구도와 문구를 유지했으나 미세한 사진 차이는 있을 수 있으며 별도 사본으로 기록했다.
+- 문구: 생성된 고객 사례나 성과 수치를 넣지 않았다. 자체 시안, AI, 가상 사업체 표기를 유지했다. 서비스/문의는 구체화하고 카카오 이동을 명시했다. 일부 기존 이미지 대체 텍스트의 잘못된 조사도 수정했다.
+
+## 기능 검사와 증거
+
+- `npm run check`, `git diff --check` 최종 통과. 홈페이지 3개 추적 링크, 21개 중복 없는 ID; 기존 광고/오가닉 VM 통합 검사 통과.
+- 40개 카드/상세, 이미지 34개/웹사이트 6개, 필터 수, 8장 인스타/캐릭터 3장, 상세 정적 대체와 잘못된 메타데이터 대체 검사 통과.
+- 실제 Chrome: 제품 방향키 1/15 → 2/15, 인스타 터치 1/8 → 2/8, Escape 닫기 및 시작 카드 초점 복귀 확인. 홈페이지 대표 작업도 모달 확대 및 Escape 복귀 확인.
+- 실제 `/interview?utm_source=qa`에서 ad-mode, 포트폴리오 직접 진입 숨김, 단일 주요 CTA, 로컬 `gtag`/`fbq` undefined 확인. 외부 카카오 문의는 전송하지 않았다.
+- `browser-events.json`: 캡처/상호작용 동안 기록한 JS exception, 콘솔 error/warning, 로딩 실패 0. 확인한 화면의 가로 넘침 0. 개별 확인 결과는 `*-check.json`에 저장했다.
+- 액션과 상태: `mobile-320-contact-check.json`, `mobile-320-gallery-check.json`, `tablet-layout-check.json`, `home-viewer-check.json`, `home-viewer-focus-check.json`, `product-viewer-check.json`, `product-focus-check.json`, `paid-check.json`, `desktop-footer-check.json`.
+
+## 인스타 표지 편집 내역
+
+- built-in `image_gen` edit 사용. 작업용 PNG: `/Users/bananabk/Desktop/codex-output/aurora-design-fixes-2026-10-02/instagram-cover-readable.png`.
+- 사용 자산: `work/assets/aurora-carousel-01-readable.webp`, `work/assets/aurora-carousel-01-readable-thumb.webp` (썸네일 45,586 bytes).
+- 최종 프롬프트: `/Users/bananabk/Desktop/codex-output/aurora-design-fixes-2026-10-02/cover-edit-prompt.txt`와 `docs/PORTFOLIO-PROMPTS.json`의 `aurora-instagram-cover-readable` 항목. 요청은 기존 사진/구도/문구를 보존하며 글자색을 `#202832`로 바꾸는 것이다. 생성물 원본 경로와 SHA-256은 `docs/PORTFOLIO-SOURCES.json`에 기록했다.
+
+## 검수 범위와 한계
+
+검토에서 발견한 P1/P2 항목은 위 증거 범위에서 해결했다. 실제 휴대전화, Safari, 스크린리더 전체 순서, 브라우저 200% 확대, 장시간 GPU 성능이나 공개 전환율은 평가하지 않았다. 6개 데모 내부의 모든 흐름과 40개 상세의 모든 내용에 대한 전수 시각 감사는 포함하지 않는다. 공개 배포/커밋/push는 하지 않았다.
+
+---
+
 # Design QA — Landing r2 Release Candidate
 
 Status: `LIVE r2 / PRODUCTION PASS / P0·P1·P2 0`
@@ -336,7 +390,7 @@ final result: passed
 - 운영 `/`, `/interview` 200 및 응답 HTML SHA-256과 로컬 구현 원본 일치. `/interview/?utm_source=release-check`는 query를 유지한 308. `/rebrand?v=4`, `/rebrand/index.html`는 루트로 308.
 - 운영 CSS·app/silk/audio/showcase 모듈·실크와 3개 콘셉트 이미지·analytics·OG·legal·robots·sitemap 200, 올바른 MIME. README·AGENTS·docs·scripts·패키지 매니페스트·design-qa는 404.
 - 실제 운영 브라우저에서 승인된 첫 화면, 쇼케이스, 큰 제목과 실크 렌더를 확인했다. canonical 유지, 데스크톱 가로 넘침 0, 콘솔 error/warn 0.
-- 운영 root의 DOM에서 GA4 스크립트만, `/interview`의 DOM에서 GA4·Meta 스크립트 로드를 확인했다. 광고 경로의 footer Instagram·Journal은 숨김. 이벤트 횟수·CTA·UTM·Contact/Lead 구분은 VM 통합 검사로 확인했고 실제 카카오 전환 이벤트를 시험 발송하지 않았다.
+- 운영 root의 DOM에서 GA4 스크립트만, `/interview`의 DOM에서 GA4·Meta 스크립트 로드를 확인했다. 광고 경로의 footer Instagram은 숨김. 이벤트 횟수·CTA·UTM·Contact/Lead 구분은 VM 통합 검사로 확인했고 실제 카카오 전환 이벤트를 시험 발송하지 않았다.
 - 390×844 운영 root에서 가로 넘침 0. 문의 화면에서 CTA는 top 489.7/bottom 562.7, 음악·모션 컨트롤은 top 19/bottom 63으로 겹치지 않았다. viewport는 검수 후 기본값으로 복원했다.
 - 운영 캡처: `/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-showcase/production-home.png`, `production-mobile-contact.png`.
 - 기존 r2 복구 기준: `6ef92d4f13707b579e9824135469949279c4cab6`. 실패 시 새 revert commit 또는 기존 Vercel production 재승격을 사용한다.

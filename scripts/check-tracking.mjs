@@ -9,7 +9,7 @@ const links = [...html.matchAll(/<a\b[^>]*data-track=[^>]*>/g)].map(match => {
   const attributes = Object.fromEntries([...match[0].matchAll(/([\w-]+)="([^"]*)"/g)].map(match => [match[1], match[2]]));
   return { id: attributes.id, getAttribute: name => attributes[name] || null };
 });
-assert.equal(links.length, 4, 'All four outbound links must be tracked.');
+assert.equal(links.length, 3, 'All three outbound links must be tracked.');
 const cta = links.find(link => link.id === 'final-cta-btn');
 
 for (const [hostname, pathname, expectedType] of [
