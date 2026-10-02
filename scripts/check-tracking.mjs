@@ -9,8 +9,9 @@ const links = [...html.matchAll(/<a\b[^>]*data-track=[^>]*>/g)].map(match => {
   const attributes = Object.fromEntries([...match[0].matchAll(/([\w-]+)="([^"]*)"/g)].map(match => [match[1], match[2]]));
   return { id: attributes.id, getAttribute: name => attributes[name] || null };
 });
-assert.equal(links.length, 4, 'Kakao, email, YouTube and Instagram links must be tracked.');
-const cta = links.find(link => link.id === 'final-cta-btn');
+assert.equal(links.length, 5, 'Final/floating Kakao, email, YouTube and Instagram links must be tracked.');
+const ctas = links.filter(link => link.getAttribute('data-track') === 'kakao');
+assert.equal(ctas.length, 2);
 
 for (const [hostname, pathname, expectedType] of [
   ['localhost', '/', 'organic_root'],
@@ -19,7 +20,7 @@ for (const [hostname, pathname, expectedType] of [
   ['www.aurorasound.kr', '/', 'organic_root'],
   ['www.aurorasound.kr', '/interview', 'paid_interview'],
   ['aurorasound.kr', '/interview/', 'paid_interview'],
-]) {
+]) for (const cta of ctas) {
   const handlers = {}, loadedScripts = [], classes = new Set();
   const document = {
     visibilityState: 'visible',
@@ -48,13 +49,14 @@ for (const [hostname, pathname, expectedType] of [
     continue;
   }
   const events = window.dataLayer.filter(event => event[0] === 'event');
-  assert.deepEqual(Array.from(events, event => event[1]), ['click_cta_primary', 'click_kakao_openchat']);
+  assert.deepEqual(Array.from(events, event => event[1]), cta.id === 'final-cta-btn' ? ['click_cta_primary', 'click_kakao_openchat'] : ['click_kakao_openchat']);
   for (const event of events) {
     assert.equal(event[2].landing_type, expectedType);
     assert.equal(event[2].landing_path, pathname);
-    assert.equal(event[2].button_id, 'final-cta-btn');
+    assert.equal(event[2].button_id, cta.id);
     assert.equal(event[2].utm_source, 'release-check');
-    assert.equal(event[2].cta_location, 'final');
+    assert.equal(event[2].cta_location, cta.id === 'final-cta-btn' ? 'final' : 'floating');
+    assert.equal(event[2].is_primary_cta, cta.id === 'final-cta-btn');
   }
   if (expectedType === 'paid_interview') {
     const meta = window.fbq.queue;
@@ -62,6 +64,7 @@ for (const [hostname, pathname, expectedType] of [
     const contact = meta.filter(event => event[1] === 'Contact');
     assert.equal(contact.length, 1);
     assert.equal(contact[0][2].contact_stage, 'outbound_click');
+    assert.equal(contact[0][2].button_id, cta.id);
     assert.equal(meta.some(event => event[1] === 'Lead'), false);
   } else assert.equal(window.fbq, undefined, 'Organic root must not initialize Meta.');
 }

@@ -52,7 +52,7 @@ assert(html.includes('<title>오로라의소리 | 리브랜딩 실행 파트너<
 assert(/<meta name="description" content="새 매장·서비스, 리뉴얼, 이전·확장처럼 사업이 바뀌는 순간/.test(html), 'SEO description must begin with the approved change moment.');
 assert(!html.includes('필요한 콘텐츠를 정하고 제작까지 맡습니다'), 'Old V2 positioning remains in metadata or body.');
 assert(!html.includes('콘텐츠 마케팅"'), 'Old V2 Open Graph alt or metadata remains.');
-assert(/href=["']\/rebrand\/style\.css\?v=13["']/.test(html), 'Production must load the released stylesheet.');
+assert(/href=["']\/rebrand\/style\.css\?v=14["']/.test(html), 'Production must load the released stylesheet.');
 assert(/prefers-reduced-motion/.test(styles), 'Reduced-motion handling is required.');
 assert(/resonance\.webp/.test(html) && /resonance\.webp/.test(styles), 'Hero must keep a static silk fallback.');
 assert(ogCard.includes('리브랜딩 실행 파트너') && ogCard.includes('고객에게 보이는 것'), 'OG render source must match the approved r2 position.');
@@ -91,7 +91,8 @@ for (const tag of trackedElements) {
 });
 
 const allKakaoLinks = allAnchors.filter((tag) => /href=["']https:\/\/open\.kakao\.com\//i.test(tag));
-assert(allKakaoLinks.length === 1 && /data-primary-cta="true"/.test(allKakaoLinks[0]), 'Single primary Kakao CTA must retain tracking.');
+assert(allKakaoLinks.length === 2, 'Final and floating Kakao links must both be present.');
+assert(allKakaoLinks.filter(tag => /data-primary-cta="true"/.test(tag)).length === 1, 'Final CTA remains the single primary analytics placement.');
 assert(allKakaoLinks.every((tag) => tag.includes(approvedKakaoUrl)), 'All Kakao entry points must use the same approved URL.');
 
 assert(/href=["']\/terms\.html["']/.test(html), 'Terms link must be root-relative.');

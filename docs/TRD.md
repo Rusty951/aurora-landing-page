@@ -1,3 +1,11 @@
+## 2026-10-02 공통 플로팅 문의
+
+42개 운영 HTML에 정적 anchor와 defer contact.js?v=1을 넣고 공통CSS를v14로 갱신한다. 스크립트는 rAF로 스크롤/resize 변경을 합치고 IntersectionObserver·dialog open MutationObserver로 상태를 보완한다. hidden은 display:none으로 확실히 숨기며 초점이 있는 링크는 blur까지 유지한다. observer 미지원 시 스크롤/resize 기본 동작과 native dialog CSS 숨김을 제공한다. JS 미실행 시 기존 본문·헤더 문의 동선이 남는다.
+
+플로팅은 data-track=kakao, cta_location=floating, primary=false다. 기존 analytics 위임으로 홈/광고 클릭은 click_kakao_openchat에 구분되어 기록되고 click_cta_primary는 final만 유지한다. Meta Contact는 운영 광고 경로의 outbound_click이며 Lead를 추가하지 않는다. 기존대로 포트폴리오41개는 analytics.js를 로드하지 않아 새 data 속성만으로 수집이 시작되지 않는다. 이번 UI 추가로 수집 경계를 확장하지 않았다.
+
+check-contact.mjs는42개 삽입 계약, hero·final·work-cta 진입/이탈, modal 복원, 포커스 보존, observer fallback을 검증한다. check-tracking은 final/floating 각각의 이벤트 수·위치·primary 값과 기존 운영/preview 경계를 확인한다.
+
 ## 2026-10-02 문의·서체 후속 변경
 
 기본 한글 CDN을 Pretendard에서 기존 Google Fonts 연결의 Asta Sans300–800 가변 서체로 변경했다. DM Sans/Instrument Serif는 보존한다. 공통 CSS v13·포트폴리오 CSS v14, 공개 HTML42개 폰트 설정이 동일하다. check-site의 폐기된 연결 안내 문구 요구와 공통CSS 버전 기대값을 갱신했다. CTA의 href/id/data 속성과 JavaScript·광고/오가닉 수집 경계는 변경하지 않는다. DOM 폰트 체크뿐 아니라 Chrome CSS.getPlatformFontsForNode에서 실제 한글 glyph의 AstaSans Regular/Medium 사용을 확인했다.
