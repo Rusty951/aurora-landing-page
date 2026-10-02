@@ -2,9 +2,9 @@
 
 ## 2026-10-02: 공식 SNS를 홈페이지 연관채널로 선언한다
 
-- 결정: 대표 요청으로 홈 Organization의 sameAs를 공식 SNS 4개로 정리하고 Instagram 링크를 현재 공개 주소로 수정한다.
+- 결정: 대표 요청으로 홈 Organization의 sameAs를 공식 SNS 3개로 정리하고 Instagram 링크를 현재 공개 주소로 수정한다.
 - 이유: 기존 정보에는 폐기 블로그, 운영을 옮긴 네이버 블로그, 변경 전 Instagram 주소가 남아 있었고 Threads와 Facebook이 빠져 있었다.
-- 영향: 현재 공개 프로필의 aurorasound_branding 주소와 고정 YouTube Channel ID, Facebook 공개 페이지 주소를 사용한다. 개인 블로그와 회사 정체성을 구분하며 검색 노출을 완료로 간주하지 않는다.
+- 영향: 현재 공개 프로필의 aurorasound_branding 주소와 Facebook 공개 페이지 주소를 사용한다. 기존 YouTube 주소는 열리지 않으며 현재 관리 목록의 두 채널 이름이 AFTERLOOK이므로 대표 확인 전 연관채널에서 제외한다. 개인 블로그와 회사 정체성을 구분하며 검색 노출을 완료로 간주하지 않는다.
 
 ## 2026-10-02: 네이버 소유확인 태그를 운영 홈페이지에 배포한다
 
