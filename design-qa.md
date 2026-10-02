@@ -610,3 +610,10 @@ final result: passed
 - 운영 캡처: `/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-showcase/production-home.png`, `production-mobile-contact.png`.
 - 기존 r2 복구 기준: `6ef92d4f13707b579e9824135469949279c4cab6`. 실패 시 새 revert commit 또는 기존 Vercel production 재승격을 사용한다.
 - 실제 모바일 기기의 장시간 GPU 성능과 측정 대시보드 수신 여부는 이번 확인에 포함하지 않는다.
+
+## 2026-10-03 — 승인된 가로형 로고 적용
+
+- 원본 승인 SVG와 배포용 SVG의 바이트가 동일하다. 공개 HTML 42개, 로고 84곳을 확인했다. 각 페이지의 변경은 로고 마크업과 CSS 캐시 v16뿐이다.
+- 실제 로컬 브라우저에서 홈페이지 1440px, 320px, 390px와 포트폴리오 390px를 검수했다. SVG 로딩 정상, 가로 넘침 0, 상단 로고와 메뉴 및 문의 버튼 겹침 없음. 홈페이지 하단 로고도 확인했다.
+- 로고 홈 링크의 목적지는 유지하며 클릭 영역은 데스크톱 58.56px, 모바일 54px 높이다.
+- `npm run check`와 `git diff --check` 통과. 운영 반영 후 별도로 화면을 확인한다.

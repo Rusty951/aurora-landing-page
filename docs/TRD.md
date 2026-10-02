@@ -220,3 +220,7 @@ git diff --check
 ## 2026-09-29 — v4 쇼케이스 통합
 
 `showcase.js`가 3개 이미지의 상세 dialog와 제한된 호버 이동을 담당한다. 이미지 링크는 JS/dialog 미지원 시 원본 WebP로 동작한다. native dialog의 Escape·닫기 후 원래 링크로 포커스를 복원하며 backdrop 클릭도 지원한다. 모바일 문의 구간에서는 IntersectionObserver로 컨트롤을 헤더로 옮겨 문의 CTA와 겹치지 않게 한다. 사진의 크기를 미리 예약하고 lazy decoding/loading을 사용한다. 세 WebP 합계는 543,136 bytes다. 처음 승인한 hero HTML·silk renderer·운영 분석 경계는 유지한다.
+
+## 2026-10-03 — 공통 워드마크 자산
+
+`rebrand/assets/aurora-wordmark.svg`는 승인된 가로형 로고의 글자 윤곽이다. 외부 웹폰트 없이 렌더링하며 원본 글꼴 라이선스는 `aurora-wordmark-OFL.txt`에 보존한다. 공개 HTML 42개의 헤더와 푸터가 같은 자산을 참조한다. SVG 고유 비율을 예약하고 `/rebrand/style.css?v=16`으로 스타일 캐시를 갱신한다. 홈 링크 목적지와 접근성 이름을 유지한다.

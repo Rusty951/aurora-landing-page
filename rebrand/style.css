@@ -124,6 +124,33 @@ section {
 .wordmark > span {
   display: block;
 }
+/* Approved horizontal wordmark: vector outlines preserve the custom r terminals. */
+.wordmark-horizontal {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 170px;
+  min-width: 0;
+  min-height: 58.56px;
+}
+.brand-wordmark {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.footer-brand.wordmark-horizontal {
+  width: 243px;
+}
+@media (max-width: 700px) {
+  .header .wordmark-horizontal {
+    width: clamp(102px, 32vw, 151px);
+    min-height: 54px;
+  }
+  .footer-brand.wordmark-horizontal {
+    width: 212px;
+    min-height: 44px;
+  }
+}
 .header-caption {
   font-size: 11px;
   line-height: 1.65;
