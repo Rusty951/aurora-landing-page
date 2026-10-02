@@ -1,3 +1,40 @@
+# 2026-10-02 — 포트폴리오 운영 배포 확인
+
+final result: passed
+
+사용자의 “일단 커밋 푸시 배포까지” 요청에 따라 홈페이지 디자인 개선과 포트폴리오를 기존 운영 사이트에 반영했다. 아래 과거 로컬 검수의 배포 미포함 상태를 대체한다.
+
+## 배포 근거
+
+- 저장소: `Rusty951/aurora-landing-page`, 운영 브랜치 `main`. 기존 원격 main의 네이버 소유확인·공식 SNS·리본 A 파비콘 변경을 병합하여 보존했다.
+- Preview: `4371a1b95bf87d1289a74e563211ae7b954482c1`, GitHub deployment `6802697570`, success. Preview 인증 설정은 변경하지 않았다.
+- 최초 Production: 동일 구현 커밋, deployment `6802783124`, success.
+- 최종 공개 파일 기준: `01288edad37bfb17fe0a421376cc58c7767e76e8`, Production deployment `6802884202`, success. 후속 검수 기록 커밋은 공개 파일을 변경하지 않는다.
+- 공개 주소: `https://www.aurorasound.kr/`, `https://www.aurorasound.kr/work`.
+- 검수 폴더: `/Users/bananabk/Desktop/codex-output/aurora-portfolio-release-2026-10-02`. 배포 JSON, HTTP 검사 JSON, 화면 캡처와 상태별 JSON, 반영 전/후 사본 및 파일 해시 manifest를 보존한다.
+
+## 배포 중 보완
+
+- Vercel의 `trailingSlash:false` 환경에서 여섯 샘플의 상대경로가 상위 폴더로 해석되는 문제를 수정했다. HTML 13개와 모서리의 동적 이미지/상세 연결을 root-relative URL로 맞췄다. CSS 자체 상대경로는 유지했다.
+- 차온 footer의 내부 `SOURCES.md` 링크는 배포 제외 파일로 연결되어 404였다. 기존 출처 기록의 공개 사진 페이지 2개로 교체했다. 내부 제작 기록은 계속 공개 배포에서 제외한다.
+- “비공개”라는 샘플 상태 설명을 현재 공개 포트폴리오 상태에 맞췄다. 가상 사업체 및 실제 상담·예약 미제공 표기는 유지했다.
+
+## 최종 확인
+
+- `npm run check`, `git diff --check` 통과. 기존 추적 계약 3개, 40개 작업/필터/상세, 인스타 8장·캐릭터 장면, dialog 키보드·터치·초점 대체 및 canonical 샘플 문서 13개를 검사한다. 배포 제외 문서의 공개 링크도 검사에 포함했다.
+- 운영 HTTP: 60개 페이지·데이터 응답이 소스와 바이트 단위로 일치, 자산 189개 정상 상태/MIME, 내부 문서 16개 404, redirect 3개 정상 및 query 보존. 모든 샘플 응답에서 `noindex, nofollow` 확인. 결과: `production-http-verification.json`, failed 0.
+- 실제 Chrome: 홈페이지 PC 1440×1000, 포트폴리오/문의 모바일 390×844에서 가로 넘침·깨진 이미지 없음. 모서리 샘플의 canonical URL에서 CSS 규칙 156개 로딩 확인. 이전 로컬 768px/320px 검수와 화면 변경이 없음을 공개 응답 일치로 확인했다.
+- 모바일 메뉴: 실제 프로젝트 문의 클릭 후 contact 구간 진입, 포트폴리오 링크 중심 hit target 일치 및 클릭 이동. 포트폴리오의 프로젝트 문의도 `/#contact`의 문의 영역으로 이동한다. 음악 자동 재생 없음.
+- 포트폴리오: 이미지 34개/웹사이트 6개 필터, 인스타 원본 로딩 후 터치 1/8 → 2/8, Escape 닫기 및 시작 카드 초점 복귀 확인.
+- 홈페이지에서 `gtag`가 정의되고 `fbq`는 미정의인 오가닉 분리, 네이버 meta 및 3개 추적 링크 ID 유지. 카카오 문의 클릭이나 실제 전환 이벤트는 전송하지 않았다.
+- 브라우저 JS exception·콘솔 error/warning은 0. 첫 이미지 로딩 직후 빠르게 닫은 흐름에서 Image 요청 1개가 `net::ERR_ABORTED`, `canceled:true`로 기록됐다. 원본 로딩 후 재검증은 정상이며 HTTP 자산 실패는 0이다.
+
+## 검수 범위
+
+현재 배포 소스, 공개 응답, 대표 사용자 경로를 검증했다. 실제 휴대전화/Safari 및 샘플 내부 모든 화면의 전수 시각 검수, 실제 문의 전달·공개 전환율은 이번 배포 확인에 포함하지 않는다.
+
+---
+
 # 2026-10-02 — 전체 홈페이지 검토 수정
 
 final result: passed
