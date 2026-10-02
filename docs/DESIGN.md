@@ -1,5 +1,10 @@
 # Design
 
+## 2026-10-02 승인된 리본 A 파비콘
+
+대표가 홈페이지의 진주빛 실크를 참고한 A 시안에서 리본을 조금 얇게 다듬은 안을 승인하고 Drive 업로드와 실제 파비콘 적용을 요청했다. 승인 PNG 1254x1254를 그대로 사용하며 추가 조형 변경 없이 32, 96, 192, 512px PNG, 180px Apple Touch Icon, 16/32/48px ICO를 만든다. 16/32/48px 크기 검수에서 A 윤곽과 내부 여백을 확인했다. 원본은 Drive A01_오로라의소리/20_BRAND의 [승인 파비콘 원본](https://drive.google.com/file/d/1axrVb6YdM4jVYOGH-zInIXpXgHlUtmls/view)에 보관한다. 홈페이지, 광고 경로, 개인정보처리방침과 이용약관에 같은 아이콘을 적용한다. 날짜가 포함된 새 PNG 경로와 ICO query로 이전 아이콘 캐시와 구분한다. 기존 favicon.svg는 과거 자산으로 유지하되 현재 페이지에서 참조하지 않는다. 헤더 워드마크와 콘텐츠, 분석 설정은 변경하지 않는다.
+
+
 Status: `LIVE r2 / PRODUCTION VISUAL QA PASS`
 
 ## 방향

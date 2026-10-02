@@ -48,6 +48,10 @@ Vercel 프로젝트 `aurora-landing-page`는 GitHub `main` push 뒤 자동 배�
 
 force push는 사용하지 않는다. 배포가 실패하면 이전 production 재승격 또는 새 revert commit으로 복구한다. 기존 r2는 이전 Git 커밋에 보존된다.
 
+## 2026-10-02 파비콘 교체
+
+대표가 승인한 얇은 리본 A 이미지로 파비콘을 교체한다. PNG 32/96/192/512px, Apple Touch Icon 180px와 ICO 16/32/48px를 제공하고 공개 페이지에 같은 아이콘 링크를 적용한다. 승인 원본과 적용 파일은 Drive A01 브랜드 폴더에 보관한다. 자세한 제작 및 보관 기록은 docs/DESIGN.md를 따른다. 사이트 워드마크와 본문, 분석 설정은 유지한다.
+
 ## 2026-10-02 연관채널 설정
 
 홈의 Organization JSON-LD `sameAs`에 인스타그램, 유튜브, 스레드, 페이스북의 공식 주소를 연결한다. 인스타그램과 스레드는 현재 공개 프로필에서 확인한 `aurorasound_branding`을 사용하고, 페이스북은 공개 화면 주소를 사용한다. 폐기한 WordPress 블로그와 이전 네이버 회사 블로그는 목록에서 제외하며, 러스티의 개인 블로그를 회사 자체와 같은 정체성으로 선언하지 않는다. 폐기 도메인을 사용하는 logo 값도 제거한다. footer의 Instagram 주소를 현재 주소로 수정하며, 디자인과 클릭 추적은 유지한다. 기존 YouTube 주소는 열리지 않았다. 대표는 현재 @aurorasound_kr를 먼저 연결하고 채널명은 변경 제한이 풀린 뒤 직접 바꾸겠다고 확인했다. 공개 canonical에서 확인한 고정 Channel ID UCWKI1K2qTf8H1AMfu9pCC3A를 연결한다. 현재 채널명이 AFTERLOOK인 것은 변경 대기 상태이며 이번 작업에서 이름을 바꾸지 않는다. 네이버 연관채널 노출 여부와 시점은 수집 후 검색 엔진이 판단한다. 구현 커밋 `d7fe504a056be34173e9fdea76f063f6e082ed5d`의 Preview와 Production 배포 `6798946654`가 성공했고, 공개 홈과 `/interview` 응답이 소스와 일치하는 것을 확인했다.
