@@ -7,6 +7,10 @@
 
 Status: `LIVE r2 / PRODUCTION VISUAL QA PASS`
 
+적용 완료: 구현 커밋 5925512afaf94247bae272a3ceb1f2ba5181c9e5의 Vercel Preview 6799461502와 Production 6799474940가 성공했다. Preview URL은 Vercel 로그인으로 이동해 익명 시각 검수는 하지 않았다. 운영 홈, /interview, privacy.html, terms.html과 ICO 및 PNG 5종은 200이며 응답 바이트가 소스와 일치한다. 인앱 실제 DOM의 icon 및 apple-touch-icon 주소와 공개 512px 아이콘을 확인했다. npm run check와 git diff 검사를 통과했다. 실제 적용 화면은 ~/Desktop/codex-output/01_최종산출물/오로라의소리_파비콘적용확인_2026-10-02.png에 있다. 이전 파비콘은 Git 이력과 기존 SVG에 보존한다.
+
+Drive readback으로 브랜드 폴더의 [512px PNG](https://drive.google.com/file/d/1-8KI6eieXXmDiLG1NQdpJQy26O2i-qFx/view), [ICO](https://drive.google.com/file/d/1utTA_msNU3yMJv42bxq5UdlFIQp9Yslz/view)와 승인 원본의 이름, 크기, 저장 위치를 확인했다. 검색 결과 파비콘 반영 시점은 별도이며 이번에 검색 서비스 재제출을 수행하지 않았다.
+
 ## 방향
 
 V2의 안정적인 다크 편집형 골격을 버리지 않고, 최신 포지션·두 상품·증거 경계에 맞춰 정보 구조와 카피를 전면 교체했다. 새 이미지를 생성하지 않고 기존 파동 자산을 히어로와 최종 CTA에만 재사용한다.
