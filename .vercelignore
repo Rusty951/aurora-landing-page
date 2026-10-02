@@ -21,3 +21,4 @@ package-lock.json
 
 # Portfolio source provenance is internal.
 work/demos/**/SOURCES.md
+work/demos/**/README.md
