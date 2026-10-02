@@ -48,6 +48,10 @@ Vercel 프로젝트 `aurora-landing-page`는 GitHub `main` push 뒤 자동 배�
 
 force push는 사용하지 않는다. 배포가 실패하면 이전 production 재승격 또는 새 revert commit으로 복구한다. 기존 r2는 이전 Git 커밋에 보존된다.
 
+## 2026-10-02 연관채널 설정
+
+홈의 Organization JSON-LD `sameAs`에 인스타그램, 유튜브, 스레드, 페이스북의 공식 주소를 연결한다. 인스타그램과 스레드는 현재 공개 프로필에서 확인한 `aurorasound_branding`을 사용하고, 유튜브는 고정 Channel ID, 페이스북은 공개 화면 주소를 사용한다. 폐기한 WordPress 블로그와 이전 네이버 회사 블로그는 목록에서 제외하며, 러스티의 개인 블로그를 회사 자체와 같은 정체성으로 선언하지 않는다. 폐기 도메인을 사용하는 logo 값도 제거한다. footer의 Instagram 주소를 현재 주소로 수정하며, 디자인과 클릭 추적은 유지한다. 네이버 연관채널 노출 여부와 시점은 수집 후 검색 엔진이 판단한다.
+
 ## 네이버 소유확인, 2026-10-02
 
 대표 요청으로 `index.html`의 head에 네이버 인증 태그를 추가했다. 구현 커밋 `1a106b89b67143892112175fc7ff32805acece57`의 Preview와 Production 배포가 성공했고, 공개 홈 및 `/interview` 응답이 소스와 일치함을 확인했다. Production 배포 ID는 `6798686776`이다. 대표의 보안문자 입력 후 네이버 사이트 목록에서 `https://www.aurorasound.kr`가 확인된 사이트 링크로 표시되고 소유확인 안내가 사라진 것을 확인했다. 소유확인은 완료됐으며, 사이트맵 제출과 검색 노출은 별도 상태다.
