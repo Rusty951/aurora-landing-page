@@ -48,6 +48,10 @@ Vercel 프로젝트 `aurora-landing-page`는 GitHub `main` push 뒤 자동 배�
 
 force push는 사용하지 않는다. 배포가 실패하면 이전 production 재승격 또는 새 revert commit으로 복구한다. 기존 r2는 이전 Git 커밋에 보존된다.
 
+## 네이버 소유확인, 2026-10-02
+
+대표 요청으로 `index.html`의 head에 네이버 인증 태그를 추가했다. 구현 커밋 `1a106b89b67143892112175fc7ff32805acece57`의 Preview와 Production 배포가 성공했고, 공개 홈 및 `/interview` 응답이 소스와 일치함을 확인했다. Production 배포 ID는 `6798686776`이다. 네이버의 HTML 태그 소유확인을 진행했으며, 마지막 보안문자 입력은 대표에게 전달한 상태다. 최종 소유확인 성공 전에는 등록 완료로 기록하지 않는다.
+
 ## URL과 측정
 
 - canonical·sitemap은 `https://www.aurorasound.kr/`를 유지한다. 운영 문서는 `index, follow`다.
