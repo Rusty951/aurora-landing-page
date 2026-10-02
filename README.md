@@ -34,6 +34,7 @@ Status: `LIVE / PRODUCTION VERIFIED`
 - 별도 반복 상품: `월간 브랜드 마케팅`
 - 주요 CTA: `프로젝트 문의하기`
 - 연결: `https://open.kakao.com/o/sMBNyzpi`
+- 이메일: `contact@aurorasound.kr`
 - 첫 메시지 안내: 필요한 작업, 현재 상황, 희망 시작 시점
 
 카카오 링크는 첫 메시지를 자동 입력하지 않는다. 방문자가 필요한 작업과 현재 상황을 직접 전달하며, 실제 대화·적합 문의·제안·계약은 클릭 이벤트와 별도로 기록한다.
