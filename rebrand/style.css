@@ -1914,10 +1914,7 @@ body:not(.enhanced) .resonate-trigger {
     background 0.3s,
     color 0.3s;
 }
-.silk-mode .hero-discover:hover {
-  background: #eeeee8;
-  color: #17141d;
-}
+
 .silk-mode .stage-bottom {
   bottom: 85px;
   left: var(--gutter);
@@ -2752,7 +2749,9 @@ body.project-open {
 }
 
 /* Preserve paid-landing focus while keeping email and legal links. */
-.ad-mode footer [data-track="instagram"], .ad-mode .footer-socials { display: none; }
+.ad-mode footer [data-track="instagram"],
+.ad-mode footer [data-track="youtube"],
+.ad-mode footer #footer-facebook-link { display: none; }
 
 /* Portfolio entry on the existing homepage. */
 .home-work-mobile { display:none; }
@@ -2883,10 +2882,10 @@ body.project-open {
   color: var(--ink);
   font-size: 15px;
   font-weight: 500;
-  gap: 30px;
-}
-.silk-mode .hero-discover:hover {
-  background: #d3c2ff;
+  line-height: 1.4;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .silk-mode .scene-vignette {
   background:
@@ -2959,9 +2958,21 @@ body:not(.silk-mode) .hero-controls {
   line-height: 1.85;
   color: #c5bacf;
 }
+.contact-compact {
+  text-align: center;
+  padding-top: 96px;
+  padding-bottom: 72px;
+}
+.contact-compact .contact-glow {
+  inset: -35% -15%;
+  background-position: center;
+  transform: rotate(90deg);
+  opacity: .14;
+}
 .contact-compact .contact-invitation {
   display: block;
-  margin-top: 28px;
+  max-width: 840px;
+  margin: 28px auto 0;
 }
 .contact-compact .contact-invitation h2 {
   font-size: clamp(80px, 8.2vw, 124px);
@@ -2976,11 +2987,12 @@ body:not(.silk-mode) .hero-controls {
   word-break: keep-all;
 }
 .contact-compact .contact-bottom {
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: clamp(32px, 4.5vw, 72px);
-  max-width: 900px;
-  margin-top: 34px;
+  gap: 28px;
+  max-width: 700px;
+  margin: 32px auto 0;
   padding-top: 0;
   border: 0;
 }
@@ -3005,14 +3017,15 @@ body:not(.silk-mode) .hero-controls {
   line-height: 1.4;
 }
 .contact-details {
-  max-width: 900px;
-  margin-top: 34px;
+  max-width: 840px;
+  margin: 34px auto 0;
   border: 0;
 }
 .contact-details summary {
-  justify-content: flex-start;
+  justify-content: center;
   width: fit-content;
-  gap: 24px;
+  margin-inline: auto;
+  gap: 20px;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.6;
@@ -3020,7 +3033,8 @@ body:not(.silk-mode) .hero-controls {
 }
 .contact-details-body {
   gap: 42px;
-  padding-top: 20px;
+  padding-top: 28px;
+  text-align: left;
 }
 .contact-details-body h3 {
   font-size: 19px;
@@ -3127,16 +3141,21 @@ footer {
     font-size: 20px;
     margin-top: 20px;
   }
+  .contact-compact {
+    padding-top: 64px;
+    padding-bottom: 52px;
+  }
   .contact-compact .contact-bottom {
-    display: block;
-    margin-top: 26px;
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
   }
   .contact-compact .contact-guidance {
     padding-top: 0;
     font-size: 20px;
   }
   .contact-action .cta {
-    margin-top: 22px;
+    margin-top: 0;
     padding: 18px 24px;
   }
   .contact-details {
@@ -3147,6 +3166,17 @@ footer {
   }
   .footer-controls {
     margin-top: 24px;
+  }
+  .site-notice,
+  .work-footer .site-notice {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  .site-notice h2 {
+    font-size: 11px;
+  }
+  .site-notice p + p {
+    margin-top: 10px;
   }
   footer {
     padding-bottom: 36px;
@@ -3185,7 +3215,6 @@ footer {
   text-align: center;
   white-space: nowrap;
 }
-.floating-cta:hover { background: #ded7f5; }
 .floating-cta svg { flex-shrink: 0; }
 .floating-cta[hidden],
 body:has(dialog[open]) .floating-cta { display: none; }
@@ -3201,4 +3230,39 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
     padding: 13px 18px;
     font-size: 14px;
   }
+}
+
+/* Pale amethyst glass shared by the three action surfaces. */
+.silk-mode .hero-discover,
+.contact-action .cta,
+.floating-cta {
+  border: 1px solid #eee0ffb3;
+  color: #281a37;
+  background:
+    radial-gradient(ellipse at 15% 0%, #ffffffb8 0%, #ffffff00 58%),
+    radial-gradient(ellipse at 100% 100%, #c4e5ff66 0%, #c4e5ff00 55%),
+    linear-gradient(145deg, #eadbffdd 0%, #c5abe8cc 46%, #e6d5ffd9 100%);
+  box-shadow:
+    inset 0 1px 0 #ffffffb3,
+    inset 0 -2px 3px #775b9e4d,
+    0 7px 24px #3219474d,
+    0 0 22px #b98cf21a;
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  backdrop-filter: blur(18px) saturate(1.35);
+  transition: box-shadow .25s, border-color .25s;
+}
+.silk-mode .hero-discover:hover,
+.contact-action .cta:hover,
+.floating-cta:hover {
+  border-color: #f6eeffe6;
+  box-shadow:
+    inset 0 1px 0 #ffffffd9,
+    inset 0 -2px 3px #775b9e4d,
+    0 8px 28px #32194766,
+    0 0 24px #c3a0ff33;
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .silk-mode .hero-discover,
+  .contact-action .cta,
+  .floating-cta { background-color: #dcc7f6; }
 }

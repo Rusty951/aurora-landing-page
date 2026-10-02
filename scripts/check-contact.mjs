@@ -6,6 +6,17 @@ const read = p => readFileSync(new URL('../' + p, import.meta.url), 'utf8');
 const catalog = JSON.parse(read('work/catalog.json'));
 for (const path of ['index.html', 'work/index.html', ...catalog.map(work => `work/${work.slug}/index.html`)]) {
   const html = read(path);
+  const footer = html.match(/<nav class="footer-socials"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+  assert(footer, `${path}: footer contact navigation exists`);
+  assert.deepEqual([...footer.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]),
+    ['footer-youtube-link', 'footer-facebook-link', 'footer-insta-link', 'footer-email-link'],
+    `${path}: YouTube, Facebook, Instagram, email order`);
+  const email = footer.match(/<a\b[^>]*id="footer-email-link"[\s\S]*?<\/a>/)?.[0];
+  assert(email?.includes('href="mailto:contact@aurorasound.kr"'));
+  assert(email?.includes('data-track="email"'));
+  assert(/aria-label="[^"]*contact@aurorasound.kr/.test(email));
+  assert(email?.includes('<svg') && !/[↗↘]/.test(email));
+  assert.equal((html.match(/id="footer-email-link"/g) || []).length, 1);
   const links = html.match(/<a\b[^>]*id="floating-cta-btn"[^>]*>/g) || [];
   assert.equal(links.length, 1, `${path}: exactly one floating inquiry link`);
   assert(links[0].includes('href="https://open.kakao.com/o/sMBNyzpi"'));

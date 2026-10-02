@@ -1,3 +1,9 @@
+## 2026-10-02 공통 CTA·footer CSS v15
+
+42개 공개 HTML의 공통 스타일 캐시를v15로 갱신한다. footer-email-link를 footer-socials의 네 번째 링크로 이동하고 기존 ID·data-track=email·mailto를 보존한다. /interview에서 nav 전체를 숨기던 규칙은 SNS3개 개별 숨김으로 바꿔 이메일을 노출한다. 기존 check-contact에42개 footer 순서·접근성 이름·mailto·단일 이메일 검사를 추가한다. check-site는v15를 확인한다.
+
+주 CTA와 floating의 분석 구분, 유료/오가닉/preview 경계, 포트폴리오 analytics 미로드, JavaScript 및 Vercel 설정은 그대로다. 새 외부 요청·패키지는 추가하지 않는다. 유리 효과 미지원 환경에 기본 배경색을 제공한다.
+
 ## 2026-10-02 공통 플로팅 문의
 
 42개 운영 HTML에 정적 anchor와 defer contact.js?v=1을 넣고 공통CSS를v14로 갱신한다. 스크립트는 rAF로 스크롤/resize 변경을 합치고 IntersectionObserver·dialog open MutationObserver로 상태를 보완한다. hidden은 display:none으로 확실히 숨기며 초점이 있는 링크는 blur까지 유지한다. observer 미지원 시 스크롤/resize 기본 동작과 native dialog CSS 숨김을 제공한다. JS 미실행 시 기존 본문·헤더 문의 동선이 남는다.
