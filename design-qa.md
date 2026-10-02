@@ -1,3 +1,17 @@
+# 2026-10-02 — 포트폴리오 가로선 정리
+
+final result: passed
+
+웹사이트 목록의 가로선이 많다는 사용자 피드백에 따라 포트폴리오 목록·상세의 장식선을 제거했다. 선택 탭의 짧은 2px 밑줄, 필터·버튼 경계와 키보드 초점 표시는 유지한다. CSS v11을 목록과 40개 상세에 적용했으며 홈페이지 본문과 데모 내부에는 변경이 없다.
+
+- 실제 Chrome 별도 프로필: 1440×1000 웹사이트 목록 전체 화면과 390×844 웹사이트/이미지 목록을 확인했다. 이전/이후 캡처는 `/Users/bananabk/Desktop/codex-output/aurora-portfolio-lines-2026-10-02`의 `before-*`, `after-*` 파일에 보존한다.
+- header·메뉴 전체 너비·카드 작업 설명 6개·고지문·문의 링크·footer의 선 제거를 렌더링 스타일로 확인했다. 선택 탭 밑줄은 2px이다. 실제 탭 클릭 후 웹사이트 6개 ↔ 이미지 34개 표시를 확인했고 가로 넘침과 깨진 이미지는 0이다.
+- VEIL 상세의 이미지 캡션 2개·이전/다음 작업 영역·footer 구분선 제거를 확인했다. 작품 파일, 내용과 JavaScript는 변경하지 않았다.
+- `npm run check`, `git diff --check` 통과. 검수 중 JS exception, console error/warning 및 loading failure 0. 원본 변경 전 사본, 반영 파일과 SHA-256 manifest를 Desktop에 저장했다.
+- 공개 반영 후의 커밋·배포 상태 및 운영 응답 비교는 같은 폴더의 `deployment.json`에 기록한다.
+
+---
+
 # 2026-10-02 — 포트폴리오 운영 배포 확인
 
 final result: passed
