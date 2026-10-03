@@ -623,3 +623,9 @@ final result: passed
 - 실제 로컬 데스크톱에서 실크 배경과 테두리 렌더링, 호버의 `contact-glass-sweep`, 클릭 후 `#contact` 이동을 확인했다.
 - 320px 모바일에서 가로 넘침 0, 문의 버튼 높이 44px, 화살표 숨김을 확인했다.
 - 공개 HTML 42개는 문의 버튼 마크업과 CSS 캐시 v18만 변경했다. `npm run check`, `git diff --check` 통과.
+
+## 2026-10-03 — 상단 문의 버튼 그라데이션 보강 검수
+
+- 실제 로컬 데스크톱에서 강화한 그라데이션과 윗면 반사, Asta Sans 700을 확인했다.
+- 버튼 클릭 시 `#contact`로 이동하고 호버의 `inquiry-glass-shine` 효과를 확인했다.
+- 320px 모바일에서 가로 넘침 0, 문의 버튼 높이 44px를 확인했다. `npm run check`와 `git diff --check` 통과.
