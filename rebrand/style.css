@@ -1843,8 +1843,7 @@ body:not(.enhanced) .resonate-trigger {
   object-fit: cover;
   object-position: center;
 }
-/* v3: restore the original silk art direction; keep the technical mesh study
-   available only through the existing authoring query (?render=mesh). */
+/* Approved first-release silk art direction. */
 .hero-discipline,
 .hero-scroll {
   display: none;

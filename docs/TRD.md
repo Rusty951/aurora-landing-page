@@ -1,3 +1,9 @@
+## 2026-10-03 1차 기준본의 기술 계약
+
+운영 교체가 승인된 1차본은 현재 실크 renderer만 사용한다. rebrand/app.js v7은 silk.js v3을 로드하며 render=mesh로 이전 실험을 열지 않는다. 이전 rebrand/index.html과 루트 style.css, script.js, field.js 및 Three.js vendor와 캡처를 제거했다. package와 검사도 현재 운영 문서와 실크, 재생, 추적과 포트폴리오만 소비한다. 광고와 오가닉 조건, 정적 대체 이미지와 재생 상태, 공유 이미지 제작에 필요한 wave 자산은 유지한다.
+
+공통 CSS v40, 목록과 상세 CSS v19, 문의와 목록 모션 v2를 유지한다. 홈페이지 화면은 2d320a7 기준에서 바뀌지 않는다. 아래 이전 후보와 운영 버전의 기술 기록은 과거 이력이며 현재 기준을 덮어쓰지 않는다.
+
 ## 2026-10-02 공통 CTA·footer CSS v15
 
 42개 공개 HTML의 공통 스타일 캐시를v15로 갱신한다. footer-email-link를 footer-socials의 네 번째 링크로 이동하고 기존 ID·data-track=email·mailto를 보존한다. /interview에서 nav 전체를 숨기던 규칙은 SNS3개 개별 숨김으로 바꿔 이메일을 노출한다. 기존 check-contact에42개 footer 순서·접근성 이름·mailto·단일 이메일 검사를 추가한다. check-site는v15를 확인한다.

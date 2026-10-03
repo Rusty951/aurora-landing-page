@@ -2,10 +2,6 @@ import { AuroraScore } from "./audio.js?v=2";
 import { initShowcase } from "./showcase.js?v=5";
 const $ = (selector) => document.querySelector(selector);
 const clamp = (n, a = 0, b = 1) => Math.max(a, Math.min(b, n));
-const smooth = (a, b, n) => {
-  const t = clamp((n - a) / (b - a));
-  return t * t * (3 - 2 * t);
-};
 const reduced = matchMedia("(prefers-reduced-motion: reduce)");
 const experience = $(".experience"),
   stage = $(".experience-stage"),
@@ -23,9 +19,7 @@ const pointer = { x: 0, y: 0 },
   screen = { x: -100, y: -100 },
   cursorPosition = { x: -100, y: -100 };
 const score = new AuroraScore();
-const sculptureMode =
-  new URLSearchParams(location.search).get("render") === "mesh";
-document.body.classList.toggle("silk-mode", !sculptureMode);
+document.body.classList.add("silk-mode");
 const posterMode = new URLSearchParams(location.search).has("poster");
 if (posterMode) document.body.classList.add("poster-export");
 let scene = null,
@@ -45,7 +39,6 @@ let progress = 0,
   resumeAudio = false;
 let range = 1,
   documentRange = 1;
-if (sculptureMode) experience.classList.add("staged");
 const revealObserver = new IntersectionObserver(
   (entries) =>
     entries.forEach((entry) => {
@@ -66,9 +59,7 @@ new IntersectionObserver(([entry]) => {
 }).observe(experience);
 // Playback controls stay in the hero and footer flow. They never cover work.
 function measure() {
-  range = sculptureMode
-    ? Math.max(1, experience.offsetHeight - stage.offsetHeight)
-    : Math.max(1, stage.offsetHeight);
+  range = Math.max(1, stage.offsetHeight);
   documentRange = Math.max(
     1,
     document.documentElement.scrollHeight - innerHeight,
@@ -87,13 +78,7 @@ window.addEventListener("scroll", onScroll, { passive: true });
 window.addEventListener("resize", measure, { passive: true });
 document.fonts?.ready.then(measure);
 function setChapter(p) {
-  const weights = sculptureMode
-    ? [
-        1 - smooth(0.15, 0.29, p),
-        smooth(0.27, 0.39, p) * (1 - smooth(0.6, 0.72, p)),
-        smooth(0.7, 0.83, p),
-      ]
-    : [1, 0, 0];
+  const weights = [1, 0, 0];
   const selected = weights.indexOf(Math.max(...weights));
   chapters.forEach((chapter, i) => {
     const opacity = weights[i];
@@ -336,14 +321,10 @@ measure();
 raf = requestAnimationFrame(frame);
 // Keep the text, links, disclosures and static artwork alive if WebGL or the
 // graphics module is unavailable. Failure never gates entry into the site.
-import(sculptureMode ? "./field.js?v=2" : "./silk.js?v=3")
+import("./silk.js?v=3")
   .then((module) => {
-    const Renderer = sculptureMode ? module.AuroraScene : module.AuroraSilk;
-    scene = new Renderer(canvas);
-    document.body.classList.toggle(
-      "scene-failed",
-      sculptureMode ? !scene.ready : scene.failed,
-    );
+    scene = new module.AuroraSilk(canvas);
+    document.body.classList.toggle("scene-failed", scene.failed);
     measure();
   })
   .catch((error) => {

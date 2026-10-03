@@ -15,7 +15,6 @@ const count = (source, pattern) => (source.match(pattern) || []).length;
 const html = read('index.html');
 const styles = read('rebrand/style.css');
 const analytics = read('analytics.js');
-const script = read('script.js');
 const ogCard = read('scripts/og-card.html');
 const vercelIgnore = read('.vercelignore');
 const vercel = JSON.parse(read('vercel.json'));
@@ -97,7 +96,7 @@ assert(allKakaoLinks.every((tag) => tag.includes(approvedKakaoUrl)), 'All Kakao 
 
 assert(/href=["']\/terms\.html["']/.test(html), 'Terms link must be root-relative.');
 assert(/href=["']\/privacy\.html["']/.test(html), 'Privacy link must be root-relative.');
-assert(/type="module" src="\/rebrand\/app\.js\?v=6"/.test(html), 'Production must load the rebrand application.');
+assert(/type="module" src="\/rebrand\/app\.js\?v=7"/.test(html), 'Production must load the first-release application.');
 assert(/src=["']\/analytics\.js\?v=8["']/.test(html), 'index.html must load analytics.js?v=8.');
 
 assert(count(html, /fbq\(['"]track['"],\s*['"]PageView['"]\)/g) === 1, 'Meta PageView must be sent exactly once.');
@@ -106,7 +105,6 @@ assert(!/fbq\(['"]track['"],\s*['"]Lead['"]\)/.test(html + analytics), 'Client-s
 assert(/contact_stage:\s*['"]outbound_click['"]/.test(analytics), 'Meta Contact must declare outbound_click stage.');
 assert(/closest\(['"]\[data-track\]['"]\)/.test(analytics), 'Analytics must use delegated data-track handling.');
 assert(!/getElementById\(['"](?:nav-cta-btn|hero-cta-btn|interview-cta-btn|final-cta-btn)/.test(analytics), 'Do not combine delegated tracking with old id listeners.');
-assert(!/aurora-canvas|fade-up|faq-item|kakao-float/.test(script), 'script.js still contains removed UI contracts.');
 
 assert(vercel.trailingSlash === false, 'vercel.json must canonicalize trailing slashes.');
 assert(vercel.rewrites?.some((rule) => rule.source === '/interview' && rule.destination === '/index.html'), 'Missing /interview rewrite.');
