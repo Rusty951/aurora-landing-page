@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Aurora Hero Sans";
+  src: url("/rebrand/assets/fonts/aurora-hero-450.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 450;
+  font-display: swap;
+  unicode-range: U+0042, U+0064-0065, U+006E-006F, U+0079;
+}
 :root {
   --ink: #101016;
   --paper: #eeeee8;
@@ -1843,6 +1851,9 @@ body:not(.enhanced) .resonate-trigger {
 }
 .hero-title > span {
   display: block;
+}
+.hero-title > span:first-child {
+  font-family: "Aurora Hero Sans", var(--sans);
 }
 .silk-mode .experience {
   height: 100svh;
