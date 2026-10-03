@@ -177,26 +177,78 @@ section {
   color: var(--accent);
 }
 .contact-link {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 12px 20px;
-  border: 1px solid #777181;
-  border-radius: 40px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background:
+    linear-gradient(125deg, #39334d, #191623) padding-box,
+    linear-gradient(125deg, #f2e9ff, #b1a3ef 28%, #635777 62%, #c2d9eb) border-box;
+  box-shadow: 0 4px 24px #9272d52b, inset 0 1px 0 #ffffff40;
+  color: #fff;
   font-size: 14px;
+  font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 12px;
   text-align: center;
+  white-space: nowrap;
   line-height: 1.4;
-  transition:
-    background 0.3s,
-    color 0.3s;
   min-height: 48px;
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  transition: box-shadow 0.3s, border-radius 0.3s;
 }
-.contact-link:hover {
-  background: var(--paper);
-  color: var(--ink);
+.contact-link::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(110deg, #171421a8 12%, #281e4240 60%, #a8cbef35),
+    url("/rebrand/assets/resonance.webp") 54% 46% / 260% auto;
+  opacity: 0.82;
+  transition: opacity 0.3s;
+}
+.contact-link::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -80% -50%;
+  background: linear-gradient(115deg, transparent 42%, #ffffff08 46%, #ece1ff55 50%, #ffffff08 54%, transparent 58%);
+  transform: translateX(-32%);
+  pointer-events: none;
+}
+.contact-link:hover,
+.contact-link:focus-visible {
+  color: #fff;
+  box-shadow: 0 5px 30px #b19aef50, inset 0 1px 0 #ffffff70;
+}
+.contact-link:hover::before,
+.contact-link:focus-visible::before {
+  opacity: 1;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .contact-link:hover::after {
+    animation: contact-glass-sweep 0.75s ease-out both;
+  }
+}
+@keyframes contact-glass-sweep {
+  from { transform: translateX(-32%); }
+  to { transform: translateX(32%); }
 }
 .contact-link span {
   font-size: 20px;
+  line-height: 1;
+  text-shadow: 0 0 12px #e2d3ffb3;
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-link,
+  .contact-link::before { transition: none; }
 }
 .experience {
   height: 100svh;
