@@ -1,10 +1,17 @@
-## 2026-10-03 홈페이지 1차본 정리와 배포 준비
+## 2026-10-03 홈페이지 1차본 정리와 운영 배포
 
-Status: `V1 RELEASE CANDIDATE / LOCAL QA PASSED`
+Status: `LIVE V1 / PRODUCTION VERIFIED`
 
 대표가 현재 로컬 검수본 2d320a7을 1차로 확정했고 운영 교체도 승인했다. 이전 비교 HTML, 루트 UI와 메시 renderer, Three.js vendor 및 실험 캡처를 Git에서 제거했다. 현재 실크 renderer만 로드하도록 정리하고 홈페이지 app 캐시를 v7로 갱신했다. 제품과 포트폴리오 문구, 공통 화면 스타일과 공유 이미지, 문의와 추적을 유지한다. 변경 전 소스는 Git 이력에서 복구 가능하다.
 
-포트폴리오 상세 개선의 PC, 모바일과 크롬 검수는 아래 최신 기록을 재사용한다. renderer 정리 후 메인 1440×1024와 390×844의 실제 화면을 확인했고 가로 넘침은 모두 0이다. 실크 enhanced 상태, 정적 대체 이미지 로딩과 app v7을 확인했다. 실제 움직임 정지와 재생에서 상단과 하단 버튼의 상태가 동기화되고 원래 재생으로 복원된다. console 경고와 오류는 없다. npm run check를 통과했다. 화면은 Desktop codex-output의 aurora-v1-release-20261003 검수 폴더에 저장했다. 운영 배포 확인은 결과를 이어 기록한다. 별도 미커밋 프로젝트와 영상 개발 브랜치, 샘플 원본을 덮어쓰거나 삭제하지 않았다.
+포트폴리오 상세 개선의 PC, 모바일과 크롬 검수는 아래 최신 기록을 재사용한다. renderer 정리 후 메인 1440×1024와 390×844의 실제 화면을 확인했고 가로 넘침은 모두 0이다. 실크 enhanced 상태, 정적 대체 이미지 로딩과 app v7을 확인했다. 실제 움직임 정지와 재생에서 상단과 하단 버튼의 상태가 동기화되고 원래 재생으로 복원된다. console 경고와 오류는 없다. npm run check를 통과했다. 화면은 Desktop codex-output의 aurora-v1-release-20261003 검수 폴더에 저장했다. 구현 커밋 bae5791831e468b26ee2debeaef91dfe7aac2025의 Preview 6826206013과 Production 6826220926이 성공했다. Preview 모바일의 app v7, enhanced 실크, 가로 넘침 0과 console 경고 및 오류 없음도 확인했다. 별도 미커밋 프로젝트와 영상 개발 브랜치, 샘플 원본을 덮어쓰거나 삭제하지 않았다.
+
+운영 https://www.aurorasound.kr의 75개 HTML과 핵심 스크립트, 스타일, 대표 썸네일과 데스크톱 이미지, 여섯 샘플 문서를 로컬 소스와 바이트 비교해 모두 일치했다. 제거한 루트 UI와 메시 파일 6개, 내부 기록 5개는 404이며 샘플 6개에 noindex header가 유지된다. 같은 구현이므로 실제 본문과 스타일의 범위, 이전 포트폴리오 모션 검수는 재사용한다.
+
+실제 운영 메인과 포트폴리오를 1440×1024와 390×844에서 확인했다. 가로 넘침 0, PC 두 열 각각 636px, 작품명 PC 18px와 모바일 16px, 설명 링크 14px와 여섯 이미지의 natural 1440×810을 확인했다. 모바일 작품 목록에서 고정 문의는 숨겨진다. 메인에서 포트폴리오, 웹사이트 필터와 프로젝트 문의로 실제 이동했으며 함께 일하는 방법의 펼침과 모션 완료 후 접힘 상태를 확인했다. PC Disclaimer 두 문단은 각각 19.953px로 한 줄씩이다. console 경고와 오류는 없다. 외부 문의 전송이나 광고 설정 변경은 하지 않았다.
+
+실제 운영 캡처는 `/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-v1-release-20261003/`의 04-production-home-desktop.png, 05-production-home-mobile.png, 06-production-work-mobile.png와 07-production-work-desktop.png에 있다. 동일 폴더의 production-verification.json은 바이트와 삭제 경로 확인 결과다. 현재 1차본은 v1.0.0으로 고정하고 이전 버전은 현재 코드에서 제거하되 복구 가능한 Git 이력을 유지한다.
+
 
 ## 2026-10-03 웹사이트 포트폴리오 상세 개선 검수
 
