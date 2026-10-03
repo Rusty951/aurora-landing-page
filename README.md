@@ -32,7 +32,7 @@ git diff --check
 - `index.html`: 홈과 광고 경로의 공통 문서, SEO와 광고 경로 Meta 초기화
 - `rebrand/style.css?v=40`, `rebrand/app.js?v=7`: 1차 화면과 입력, 재생, 반응형 표시
 - `rebrand/silk.js`, `audio.js`, `showcase.js`: 실크 효과, 선택 재생 음악과 상세 이미지 보기
-- `work/index.html`, `work/style.css?v=21`, `work/work.js?v=11`, `work/motion.js?v=2`: 사진, 자체 시안과 웹사이트 목록, 분야, 이미지 확대와 웹사이트 스크롤 모션
+- `work/index.html`, `work/style.css?v=22`, `work/work.js?v=11`, `work/motion.js?v=2`: 사진, 자체 시안과 웹사이트 목록, 분야, 이미지 확대와 웹사이트 스크롤 모션
 - `work/catalog.json`, 작업별 HTML과 `work/assets/`: 45개 모음과 작업의 구성, 상세와 자산
 - `work/assets/bananablack/`: 바나나블랙 Git 이력의 37장과 공개 촬영 소개 페이지의 4장을 최적화한 자체 파일. 외부 사진 저장소에 의존하지 않으며 원본 경로와 해시는 내부 출처 기록을 따른다.
 - `work/demos/`: 홈페이지 안에 포함한 여섯 웹사이트 샘플. 원본 저장소는 `Rusty951/website-portfolio`이며 출처는 `docs/PORTFOLIO-SOURCES.json`을 따른다.
