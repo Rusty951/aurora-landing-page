@@ -3257,47 +3257,11 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   }
 }
 
-/* Pale amethyst glass shared by the action surfaces. */
-.contact-link,
+/* Lavender, pearl and blue glass shared by the primary actions. */
+.header .contact-link,
 .silk-mode .hero-discover,
 .contact-action .cta,
 .floating-cta {
-  border: 1px solid #eee0ffb3;
-  color: #281a37;
-  background:
-    radial-gradient(ellipse at 15% 0%, #ffffffb8 0%, #ffffff00 58%),
-    radial-gradient(ellipse at 100% 100%, #c4e5ff66 0%, #c4e5ff00 55%),
-    linear-gradient(145deg, #eadbffdd 0%, #c5abe8cc 46%, #e6d5ffd9 100%);
-  box-shadow:
-    inset 0 1px 0 #ffffffb3,
-    inset 0 -2px 3px #775b9e4d,
-    0 7px 24px #3219474d,
-    0 0 22px #b98cf21a;
-  -webkit-backdrop-filter: blur(18px) saturate(1.35);
-  backdrop-filter: blur(18px) saturate(1.35);
-  transition: box-shadow .25s, border-color .25s;
-}
-.contact-link:hover,
-.silk-mode .hero-discover:hover,
-.contact-action .cta:hover,
-.floating-cta:hover {
-  border-color: #f6eeffe6;
-  box-shadow:
-    inset 0 1px 0 #ffffffd9,
-    inset 0 -2px 3px #775b9e4d,
-    0 8px 28px #32194766,
-    0 0 24px #c3a0ff33;
-}
-@supports not (backdrop-filter: blur(1px)) {
-  .contact-link,
-  .silk-mode .hero-discover,
-  .contact-action .cta,
-  .floating-cta { background-color: #dcc7f6; }
-}
-
-/* Richer lavender glass for the header inquiry action. */
-.header .contact-link {
-  position: relative;
   isolation: isolate;
   overflow: hidden;
   border: 1px solid transparent;
@@ -3315,15 +3279,23 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
     inset 0 -2px 4px #65408352,
     0 6px 22px #8f53cd38,
     0 0 22px #bb91f52e;
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  backdrop-filter: blur(18px) saturate(1.35);
   transition: box-shadow .25s, filter .25s;
 }
+.header .contact-link,
+.silk-mode .hero-discover,
+.contact-action .cta { position: relative; }
 @media (min-width: 701px) {
   .header .contact-link {
     width: 136px;
     flex-shrink: 0;
   }
 }
-.header .contact-link::before {
+.header .contact-link::before,
+.silk-mode .hero-discover::before,
+.contact-action .cta::before,
+.floating-cta::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -3332,7 +3304,10 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   background: linear-gradient(180deg, #ffffff52, #ffffff00);
   pointer-events: none;
 }
-.header .contact-link::after {
+.header .contact-link::after,
+.silk-mode .hero-discover::after,
+.contact-action .cta::after,
+.floating-cta::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -3342,7 +3317,13 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   pointer-events: none;
 }
 .header .contact-link:hover,
-.header .contact-link:focus-visible {
+.header .contact-link:focus-visible,
+.silk-mode .hero-discover:hover,
+.silk-mode .hero-discover:focus-visible,
+.contact-action .cta:hover,
+.contact-action .cta:focus-visible,
+.floating-cta:hover,
+.floating-cta:focus-visible {
   filter: saturate(1.12) brightness(1.06);
   box-shadow:
     inset 0 1px 0 #fffffff2,
@@ -3350,13 +3331,22 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
     0 7px 27px #a86aec66,
     0 0 28px #d4aeff4d;
 }
-.header .contact-link:active {
+.header .contact-link:active,
+.silk-mode .hero-discover:active,
+.contact-action .cta:active,
+.floating-cta:active {
   filter: brightness(.95);
   box-shadow: inset 0 2px 5px #65408359, 0 2px 12px #8f53cd38;
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .header .contact-link:hover::after,
-  .header .contact-link:focus-visible::after {
+  .header .contact-link:focus-visible::after,
+  .silk-mode .hero-discover:hover::after,
+  .silk-mode .hero-discover:focus-visible::after,
+  .contact-action .cta:hover::after,
+  .contact-action .cta:focus-visible::after,
+  .floating-cta:hover::after,
+  .floating-cta:focus-visible::after {
     animation: inquiry-glass-shine .8s ease-out both;
   }
 }
@@ -3365,5 +3355,14 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   to { transform: translateX(65%); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .header .contact-link { transition: none; }
+  .header .contact-link,
+  .silk-mode .hero-discover,
+  .contact-action .cta,
+  .floating-cta { transition: none; }
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .header .contact-link,
+  .silk-mode .hero-discover,
+  .contact-action .cta,
+  .floating-cta { background-color: #dcc7f6; }
 }
