@@ -4,7 +4,7 @@
 
 실제 로컬 `category=website`의 1440×1024와 390×844, scroll 0에서 이전 목록과 같은 조건으로 비교했다. Signature 기본 선택과 여섯 작품, PC 636px 두 열과 오른쪽 열의 48px 높낮이를 유지한다. PC 스크롤 0에서 614.5px로 이동하자 첫 두 카드의 이동 값이 2.04px와 10.97px에서 -10.89px와 -35.56px로 달라져 기존 모션 작동을 확인했다. 작품 이미지와 링크는 기존 검수된 파일을 유지한다.
 
-Essential을 실제 클릭해 작품 없음과 준비 중 안내, 유형 선택 유지와 새로고침 복원을 확인했다. Enter 키로 Signature에 돌아오면 여섯 작품과 기존 주소가 복원된다. 320×844의 두 버튼은 각각 136×44px이고 글자 잘림과 가로 넘침은 없다. Photo의 다섯 모음과 13px 촬영 정보, Concepts 전환과 각자의 분류 버튼 표시를 확인했다. 실제 작업 설명 이동과 샘플 URL의 화면 로딩을 확인했고 기존 새 탭 링크 속성은 유지한다. console 경고와 오류는 없다. 포트폴리오 스타일 v23, 갤러리 JavaScript v12, 모션 v3이다. `npm run check`와 `git diff --check`를 통과했다. 기존 주소 호환과 Essential의 빈 상태, 앞으로 작품 한 개를 연결한 경우의 분류 분리 및 실제 열 순서도 자동 검사로 확인했다. 캡처는 Desktop codex-output의 `aurora-website-tiers-20261004/`에 저장한다.
+Essential을 실제 클릭해 작품 없음과 준비 중 안내, 유형 선택 유지와 새로고침 복원을 확인했다. Enter 키로 Signature에 돌아오면 여섯 작품과 기존 주소가 복원된다. 320×844의 두 버튼은 각각 136×44px이고 글자 잘림과 가로 넘침은 없다. Photo의 다섯 모음과 13px 촬영 정보, Concepts 전환과 각자의 분류 버튼 표시를 확인했다. 실제 작업 설명 이동과 샘플 URL의 화면 로딩을 확인했고 기존 새 탭 링크 속성은 유지한다. console 경고와 오류는 없다. 포트폴리오 스타일 v23, 갤러리 JavaScript v12, 모션 v3이다. `npm run check`와 `git diff --check`를 통과했다. 기존 주소 호환과 Essential의 빈 상태, 앞으로 작품 한 개를 연결한 경우의 분류 분리 및 실제 열 순서도 자동 검사로 확인했다. 캡처는 Desktop codex-output의 `aurora-website-tiers-20261004/`에 저장한다. 구현 커밋 `273b2f2a1721bc3e132e0d6d9fcba612158bbcf8`의 Preview `6833928834`가 성공했다. 실제 320px Preview에서 Signature 기본 선택과 기존 여섯 작품, Essential 전환과 준비 중 안내, CSS v23과 갤러리 JavaScript v12, 가로 넘침 및 console 경고와 오류 없음을 확인했다.
 
 ## 2026-10-03 포트폴리오 영문 명칭 검수
 
