@@ -2835,7 +2835,6 @@ body.project-open {
 .home-project-grid .project-caption p { font-size:14px; margin:0; letter-spacing:0; color:#57535e; }
 .showcase-heading .showcase-work-link { margin:0; flex-shrink:0; }
 .studio-services p.service-examples { color:#d0c4dc; font-size:13px; margin-top:18px; }
-.studio-scope { color:#afa3bc; font-size:12px; line-height:1.9; margin-top:36px; word-break:keep-all; }
 .contact-action { flex-shrink:0; }
 @media(max-width:700px) {
   .silk-mode .hero-discover { min-width:82px; height:44px; padding:0; gap:9px; font-size:13px; }
@@ -2960,8 +2959,12 @@ body:not(.silk-mode) .hero-controls {
   left: var(--gutter);
   bottom: 24px;
 }
+.studio {
+  padding-top: clamp(120px, 11vw, 176px);
+  padding-bottom: clamp(128px, 11vw, 176px);
+}
 .studio-intro {
-  margin: 32px 0 42px;
+  margin: 48px 0 96px;
   gap: 48px;
 }
 .studio-intro h2 {
@@ -2978,13 +2981,15 @@ body:not(.silk-mode) .hero-controls {
 }
 .studio-services > div {
   border: 0;
-  padding-top: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  padding: 24px 0;
 }
 .studio-services > div > span {
   color: #b2a8bf;
 }
 .studio-services h3 {
-  margin-top: 18px;
+  margin-top: 28px;
   font-size: 26px;
 }
 .studio-services p {
@@ -2992,10 +2997,10 @@ body:not(.silk-mode) .hero-controls {
   line-height: 1.85;
   color: #c5bacf;
   max-width: 32ch;
-  margin-top: 14px;
+  margin-top: 20px;
 }
 .studio-services p.service-examples {
-  margin-top: 14px;
+  margin-top: 24px;
   font-size: 15px;
   line-height: 1.8;
   color: #eee6f7;
@@ -3053,13 +3058,6 @@ body:not(.silk-mode) .hero-controls {
     transform: none !important;
     transition: none !important;
   }
-}
-.studio-scope {
-  margin-top: 34px;
-  max-width: 740px;
-  font-size: 14px;
-  line-height: 1.85;
-  color: #c5bacf;
 }
 .contact-compact {
   text-align: center;
@@ -3210,8 +3208,12 @@ footer {
   .silk-mode .scene-vignette {
     background: linear-gradient(180deg, #0a0a1080 0%, #0a0a10b3 24%, #0a0a10b3 76%, #0a0a10 100%);
   }
+  .studio {
+    padding-top: 88px;
+    padding-bottom: 96px;
+  }
   .studio-intro {
-    margin: 28px 0 34px;
+    margin: 32px 0 56px;
   }
   .studio-intro h2 {
     font-size: clamp(29px, 8.2vw, 40px);
@@ -3221,21 +3223,21 @@ footer {
     font-size: 16px;
   }
   .studio-services {
-    gap: 30px;
+    gap: 48px;
+  }
+  .studio-services > div {
+    padding: 0;
   }
   .studio-services h3 {
-    margin-top: 12px;
+    margin-top: 18px;
     font-size: 23px;
   }
   .studio-services p {
     max-width: none;
-    margin-top: 10px;
+    margin-top: 14px;
   }
   .studio-services p.service-examples {
-    margin-top: 10px;
-  }
-  .studio-scope {
-    margin-top: 28px;
+    margin-top: 16px;
   }
   .contact-compact .contact-invitation h2 {
     font-size: clamp(70px, 20vw, 106px);
