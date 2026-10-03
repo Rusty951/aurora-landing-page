@@ -6,6 +6,8 @@ Status: `LIVE V1 / PRODUCTION VERIFIED`
 
 ## 현재 구성
 
+2026-10-03 바나나블랙 작업 41장 추가를 운영에 반영했다. 구현 `59dbd24`의 Preview와 Production이 성공했고 운영 파일 99개가 소스와 일치하며 PC와 모바일 사진 탐색을 확인했다. 홈페이지 1차 화면과 `v1.0.0` 태그는 보존한다.
+
 - 운영 주소: `https://www.aurorasound.kr/`
 - 광고 주소: `https://www.aurorasound.kr/interview`
 - 포트폴리오: `/work`, 바나나블랙 사진과 비주얼 41장의 다섯 모음, 자체 시안 34개와 웹사이트 샘플 6개
