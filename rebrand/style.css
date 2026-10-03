@@ -3283,7 +3283,6 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 /* Lavender, pearl and blue glass shared by the main actions. */
 .header .contact-link,
 .silk-mode .hero-discover,
-.showcase-heading .showcase-work-link,
 .contact-action .cta,
 .floating-cta {
   isolation: isolate;
@@ -3309,23 +3308,43 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 }
 .header .contact-link,
 .silk-mode .hero-discover,
-.showcase-heading .showcase-work-link,
 .contact-action .cta { position: relative; }
 .showcase-heading .showcase-work-link {
-  min-width: 240px;
   min-height: 56px;
   max-width: 100%;
-  padding: 15px 22px;
-  border-radius: 32px;
-  justify-content: center;
-  gap: 16px;
-  font-size: 16px;
+  padding: 10px 0;
+  gap: 24px;
+  color: #29232f;
+  font-family: "Asta Sans", var(--sans);
+  font-size: 22px;
+  font-weight: 550;
   line-height: 1.4;
+  letter-spacing: -0.035em;
   white-space: nowrap;
+  transition: color .2s;
 }
 .showcase-work-link > span {
-  font-size: 20px;
+  font-size: 32px;
+  font-weight: 400;
   line-height: 1;
+}
+.showcase-heading .showcase-work-link:hover,
+.showcase-heading .showcase-work-link:focus-visible {
+  color: #6a467f;
+}
+.showcase-heading .showcase-work-link:focus-visible {
+  outline-color: #6a467f;
+}
+@media (max-width: 700px) {
+  .showcase-heading .showcase-work-link {
+    font-size: 18px;
+    gap: 22px;
+    min-height: 50px;
+  }
+  .showcase-work-link > span { font-size: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .showcase-heading .showcase-work-link { transition: none; }
 }
 @media (min-width: 701px) {
   .header .contact-link {
@@ -3335,7 +3354,6 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 }
 .header .contact-link::before,
 .silk-mode .hero-discover::before,
-.showcase-heading .showcase-work-link::before,
 .contact-action .cta::before,
 .floating-cta::before {
   content: "";
@@ -3348,7 +3366,6 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 }
 .header .contact-link::after,
 .silk-mode .hero-discover::after,
-.showcase-heading .showcase-work-link::after,
 .contact-action .cta::after,
 .floating-cta::after {
   content: "";
@@ -3363,8 +3380,6 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 .header .contact-link:focus-visible,
 .silk-mode .hero-discover:hover,
 .silk-mode .hero-discover:focus-visible,
-.showcase-heading .showcase-work-link:hover,
-.showcase-heading .showcase-work-link:focus-visible,
 .contact-action .cta:hover,
 .contact-action .cta:focus-visible,
 .floating-cta:hover,
@@ -3378,7 +3393,6 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 }
 .header .contact-link:active,
 .silk-mode .hero-discover:active,
-.showcase-heading .showcase-work-link:active,
 .contact-action .cta:active,
 .floating-cta:active {
   filter: brightness(.95);
@@ -3389,8 +3403,6 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   .header .contact-link:focus-visible::after,
   .silk-mode .hero-discover:hover::after,
   .silk-mode .hero-discover:focus-visible::after,
-  .showcase-heading .showcase-work-link:hover::after,
-  .showcase-heading .showcase-work-link:focus-visible::after,
   .contact-action .cta:hover::after,
   .contact-action .cta:focus-visible::after,
   .floating-cta:hover::after,
@@ -3405,14 +3417,12 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 @media (prefers-reduced-motion: reduce) {
   .header .contact-link,
   .silk-mode .hero-discover,
-  .showcase-heading .showcase-work-link,
   .contact-action .cta,
   .floating-cta { transition: none; }
 }
 @supports not (backdrop-filter: blur(1px)) {
   .header .contact-link,
   .silk-mode .hero-discover,
-  .showcase-heading .showcase-work-link,
   .contact-action .cta,
   .floating-cta { background-color: #dcc7f6; }
 }
