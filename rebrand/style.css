@@ -121,6 +121,21 @@ section {
   background: #08090eeb;
   backdrop-filter: blur(18px);
 }
+/* Quiet glass keeps the homepage's silk and text visible through a dark tint. */
+.silk-mode .header {
+  background:
+    linear-gradient(115deg, rgb(222 208 248 / .035), rgb(175 206 235 / .012)),
+    rgb(8 9 14 / .22);
+  -webkit-backdrop-filter: blur(16px) saturate(1.08);
+  backdrop-filter: blur(16px) saturate(1.08);
+  border-bottom-color: rgb(225 213 247 / .08);
+  box-shadow: inset 0 1px rgb(255 255 255 / .025);
+}
+.silk-mode .header.scrolled {
+  background:
+    linear-gradient(115deg, rgb(222 208 248 / .035), rgb(175 206 235 / .012)),
+    rgb(8 9 14 / .88);
+}
 .wordmark {
   font-size: 28px;
   line-height: 0.76;
@@ -3016,13 +3031,29 @@ body:not(.silk-mode) .hero-controls {
 .studio-services > div::before {
   content: "";
   position: absolute;
-  z-index: -1;
+  z-index: -2;
   inset: -22px -20px;
   border-radius: 28px;
-  background: radial-gradient(ellipse at 28% 42%, rgb(var(--service-glow) / .20), rgb(var(--service-glow) / .07) 42%, transparent 74%);
+  background: radial-gradient(ellipse at 28% 42%, rgb(var(--service-glow) / .12), rgb(var(--service-glow) / .035) 42%, transparent 74%);
   opacity: 0;
   transform: translateY(6px) scale(.96);
   transition: opacity .45s ease, transform .55s cubic-bezier(.16, 1, .3, 1);
+  pointer-events: none;
+}
+.studio-services > div::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 calc(-1 * min(20px, 1.25vw));
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgb(224 212 247 / .035), rgb(186 210 240 / .008) 62%, transparent);
+  border: 1px solid rgb(220 206 246 / .025);
+  border-top-color: rgb(235 226 251 / .10);
+  box-shadow: inset 0 1px rgb(255 255 255 / .02);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: .55;
+  transition: opacity .45s ease;
   pointer-events: none;
 }
 .studio-services > div > span,
@@ -3034,6 +3065,9 @@ body:not(.silk-mode) .hero-controls {
   .studio-services > div:hover::before {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+  .studio-services > div:hover::after {
+    opacity: 1;
   }
   .studio-services > div:hover > span {
     color: #ddd1ef;
@@ -3048,13 +3082,15 @@ body:not(.silk-mode) .hero-controls {
   }
 }
 .motion-paused .studio-services > div > *,
-.motion-paused .studio-services > div::before {
+.motion-paused .studio-services > div::before,
+.motion-paused .studio-services > div::after {
   transform: none !important;
   transition: none !important;
 }
 @media (prefers-reduced-motion: reduce) {
   .studio-services > div > *,
-  .studio-services > div::before {
+  .studio-services > div::before,
+  .studio-services > div::after {
     transform: none !important;
     transition: none !important;
   }
@@ -3064,7 +3100,20 @@ body:not(.silk-mode) .hero-controls {
   padding-top: 96px;
   padding-bottom: 72px;
 }
+.contact-compact::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 28px var(--gutter);
+  border-radius: 28px;
+  background: linear-gradient(125deg, rgb(227 213 247 / .025), rgb(182 211 239 / .008) 65%, transparent);
+  box-shadow: inset 0 1px rgb(239 228 255 / .055), inset 0 -1px rgb(227 213 247 / .015);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+}
 .contact-compact .contact-glow {
+  z-index: -2;
   inset: -35% -15%;
   background-position: center;
   transform: rotate(90deg);
@@ -3228,6 +3277,10 @@ footer {
   .studio-services > div {
     padding: 0;
   }
+  .studio-services > div::after {
+    inset: -16px -12px;
+    border-radius: 16px;
+  }
   .studio-services h3 {
     margin-top: 18px;
     font-size: 23px;
@@ -3249,6 +3302,10 @@ footer {
   .contact-compact {
     padding-top: 64px;
     padding-bottom: 52px;
+  }
+  .contact-compact::before {
+    inset: 20px 12px;
+    border-radius: 24px;
   }
   .contact-compact .contact-bottom {
     display: flex;
