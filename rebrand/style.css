@@ -2876,7 +2876,7 @@ body.project-open {
 }
 .silk-mode .hero-role {
   margin-left: 0;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   color: #ded8e8;
 }
@@ -3106,7 +3106,7 @@ footer {
     margin-bottom: 26px;
   }
   .silk-mode .hero-role {
-    font-size: 13px;
+    font-size: 16px;
     text-shadow: none;
   }
   .silk-mode .hero-title {
