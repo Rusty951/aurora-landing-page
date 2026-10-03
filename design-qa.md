@@ -1,3 +1,26 @@
+## 2026-10-03 로고 단어 간격과 Disclaimer 균형 검수
+
+final result: passed
+
+사용자가 승인한 소폭 간격 축소, 작은 Disclaimer와 넓은 읽기 폭을 기존 화면에 적용했다. 기준은 수정 전 운영 `/work?category=website`의 하단이며 같은 위치로 스크롤한 로컬 수정본과 비교했다. 증거 폴더는 `/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-logo-footer-balance-20261003/`다.
+
+- PC 기준과 수정본: `02-source-footer.jpg`, `13-final-desktop.jpg`, 각각 1280×720 pixels와 CSS viewport 1280×720. 같은 footer 끝 위치, 웹사이트 필터, 테마다. 프레임 축소나 밀도 변환 없이 `15-final-desktop-comparison.png`에 함께 놓고 비교했다.
+- 모바일 기준과 수정본: `07-source-mobile.jpg`, `14-final-mobile.jpg`, 각각 390×844 pixels와 CSS viewport 390×844. 같은 footer 끝 상태이며 `16-final-mobile-comparison.png`에서 같은 크기로 비교했다. 처음 저장한 모바일 기준의 크기가 달라 폐기하고 실제 390px로 다시 캡처했다.
+- 로고 세부 비교: `01-source-header.jpg`와 `03-local-header.jpg`의 동일 영역을 4배 확대한 `06-logo-comparison.png`에서 두 단어 간격을 확인했다. 원본 SVG와의 구조 비교에서 11개 글자의 경로와 프레임이 같고 sound의 위치만 48 단위 바뀐다.
+- 추가 화면: 1440×1000 홈페이지 `12-home-desktop-pretty.jpg`, 320×780 포트폴리오 `09-local-320.jpg`, 320×780 홈페이지 `10-home-mobile.jpg`. 로고 로딩 정상, 메뉴 겹침과 가로 넘침, Disclaimer 내부 잘림이 없다. PC 안내 폭은 1280px에서 1152px, 1440px에서 1296px다.
+
+| 검수 면 | 판단 |
+| --- | --- |
+| 글씨 | 기존 서체와 굵기를 유지한다. 로고 두 단어 간격만 약 15% 축소했다. Disclaimer는 PC 12px, 모바일 10.5px로 승인된 작은 비중을 사용한다. |
+| 간격과 구성 | 하단 좌우 기준선에 맞춘 전체 폭, 10px 문단 간격, 기존 로고와 아이콘 정렬을 확인했다. |
+| 색 | 기존 차콜, 라벤더와 글자 색을 유지했다. 새 색면이나 효과가 없다. |
+| 자산 | 기존 벡터 로고를 직접 조정했고 다른 이미지와 아이콘을 바꾸지 않았다. 글자 경로와 표시 크기가 같다. |
+| 문구 | 공개 HTML 42개를 Git 원본과 비교해 로고와 CSS 캐시 주소 외에 바뀐 문구가 없음을 확인했다. |
+
+초기 1440px 화면에서 첫 문단 마지막의 results만 다음 줄로 내려가는 P3 보완점을 발견했다. text-wrap: pretty를 적용하고 같은 화면 `12-home-desktop-pretty.jpg`에서 or results로 묶인 것을 확인했다. 이후 PC와 모바일 전체 비교를 다시 수행했으며 남은 P0, P1, P2 차이는 없다. 작은 글씨는 대표가 요청한 의도적 변경이며 전면 접근성 인증을 수행한 결과는 아니다.
+
+`npm run check`와 `git diff --check`를 통과했다. 로컬 console error와 warn은 없다. 로고와 안내의 크기, 줄바꿈과 반응형 검수를 완료했고 사용자의 기존 탭은 보존했다. 공통 CSS v38과 로고 v2로 캐시를 갱신한다.
+
 ## 2026-10-03 콘텐츠 제작의 브랜드 영상 문구 검수
 
 승인된 `제품 이미지, 브랜드 영상, 인스타 콘텐츠, 웹사이트`를 콘텐츠 제작의 예시 목록에 적용했다. 실제 Codex 인앱 브라우저에서 1440px PC와 390px, 320px 모바일을 확인했다. 가로 넘침과 문구 잘림이 없으며, 320px에서는 목록이 두 줄로 표시된다. 기존 U자 배치와 유리층, 커서 효과를 그대로 유지한다. `npm run check`와 `git diff --check`를 통과했다. 화면 크기를 복원했고 캡처는 `/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-brand-video-copy-20261003/`에 있다.
