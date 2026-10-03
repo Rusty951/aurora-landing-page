@@ -3167,16 +3167,29 @@ body:not(.silk-mode) .hero-controls {
   padding: 12px 0;
 }
 .contact-details-body {
-  gap: 42px;
+  gap: 24px;
   padding-top: 28px;
   text-align: left;
 }
+.contact-details-body > div {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid rgb(220 206 246 / .055);
+  border-top-color: rgb(235 226 251 / .14);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgb(224 212 247 / .03), rgb(186 210 240 / .008) 64%, transparent), rgb(24 19 32 / .4);
+  box-shadow: inset 0 1px rgb(255 255 255 / .02);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
 .contact-details-body h3 {
-  font-size: 19px;
+  font-size: 20px;
+  font-weight: 550;
+  line-height: 1.5;
 }
 .contact-details-body p {
   font-size: 17px;
-  color: #c5bacf;
+  color: #d3c8de;
 }
 footer {
   padding-bottom: 48px;
@@ -3305,7 +3318,10 @@ footer {
     margin-top: 24px;
   }
   .contact-details-body {
-    gap: 24px;
+    gap: 16px;
+  }
+  .contact-details-body > div {
+    padding: 22px;
   }
   .footer-controls {
     margin-top: 24px;
