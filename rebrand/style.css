@@ -179,7 +179,7 @@ section {
 .contact-link {
   padding: 12px 20px;
   border-radius: 32px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   display: flex;
   justify-content: center;
@@ -1221,7 +1221,7 @@ footer {
   }
   .contact-link {
     margin-left: auto;
-    font-size: 13px;
+    font-size: 15px;
     padding: 10px 16px;
     gap: 15px;
     min-height: 44px;
@@ -1640,7 +1640,7 @@ footer {
     padding-bottom: 18px;
   }
   .contact-link {
-    font-size: 12px;
+    font-size: 15px;
     padding: 10px 13px;
   }
   .scene-topline {
@@ -2784,13 +2784,13 @@ body.project-open {
 @media(max-width:700px) {
   .home-work-mobile { display:block; margin-left:auto; font-size:12px; padding:14px 0; }
   .header:has(.home-work-mobile) { gap:14px; }
-  .header:has(.home-work-mobile) .contact-link { margin-left:0; padding:10px 12px; font-size:13px; gap:10px; }
+  .header:has(.home-work-mobile) .contact-link { margin-left:0; padding:10px 12px; font-size:15px; gap:10px; }
 }
 .ad-mode .home-work-mobile,.ad-mode .showcase-work-link,.ad-mode .header nav a[href="/work"] { display:none; }
 
 @media(max-width:420px) {
   .header:has(.home-work-mobile) { gap:10px; }
-  .header:has(.home-work-mobile) .contact-link { padding:10px; font-size:13px; gap:0; }
+  .header:has(.home-work-mobile) .contact-link { padding:10px; font-size:15px; gap:0; }
   .header:has(.home-work-mobile) .contact-link span { display:none; }
 }
 
@@ -2905,7 +2905,7 @@ body.project-open {
   border-radius: 32px;
   background: var(--paper);
   color: var(--ink);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.4;
   justify-content: center;
@@ -3036,8 +3036,8 @@ body:not(.silk-mode) .hero-controls {
   text-align: center;
   min-width: 230px;
   min-height: 64px;
-  padding: 18px 30px;
-  font-size: 18px;
+  padding: 17px 30px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.4;
 }
@@ -3127,7 +3127,7 @@ footer {
     min-width: 144px;
     padding: 12px 20px;
     gap: 30px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .silk-mode .scene-vignette {
     background: linear-gradient(180deg, #0a0a1080 0%, #0a0a10b3 24%, #0a0a10b3 76%, #0a0a10 100%);
@@ -3181,7 +3181,7 @@ footer {
   }
   .contact-action .cta {
     margin-top: 0;
-    padding: 18px 24px;
+    padding: 17px 24px;
   }
   .contact-details {
     margin-top: 24px;
@@ -3236,7 +3236,7 @@ footer {
   background: var(--paper);
   color: var(--ink);
   box-shadow: 0 6px 28px #0004;
-  font: 500 15px/1.4 var(--sans);
+  font: 500 16px/1.4 var(--sans);
   text-align: center;
   white-space: nowrap;
 }
@@ -3253,7 +3253,7 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
     bottom: calc(16px + env(safe-area-inset-bottom, 0px));
     min-height: 52px;
     padding: 13px 18px;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
