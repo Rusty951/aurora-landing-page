@@ -1,3 +1,13 @@
+## 2026-10-03 웹사이트 카드 모션 시안 검수
+
+Status: `LOCAL PROTOTYPE / QA PASSED`
+
+1440×1024, 390×844와 320×844의 실제 인앱 화면을 저장하고 확인했다. PC 썸네일 폭은 636px, 오른쪽 열 기본 오프셋은 48px이며 스크롤 중 실제 transform과 opacity 변화, 이동량 변경을 관찰했다. 모바일은 각각 342px와 280px의 1열이며 기울기와 열 오프셋, 지속적인 스크롤 이동이 없다. 세 너비 모두 가로 넘침은 0이다.
+
+실제 이미지와 웹사이트 필터 전환, 이미지 기본 16개와 웹사이트 6개 유지, PC 키보드 Tab으로 첫 샘플 링크를 선택했을 때 transform none과 이동 0px을 확인했다. 브라우저 console 오류와 경고는 없다. 기존 `npm run check`와 별도 모션 QA를 통과했다. 모션 QA는 API 미지원, 초기 동작 줄이기와 실행 중 변경, 대기 중 observer callback 차단, 한 번만 등장, 초점과 숨긴 필터, PC/모바일 변경, 프레임 합치기와 좌표 피드백 방지를 검증했다. 동작 줄이기 설정 변경은 VM 검사이며 OS 설정을 실제 변경하지 않았다.
+
+증거는 `/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-portfolio-motion-20261003/`에 있다. 운영 도메인과 영상 개발 브랜치는 이번 로컬 시안 작업에서 수정하지 않았다.
+
 ## 2026-10-03 웹사이트 목록 2열 검수
 
 Status: `LOCAL QA PASSED / RELEASE CANDIDATE`
