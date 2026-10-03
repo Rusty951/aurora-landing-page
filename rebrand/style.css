@@ -2981,14 +2981,15 @@ body:not(.silk-mode) .hero-controls {
 }
 @media (min-width: 701px) {
   .studio-services {
-    --service-step: clamp(44px, 5vw, 80px);
+    --service-dip: clamp(32px, 4.5vw, 72px);
+    --service-return: clamp(8px, 1vw, 16px);
     align-items: start;
   }
   .studio-services > div:nth-child(2) {
-    margin-top: var(--service-step);
+    margin-top: var(--service-dip);
   }
   .studio-services > div:nth-child(3) {
-    margin-top: calc(var(--service-step) * 2);
+    margin-top: var(--service-return);
   }
 }
 .studio-services > div {
