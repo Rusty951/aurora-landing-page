@@ -157,6 +157,13 @@ section {
   letter-spacing: 0.04em;
   color: #bfbaca;
 }
+.header-caption-single {
+  margin-left: -16px;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  transform: translateY(6px);
+}
 .header nav {
   display: flex;
   margin-left: auto;
