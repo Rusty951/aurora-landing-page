@@ -590,8 +590,8 @@
     "image": "/work/assets/web-moseori.webp",
     "thumb": "/work/assets/web-moseori-thumb.webp",
     "badge": "자체 제작 웹사이트 샘플",
-    "width": 1280,
-    "height": 720,
+    "width": 1440,
+    "height": 810,
     "thumbnail_fit": "contain"
   },
   {
@@ -603,8 +603,8 @@
     "image": "/work/assets/web-bitgyeol.webp",
     "thumb": "/work/assets/web-bitgyeol-thumb.webp",
     "badge": "자체 제작 웹사이트 샘플",
-    "width": 1280,
-    "height": 720,
+    "width": 1440,
+    "height": 810,
     "thumbnail_fit": "contain"
   },
   {
@@ -616,8 +616,8 @@
     "image": "/work/assets/web-neurin.webp",
     "thumb": "/work/assets/web-neurin-thumb.webp",
     "badge": "자체 제작 웹사이트 샘플",
-    "width": 1280,
-    "height": 720,
+    "width": 1440,
+    "height": 810,
     "thumbnail_fit": "contain"
   },
   {
@@ -629,8 +629,8 @@
     "image": "/work/assets/web-haebit.webp",
     "thumb": "/work/assets/web-haebit-thumb.webp",
     "badge": "자체 제작 웹사이트 샘플",
-    "width": 1280,
-    "height": 720,
+    "width": 1440,
+    "height": 810,
     "thumbnail_fit": "contain"
   },
   {
@@ -642,8 +642,8 @@
     "image": "/work/assets/web-jeongo.webp",
     "thumb": "/work/assets/web-jeongo-thumb.webp",
     "badge": "자체 제작 웹사이트 샘플",
-    "width": 1280,
-    "height": 720,
+    "width": 1440,
+    "height": 810,
     "thumbnail_fit": "contain"
   },
   {
@@ -655,8 +655,8 @@
     "image": "/work/assets/web-chaon.webp",
     "thumb": "/work/assets/web-chaon-thumb.webp",
     "badge": "자체 제작 웹사이트 샘플",
-    "width": 1280,
-    "height": 720,
+    "width": 1440,
+    "height": 810,
     "thumbnail_fit": "contain"
   }
 ]

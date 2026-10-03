@@ -33,8 +33,9 @@
       if (rect.bottom < -80 || rect.top > window.innerHeight + 80) return;
       // Subtract the previous translation so repeated frames do not feed back.
       const center = rect.top - (drift.get(card) || 0) + rect.height / 2;
-      const progress = Math.max(-1, Math.min(1, (center - window.innerHeight / 2) / window.innerHeight));
-      const amount = progress * (index % 2 ? 18 : 10);
+      const progress = Math.max(-1, Math.min(1, (center - window.innerHeight / 2) / (window.innerHeight * .65)));
+      const distance = index % 2 ? Math.min(56, window.innerWidth * .035) : 14;
+      const amount = progress * distance;
       drift.set(card, amount);
       card.style.setProperty('--work-drift', `${amount.toFixed(2)}px`);
     });
@@ -48,11 +49,11 @@
     observer.unobserve(card);
     if (card.contains(document.activeElement)) return;
     const animation = card.animate([
-      {opacity:0.45, transform:desktop.matches ? 'perspective(1000px) translateY(24px) rotateX(5deg) scale(.985)' : 'translateY(12px)'},
+      {opacity:0.45, transform:desktop.matches ? 'perspective(1000px) translateY(32px) rotateX(5deg) scale(.985)' : 'translateY(12px)'},
       {opacity:1, transform:desktop.matches ? 'perspective(1000px) translateY(0) rotateX(0) scale(1)' : 'translateY(0)'}
     ], {
-      duration:desktop.matches ? 650 : 480,
-      delay:desktop.matches && cards.indexOf(card) % 2 ? 70 : 0,
+      duration:desktop.matches ? 720 : 480,
+      delay:desktop.matches && cards.indexOf(card) % 2 ? 100 : 0,
       easing:'cubic-bezier(.22,1,.36,1)'
     });
     animations.set(card, animation);
@@ -76,7 +77,7 @@
       if (!active || reduced.matches || section.hidden) return;
       entries.forEach(entry => { if (entry.isIntersecting) reveal(entry.target); });
       schedule();
-    }, {threshold:0.08, rootMargin:'0px 0px -24px 0px'});
+    }, {threshold:0.15, rootMargin:'0px 0px -64px 0px'});
     cards.forEach(card => { if (!seen.has(card)) observer.observe(card); });
     schedule();
   };

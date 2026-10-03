@@ -23,22 +23,23 @@ for (const path of ['index.html', 'work/index.html', ...catalog.map(work => `wor
   assert(links[0].includes('data-cta-location="floating"'));
   assert(links[0].includes('data-primary-cta="false"'));
   assert(links[0].includes('rel="noopener noreferrer"'));
-  assert.equal((html.match(/src="\/rebrand\/contact\.js\?v=1"/g) || []).length, 1);
+  assert.equal((html.match(/src="\/rebrand\/contact\.js\?v=2"/g) || []).length, 1);
 }
 const source = read('rebrand/contact.js');
-function browser({hero = true, primary = true, workPrimary = false, observers = true} = {}) {
+function browser({hero = true, primary = true, workPrimary = false, gallery = false, width = 1280, observers = true} = {}) {
   const handlers = {}, frames = [], mutations = [], intersections = [];
-  const state = {heroBottom: 844, primaryTop: 2400, primaryBottom: 2464, modal: false};
+  const state = {heroBottom: 844, primaryTop: 2400, primaryBottom: 2464, galleryTop:250, galleryBottom:2200, modal: false};
   const link = {hidden: true, addEventListener: (name, callback) => {handlers['link:' + name] = callback;}};
   const heroNode = {getBoundingClientRect: () => ({bottom: state.heroBottom})};
   const primaryNode = {getBoundingClientRect: () => ({top: state.primaryTop, bottom: state.primaryBottom})};
+  const galleryNode = {getBoundingClientRect: () => ({top:state.galleryTop, bottom:state.galleryBottom})};
   const document = {
     activeElement: null,
     getElementById: id => id === 'floating-cta-btn' ? link : id === 'final-cta-btn' && primary ? primaryNode : null,
-    querySelector: selector => selector === '.work-cta-link' ? workPrimary ? primaryNode : null : selector === '.experience' ? hero ? heroNode : null : selector === '.header' ? {getBoundingClientRect: () => ({bottom: 96})} : selector === 'dialog[open]' ? state.modal ? {} : null : null,
+    querySelector: selector => selector === '.work-gallery' ? gallery ? galleryNode : null : selector === '.work-cta-link' ? workPrimary ? primaryNode : null : selector === '.experience' ? hero ? heroNode : null : selector === '.header' ? {getBoundingClientRect: () => ({bottom: 96})} : selector === 'dialog[open]' ? state.modal ? {} : null : null,
     querySelectorAll: () => [{}],
   };
-  const window = {document, innerHeight: 844, addEventListener: (name, callback) => {handlers[name] = callback;}, requestAnimationFrame: callback => {frames.push(callback);}};
+  const window = {document, innerHeight: 844, innerWidth:width, addEventListener: (name, callback) => {handlers[name] = callback;}, requestAnimationFrame: callback => {frames.push(callback);}};
   window.window = window;
   if (observers) {
     window.IntersectionObserver = class {constructor(callback) {intersections.push(callback);} observe() {}};
@@ -47,7 +48,7 @@ function browser({hero = true, primary = true, workPrimary = false, observers = 
   vm.runInContext(source, vm.createContext(window));
   const flush = () => {while (frames.length) frames.shift()();};
   const event = name => {handlers[name]();flush();};
-  return {link, state, document, event, flush, mutations, intersections};
+  return {link, state, document, window, event, flush, mutations, intersections};
 }
 let b = browser();
 assert.equal(b.link.hidden, true, 'Hero controls retain their space');
@@ -77,4 +78,16 @@ b = browser({observers: false}); b.state.heroBottom = 95; b.event('scroll');
 assert.equal(b.link.hidden, false, 'Scroll fallback works without observer APIs');
 b.state.primaryTop = 600; b.event('resize');
 assert.equal(b.link.hidden, true, 'Resize refreshes visibility without observers');
-console.log('Floating inquiry passed: 42 pages, hero/main CTA suppression, focus preservation, modal restore and observer fallback.');
+b = browser({hero:false, primary:false, workPrimary:true, gallery:true, width:390});
+assert.equal(b.link.hidden, true, 'Mobile gallery keeps sample controls unobstructed');
+b.state.galleryBottom = 95; b.event('scroll');
+assert.equal(b.link.hidden, false, 'Leaving the mobile gallery restores inquiry');
+b.state.galleryBottom = 2200; b.window.innerWidth = 1280; b.event('resize');
+assert.equal(b.link.hidden, false, 'Desktop gallery keeps its inquiry control');
+b.document.activeElement = b.link; b.window.innerWidth = 390; b.event('resize');
+assert.equal(b.link.hidden, false, 'Resizing preserves focused inquiry');
+b.document.activeElement = null; b.event('link:blur');
+assert.equal(b.link.hidden, true, 'Blur applies mobile gallery suppression');
+b = browser({hero:false, primary:false, gallery:true, width:320, observers:false});
+assert.equal(b.link.hidden, true, 'Mobile gallery suppression works without observers');
+console.log('Floating inquiry passed: 42 pages, mobile gallery suppression, focus preservation, modal restore and observer fallback.');

@@ -155,6 +155,12 @@
 .work-card .work-badge { margin-top:6px; padding:0; border:0; font-size:11px; opacity:1; color:var(--muted); }
 .work-card-detail { margin-top:15px; font-size:12px; padding-bottom:9px; }
 .work-card-detail span { float:right; }
+#work-websites .work-card-title h2 { font-size:18px; font-weight:500; }
+#work-websites .work-card-detail { min-height:44px; padding:11px 0; font-size:14px; line-height:1.6; }
+#work-websites .work-view { font-size:12px; }
+@media(max-width:700px) {
+ #work-websites .work-card-title h2 { font-size:16px; }
+}
 .work-card a:focus-visible,.work-controls button:focus-visible,.work-lightbox button:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
 .work-lightbox { width:min(1100px,calc(100vw - 48px)); max-height:calc(100dvh - 48px); padding:22px; border:0; background:var(--work-bg); color:var(--white); overflow:auto; }
 .work-lightbox::backdrop { background:#08090ee8; }

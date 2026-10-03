@@ -4,54 +4,84 @@
     "kind": "website_sample",
     "source_repo": "Rusty951/website-portfolio",
     "source_directory": "12-moseori-studio",
-    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/12-moseori-studio-1280.png",
+    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-portfolio-polish-20261003/capture-moseori.png",
     "mobile_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/12-moseori-studio-390.png",
-    "license_scope": "fictional web design with licensed stock imagery; no client cases"
+    "license_scope": "fictional web design with licensed stock imagery; no client cases",
+    "desktop_capture_route": "/work/demos/12-moseori-studio/",
+    "desktop_capture_viewport": {
+      "width": 1440,
+      "height": 810
+    }
   },
   {
     "slug": "website-bitgyeol",
     "kind": "website_sample",
     "source_repo": "Rusty951/website-portfolio",
     "source_directory": "02-bitgyeol-curtain",
-    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/all-sites-final-polish/after/02-bitgyeol-curtain-desktop.png",
+    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-portfolio-polish-20261003/capture-bitgyeol.png",
     "mobile_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/all-sites-final-polish/after/02-bitgyeol-curtain-mobile.png",
-    "license_scope": "fictional web design with licensed stock imagery; no client cases"
+    "license_scope": "fictional web design with licensed stock imagery; no client cases",
+    "desktop_capture_route": "/work/demos/02-bitgyeol-curtain/",
+    "desktop_capture_viewport": {
+      "width": 1440,
+      "height": 810
+    }
   },
   {
     "slug": "website-neurin",
     "kind": "website_sample",
     "source_repo": "Rusty951/website-portfolio",
     "source_directory": "04-neurin-pajang",
-    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/04-neurin-pajang-1280.png",
+    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-portfolio-polish-20261003/capture-neurin.png",
     "mobile_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/04-neurin-pajang-390.png",
-    "license_scope": "fictional web design with licensed stock imagery; no client cases"
+    "license_scope": "fictional web design with licensed stock imagery; no client cases",
+    "desktop_capture_route": "/work/demos/04-neurin-pajang/",
+    "desktop_capture_viewport": {
+      "width": 1440,
+      "height": 810
+    }
   },
   {
     "slug": "website-haebit",
     "kind": "website_sample",
     "source_repo": "Rusty951/website-portfolio",
     "source_directory": "05-haebit-light",
-    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/05-haebit-light-1280.png",
+    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-portfolio-polish-20261003/capture-haebit.png",
     "mobile_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/05-haebit-light-390.png",
-    "license_scope": "fictional web design with licensed stock imagery; no client cases"
+    "license_scope": "fictional web design with licensed stock imagery; no client cases",
+    "desktop_capture_route": "/work/demos/05-haebit-light/#services",
+    "desktop_capture_viewport": {
+      "width": 1440,
+      "height": 810
+    }
   },
   {
     "slug": "website-jeongo",
     "kind": "website_sample",
     "source_repo": "Rusty951/website-portfolio",
     "source_directory": "01-jeongo-eye",
-    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/01-jeongo-eye-1280.png",
+    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-portfolio-polish-20261003/capture-jeongo.png",
     "mobile_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/portfolio-audit-fixes/01-jeongo-eye-390.png",
-    "license_scope": "fictional web design with licensed stock imagery; no client cases"
+    "license_scope": "fictional web design with licensed stock imagery; no client cases",
+    "desktop_capture_route": "/work/demos/01-jeongo-eye/#care",
+    "desktop_capture_viewport": {
+      "width": 1440,
+      "height": 810
+    }
   },
   {
     "slug": "website-chaon",
     "kind": "website_sample",
     "source_repo": "Rusty951/website-portfolio",
     "source_directory": "13-chaon-law",
-    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/professional-reference-polish-20260930/13-chaon-after-desktop.png",
+    "desktop_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-portfolio-polish-20261003/capture-chaon.png",
     "mobile_capture": "/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/professional-reference-polish-20260930/24-chaon-after-mobile.png",
-    "license_scope": "fictional web design with licensed stock imagery; no client cases"
+    "license_scope": "fictional web design with licensed stock imagery; no client cases",
+    "desktop_capture_route": "/work/demos/13-chaon-law/",
+    "desktop_capture_viewport": {
+      "width": 1440,
+      "height": 810
+    }
   },
   {
     "slug": "food-moon",
