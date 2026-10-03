@@ -3198,10 +3198,11 @@ footer {
 .work-footer .site-notice {
   width: 100%;
   max-width: none;
-  font-size: 13px;
+  font-size: clamp(12px, .84vw, 13px);
   line-height: 1.65;
+  letter-spacing: -.015em;
   word-break: normal;
-  text-wrap: pretty;
+  text-wrap: wrap;
 }
 .site-notice h2 {
   font-size: 12px;
@@ -3332,6 +3333,7 @@ footer {
   .work-footer .site-notice {
     font-size: 11.5px;
     line-height: 1.65;
+    letter-spacing: normal;
   }
   .site-notice h2 {
     font-size: 10.5px;
