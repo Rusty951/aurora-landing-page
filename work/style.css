@@ -302,3 +302,8 @@ body.work-image-open { overflow:hidden; }
  .photography-gallery { columns:1; }
  .work-photo-grid .work-card-title h2 { font-size:16px; }
 }
+
+/* Preserve readable English category labels on compact phones. */
+@media(max-width:360px) {
+ .work-controls .work-filters:not([hidden]) { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+}

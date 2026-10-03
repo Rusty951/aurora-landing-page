@@ -15,7 +15,7 @@
   const curatedCount = document.getElementById('work-curated-count');
   const sketchCount = document.getElementById('work-sketch-count');
   const gallery = document.getElementById('gallery');
-  const labels = {photography:'사진과 비주얼', 'photo-product':'제품 작업', 'photo-food':'푸드 작업', 'photo-dessert':'디저트 작업', 'photo-space':'공간 작업', 'photo-portrait':'인물 작업', images:'광고 이미지와 제품 비주얼', food:'푸드', product:'제품', brand:'브랜드', carousel:'인스타', character:'캐릭터', website:'웹사이트 샘플'};
+  const labels = {photography:'Photo', 'photo-product':'Product', 'photo-food':'Food', 'photo-dessert':'Dessert', 'photo-space':'Space', 'photo-portrait':'Portrait', images:'Concepts', food:'Food', product:'Product', brand:'Brand', carousel:'Instagram', character:'Character', website:'Website'};
   let activeFilter = 'photography';
   const isPhotography = value => value === 'photography' || value.startsWith('photo-');
   const kindOf = value => value === 'website' ? 'website' : isPhotography(value) ? 'photography' : 'images';

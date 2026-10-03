@@ -1,7 +1,7 @@
 [
   {
     "slug": "banana-product",
-    "title": "제품 작업",
+    "title": "Product",
     "subtitle": "패키지와 오브젝트, 제품의 형태와 재질을 보여주는 제작 작업입니다.",
     "category": "photo-product",
     "collection": "photography",
@@ -94,7 +94,7 @@
   },
   {
     "slug": "banana-food",
-    "title": "푸드 작업",
+    "title": "Food",
     "subtitle": "메뉴 단독 사진부터 상차림과 매장 장면까지 담았습니다.",
     "category": "photo-food",
     "collection": "photography",
@@ -173,7 +173,7 @@
   },
   {
     "slug": "banana-dessert",
-    "title": "디저트 작업",
+    "title": "Dessert",
     "subtitle": "떡과 재료, 차와 카페 메뉴를 다양한 배경과 빛으로 연출했습니다.",
     "category": "photo-dessert",
     "collection": "photography",
@@ -231,7 +231,7 @@
   },
   {
     "slug": "banana-space",
-    "title": "공간 작업",
+    "title": "Space",
     "subtitle": "주거 공간과 주방, 오브젝트가 놓인 공간의 분위기를 담았습니다.",
     "category": "photo-space",
     "collection": "photography",
@@ -275,7 +275,7 @@
   },
   {
     "slug": "banana-portrait",
-    "title": "인물 작업",
+    "title": "Portrait",
     "subtitle": "얼굴의 표정과 상반신, 전신을 담은 인물 작업입니다.",
     "category": "photo-portrait",
     "collection": "photography",
