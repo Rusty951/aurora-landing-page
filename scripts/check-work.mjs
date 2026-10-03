@@ -3,6 +3,7 @@ import {readFileSync,existsSync,statSync,readdirSync} from 'node:fs';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import vm from 'node:vm';
+import {renderVideoSlots, updateVideoMarkup, youtubeLink, durationLabel, publishedVideos} from './build-work-videos.mjs';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const read=p=>readFileSync(resolve(root,p),'utf8');
 const catalog=JSON.parse(read('work/catalog.json'));
@@ -47,29 +48,32 @@ for (const p of catalog.filter(p=>p.category==='website')) {
  const card=gallery.match(new RegExp('<article class="work-card"[^>]*data-category="website"[^>]*>.*?href="/work/'+p.slug+'".*?</article>'))?.[0];
  assert(card && /href="\/work\/demos\//.test(card),'Website opens live demo and offers description');
 }
-function browser(start='http://localhost/work',nativeDialog=true,withObserver=false) {
+function browser(start='http://localhost/work',nativeDialog=true,withObserver=false,videoData=[]) {
  const subButtons=['images','product','food','brand','carousel','character'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
- const kinds=['images','website'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
+ const videoButtons=videoData.length?['videos',...['long','short'].filter(format=>videoData.some(p=>p.format===format)).map(format=>'video-'+format)].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}})):[];
+ const kinds=(videoData.length?['images','videos','website']:['images','website']).map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
  const links=catalog.map(p=>p.category==='website'?null:{
   dataset:{fullImage:p.image,imageTitle:p.subtitle,imageBadge:p.badge,slides:p.slides?JSON.stringify(p.slides):undefined}, href:'http://localhost/work/'+p.slug, isConnected:true, focused:false,
   querySelector:()=>({alt:p.subtitle+' 자체 AI 이미지'}), focus(){this.focused=true;}
  });
- const cards=catalog.map((p,i)=>({dataset:{category:p.category,collection:p.slug.startsWith('bb-')?'sketch':'curated'},hidden:false,querySelector:()=>links[i]}));
- const callbacks={};const filters={hidden:false,querySelectorAll:()=>subButtons};
- const controls={hidden:true,querySelector:()=>filters,querySelectorAll:s=>s.includes('work-kinds')?kinds:[...kinds,...subButtons],contains:b=>[...kinds,...subButtons].includes(b),addEventListener:(e,fn)=>{callbacks[e]=fn;},getBoundingClientRect:()=>({height:104})};
+ const cards=[...catalog,...videoData.map(p=>({...p,category:'video'}))].map((p,i)=>({dataset:{category:p.category,format:p.format,collection:p.slug.startsWith('bb-')?'sketch':'curated'},hidden:false,querySelector:()=>links[i]}));
+ const callbacks={};const filters={hidden:false,querySelectorAll:()=>subButtons};const videoFilters=videoData.length?{hidden:true,querySelectorAll:()=>videoButtons}:null;
+ const videoGroups=videoData.length?['long','short'].filter(format=>videoData.some(p=>p.format===format)).map(videoFormat=>({dataset:{videoFormat},hidden:false})):[];
+ const controls={hidden:true,querySelector:s=>s==='.work-video-filters'?videoFilters:filters,querySelectorAll:s=>s.includes('work-kinds')?kinds:[...kinds,...subButtons],contains:b=>[...kinds,...subButtons,...videoButtons].includes(b),addEventListener:(e,fn)=>{callbacks[e]=fn;},getBoundingClientRect:()=>({height:104})};
  const ids=['work-count','work-section-title','work-hint','work-sketches','work-curated','work-websites','work-curated-count','work-sketch-count','gallery','work-lightbox-image','work-lightbox-title','work-lightbox-badge','work-lightbox-detail','work-lightbox-original','work-lightbox-transcript','work-lightbox-text','work-lightbox-prev','work-lightbox-next','work-lightbox-position'];
+ ids.push('work-videos');
  const nodes=Object.fromEntries(ids.map(id=>[id,{textContent:'',open:false,hidden:false,events:{},addEventListener(e,fn){this.events[e]=fn;},removeAttribute(k){delete this[k];},getBoundingClientRect:()=>({top:240})}]));
  const grid={addEventListener:(e,fn)=>{callbacks.gridClick=fn;}};nodes['work-grid']=grid;
  const dialogEvents={};const dialog={open:false,isConnected:true,showModal:nativeDialog?function(){this.open=true;}:undefined,close(){this.open=false;dialogEvents.close();},addEventListener:(e,fn)=>{dialogEvents[e]=fn;},getBoundingClientRect:()=>({left:10,top:10,right:100,bottom:100})};
  const classNames=new Set();const pop={};const styles={};const header={height:88,getBoundingClientRect(){return{height:this.height};}};const observed=[];let observerCallback;
- const context={document:{querySelector:s=>s==='.work-controls'?controls:s==='.header'?header:dialog,querySelectorAll:()=>cards,getElementById:id=>nodes[id],body:{style:{setProperty:(k,v)=>{styles[k]=v;}},classList:{add:v=>classNames.add(v),remove:v=>classNames.delete(v)}}},window:{scrollY:0,scrollTo:v=>{callbacks.scroll=v;},addEventListener:(e,fn)=>{pop[e]=fn;}},location:{href:start},URL,history:{replaceState:(s,t,u)=>{context.location.href=u.href;}}};
+ const context={document:{querySelector:s=>s==='.work-controls'?controls:s==='.header'?header:dialog,querySelectorAll:s=>s==='.work-video-group'?videoGroups:cards,getElementById:id=>nodes[id],body:{style:{setProperty:(k,v)=>{styles[k]=v;}},classList:{add:v=>classNames.add(v),remove:v=>classNames.delete(v)}}},window:{scrollY:0,scrollTo:v=>{callbacks.scroll=v;},addEventListener:(e,fn)=>{pop[e]=fn;}},location:{href:start},URL,history:{replaceState:(s,t,u)=>{context.location.href=u.href;}}};
  if(withObserver)context.ResizeObserver=class {constructor(cb){observerCallback=cb;}observe(node){observed.push(node);}};
  vm.runInNewContext(read('work/work.js'),context);
  const visible=()=>cards.filter(c=>!c.hidden&&(c.dataset.collection!=='sketch'||nodes['work-sketches'].open));
  const expand=()=>{nodes['work-sketches'].open=true;nodes['work-sketches'].events.toggle();};
- return {links,cards,filters,kinds,subButtons,nodes,dialog,dialogEvents,classNames,callbacks,context,pop,controls,visible,expand,styles,header,observed,observerCallback};
+ return {links,cards,filters,videoFilters,videoGroups,videoButtons,kinds,subButtons,nodes,dialog,dialogEvents,classNames,callbacks,context,pop,controls,visible,expand,styles,header,observed,observerCallback};
 }
-const b=browser();assert.equal(b.controls.hidden,false);assert.equal(b.visible().length,16);assert.equal(b.nodes['work-count'].textContent,'이미지 34개 · 16개 표시, 스케치 18개 접힘');
+const b=browser();assert.equal(b.controls.hidden,false);assert.equal(b.visible().length,16);assert.equal(b.nodes['work-count'].textContent,'이미지 34개 / 16개 표시, 스케치 18개 접힘');
 assert.equal(b.styles['--work-header-height'],'88px');assert.equal(b.styles['--work-controls-height'],'104px');
 b.header.height=96;b.pop.resize();assert.equal(b.styles['--work-header-height'],'96px','Resize fallback updates sticky offset');
 const observed=browser(undefined,true,true);assert.equal(observed.observed.length,2);observed.header.height=102;observed.observerCallback();assert.equal(observed.styles['--work-header-height'],'102px','Header resizing updates sticky offset');
@@ -82,7 +86,7 @@ for(const [category,total,initial,sketches] of [['website',6,6,0],['food',12,6,6
  assert.equal(b.nodes['work-hint'].textContent.includes('콘셉트 스케치'),sketches>0,'Sketch guidance only accompanies an available sketch group');
  assert.equal(b.nodes['work-hint'].textContent.includes('새 탭'),category==='website','Website guidance follows the selected browsing mode');
  const base=`${category==='website'?'웹사이트':'이미지'} ${total}개`;
- assert.equal(b.nodes['work-count'].textContent,base+(sketches?` · ${initial}개 표시, 스케치 ${sketches}개 접힘`:''));
+ assert.equal(b.nodes['work-count'].textContent,base+(sketches?` / ${initial}개 표시, 스케치 ${sketches}개 접힘`:''));
  assert.equal(b.kinds[0].attrs['aria-pressed'],String(category!=='website'));
  if(sketches){b.expand();assert.equal(b.visible().length,total);assert.equal(b.nodes['work-count'].textContent,base);}
  assert.equal(b.callbacks.scroll.top,144,'New filter returns to gallery below measured header');
@@ -209,3 +213,57 @@ for (const rule of config.rewrites.filter(r => r.source.startsWith('/work/demos/
  }
 }
 console.log('Demo canonical routes passed: ' + demoDocuments + ' HTML documents.');
+
+// Exercise the deferred video setup without adding fake videos to the public catalog.
+const videoFixture = [
+ {slug:'qa-long', published:true, format:'long', title:'검수 전용 <롱폼>', alt:'검수 전용 가로 썸네일', badge:'검수용 데이터', thumb:'/work/assets/veil.webp', width:1600, height:900, durationSeconds:245, youtubeUrl:'https://youtu.be/testLong001'},
+ {slug:'qa-short', published:true, format:'short', title:'검수 전용 숏폼', alt:'검수 전용 세로 썸네일', badge:'검수용 데이터', thumb:'/work/assets/food-moon-thumb.webp', width:900, height:1600, durationSeconds:28, youtubeUrl:'https://www.youtube.com/shorts/testShort01'},
+ {slug:'qa-draft', published:false}
+];
+const slots = renderVideoSlots(videoFixture);
+assert.equal(publishedVideos(videoFixture).length,2,'Unfinished drafts stay unpublished');
+assert.equal(durationLabel(245),'4:05');assert.equal(durationLabel(28),'0:28');assert.equal(durationLabel(3661),'1:01:01');
+assert.match(slots.kind,/영상 <span>2<\/span>/);
+assert.match(slots.filters,/data-filter="video-long"/);assert.match(slots.filters,/data-filter="video-short"/);
+assert.equal((slots.gallery.match(/target="_blank" rel="noopener noreferrer"/g)||[]).length,2);
+assert.match(slots.gallery,/검수 전용 &lt;롱폼&gt;/,'Titles are escaped as text');
+assert(!/qa-draft|<iframe|<video|data-full-image/.test(slots.gallery),'Drafts and players stay out of video markup');
+assert(!/src="https?:/.test(slots.gallery),'Only local thumbnails load on the site');
+assert.match(slots.gallery,/aspect-ratio:1600\/900/);assert.match(slots.gallery,/aspect-ratio:900\/1600/);
+assert.deepEqual(renderVideoSlots([]),{kind:'',filters:'',gallery:''},'No videos means no empty menu or gallery');
+assert.deepEqual(renderVideoSlots([{slug:'draft',published:false}]),renderVideoSlots([]));
+assert.equal(youtubeLink('https://m.youtube.com/watch?v=testLong001&feature=share'),'https://www.youtube.com/watch?v=testLong001');
+for(const url of ['javascript:alert(1)','https://youtube.com.evil.example/watch?v=testLong001','https://www.youtube.com/@channel','https://www.youtube.com/embed/testLong001','https://www.youtube.com/watch?v=invalid','https://user@www.youtube.com/watch?v=testLong001']) assert.throws(()=>youtubeLink(url));
+for(const change of [{thumb:'/work/assets/../secret.webp'},{youtubeUrl:'https://example.com/'},{durationSeconds:0},{format:'other'},{badge:''},{published:undefined}]) assert.throws(()=>renderVideoSlots([{...videoFixture[0],...change}]));
+assert.throws(()=>renderVideoSlots([videoFixture[0],videoFixture[0]]),'Duplicate video slugs rejected');
+const fixtureHtml = updateVideoMarkup(gallery,videoFixture);
+assert.equal(updateVideoMarkup(fixtureHtml,videoFixture),fixtureHtml,'Generating video markup is idempotent');
+assert.equal(updateVideoMarkup(fixtureHtml,[]),updateVideoMarkup(gallery,[]),'Removing all videos removes only the video slots');
+const liveVideoData = JSON.parse(read('work/videos.json'));
+assert.equal(updateVideoMarkup(gallery,liveVideoData),gallery,'Committed video data and HTML stay in sync');
+assert.equal((gallery.match(/data-category="video"/g)||[]).length,publishedVideos(liveVideoData).length);
+assert.match(read('.vercelignore'),/^work\/videos\.json$/m,'Unpublished video metadata is excluded from deployment');
+assert.match(fixtureHtml,/>42개의 작업<\/p>/,'Static fallback count includes published videos');
+const videoState = browser('http://localhost/work?category=videos',true,false,publishedVideos(videoFixture));
+assert.equal(videoState.visible().length,2);assert(videoState.filters.hidden);assert(!videoState.videoFilters.hidden);
+assert(videoState.nodes['work-curated'].hidden);assert(videoState.nodes['work-websites'].hidden);assert(!videoState.nodes['work-videos'].hidden);
+assert.equal(videoState.nodes['work-count'].textContent,'영상 2개');
+for(const [filter,format] of [['video-long','long'],['video-short','short']]) {
+ const button=videoState.videoButtons.find(button=>button.dataset.filter===filter);
+ videoState.callbacks.click({target:{closest:()=>button}});
+ assert.equal(videoState.visible().length,1);assert.equal(videoState.visible()[0].dataset.format,format);
+ assert.equal(button.attrs['aria-pressed'],'true');assert.equal(videoState.kinds.find(b=>b.dataset.filter==='videos').attrs['aria-pressed'],'true');
+ assert.equal(videoState.nodes['work-count'].textContent,'영상 1개');assert.match(videoState.nodes['work-hint'].textContent,/유튜브/);
+ assert.equal(videoState.videoGroups.filter(group=>!group.hidden)[0].dataset.videoFormat,format);
+ assert(videoState.context.location.href.includes('category='+filter));
+}
+videoState.context.location.href='http://localhost/work?category=videos';videoState.pop.popstate();assert.equal(videoState.visible().length,2);
+videoState.callbacks.click({target:{closest:()=>videoState.kinds.find(button=>button.dataset.filter==='images')}});
+assert.equal(videoState.visible().length,16);assert(videoState.videoFilters.hidden);assert(videoState.nodes['work-videos'].hidden);
+assert(videoState.visible().every(card=>card.dataset.category!=='video'),'Video cards do not leak into images');
+videoState.callbacks.click({target:{closest:()=>videoState.kinds.find(button=>button.dataset.filter==='website')}});assert.equal(videoState.visible().length,6);
+for(const filter of ['videos','video-long','video-short']) assert.equal(browser('http://localhost/work?category='+filter).visible().length,16,'Empty video deep links fall back to images');
+const singleFormat=browser('http://localhost/work?category=video-short',true,false,[videoFixture[0]]);
+assert.equal(singleFormat.visible().length,1);assert.equal(singleFormat.videoButtons.length,2,'Only available formats receive filters');
+assert.equal(singleFormat.videoButtons[0].attrs['aria-pressed'],'true','Unavailable format falls back to all videos');
+console.log('Deferred videos passed: empty state, drafts, local thumbnails, YouTube links, duration, long/short filters, URL restore and existing-gallery regressions.');

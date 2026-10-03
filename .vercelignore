@@ -22,3 +22,6 @@ package-lock.json
 # Portfolio source provenance is internal.
 work/demos/**/SOURCES.md
 work/demos/**/README.md
+
+# Draft video metadata is an internal source; public cards are prebuilt HTML.
+work/videos.json

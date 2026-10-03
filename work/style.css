@@ -254,3 +254,29 @@ body.work-image-open { overflow:hidden; }
  .work-filters { gap:2px; }
  .work-filters button { flex:1 1 0; min-width:44px; padding:9px 2px; }
 }
+
+/* Videos use local thumbnails and ordinary YouTube links, without a player. */
+#work-videos[hidden],.work-video-group[hidden] { display:none; }
+#work-videos { margin-top:48px; }
+.work-controls:not([hidden])~#work-grid #work-videos { margin-top:0; }
+.work-video-group:not([hidden])~.work-video-group:not([hidden]) { margin-top:64px; }
+.work-video-group[data-video-format="long"] .work-video-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.work-video-grid { align-items:start; }
+.work-video-image img { object-fit:contain; }
+.work-video-card .work-card-title h3 { font-size:16px; font-weight:450; line-height:1.5; letter-spacing:-.025em; overflow-wrap:anywhere; }
+.work-video-card .work-card-title>span { display:block; font-size:16px; color:var(--muted); }
+.work-video-card .work-badge { margin-top:6px; line-height:1.6; }
+.work-video-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:grid; place-items:center; width:52px; height:52px; border:1px solid #ffffff40; border-radius:50%; background:#08090eb3; color:var(--white); backdrop-filter:blur(6px); transition:background .2s; }
+.work-video-card a:hover .work-video-play,.work-video-card a:focus-visible .work-video-play { background:#453651e6; }
+.work-video-duration { position:absolute; bottom:14px; left:14px; padding:4px 7px; border-radius:3px; background:#08090ee6; color:var(--white); font-size:12px; line-height:1.4; font-variant-numeric:tabular-nums; }
+@media(max-width:1000px) { .work-video-group[data-video-format="short"] .work-video-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:700px) {
+ .work-video-group[data-video-format="long"] .work-video-grid { grid-template-columns:1fr; }
+ .work-video-group[data-video-format="short"] .work-video-grid { gap:32px 16px; }
+ .work-video-group:not([hidden])~.work-video-group:not([hidden]) { margin-top:40px; }
+ .work-video-card .work-card-title h3 { font-size:15px; }
+ .work-video-card .work-view { display:none; }
+ .work-video-play { width:44px; height:44px; }
+ .work-video-duration { bottom:10px; left:10px; }
+}
+@media(prefers-reduced-motion:reduce) { .work-video-image img,.work-video-play { transition:none; } }

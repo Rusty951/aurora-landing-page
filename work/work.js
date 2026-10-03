@@ -2,6 +2,7 @@
   const controls = document.querySelector('.work-controls');
   if (!controls) return;
   const filters = controls.querySelector('.work-filters');
+  const videoFilters = controls.querySelector('.work-video-filters');
   const kindButtons = [...controls.querySelectorAll('.work-kinds button')];
   const cards = [...document.querySelectorAll('.work-card')];
   const count = document.getElementById('work-count');
@@ -10,10 +11,13 @@
   const sketches = document.getElementById('work-sketches');
   const curated = document.getElementById('work-curated');
   const websites = document.getElementById('work-websites');
+  const videos = document.getElementById('work-videos');
+  const videoGroups = [...document.querySelectorAll('.work-video-group')];
   const curatedCount = document.getElementById('work-curated-count');
   const sketchCount = document.getElementById('work-sketch-count');
   const gallery = document.getElementById('gallery');
-  const labels = {images:'광고 이미지와 제품 비주얼', food:'푸드', product:'제품', brand:'브랜드', carousel:'인스타', character:'캐릭터', website:'웹사이트 샘플'};
+  const labels = {images:'광고 이미지와 제품 비주얼', food:'푸드', product:'제품', brand:'브랜드', carousel:'인스타', character:'캐릭터', website:'웹사이트 샘플', videos:'영상', 'video-long':'롱폼 영상', 'video-short':'숏폼 영상'};
+  const hasVideos = cards.some(card => card.dataset.category === 'video');
   let activeFilter = 'images';
   controls.hidden = false;
   const header = document.querySelector('.header');
@@ -32,27 +36,42 @@
   const updateCount = () => {
     const total = cards.filter(card => !card.hidden).length;
     const visible = visibleCards().length;
-    count.textContent = `${activeFilter === 'website' ? '웹사이트' : '이미지'} ${total}개${visible < total ? ` · ${visible}개 표시, 스케치 ${total - visible}개 접힘` : ''}`;
+    count.textContent = `${activeFilter === 'website' ? '웹사이트' : activeFilter.startsWith('video') ? '영상' : '이미지'} ${total}개${visible < total ? ` / ${visible}개 표시, 스케치 ${total - visible}개 접힘` : ''}`;
   };
   sketches.addEventListener('toggle', updateCount);
   const applyFilter = (value) => {
     if (!Object.hasOwn(labels, value)) value = 'images';
+    if (value.startsWith('video')) {
+      if (!hasVideos) value = 'images';
+      else if (value !== 'videos' && !cards.some(card => card.dataset.category === 'video' && card.dataset.format === value.slice(6))) value = 'videos';
+    }
     activeFilter = value;
     const website = value === 'website';
-    kindButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === (website ? 'website' : 'images'))));
+    const video = value.startsWith('video');
+    kindButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === (website ? 'website' : video ? 'videos' : 'images'))));
     [...filters.querySelectorAll('button')].forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === value)));
-    filters.hidden = website;
-    cards.forEach(card => { card.hidden = value === 'images' ? card.dataset.category === 'website' : card.dataset.category !== value; });
+    if (videoFilters) {
+      videoFilters.hidden = !video;
+      [...videoFilters.querySelectorAll('button')].forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === value)));
+    }
+    filters.hidden = website || video;
+    cards.forEach(card => {
+      card.hidden = value === 'images' ? ['website', 'video'].includes(card.dataset.category)
+        : video ? card.dataset.category !== 'video' || (value !== 'videos' && card.dataset.format !== value.slice(6))
+        : card.dataset.category !== value;
+    });
     sketches.open = false;
     const matchingSketches = cards.filter(card => !card.hidden && card.dataset.collection === 'sketch').length;
     sketches.hidden = matchingSketches === 0;
-    curated.hidden = website;
+    curated.hidden = website || video;
     websites.hidden = !website;
+    if (videos) videos.hidden = !video;
+    videoGroups.forEach(group => { group.hidden = !video || (value !== 'videos' && group.dataset.videoFormat !== value.slice(6)); });
     curatedCount.textContent = cards.filter(card => !card.hidden && card.dataset.collection !== 'sketch').length;
     sketchCount.textContent = matchingSketches;
     updateCount();
     title.textContent = labels[value];
-    hint.textContent = website ? '썸네일을 누르면 샘플 사이트가 새 탭으로 열립니다.' : '이미지를 누르면 더 크게 볼 수 있습니다.' + (matchingSketches > 0 ? ' 콘셉트 스케치는 아래에서 펼쳐볼 수 있습니다.' : '');
+    hint.textContent = website ? '썸네일을 누르면 샘플 사이트가 새 탭으로 열립니다.' : video ? '썸네일을 누르면 유튜브 영상이 새 탭으로 열립니다.' : '이미지를 누르면 더 크게 볼 수 있습니다.' + (matchingSketches > 0 ? ' 콘셉트 스케치는 아래에서 펼쳐볼 수 있습니다.' : '');
     measureControls();
   };
   const restoreFilter = () => applyFilter(new URL(location.href).searchParams.get('category') || 'images');

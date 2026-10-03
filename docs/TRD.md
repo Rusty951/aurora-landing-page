@@ -1,3 +1,9 @@
+## 2026-10-03 나중에 연결할 영상 목록 개발
+
+`work/videos.json`은 공개 승인용 영상 메타데이터 정본이며 Vercel 배포에서는 제외한다. `npm run build:videos`가 유튜브 링크, 로컬 썸네일, 형식, 길이와 표기 필드를 검증하고 `work/index.html`의 영상 전용 marker 세 구간을 정적으로 생성한다. 새 런타임 패키지나 외부 미디어 요청은 없다. 현재 데이터는 빈 배열이며 운영 공개는 이번 개발 범위에 포함하지 않는다.
+
+`npm run check`에 생성 결과 일치 검사를 추가했다. 기존 `check-work.mjs`는 임시 데이터로 롱폼, 숏폼 필터, URL 복원, 비공개 초안과 빈 메뉴 제거, 링크와 제목 escaping을 검사한다. 영상은 이미지 확대 대상에서 제외하고 watch, Shorts, youtu.be 목적지만 허용한다. 확인한 HTTPS 유튜브 주소로 정규화하며 새 탭에는 noopener noreferrer를 설정한다. 등록 절차와 필드는 docs/PORTFOLIO.md 최신 항목을 따른다.
+
 ## 2026-10-02 공통 CTA·footer CSS v15
 
 42개 공개 HTML의 공통 스타일 캐시를v15로 갱신한다. footer-email-link를 footer-socials의 네 번째 링크로 이동하고 기존 ID·data-track=email·mailto를 보존한다. /interview에서 nav 전체를 숨기던 규칙은 SNS3개 개별 숨김으로 바꿔 이메일을 노출한다. 기존 check-contact에42개 footer 순서·접근성 이름·mailto·단일 이메일 검사를 추가한다. check-site는v15를 확인한다.
