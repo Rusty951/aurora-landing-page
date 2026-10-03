@@ -2979,6 +2979,18 @@ body:not(.silk-mode) .hero-controls {
 .studio-services {
   gap: clamp(24px, 4vw, 64px);
 }
+@media (min-width: 701px) {
+  .studio-services {
+    --service-step: clamp(44px, 5vw, 80px);
+    align-items: start;
+  }
+  .studio-services > div:nth-child(2) {
+    margin-top: var(--service-step);
+  }
+  .studio-services > div:nth-child(3) {
+    margin-top: calc(var(--service-step) * 2);
+  }
+}
 .studio-services > div {
   border: 0;
   display: grid;
@@ -3016,13 +3028,29 @@ body:not(.silk-mode) .hero-controls {
 .studio-services > div::before {
   content: "";
   position: absolute;
-  z-index: -1;
+  z-index: -2;
   inset: -22px -20px;
   border-radius: 28px;
-  background: radial-gradient(ellipse at 28% 42%, rgb(var(--service-glow) / .20), rgb(var(--service-glow) / .07) 42%, transparent 74%);
+  background: radial-gradient(ellipse at 28% 42%, rgb(var(--service-glow) / .12), rgb(var(--service-glow) / .035) 42%, transparent 74%);
   opacity: 0;
   transform: translateY(6px) scale(.96);
   transition: opacity .45s ease, transform .55s cubic-bezier(.16, 1, .3, 1);
+  pointer-events: none;
+}
+.studio-services > div::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 calc(-1 * min(20px, 1.25vw));
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgb(224 212 247 / .035), rgb(186 210 240 / .008) 62%, transparent);
+  border: 1px solid rgb(220 206 246 / .025);
+  border-top-color: rgb(235 226 251 / .10);
+  box-shadow: inset 0 1px rgb(255 255 255 / .02);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: .55;
+  transition: opacity .45s ease;
   pointer-events: none;
 }
 .studio-services > div > span,
@@ -3034,6 +3062,9 @@ body:not(.silk-mode) .hero-controls {
   .studio-services > div:hover::before {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+  .studio-services > div:hover::after {
+    opacity: 1;
   }
   .studio-services > div:hover > span {
     color: #ddd1ef;
@@ -3048,13 +3079,15 @@ body:not(.silk-mode) .hero-controls {
   }
 }
 .motion-paused .studio-services > div > *,
-.motion-paused .studio-services > div::before {
+.motion-paused .studio-services > div::before,
+.motion-paused .studio-services > div::after {
   transform: none !important;
   transition: none !important;
 }
 @media (prefers-reduced-motion: reduce) {
   .studio-services > div > *,
-  .studio-services > div::before {
+  .studio-services > div::before,
+  .studio-services > div::after {
     transform: none !important;
     transition: none !important;
   }
@@ -3227,6 +3260,10 @@ footer {
   }
   .studio-services > div {
     padding: 0;
+  }
+  .studio-services > div::after {
+    inset: -16px -12px;
+    border-radius: 16px;
   }
   .studio-services h3 {
     margin-top: 18px;
