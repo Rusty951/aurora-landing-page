@@ -2320,8 +2320,9 @@ body:not(.enhanced) .resonate-trigger {
   color: #756e80;
 }
 .showcase-note.showcase-message {
+  margin-top: 48px;
   font-family: "Asta Sans", var(--sans);
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 500;
   line-height: 1.6;
   letter-spacing: -0.025em;
@@ -2329,7 +2330,7 @@ body:not(.enhanced) .resonate-trigger {
 }
 .showcase-message > span { display: inline-block; }
 @media (max-width: 700px) {
-  .showcase-note.showcase-message { font-size: 16px; }
+  .showcase-note.showcase-message { font-size: 20px; margin-top: 32px; }
 }
 .studio {
   padding: 85px var(--gutter) 90px;
@@ -2831,7 +2832,7 @@ body.project-open {
 .home-project-grid .project-preserve img { object-fit:contain; }
 .home-project-grid .project-preserve { background:#dfdcd6; }
 .home-project-grid .project-caption { padding-top:16px; }
-.home-project-grid .project-caption p { font-size:12px; margin:0; letter-spacing:0; color:#57535e; }
+.home-project-grid .project-caption p { font-size:14px; margin:0; letter-spacing:0; color:#57535e; }
 .showcase-heading .showcase-work-link { margin:0; flex-shrink:0; }
 .studio-services p.service-examples { color:#d0c4dc; font-size:13px; margin-top:18px; }
 .studio-scope { color:#afa3bc; font-size:12px; line-height:1.9; margin-top:36px; word-break:keep-all; }
