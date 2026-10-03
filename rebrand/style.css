@@ -3000,6 +3000,60 @@ body:not(.silk-mode) .hero-controls {
   line-height: 1.8;
   color: #eee6f7;
 }
+/* Keep the hover surface still while its text lifts, avoiding edge flicker. */
+.studio-services > div {
+  --service-glow: 193 167 242;
+  position: relative;
+  isolation: isolate;
+}
+.studio-services > div:nth-child(2) { --service-glow: 155 191 234; }
+.studio-services > div:nth-child(3) { --service-glow: 203 170 227; }
+.studio-services > div::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -22px -20px;
+  border-radius: 28px;
+  background: radial-gradient(ellipse at 28% 42%, rgb(var(--service-glow) / .20), rgb(var(--service-glow) / .07) 42%, transparent 74%);
+  opacity: 0;
+  transform: translateY(6px) scale(.96);
+  transition: opacity .45s ease, transform .55s cubic-bezier(.16, 1, .3, 1);
+  pointer-events: none;
+}
+.studio-services > div > span,
+.studio-services h3,
+.studio-services p {
+  transition: transform .45s cubic-bezier(.16, 1, .3, 1), color .35s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .studio-services > div:hover::before {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .studio-services > div:hover > span {
+    color: #ddd1ef;
+    transform: translateY(-4px);
+  }
+  .studio-services > div:hover h3 {
+    color: #eee2ff;
+    transform: translate(6px, -4px);
+  }
+  .studio-services > div:hover p {
+    transform: translateY(-4px);
+  }
+}
+.motion-paused .studio-services > div > *,
+.motion-paused .studio-services > div::before {
+  transform: none !important;
+  transition: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-services > div > *,
+  .studio-services > div::before {
+    transform: none !important;
+    transition: none !important;
+  }
+}
 .studio-scope {
   margin-top: 34px;
   max-width: 740px;
