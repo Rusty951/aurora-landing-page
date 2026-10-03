@@ -176,77 +176,18 @@ section {
 .header nav a:hover {
   color: var(--accent);
 }
-/* Adapted from GreyD097: https://uiverse.io/GreyD097/foolish-duck-89
-   MIT license: assets/chrome-button-LICENSE.txt */
 .contact-link {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding: 10px 18px;
-  border: 3px double #a4a5bd;
-  border-radius: 999px;
-  background: linear-gradient(-140deg, #fff 0%, #080910 12%, #171323 36%, #9180c7 48%, #e1dafa 60%, #f0f5fc 74%, #aaa7d9 88%, #f5eeff 100%);
-  box-shadow: 0 0 0 1px #0a0910, 0 2px 3px #ffffff24, 0 7px 18px #08041380, 0 4px 22px #a899d538;
-  color: #fff;
+  padding: 12px 20px;
+  border-radius: 32px;
   font-size: 14px;
   font-weight: 500;
-  text-shadow: 0 1px 3px #000, 0 0 5px #100921;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
   text-align: center;
   white-space: nowrap;
   line-height: 1.4;
   min-height: 48px;
-  transition: box-shadow 0.3s;
-}
-.contact-link::before {
-  content: "";
-  position: absolute;
-  z-index: -2;
-  inset: 1px;
-  border: 1px solid #ffffff7a;
-  border-radius: inherit;
-  background: linear-gradient(5deg, #d4d1e5 0%, #050509 10%, #07070e 37%, #383057 43%, #8a70ab 55%, #c3b8d8 65%, #eef2fc 78%, #d3e9f5 84%, #b8b6dd 92%, #e3d7ff 100%);
-  box-shadow: -1px -1px 1px #fff, inset 0 0 7px #000, inset 3px -3px 2px #0009, inset -4px -2px 2px #ffffff26;
-  background-size: 100% 100%;
-  transition: background-size 0.45s, filter 0.45s;
-  pointer-events: none;
-}
-.contact-link::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 2px;
-  border-radius: inherit;
-  background:
-    linear-gradient(145deg, #ffffff24 0 30%, transparent 30.5%),
-    linear-gradient(32deg, transparent 0 60%, #ffffff1a 60.5% 80%, transparent 80.5%);
-  transition: transform 0.45s;
-  pointer-events: none;
-}
-.contact-link:hover,
-.contact-link:focus-visible {
-  color: #fff;
-  box-shadow: 0 0 0 1px #0a0910, 0 2px 4px #eee6ff55, 0 7px 24px #ad96dc66;
-}
-.contact-link:hover::before,
-.contact-link:focus-visible::before {
-  background-size: 125% 110%;
-  filter: brightness(1.12);
-}
-.contact-link:hover::after { transform: translateX(4px); }
-.contact-link:active::before { filter: brightness(0.85); }
-.contact-link span {
-  font-size: 20px;
-  line-height: 1;
-}
-@media (prefers-reduced-motion: reduce) {
-  .contact-link,
-  .contact-link::before,
-  .contact-link::after { transition: none; }
-  .contact-link:hover::after { transform: none; }
 }
 .experience {
   height: 100svh;
@@ -3316,7 +3257,8 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   }
 }
 
-/* Pale amethyst glass shared by the three action surfaces. */
+/* Pale amethyst glass shared by the action surfaces. */
+.contact-link,
 .silk-mode .hero-discover,
 .contact-action .cta,
 .floating-cta {
@@ -3335,6 +3277,7 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   backdrop-filter: blur(18px) saturate(1.35);
   transition: box-shadow .25s, border-color .25s;
 }
+.contact-link:hover,
 .silk-mode .hero-discover:hover,
 .contact-action .cta:hover,
 .floating-cta:hover {
@@ -3346,7 +3289,12 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
     0 0 24px #c3a0ff33;
 }
 @supports not (backdrop-filter: blur(1px)) {
+  .contact-link,
   .silk-mode .hero-discover,
   .contact-action .cta,
   .floating-cta { background-color: #dcc7f6; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-link { transition: none; }
 }
