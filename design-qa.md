@@ -2,7 +2,7 @@
 
 대표가 지정한 Photo, Concepts, Website와 Product, Food, Dessert, Space, Portrait를 목록의 분류 버튼과 다섯 사진 모음 이름에 적용했다. Dessert의 철자를 교정하고 상세 제목과 확대 제목, 다음 모음 이름과 카탈로그를 맞췄다. 영문 명칭에는 언어 표시를 넣고 한국어 작업 설명과 촬영 및 AI 제작 안내를 보존했다. CSS v21과 work.js v11을 사용한다.
 
-실제 로컬 1440×1024와 390×844에서 명칭과 사진 제목, 가로 넘침 0, 버튼 글자 잘림 없음을 확인했다. 320×844에서 Product와 Dessert의 글자가 버튼 폭을 넘어 분야 선택을 3열 두 줄로 보정했다. 보정 후 Photo와 Concepts의 모든 분야 글자가 잘리지 않고 가로 넘침은 0이다. Website 전환 시 여섯 작품을 표시하고 분야 선택은 숨긴다. Dessert 선택은 사진 여섯 장으로 제한되며 실제 확대 제목은 ‘Dessert / 떡의 형태와 단면’이다. 상세 제목은 Dessert이고 기존 한국어 설명은 유지된다. console 경고와 오류는 없다. 기존 자산과 확대 조작, 문의 및 추적의 검수는 유효한 이전 결과를 재사용한다. 화면은 Desktop codex-output의 `aurora-portfolio-labels-20261003/`에 저장한다. `npm run check`와 `git diff --check`를 통과했다. 카탈로그의 이름 다섯 개 외 이미지와 메타데이터, 경로는 동일하고 다른 상세 40개는 CSS 및 JavaScript 캐시 주소 외 변경이 없다.
+실제 로컬 1440×1024와 390×844에서 명칭과 사진 제목, 가로 넘침 0, 버튼 글자 잘림 없음을 확인했다. 320×844에서 Product와 Dessert의 글자가 버튼 폭을 넘어 분야 선택을 3열 두 줄로 보정했다. 보정 후 Photo와 Concepts의 모든 분야 글자가 잘리지 않고 가로 넘침은 0이다. Website 전환 시 여섯 작품을 표시하고 분야 선택은 숨긴다. Dessert 선택은 사진 여섯 장으로 제한되며 실제 확대 제목은 ‘Dessert / 떡의 형태와 단면’이다. 상세 제목은 Dessert이고 기존 한국어 설명은 유지된다. console 경고와 오류는 없다. 기존 자산과 확대 조작, 문의 및 추적의 검수는 유효한 이전 결과를 재사용한다. 화면은 Desktop codex-output의 `aurora-portfolio-labels-20261003/`에 저장한다. `npm run check`와 `git diff --check`를 통과했다. 카탈로그의 이름 다섯 개 외 이미지와 메타데이터, 경로는 동일하고 다른 상세 40개는 CSS 및 JavaScript 캐시 주소 외 변경이 없다. 구현 커밋 `4c9bde4beb96859cfbe7da119734fa4b63ff67c1`의 Preview `6827716542`가 성공했다. 실제 Preview의 320px 화면에서 세 작업 이름과 여섯 분야 이름, CSS v21과 JavaScript v11, 분야 두 줄과 글자 잘림 및 가로 넘침 없음을 확인했다.
 
 ## 2026-10-03 촬영 사진의 표기 정리
 
