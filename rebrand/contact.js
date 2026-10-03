@@ -5,7 +5,7 @@
   const hero = document.querySelector('.experience');
   const primary = document.getElementById('final-cta-btn') || document.querySelector('.work-cta-link');
   const header = document.querySelector('.header');
-  const gallery = document.querySelector('.work-gallery');
+  const gallery = document.querySelector('.work-gallery, .photography-gallery');
   let scheduled = false;
   const update = () => {
     scheduled = false;

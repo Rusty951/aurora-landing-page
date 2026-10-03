@@ -449,5 +449,670 @@
         "caption": "콘텐츠 적용"
       }
     ]
+  },
+  {
+    "slug": "banana-product",
+    "kind": "representative_created_visual_collection",
+    "source_site": "https://bananabk2425.com/works/product",
+    "source_repo": "Rusty951/bananabk-home-page",
+    "license_scope": "Representative confirmed authorship and reuse on Aurora in this chat, 2026-10-03",
+    "production_method": "Preserved user-created work; no unverified capture or generation method claim",
+    "images": [
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/product-hero-blue.jpg",
+        "source_sha256": "6b82be4d0cd47f86112dbb84a4750c098d5a8d2acf1f8747502d04bb1bceda6f",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/product-01.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "7bf52b983b743bff6615bae5f105fc89d645f6ba67781b3f8c3ba0505b45be30",
+        "caption": "푸른 패키지 비주얼"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/b761728f806cb.jpg",
+        "source_sha256": "d9afc98d6ccecf89f8be8b7fe22a428e2c735e925a03bc61ed08dc6ab60c5a68",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/product-02.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "f7deafb5b4b4315df8043350d3fea761e51677d83dd66efca286bcca2f840560",
+        "caption": "다양한 색의 패키지 연출"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/product-variation-priere-red.jpg",
+        "source_sha256": "2e94c847c3fa66c961a3182c1f278b60cb4d279888826d5185095631979269f9",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/product-03.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "f44abf12373c376cd8ebdbc3434e9a84533144a43eb1a2d6ff52e07284c421ee",
+        "caption": "붉은 패키지와 빛"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/e7e930718b798.jpg",
+        "source_sha256": "dbc163e621370c1acbc3869da59bd54de9fd22e6fa06c1b04b76c432024efb92",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/product-04.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "1b0e627d9012e8893f957a167ca3e3eeb1462d0587d48814c20d087577c4f40b",
+        "caption": "녹색 배경의 패키지"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/product-masterpiece-ceramic.jpg",
+        "source_sha256": "98645f4e869758a5f86e30cacb333dacbf5f95197fbbc2db8fc0fc8af696c5ac",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/product-05.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "2537607deae974c341f5609c8cd506a0ff6748b5a7bb7dc70ed631159d09721c",
+        "caption": "도자기 오브젝트의 형태"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/product-mood-franken.jpg",
+        "source_sha256": "33fb857ee45a14392ddc725fb1525a46eb3866c9335045ba580b363b99ec1dd6",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/product-06.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "e07b863f40e31fb5c0967dbc7e6c7b0e3d581d19c0f86d1bc2f7e51f6e6f2783",
+        "caption": "커피 패키지와 원두"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/2922926e0f3e4.jpg",
+        "source_sha256": "89816c7de4e276562b42a5962d2febf8bf6782c03ca92872803bd8ea8e0f793f",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/product-07.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "e3bbf7eb751e40c3ab4d740f9029c88836f1cb7cbc5fd4eede079eb36eba31a3",
+        "caption": "맥주 캔과 잔의 연출"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/7e7be44c34d16.jpg",
+        "source_sha256": "1a3435378319698c76cdfc93d56b2695180098ba2d0d4f95273961278fa47d11",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/product-08.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "bf9c87cb4e2adc38eaffd472cf5ff975b24ff5bf70aaaa481ef7e44bc112e809",
+        "caption": "구름을 배경으로 한 운동화 비주얼"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/5b0c7a257c3ff.jpg",
+        "source_sha256": "084e85f8e61d47b954243ae323e027b8ac3bdf20ef1ff90546c7995db689a732",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/product-09.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "fe11f800eed65d06d37dbdee7f336e9866a24ffa704ce728d0f115ebe93e79d1",
+        "caption": "컬러 필름 롤의 배열"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/673525724fc5d.jpg",
+        "source_sha256": "9d13357665b97e50dbead3cb9774199d61c04f9ceb0d90dd65dcba0d0c7ef97c",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/product-10.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "543d2cf56abc2fd9a2b7848b942c8fc79b778e3d75b762a924f4cb4526457f29",
+        "caption": "키오스크 제품 이미지"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/4e6df0791a1df.jpg",
+        "source_sha256": "2bbc069d8cc3196ccc19d0ee7757b1545a86a62ecf0d5750ffb016a409347b7b",
+        "source_dimensions": [
+          1920,
+          1439
+        ],
+        "image": "/work/assets/bananablack/product-11.webp",
+        "width": 1800,
+        "height": 1349,
+        "sha256": "21722940951f11b441d5c123efc963ecd4e3118f46108ddd6387f6004480b77f",
+        "caption": "바다를 배경으로 한 헤어드라이어 비주얼"
+      }
+    ]
+  },
+  {
+    "slug": "banana-food",
+    "kind": "representative_created_visual_collection",
+    "source_site": "https://bananabk2425.com/works/food",
+    "source_repo": "Rusty951/bananabk-home-page",
+    "license_scope": "Representative confirmed authorship and reuse on Aurora in this chat, 2026-10-03",
+    "production_method": "Preserved user-created work; no unverified capture or generation method claim",
+    "images": [
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/69349b8668aad.png",
+        "source_sha256": "1e6fd3d2b204383a42f6ff76b4599d69c5ac5af17ee257b524590bc2c057946f",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/food-01.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "aae252c69194866b75d54ac576a84301a84264dcfa93bf29d483b6bbe9650314",
+        "caption": "붉은 배경의 치킨 플래터"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/9656eff2ba869.png",
+        "source_sha256": "2a64b78e51ac7034c44c3c2f8e07b2808617c145c93c59bcb9e384d7d03b5fc0",
+        "source_dimensions": [
+          1920,
+          1439
+        ],
+        "image": "/work/assets/bananablack/food-02.webp",
+        "width": 1800,
+        "height": 1349,
+        "sha256": "c79a46df4b7e6e988648a257d9c3a7441ebccbfd4356eebd0b1b2a371890ffa1",
+        "caption": "포장 용기에 담긴 치킨"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/63531800f2457.jpg",
+        "source_sha256": "b5b784741f62f378a89310ca97b061ea832d18a1fb7fb2a299a7202dbd436658",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/food-03.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "d2be6448bf070874ab8be9a88799fd4ee574a76a2ebcf240c00990a2f5d251c5",
+        "caption": "그릴을 중심으로 한 상차림"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/bf1cf06a47503.jpg",
+        "source_sha256": "ecb995de921513d6d83f010ca70c3866cc7bc86c49ad1a28cf8cbc324f694d89",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/food-04.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "45176fe3a37dc79b9d768285b809d5ea6c02f19e360ba2c4c6d85a7ab7b2d401",
+        "caption": "한식 메뉴와 반찬의 구성"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/934c6ea77e3f8.jpg",
+        "source_sha256": "664c4ed103b0e5dac388b06c1b7eae45803b56b02d2f29231f7deabef8a49642",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/food-05.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "9b83a30fe9be0594158c27797388ead742d9d9b506d9540cf7c9e863898d1760",
+        "caption": "한식 메뉴의 질감과 색감"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/30f11285e0014.jpg",
+        "source_sha256": "d6f2799e91374278035ecf29aa2690a0e476738d9c869f4625bde75451338f16",
+        "source_dimensions": [
+          1920,
+          1439
+        ],
+        "image": "/work/assets/bananablack/food-06.webp",
+        "width": 1800,
+        "height": 1349,
+        "sha256": "530e7702472cfcda0e7f3b445f226d72404a559018c4c4fa9eead0970d190ddf",
+        "caption": "접시에 담긴 해산물"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "c8cccea82aed23b9ded88b9ae76c6ab5567fdec2",
+        "source_path": "images/food-photo/result-02.webp",
+        "source_sha256": "e26ebb2a25526c82550ae650eb9dc4f66c2767bd566267d19be7ff04319a4b52",
+        "source_dimensions": [
+          1000,
+          1000
+        ],
+        "image": "/work/assets/bananablack/food-07.webp",
+        "width": 1000,
+        "height": 1000,
+        "sha256": "6f870a9e5d2f014cabda7ac3c6ae0bc43b913655b483dca14fe5cc9d6a2a82cf",
+        "caption": "밝은 배경의 치킨 플래터"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "c8cccea82aed23b9ded88b9ae76c6ab5567fdec2",
+        "source_path": "images/food-photo/result-04.webp",
+        "source_sha256": "72253925ab2759fd9e0c3f9768ffed16c13e8ada2dec11cb6c85b9e55273653e",
+        "source_dimensions": [
+          1000,
+          750
+        ],
+        "image": "/work/assets/bananablack/food-08.webp",
+        "width": 1000,
+        "height": 750,
+        "sha256": "55562532a39dd6ea4f6793d45ea76ea9c571dd7a2dde352232167a3419e87bd0",
+        "caption": "국물 요리와 반찬"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "c8cccea82aed23b9ded88b9ae76c6ab5567fdec2",
+        "source_path": "images/food-photo/result-06.webp",
+        "source_sha256": "685f97d5deb427dc0eb2afaaeb127bdf921b47fd6c076c51e5d31af34b80f713",
+        "source_dimensions": [
+          1000,
+          750
+        ],
+        "image": "/work/assets/bananablack/food-09.webp",
+        "width": 1000,
+        "height": 750,
+        "sha256": "5fe9f7c1854850a350546b5b8e8bae4820036b29272a15d21b93e99132b6253f",
+        "caption": "테이블 그릴과 매장 상차림"
+      }
+    ]
+  },
+  {
+    "slug": "banana-dessert",
+    "kind": "representative_created_visual_collection",
+    "source_site": "https://bananabk2425.com/works/dessert",
+    "source_repo": "Rusty951/bananabk-home-page",
+    "license_scope": "Representative confirmed authorship and reuse on Aurora in this chat, 2026-10-03",
+    "production_method": "Preserved user-created work; no unverified capture or generation method claim",
+    "images": [
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/8ca1cc9bc0acb.jpg",
+        "source_sha256": "529a13d469cfd5b783010cb86fb3a51c4d8aaaf5e436e21579c027529783cd94",
+        "source_dimensions": [
+          1920,
+          1439
+        ],
+        "image": "/work/assets/bananablack/dessert-01.webp",
+        "width": 1800,
+        "height": 1349,
+        "sha256": "f89822885823bba903dd2bfd6986337fa4975fb11cc86b14c2b64ace99823bcf",
+        "caption": "떡의 형태와 단면"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/1a69e933d1b2d.jpg",
+        "source_sha256": "7aa4ab8a914b4b4b29dafcf53e0396de321f0376cd0c4d9caf27bedc20a56ebe",
+        "source_dimensions": [
+          1920,
+          1281
+        ],
+        "image": "/work/assets/bananablack/dessert-02.webp",
+        "width": 1800,
+        "height": 1201,
+        "sha256": "f8608c41dbbff43c388a197ed5b60bffebf167431b06fce4eeebad3c287bee79",
+        "caption": "다양한 곡물과 재료의 배열"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/ecf139898e382.jpg",
+        "source_sha256": "098d4074d470c4cf9f9d417e62a0261bf3035c0c449c6c7c90c19b5d0aac2e1b",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/dessert-03.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "a7e6e8676f014c91025b330b1f945acfb5e4031e66e8ea6578eb34804cf9ef07",
+        "caption": "여러 맛의 디저트와 패키지"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/a9d9ae41c20c0.jpg",
+        "source_sha256": "a6ebc75b036e454e92f26562d31bff2f45ad5cddc108a36baa38191cf9139d30",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/dessert-04.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "b47bd73a360a356b710b09d7a37ea813926b52952eb4e04b41560f8690b2721f",
+        "caption": "차와 디저트를 함께 담은 장면"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/e6b98a4cba751.jpg",
+        "source_sha256": "a5652728251e1c2ce5965f3b649a987873ea3d3088d861494cd8290f1870fa54",
+        "source_dimensions": [
+          1920,
+          1439
+        ],
+        "image": "/work/assets/bananablack/dessert-05.webp",
+        "width": 1800,
+        "height": 1349,
+        "sha256": "e93c305f8de5938019792466889f3699afc5564d349dcf3d9be55e200ccf4617",
+        "caption": "와플과 음료가 놓인 카페 테이블"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "c8cccea82aed23b9ded88b9ae76c6ab5567fdec2",
+        "source_path": "images/food-photo/result-cafe.jpg",
+        "source_sha256": "467e24b4c7f199c89d7130eab3f0736ca0cbb963952b3bf0b5dda3e882458d8f",
+        "source_dimensions": [
+          1200,
+          899
+        ],
+        "image": "/work/assets/bananablack/dessert-06.webp",
+        "width": 1200,
+        "height": 899,
+        "sha256": "705b8f319dbb10510bc0bc0dca49ff7c5b0abd220577ef68a62c7782419df1a3",
+        "caption": "노란 배경의 커피와 카페 메뉴"
+      }
+    ]
+  },
+  {
+    "slug": "banana-space",
+    "kind": "representative_created_visual_collection",
+    "source_site": "https://bananabk2425.com/works/space",
+    "source_repo": "Rusty951/bananabk-home-page",
+    "license_scope": "Representative confirmed authorship and reuse on Aurora in this chat, 2026-10-03",
+    "production_method": "Preserved user-created work; no unverified capture or generation method claim",
+    "images": [
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/30e31ad2d4316.jpg",
+        "source_sha256": "ac093152aeaead6ec7f0a639271ac2247ea5702fc2c1b611043a3833482fed91",
+        "source_dimensions": [
+          1920,
+          1439
+        ],
+        "image": "/work/assets/bananablack/space-01.webp",
+        "width": 1800,
+        "height": 1349,
+        "sha256": "35ac51ef7eef97762118b170bc8f18ad37f98c3f30502b4d7914a4b4e6a9e066",
+        "caption": "빛이 들어오는 침실"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/24a39a4e2f5ae.jpg",
+        "source_sha256": "c52ce36828c72de4a8dd95075e885718c1b9b354a25757812b97e0afe650980e",
+        "source_dimensions": [
+          1920,
+          1280
+        ],
+        "image": "/work/assets/bananablack/space-02.webp",
+        "width": 1800,
+        "height": 1200,
+        "sha256": "75f291c99a88894a2e908b4170c17bbba0b84a8b50f20b7f67d4322239a5575a",
+        "caption": "짙은 톤의 주방 공간"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/510793a7911f9.jpg",
+        "source_sha256": "572c37f61cdcd0c463e5e42ce3ae6933237a4fb3c40bfe89e1f217090d7f57dd",
+        "source_dimensions": [
+          1920,
+          1440
+        ],
+        "image": "/work/assets/bananablack/space-03.webp",
+        "width": 1800,
+        "height": 1350,
+        "sha256": "a44768c31b74418748943734848e23a9efa8395215609d1d618e181a7a145661",
+        "caption": "나무 소재의 주방과 식탁"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/f0a864cb7da77.jpg",
+        "source_sha256": "ac6918bc4b873322b22d5e1b4d1b5b5a77ba094855f7c660c88f76a4e876c617",
+        "source_dimensions": [
+          1920,
+          1439
+        ],
+        "image": "/work/assets/bananablack/space-04.webp",
+        "width": 1800,
+        "height": 1349,
+        "sha256": "8b26161878edbc9b990b6cc77c7228d2b82137d26404a41f65a6b4fd84f4ab9c",
+        "caption": "푸른 오브젝트가 놓인 공간"
+      }
+    ]
+  },
+  {
+    "slug": "banana-portrait",
+    "kind": "representative_created_visual_collection",
+    "source_site": "https://bananabk2425.com/works/portrait",
+    "source_repo": "Rusty951/bananabk-home-page",
+    "license_scope": "Representative confirmed authorship and reuse on Aurora in this chat, 2026-10-03",
+    "production_method": "Preserved user-created work; no unverified capture or generation method claim",
+    "images": [
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/5cced61b2b11e.jpg",
+        "source_sha256": "f5854e8ec0ac5b80fc21adb27d7b2181fa73c0492be9a6fcc6b8da10944e6b39",
+        "source_dimensions": [
+          1920,
+          2560
+        ],
+        "image": "/work/assets/bananablack/portrait-01.webp",
+        "width": 1350,
+        "height": 1800,
+        "sha256": "0db59ee800492bff40fe5c1d4422860b84ae5b6f0ce5f97704108ed888e9b5ef",
+        "caption": "검은 의상의 인물 포트레이트"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/796e3a3b74406.jpg",
+        "source_sha256": "bafa4dce3751638ba2f7908b38eb864c9c8f696d77fe90d00dbaddcdc71dcd09",
+        "source_dimensions": [
+          1920,
+          2561
+        ],
+        "image": "/work/assets/bananablack/portrait-02.webp",
+        "width": 1349,
+        "height": 1800,
+        "sha256": "6d806148c282cffacbcd1555a172a10a1417f776a6a43a686bf42d946e1983ca",
+        "caption": "얼굴과 손의 포트레이트"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/176e8ab70f8f4.jpg",
+        "source_sha256": "f66a32d79d132f72926320c21288cb0bd30e66bb4553e23017dd158a5dd94b35",
+        "source_dimensions": [
+          1920,
+          2561
+        ],
+        "image": "/work/assets/bananablack/portrait-03.webp",
+        "width": 1349,
+        "height": 1800,
+        "sha256": "348c9708c9a26855edd5e5edd62b988f6ad54c2cbb92e25d37a344b6058d98f8",
+        "caption": "검은 드레스의 인물 포트레이트"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/82e74881dfae6.jpg",
+        "source_sha256": "a48ef79dab8ccdf1ce46a1906992a840258d340b398d1ac874dba93ca4bc2ff2",
+        "source_dimensions": [
+          1920,
+          2561
+        ],
+        "image": "/work/assets/bananablack/portrait-04.webp",
+        "width": 1349,
+        "height": 1800,
+        "sha256": "1c03ae356b79c587472cd734b36df09986bd9dacbd99cebf399aa423d18cdf8d",
+        "caption": "옆모습을 담은 인물 포트레이트"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/8359591716877.jpg",
+        "source_sha256": "f735cbe1891703298811e468107ff7e6440af182be431a8bc66ccc6e3210a0d0",
+        "source_dimensions": [
+          1920,
+          2561
+        ],
+        "image": "/work/assets/bananablack/portrait-05.webp",
+        "width": 1349,
+        "height": 1800,
+        "sha256": "69cf0d7a0d9a04662352ddc660238012bc01695c958ebd66ff454e737a49e221",
+        "caption": "어깨 너머의 시선을 담은 포트레이트"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/6546a4442c998.jpg",
+        "source_sha256": "1a542ed03dbd0a8b263494889c56838a8fa71298dc02e29be63f8ecd37211acb",
+        "source_dimensions": [
+          1920,
+          2559
+        ],
+        "image": "/work/assets/bananablack/portrait-06.webp",
+        "width": 1351,
+        "height": 1800,
+        "sha256": "fb0198d18fa0d5d4d14bf726599aa5c69900cdd585826fe0186a2e30c32d977e",
+        "caption": "검은 의상의 남성 포트레이트"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/a59fe9dc72d08.jpg",
+        "source_sha256": "7e83e0a20c32b918198140ddf51be6a224042dd8edda5576453af4d30fcfe702",
+        "source_dimensions": [
+          1920,
+          2561
+        ],
+        "image": "/work/assets/bananablack/portrait-07.webp",
+        "width": 1349,
+        "height": 1800,
+        "sha256": "3923a5c17dded5e98cf9f8e3b0564f1ba0132797395640747bb644c237201285",
+        "caption": "밝은 의상의 인물 포트레이트"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/ac2c1c5db7e42.jpg",
+        "source_sha256": "ae188eed221928719dbaa24f45c3a4f61488bd18c91c218d6db4e16dcd332790",
+        "source_dimensions": [
+          1920,
+          2559
+        ],
+        "image": "/work/assets/bananablack/portrait-08.webp",
+        "width": 1351,
+        "height": 1800,
+        "sha256": "2657ace8f582d5a10daec55abfb1458e49416b89f59437b13af4bf2b120cd485",
+        "caption": "미소를 담은 인물 포트레이트"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/8e7b633f99313.jpg",
+        "source_sha256": "e389d2799307097c94f8a6ffb39d69602d34022813623464f559c61c5ae0844c",
+        "source_dimensions": [
+          1920,
+          2561
+        ],
+        "image": "/work/assets/bananablack/portrait-09.webp",
+        "width": 1349,
+        "height": 1800,
+        "sha256": "a4ba9cff4c953430d4750933a5477c602cbba0fada31912aa471aa75162cd302",
+        "caption": "색과 스타일을 담은 인물 포트레이트"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/c9e8b27d83e44.jpg",
+        "source_sha256": "f34875cd5e37e97ad1fb4077f88e54b8973ba866b8270d6e199a0636544e9c8c",
+        "source_dimensions": [
+          1920,
+          2561
+        ],
+        "image": "/work/assets/bananablack/portrait-10.webp",
+        "width": 1349,
+        "height": 1800,
+        "sha256": "bbaf4c3fdc69c57fb70c1e35fd775a3c12f1bd512c363f3e194e913d8aa3371f",
+        "caption": "녹색 셔츠의 인물 포트레이트"
+      },
+      {
+        "source_repo": "Rusty951/bananabk-home-page",
+        "source_revision": "b2f6743fe88dfbfd8d8c2a3b4b551d158259d71f",
+        "source_path": "images/works/cae2c6c25bebb.jpg",
+        "source_sha256": "6cc19f20ec6119bbf982b5aaa1058157fb1326d42a77420d06eec84593899e41",
+        "source_dimensions": [
+          1920,
+          2560
+        ],
+        "image": "/work/assets/bananablack/portrait-11.webp",
+        "width": 1350,
+        "height": 1800,
+        "sha256": "0a284191a4418183de4fd81f9390fa4f360238b02be2a95477f17b1d1662d056",
+        "caption": "전신을 담은 인물 포트레이트"
+      }
+    ]
   }
 ]

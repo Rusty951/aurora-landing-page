@@ -193,6 +193,26 @@
     {
       "source": "/work/aurora-character-03",
       "destination": "/work/aurora-character-03/index.html"
+    },
+    {
+      "source": "/work/banana-product",
+      "destination": "/work/banana-product/index.html"
+    },
+    {
+      "source": "/work/banana-food",
+      "destination": "/work/banana-food/index.html"
+    },
+    {
+      "source": "/work/banana-dessert",
+      "destination": "/work/banana-dessert/index.html"
+    },
+    {
+      "source": "/work/banana-space",
+      "destination": "/work/banana-space/index.html"
+    },
+    {
+      "source": "/work/banana-portrait",
+      "destination": "/work/banana-portrait/index.html"
     }
   ],
   "redirects": [

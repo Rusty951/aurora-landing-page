@@ -1,20 +1,24 @@
 (() => {
   const controls = document.querySelector('.work-controls');
-  if (!controls) return;
-  const filters = controls.querySelector('.work-filters');
-  const kindButtons = [...controls.querySelectorAll('.work-kinds button')];
   const cards = [...document.querySelectorAll('.work-card')];
+  const sketches = document.getElementById('work-sketches');
+  const visibleCards = () => cards.filter(card => !card.hidden && (card.dataset.collection !== 'sketch' || sketches?.open));
+  if (controls) {
+  const filterGroups = [...controls.querySelectorAll('.work-filters')];
+  const kindButtons = [...controls.querySelectorAll('.work-kinds button')];
   const count = document.getElementById('work-count');
   const title = document.getElementById('work-section-title');
   const hint = document.getElementById('work-hint');
-  const sketches = document.getElementById('work-sketches');
+  const photography = document.getElementById('work-photography');
   const curated = document.getElementById('work-curated');
   const websites = document.getElementById('work-websites');
   const curatedCount = document.getElementById('work-curated-count');
   const sketchCount = document.getElementById('work-sketch-count');
   const gallery = document.getElementById('gallery');
-  const labels = {images:'광고 이미지와 제품 비주얼', food:'푸드', product:'제품', brand:'브랜드', carousel:'인스타', character:'캐릭터', website:'웹사이트 샘플'};
-  let activeFilter = 'images';
+  const labels = {photography:'사진과 비주얼', 'photo-product':'제품 작업', 'photo-food':'푸드 작업', 'photo-dessert':'디저트 작업', 'photo-space':'공간 작업', 'photo-portrait':'인물 작업', images:'광고 이미지와 제품 비주얼', food:'푸드', product:'제품', brand:'브랜드', carousel:'인스타', character:'캐릭터', website:'웹사이트 샘플'};
+  let activeFilter = 'photography';
+  const isPhotography = value => value === 'photography' || value.startsWith('photo-');
+  const kindOf = value => value === 'website' ? 'website' : isPhotography(value) ? 'photography' : 'images';
   controls.hidden = false;
   const header = document.querySelector('.header');
   const measureControls = () => {
@@ -28,34 +32,45 @@
     observer.observe(controls);
   }
   window.addEventListener('resize', measureControls);
-  const visibleCards = () => cards.filter(card => !card.hidden && (card.dataset.collection !== 'sketch' || sketches.open));
   const updateCount = () => {
     const total = cards.filter(card => !card.hidden).length;
     const visible = visibleCards().length;
-    count.textContent = `${activeFilter === 'website' ? '웹사이트' : '이미지'} ${total}개${visible < total ? ` · ${visible}개 표시, 스케치 ${total - visible}개 접힘` : ''}`;
+    if (isPhotography(activeFilter)) {
+      const images = visibleCards().reduce((sum, card) => sum + Number(card.dataset.imageCount || 0), 0);
+      count.textContent = `사진과 비주얼 ${total}개 모음, ${images}장`;
+    } else {
+      count.textContent = `${activeFilter === 'website' ? '웹사이트' : '이미지'} ${total}개${visible < total ? `, ${visible}개 표시, 스케치 ${total - visible}개 접힘` : ''}`;
+    }
   };
   sketches.addEventListener('toggle', updateCount);
   const applyFilter = (value) => {
-    if (!Object.hasOwn(labels, value)) value = 'images';
+    if (!Object.hasOwn(labels, value)) value = 'photography';
     activeFilter = value;
     const website = value === 'website';
-    kindButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === (website ? 'website' : 'images'))));
-    [...filters.querySelectorAll('button')].forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === value)));
-    filters.hidden = website;
-    cards.forEach(card => { card.hidden = value === 'images' ? card.dataset.category === 'website' : card.dataset.category !== value; });
+    const kind = kindOf(value);
+    kindButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === kind)));
+    filterGroups.forEach(group => {
+      group.hidden = group.dataset.kind !== kind;
+      [...group.querySelectorAll('button')].forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === value)));
+    });
+    cards.forEach(card => {
+      const photo = card.dataset.collection === 'photography';
+      card.hidden = value === 'photography' ? !photo : value === 'images' ? photo || card.dataset.category === 'website' : card.dataset.category !== value;
+    });
     sketches.open = false;
     const matchingSketches = cards.filter(card => !card.hidden && card.dataset.collection === 'sketch').length;
     sketches.hidden = matchingSketches === 0;
-    curated.hidden = website;
+    photography.hidden = kind !== 'photography';
+    curated.hidden = kind !== 'images';
     websites.hidden = !website;
     curatedCount.textContent = cards.filter(card => !card.hidden && card.dataset.collection !== 'sketch').length;
     sketchCount.textContent = matchingSketches;
     updateCount();
     title.textContent = labels[value];
-    hint.textContent = website ? '썸네일을 누르면 샘플 사이트가 새 탭으로 열립니다.' : '이미지를 누르면 더 크게 볼 수 있습니다.' + (matchingSketches > 0 ? ' 콘셉트 스케치는 아래에서 펼쳐볼 수 있습니다.' : '');
+    hint.textContent = website ? '썸네일을 누르면 샘플 사이트가 새 탭으로 열립니다.' : isPhotography(value) ? '모음을 누르면 모든 이미지를 원래 비율로 크게 볼 수 있습니다.' : '이미지를 누르면 더 크게 볼 수 있습니다.' + (matchingSketches > 0 ? ' 콘셉트 스케치는 아래에서 펼쳐볼 수 있습니다.' : '');
     measureControls();
   };
-  const restoreFilter = () => applyFilter(new URL(location.href).searchParams.get('category') || 'images');
+  const restoreFilter = () => applyFilter(new URL(location.href).searchParams.get('category') || 'photography');
   restoreFilter();
   window.addEventListener('popstate', restoreFilter);
   controls.addEventListener('click', (event) => {
@@ -63,17 +78,19 @@
     if (!button || !controls.contains(button)) return;
     applyFilter(button.dataset.filter);
     const url = new URL(location.href);
-    if (button.dataset.filter === 'images') url.searchParams.delete('category');
+    if (button.dataset.filter === 'photography') url.searchParams.delete('category');
     else url.searchParams.set('category', button.dataset.filter);
     history.replaceState(null, '', url);
     window.scrollTo({top:gallery.getBoundingClientRect().top + window.scrollY - (header?.getBoundingClientRect().height || 92), behavior:'instant'});
   });
+  }
   const dialog = document.querySelector('.work-lightbox');
   if (!dialog || typeof dialog.showModal !== 'function') return;
   const image = document.getElementById('work-lightbox-image');
   const imageTitle = document.getElementById('work-lightbox-title');
   const badge = document.getElementById('work-lightbox-badge');
   const detail = document.getElementById('work-lightbox-detail');
+  detail.hidden = !controls;
   const original = document.getElementById('work-lightbox-original');
   const transcript = document.getElementById('work-lightbox-transcript');
   const transcriptText = document.getElementById('work-lightbox-text');
@@ -117,11 +134,13 @@
       showImage(current + (event.key === 'ArrowRight' ? 1 : -1));
     }
   });
-  document.getElementById('work-grid').addEventListener('click', (event) => {
+  const grid = document.getElementById('work-grid') || document.querySelector('.photography-gallery');
+  if (!grid) return;
+  grid.addEventListener('click', (event) => {
     const link = event.target.closest('a[data-full-image]');
     if (!link || event.defaultPrevented || event.button > 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     if (!dialog.isConnected || dialog.open) return;
-    const available = visibleCards().map(card => card.querySelector('a[data-full-image]')).filter(Boolean);
+    const available = controls ? visibleCards().map(card => card.querySelector('a[data-full-image]')).filter(Boolean) : [...grid.querySelectorAll('a[data-full-image]')];
     if (!available.includes(link)) return;
     const fromLink = source => ({source, image:source.dataset.fullImage, alt:source.querySelector('img').alt, title:source.dataset.imageTitle, badge:source.dataset.imageBadge, href:source.href});
     let group = [];

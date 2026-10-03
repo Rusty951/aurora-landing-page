@@ -3,14 +3,21 @@ import {readFileSync,existsSync,statSync,readdirSync} from 'node:fs';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import vm from 'node:vm';
+import {createHash} from 'node:crypto';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const read=p=>readFileSync(resolve(root,p),'utf8');
-const catalog=JSON.parse(read('work/catalog.json'));
+const allCatalog=JSON.parse(read('work/catalog.json'));
+const photoCollections=allCatalog.filter(p=>p.collection==='photography');
+const catalog=allCatalog.filter(p=>p.collection!=='photography');
+assert.equal(allCatalog.length,45);
+assert.equal(photoCollections.length,5);
+assert.equal(photoCollections.reduce((n,p)=>n+p.slides.length,0),41);
+for(const p of photoCollections) assert(read('sitemap.xml').includes(`<loc>https://www.aurorasound.kr/work/${p.slug}</loc>`),'Photo collection in sitemap');
 assert.equal(catalog.length,40);
 assert.equal(new Set(catalog.map(p=>p.slug)).size,40);
 for(const [category,n] of Object.entries({website:6,food:12,product:15,brand:3,carousel:1,character:3})) assert.equal(catalog.filter(p=>p.category===category).length,n,category+' agreed count');
 const config=JSON.parse(read('vercel.json'));
-const pages=['work/index.html',...catalog.map(p=>`work/${p.slug}/index.html`)];
+const pages=['work/index.html',...allCatalog.map(p=>`work/${p.slug}/index.html`)];
 for(const p of pages) {
  const html=read(p);assert.equal((html.match(/<h1\b/g)||[]).length,1,p+' one h1');
  assert(!/rebrand\/app\.js|fbq\(|gtag\(/.test(html),'No conversion or hero runtime in gallery');
@@ -22,42 +29,46 @@ for(const p of pages) {
  const route=p==='work/index.html'?'/work':'/work/'+p.split('/')[1];
  assert(config.rewrites.some(r=>r.source===route&&r.destination==='/'+p),'Production route: '+route);
 }
-assert.equal((read('work/index.html').match(/class="work-card"/g)||[]).length,40);
+assert.equal((read('work/index.html').match(/class="work-card"/g)||[]).length,45);
 assert(!existsSync(resolve(root,'work/demos/client-previews')),'Private client files never copied');
-for(const p of catalog) {
+for(const p of allCatalog) {
  assert(p.width>0&&p.width<20000&&p.height>0&&p.height<30000,'Valid image dimensions');
  assert(existsSync(resolve(root,'.'+p.image)));assert(existsSync(resolve(root,'.'+p.thumb)));
  assert(statSync(resolve(root,'.'+p.thumb)).size<250000,'Gallery thumbnail budget');
  const html=read(`work/${p.slug}/index.html`);
- if(p.category==='website')assert.match(html,/가상 사업체/);
+ if(p.collection==='photography')assert.match(html,/바나나블랙에서 직접 제작한/);
+ else if(p.category==='website')assert.match(html,/가상 사업체/);
  else if(p.slides) assert.match(html,/오로라 자체/);
  else assert.match(html,/AI/);
  if(p.slug.startsWith('bb-'))assert.match(html,/콘셉트 스케치/);
 }
 const sourceFiles=JSON.parse(read('docs/PORTFOLIO-SOURCES.json'));
-assert.equal(sourceFiles.length,40);
+assert.equal(sourceFiles.length,45);
 assert(!sourceFiles.some(p=>/01_original|client-previews/.test(p.source||p.source_directory||'')));
 assert(config.headers.some(r=>r.source==='/work/demos/:path*'&&r.headers.some(h=>h.value==='noindex, nofollow')));
 // Verify the real catalog through both browsing modes and enlargement interactions.
 const gallery = read('work/index.html');
-assert.equal((gallery.match(/data-full-image=/g)||[]).length,34);
+assert.equal((gallery.match(/data-full-image=/g)||[]).length,39);
 assert.equal((gallery.match(/target="_blank" rel="noopener"/g)||[]).length,7,'Six website links plus original image');
 assert.match(gallery,/<dialog class="work-lightbox" aria-labelledby="work-lightbox-title">/);
 for (const p of catalog.filter(p=>p.category==='website')) {
  const card=gallery.match(new RegExp('<article class="work-card"[^>]*data-category="website"[^>]*>.*?href="/work/'+p.slug+'".*?</article>'))?.[0];
  assert(card && /href="\/work\/demos\//.test(card),'Website opens live demo and offers description');
 }
-function browser(start='http://localhost/work',nativeDialog=true,withObserver=false) {
+function browser(start='http://localhost/work?category=images',nativeDialog=true,withObserver=false) {
  const subButtons=['images','product','food','brand','carousel','character'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
- const kinds=['images','website'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
- const links=catalog.map(p=>p.category==='website'?null:{
+ const photoButtons=['photography','photo-product','photo-food','photo-dessert','photo-space','photo-portrait'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
+ const members=[...catalog,...photoCollections];
+ const kinds=['images','website','photography'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
+ const links=members.map(p=>p.category==='website'?null:{
   dataset:{fullImage:p.image,imageTitle:p.subtitle,imageBadge:p.badge,slides:p.slides?JSON.stringify(p.slides):undefined}, href:'http://localhost/work/'+p.slug, isConnected:true, focused:false,
   querySelector:()=>({alt:p.subtitle+' 자체 AI 이미지'}), focus(){this.focused=true;}
  });
- const cards=catalog.map((p,i)=>({dataset:{category:p.category,collection:p.slug.startsWith('bb-')?'sketch':'curated'},hidden:false,querySelector:()=>links[i]}));
- const callbacks={};const filters={hidden:false,querySelectorAll:()=>subButtons};
- const controls={hidden:true,querySelector:()=>filters,querySelectorAll:s=>s.includes('work-kinds')?kinds:[...kinds,...subButtons],contains:b=>[...kinds,...subButtons].includes(b),addEventListener:(e,fn)=>{callbacks[e]=fn;},getBoundingClientRect:()=>({height:104})};
- const ids=['work-count','work-section-title','work-hint','work-sketches','work-curated','work-websites','work-curated-count','work-sketch-count','gallery','work-lightbox-image','work-lightbox-title','work-lightbox-badge','work-lightbox-detail','work-lightbox-original','work-lightbox-transcript','work-lightbox-text','work-lightbox-prev','work-lightbox-next','work-lightbox-position'];
+ const cards=members.map((p,i)=>({dataset:{category:p.category,collection:p.collection==='photography'?'photography':p.slug.startsWith('bb-')?'sketch':'curated',imageCount:p.collection==='photography'?String(p.slides.length):undefined},hidden:false,querySelector:()=>links[i]}));
+ const callbacks={};const filters={dataset:{kind:'images'},hidden:false,querySelectorAll:()=>subButtons};
+ const photoFilters={dataset:{kind:'photography'},hidden:false,querySelectorAll:()=>photoButtons};
+ const controls={hidden:true,querySelector:()=>filters,querySelectorAll:s=>s==='.work-filters'?[filters,photoFilters]:s.includes('work-kinds')?kinds:[...kinds,...subButtons,...photoButtons],contains:b=>[...kinds,...subButtons,...photoButtons].includes(b),addEventListener:(e,fn)=>{callbacks[e]=fn;},getBoundingClientRect:()=>({height:104})};
+ const ids=['work-photography','work-count','work-section-title','work-hint','work-sketches','work-curated','work-websites','work-curated-count','work-sketch-count','gallery','work-lightbox-image','work-lightbox-title','work-lightbox-badge','work-lightbox-detail','work-lightbox-original','work-lightbox-transcript','work-lightbox-text','work-lightbox-prev','work-lightbox-next','work-lightbox-position'];
  const nodes=Object.fromEntries(ids.map(id=>[id,{textContent:'',open:false,hidden:false,events:{},addEventListener(e,fn){this.events[e]=fn;},removeAttribute(k){delete this[k];},getBoundingClientRect:()=>({top:240})}]));
  const grid={addEventListener:(e,fn)=>{callbacks.gridClick=fn;}};nodes['work-grid']=grid;
  const dialogEvents={};const dialog={open:false,isConnected:true,showModal:nativeDialog?function(){this.open=true;}:undefined,close(){this.open=false;dialogEvents.close();},addEventListener:(e,fn)=>{dialogEvents[e]=fn;},getBoundingClientRect:()=>({left:10,top:10,right:100,bottom:100})};
@@ -67,9 +78,9 @@ function browser(start='http://localhost/work',nativeDialog=true,withObserver=fa
  vm.runInNewContext(read('work/work.js'),context);
  const visible=()=>cards.filter(c=>!c.hidden&&(c.dataset.collection!=='sketch'||nodes['work-sketches'].open));
  const expand=()=>{nodes['work-sketches'].open=true;nodes['work-sketches'].events.toggle();};
- return {links,cards,filters,kinds,subButtons,nodes,dialog,dialogEvents,classNames,callbacks,context,pop,controls,visible,expand,styles,header,observed,observerCallback};
+ return {links,cards,filters,photoFilters,photoButtons,kinds,subButtons,nodes,dialog,dialogEvents,classNames,callbacks,context,pop,controls,visible,expand,styles,header,observed,observerCallback};
 }
-const b=browser();assert.equal(b.controls.hidden,false);assert.equal(b.visible().length,16);assert.equal(b.nodes['work-count'].textContent,'이미지 34개 · 16개 표시, 스케치 18개 접힘');
+const b=browser();assert.equal(b.controls.hidden,false);assert.equal(b.visible().length,16);assert.equal(b.nodes['work-count'].textContent,'이미지 34개, 16개 표시, 스케치 18개 접힘');
 assert.equal(b.styles['--work-header-height'],'88px');assert.equal(b.styles['--work-controls-height'],'104px');
 b.header.height=96;b.pop.resize();assert.equal(b.styles['--work-header-height'],'96px','Resize fallback updates sticky offset');
 const observed=browser(undefined,true,true);assert.equal(observed.observed.length,2);observed.header.height=102;observed.observerCallback();assert.equal(observed.styles['--work-header-height'],'102px','Header resizing updates sticky offset');
@@ -82,17 +93,17 @@ for(const [category,total,initial,sketches] of [['website',6,6,0],['food',12,6,6
  assert.equal(b.nodes['work-hint'].textContent.includes('콘셉트 스케치'),sketches>0,'Sketch guidance only accompanies an available sketch group');
  assert.equal(b.nodes['work-hint'].textContent.includes('새 탭'),category==='website','Website guidance follows the selected browsing mode');
  const base=`${category==='website'?'웹사이트':'이미지'} ${total}개`;
- assert.equal(b.nodes['work-count'].textContent,base+(sketches?` · ${initial}개 표시, 스케치 ${sketches}개 접힘`:''));
+ assert.equal(b.nodes['work-count'].textContent,base+(sketches?`, ${initial}개 표시, 스케치 ${sketches}개 접힘`:''));
  assert.equal(b.kinds[0].attrs['aria-pressed'],String(category!=='website'));
  if(sketches){b.expand();assert.equal(b.visible().length,total);assert.equal(b.nodes['work-count'].textContent,base);}
  assert.equal(b.callbacks.scroll.top,144,'New filter returns to gallery below measured header');
 }
-assert(!b.context.location.href.includes('category='));
-for(const [category,n] of Object.entries({website:6,food:6,carousel:1,character:3,unknown:16,all:16})) {
+assert(b.context.location.href.includes('category=images'));
+for(const [category,n] of Object.entries({website:6,food:6,carousel:1,character:3,unknown:5,all:5,photography:5,'photo-product':1,'photo-food':1,'photo-dessert':1,'photo-space':1,'photo-portrait':1})) {
  const state=browser('http://localhost/work?category='+category);assert.equal(state.visible().length,n,'URL state '+category);
 }
 b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.visible().length,6);
-b.context.location.href='http://localhost/work';b.pop.popstate();assert.equal(b.visible().length,16,'History restores collapsed selection');
+b.context.location.href='http://localhost/work?category=images';b.pop.popstate();assert.equal(b.visible().length,16,'History restores collapsed selection');
 const link=b.links.find(Boolean);
 function imageClick(link,extra={}) {let prevented=false;const event={target:{closest:()=>link},button:0,preventDefault(){prevented=true;},...extra};b.callbacks.gridClick(event);return prevented;}
 assert.equal(imageClick(link,{metaKey:true}),false);assert.equal(b.dialog.open,false,'Modified click retains native link');
@@ -125,11 +136,11 @@ assert.match(gallery,/<details class="work-sketches" id="work-sketches"><summary
 assert.match(gallery,/<a id="work-lightbox-original"[^>]*target="_blank"[^>]*rel="noopener"/);
 const cardMarkup=[...gallery.matchAll(/<article class="work-card".*?<\/article>/gs)].map(m=>m[0]);
 const markupOrder=cardMarkup.map(c=>c.match(/href="\/work\/(?!demos\/)([^"/]+)"/)[1]);
-assert.deepEqual(markupOrder,catalog.map(p=>p.slug),'Catalog and visible order match');
+assert.deepEqual(markupOrder,allCatalog.map(p=>p.slug),'Catalog and visible order match');
 assert(catalog.slice(0,12).every(p=>p.category!=='website'&&!p.slug.startsWith('bb-')),'12 finished images first');
 assert(catalog.slice(16,34).every(p=>p.slug.startsWith('bb-')),'18 sketches follow');
 assert(catalog.slice(34).every(p=>p.category==='website'),'6 website samples preserved');
-console.log('Portfolio passed: 40 works, filters, 6 direct demos, 8-slide carousel, 3 character series, previous/next, keyboard, touch gestures, focus and fallback.');
+console.log('Portfolio passed: 45 collections and works, filters, 6 direct demos, 8-slide carousel, 3 character series, previous/next, keyboard, touch gestures, focus and fallback.');
 
 // Real series metadata must match the clickable HTML and static fallback pages.
 const decodeAttr=s=>s.replace(/&quot;/g,'"').replace(/&#x27;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
@@ -185,6 +196,42 @@ select('carousel');carouselLink.dataset.slides='malformed';assert(imageClick(car
 assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 1');assert(b.nodes['work-lightbox-next'].disabled);assert.equal(b.nodes['work-lightbox-transcript'].hidden,true,'Invalid metadata retains safe image fallback');
 b.dialog.close();
 console.log('Series passed: all 17 source images connected, no private paths, static fallback and malformed metadata fallback.');
+
+// The recovered portfolio must stay complete and self-contained, including its
+// static pages when JavaScript or the original site's image service is absent.
+const expectedPhotos={'photo-product':11,'photo-food':9,'photo-dessert':6,'photo-space':4,'photo-portrait':11};
+const destinations=new Set();
+for(const p of photoCollections) {
+ assert.equal(p.slides.length,expectedPhotos[p.category]);
+ const page=read(`work/${p.slug}/index.html`);
+ assert(!/supabase\.co|portrait-private|data-src=/.test(page),'Imported gallery never depends on the source service or private pages');
+ assert.equal((page.match(/data-full-image=/g)||[]).length,p.slides.length,'Every imported image has a static enlargement link');
+ const source=sourceFiles.find(s=>s.slug===p.slug);
+ assert.equal(source.images.length,p.slides.length,'Source inventory and gallery agree');
+ for(const [i,slide] of p.slides.entries()) {
+  assert(!destinations.has(slide.image),'No repeated destination');destinations.add(slide.image);
+  assert(page.includes(`src="${slide.image}"`),'Every recovered image is available without scripting');
+  assert(!/_(?:hero|env|char_[12])\.png$/.test(source.images[i].source_path),'Unused prototype images remain excluded');
+  const bytes=readFileSync(resolve(root,'.'+slide.image));
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),source.images[i].sha256,'Published image matches reviewed import');
+ }
+}
+assert.equal(destinations.size,41);
+const photos=browser('http://localhost/work');
+assert.equal(photos.visible().length,5,'Default portfolio shows the five new collections');
+assert.equal(photos.nodes['work-count'].textContent,'사진과 비주얼 5개 모음, 41장');
+assert.equal(photos.filters.hidden,true);assert.equal(photos.photoFilters.hidden,false);
+const photoLink=photos.links.find(l=>l&&l.href.endsWith('/banana-product'));
+let photoPrevented=false;
+photos.callbacks.gridClick({target:{closest:()=>photoLink},button:0,preventDefault(){photoPrevented=true;}});
+assert(photoPrevented&&photos.dialog.open);
+assert.equal(photos.nodes['work-lightbox-position'].textContent,'1 / 11');
+for(let i=0;i<11;i++)photos.nodes['work-lightbox-next'].events.click();
+assert.equal(photos.nodes['work-lightbox-position'].textContent,'1 / 11','All images are navigable and wrap within the collection');
+photos.dialog.close();assert(photoLink.focused,'Closing returns focus to the collection');
+photos.callbacks.click({target:{closest:()=>photos.photoButtons[0]}});
+assert(!photos.context.location.href.includes('category='),'The default photo view has a clean URL');
+console.log('Banana Black import passed: 41 images, five collections, checksums, static fallback, source isolation and gallery navigation.');
 
 
 // Demo documents must resolve assets at Vercel's canonical URL without a slash.

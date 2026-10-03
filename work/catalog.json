@@ -1,5 +1,372 @@
 [
   {
+    "slug": "banana-product",
+    "title": "제품 작업",
+    "subtitle": "패키지와 오브젝트, 제품의 형태와 재질을 보여주는 제작 작업입니다.",
+    "category": "photo-product",
+    "collection": "photography",
+    "label": "BANANA BLACK / PRODUCT",
+    "image": "/work/assets/bananablack/product-01.webp",
+    "thumb": "/work/assets/bananablack/product-thumb.webp",
+    "badge": "바나나블랙 제작 작업",
+    "width": 1800,
+    "height": 1350,
+    "thumbnail_fit": "contain",
+    "slides": [
+      {
+        "image": "/work/assets/bananablack/product-01.webp",
+        "caption": "푸른 패키지 비주얼",
+        "alt": "바나나블랙 제작 작업, 푸른 패키지 비주얼",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-02.webp",
+        "caption": "다양한 색의 패키지 연출",
+        "alt": "바나나블랙 제작 작업, 다양한 색의 패키지 연출",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-03.webp",
+        "caption": "붉은 패키지와 빛",
+        "alt": "바나나블랙 제작 작업, 붉은 패키지와 빛",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-04.webp",
+        "caption": "녹색 배경의 패키지",
+        "alt": "바나나블랙 제작 작업, 녹색 배경의 패키지",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-05.webp",
+        "caption": "도자기 오브젝트의 형태",
+        "alt": "바나나블랙 제작 작업, 도자기 오브젝트의 형태",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-06.webp",
+        "caption": "커피 패키지와 원두",
+        "alt": "바나나블랙 제작 작업, 커피 패키지와 원두",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-07.webp",
+        "caption": "맥주 캔과 잔의 연출",
+        "alt": "바나나블랙 제작 작업, 맥주 캔과 잔의 연출",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-08.webp",
+        "caption": "구름을 배경으로 한 운동화 비주얼",
+        "alt": "바나나블랙 제작 작업, 구름을 배경으로 한 운동화 비주얼",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-09.webp",
+        "caption": "컬러 필름 롤의 배열",
+        "alt": "바나나블랙 제작 작업, 컬러 필름 롤의 배열",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-10.webp",
+        "caption": "키오스크 제품 이미지",
+        "alt": "바나나블랙 제작 작업, 키오스크 제품 이미지",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-11.webp",
+        "caption": "바다를 배경으로 한 헤어드라이어 비주얼",
+        "alt": "바나나블랙 제작 작업, 바다를 배경으로 한 헤어드라이어 비주얼",
+        "width": 1800,
+        "height": 1349
+      }
+    ]
+  },
+  {
+    "slug": "banana-food",
+    "title": "푸드 작업",
+    "subtitle": "메뉴 단독 사진부터 상차림과 매장 장면까지 담았습니다.",
+    "category": "photo-food",
+    "collection": "photography",
+    "label": "BANANA BLACK / FOOD",
+    "image": "/work/assets/bananablack/food-01.webp",
+    "thumb": "/work/assets/bananablack/food-thumb.webp",
+    "badge": "바나나블랙 제작 작업",
+    "width": 1800,
+    "height": 1350,
+    "thumbnail_fit": "contain",
+    "slides": [
+      {
+        "image": "/work/assets/bananablack/food-01.webp",
+        "caption": "붉은 배경의 치킨 플래터",
+        "alt": "바나나블랙 제작 작업, 붉은 배경의 치킨 플래터",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/food-02.webp",
+        "caption": "포장 용기에 담긴 치킨",
+        "alt": "바나나블랙 제작 작업, 포장 용기에 담긴 치킨",
+        "width": 1800,
+        "height": 1349
+      },
+      {
+        "image": "/work/assets/bananablack/food-03.webp",
+        "caption": "그릴을 중심으로 한 상차림",
+        "alt": "바나나블랙 제작 작업, 그릴을 중심으로 한 상차림",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/food-04.webp",
+        "caption": "한식 메뉴와 반찬의 구성",
+        "alt": "바나나블랙 제작 작업, 한식 메뉴와 반찬의 구성",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/food-05.webp",
+        "caption": "한식 메뉴의 질감과 색감",
+        "alt": "바나나블랙 제작 작업, 한식 메뉴의 질감과 색감",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/food-06.webp",
+        "caption": "접시에 담긴 해산물",
+        "alt": "바나나블랙 제작 작업, 접시에 담긴 해산물",
+        "width": 1800,
+        "height": 1349
+      },
+      {
+        "image": "/work/assets/bananablack/food-07.webp",
+        "caption": "밝은 배경의 치킨 플래터",
+        "alt": "바나나블랙 제작 작업, 밝은 배경의 치킨 플래터",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "image": "/work/assets/bananablack/food-08.webp",
+        "caption": "국물 요리와 반찬",
+        "alt": "바나나블랙 제작 작업, 국물 요리와 반찬",
+        "width": 1000,
+        "height": 750
+      },
+      {
+        "image": "/work/assets/bananablack/food-09.webp",
+        "caption": "테이블 그릴과 매장 상차림",
+        "alt": "바나나블랙 제작 작업, 테이블 그릴과 매장 상차림",
+        "width": 1000,
+        "height": 750
+      }
+    ]
+  },
+  {
+    "slug": "banana-dessert",
+    "title": "디저트 작업",
+    "subtitle": "떡과 재료, 차와 카페 메뉴를 다양한 배경과 빛으로 연출했습니다.",
+    "category": "photo-dessert",
+    "collection": "photography",
+    "label": "BANANA BLACK / DESSERT",
+    "image": "/work/assets/bananablack/dessert-01.webp",
+    "thumb": "/work/assets/bananablack/dessert-thumb.webp",
+    "badge": "바나나블랙 제작 작업",
+    "width": 1800,
+    "height": 1349,
+    "thumbnail_fit": "contain",
+    "slides": [
+      {
+        "image": "/work/assets/bananablack/dessert-01.webp",
+        "caption": "떡의 형태와 단면",
+        "alt": "바나나블랙 제작 작업, 떡의 형태와 단면",
+        "width": 1800,
+        "height": 1349
+      },
+      {
+        "image": "/work/assets/bananablack/dessert-02.webp",
+        "caption": "다양한 곡물과 재료의 배열",
+        "alt": "바나나블랙 제작 작업, 다양한 곡물과 재료의 배열",
+        "width": 1800,
+        "height": 1201
+      },
+      {
+        "image": "/work/assets/bananablack/dessert-03.webp",
+        "caption": "여러 맛의 디저트와 패키지",
+        "alt": "바나나블랙 제작 작업, 여러 맛의 디저트와 패키지",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/dessert-04.webp",
+        "caption": "차와 디저트를 함께 담은 장면",
+        "alt": "바나나블랙 제작 작업, 차와 디저트를 함께 담은 장면",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/dessert-05.webp",
+        "caption": "와플과 음료가 놓인 카페 테이블",
+        "alt": "바나나블랙 제작 작업, 와플과 음료가 놓인 카페 테이블",
+        "width": 1800,
+        "height": 1349
+      },
+      {
+        "image": "/work/assets/bananablack/dessert-06.webp",
+        "caption": "노란 배경의 커피와 카페 메뉴",
+        "alt": "바나나블랙 제작 작업, 노란 배경의 커피와 카페 메뉴",
+        "width": 1200,
+        "height": 899
+      }
+    ]
+  },
+  {
+    "slug": "banana-space",
+    "title": "공간 작업",
+    "subtitle": "주거 공간과 주방, 오브젝트가 놓인 공간의 분위기를 담았습니다.",
+    "category": "photo-space",
+    "collection": "photography",
+    "label": "BANANA BLACK / SPACE",
+    "image": "/work/assets/bananablack/space-01.webp",
+    "thumb": "/work/assets/bananablack/space-thumb.webp",
+    "badge": "바나나블랙 제작 작업",
+    "width": 1800,
+    "height": 1349,
+    "thumbnail_fit": "contain",
+    "slides": [
+      {
+        "image": "/work/assets/bananablack/space-01.webp",
+        "caption": "빛이 들어오는 침실",
+        "alt": "바나나블랙 제작 작업, 빛이 들어오는 침실",
+        "width": 1800,
+        "height": 1349
+      },
+      {
+        "image": "/work/assets/bananablack/space-02.webp",
+        "caption": "짙은 톤의 주방 공간",
+        "alt": "바나나블랙 제작 작업, 짙은 톤의 주방 공간",
+        "width": 1800,
+        "height": 1200
+      },
+      {
+        "image": "/work/assets/bananablack/space-03.webp",
+        "caption": "나무 소재의 주방과 식탁",
+        "alt": "바나나블랙 제작 작업, 나무 소재의 주방과 식탁",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/space-04.webp",
+        "caption": "푸른 오브젝트가 놓인 공간",
+        "alt": "바나나블랙 제작 작업, 푸른 오브젝트가 놓인 공간",
+        "width": 1800,
+        "height": 1349
+      }
+    ]
+  },
+  {
+    "slug": "banana-portrait",
+    "title": "인물 작업",
+    "subtitle": "얼굴의 표정과 상반신, 전신을 담은 인물 작업입니다.",
+    "category": "photo-portrait",
+    "collection": "photography",
+    "label": "BANANA BLACK / PORTRAIT",
+    "image": "/work/assets/bananablack/portrait-01.webp",
+    "thumb": "/work/assets/bananablack/portrait-thumb.webp",
+    "badge": "바나나블랙 제작 작업",
+    "width": 1350,
+    "height": 1800,
+    "thumbnail_fit": "contain",
+    "slides": [
+      {
+        "image": "/work/assets/bananablack/portrait-01.webp",
+        "caption": "검은 의상의 인물 포트레이트",
+        "alt": "바나나블랙 제작 작업, 검은 의상의 인물 포트레이트",
+        "width": 1350,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-02.webp",
+        "caption": "얼굴과 손의 포트레이트",
+        "alt": "바나나블랙 제작 작업, 얼굴과 손의 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-03.webp",
+        "caption": "검은 드레스의 인물 포트레이트",
+        "alt": "바나나블랙 제작 작업, 검은 드레스의 인물 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-04.webp",
+        "caption": "옆모습을 담은 인물 포트레이트",
+        "alt": "바나나블랙 제작 작업, 옆모습을 담은 인물 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-05.webp",
+        "caption": "어깨 너머의 시선을 담은 포트레이트",
+        "alt": "바나나블랙 제작 작업, 어깨 너머의 시선을 담은 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-06.webp",
+        "caption": "검은 의상의 남성 포트레이트",
+        "alt": "바나나블랙 제작 작업, 검은 의상의 남성 포트레이트",
+        "width": 1351,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-07.webp",
+        "caption": "밝은 의상의 인물 포트레이트",
+        "alt": "바나나블랙 제작 작업, 밝은 의상의 인물 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-08.webp",
+        "caption": "미소를 담은 인물 포트레이트",
+        "alt": "바나나블랙 제작 작업, 미소를 담은 인물 포트레이트",
+        "width": 1351,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-09.webp",
+        "caption": "색과 스타일을 담은 인물 포트레이트",
+        "alt": "바나나블랙 제작 작업, 색과 스타일을 담은 인물 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-10.webp",
+        "caption": "녹색 셔츠의 인물 포트레이트",
+        "alt": "바나나블랙 제작 작업, 녹색 셔츠의 인물 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-11.webp",
+        "caption": "전신을 담은 인물 포트레이트",
+        "alt": "바나나블랙 제작 작업, 전신을 담은 인물 포트레이트",
+        "width": 1350,
+        "height": 1800
+      }
+    ]
+  },
+  {
     "slug": "veil",
     "title": "VEIL",
     "subtitle": "부드러움을 빛으로",
