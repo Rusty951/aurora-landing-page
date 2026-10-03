@@ -36,7 +36,10 @@ for(const p of allCatalog) {
  assert(existsSync(resolve(root,'.'+p.image)));assert(existsSync(resolve(root,'.'+p.thumb)));
  assert(statSync(resolve(root,'.'+p.thumb)).size<250000,'Gallery thumbnail budget');
  const html=read(`work/${p.slug}/index.html`);
- if(p.collection==='photography')assert.match(html,/바나나블랙에서 직접 제작한/);
+ if(p.collection==='photography') {
+  assert.match(html,/직접 촬영한/);
+  assert(!/바나나블랙|BANANA BLACK|Banana Black/.test(html),'No production-brand attribution on photographs');
+ }
  else if(p.category==='website')assert.match(html,/가상 사업체/);
  else if(p.slides) assert.match(html,/오로라 자체/);
  else assert.match(html,/AI/);
