@@ -2308,6 +2308,18 @@ body:not(.enhanced) .resonate-trigger {
   line-height: 1.7;
   color: #756e80;
 }
+.showcase-note.showcase-message {
+  font-family: "Asta Sans", var(--sans);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: -0.025em;
+  color: #312b3b;
+}
+.showcase-message > span { display: inline-block; }
+@media (max-width: 700px) {
+  .showcase-note.showcase-message { font-size: 16px; }
+}
 .studio {
   padding: 85px var(--gutter) 90px;
   background: #0d0e14;
