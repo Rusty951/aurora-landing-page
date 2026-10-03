@@ -23,8 +23,8 @@
   const update = () => {
     frame = 0;
     if (!active || section.hidden || document.hidden) return;
-    cards.forEach((card, index) => {
-      if (!desktop.matches || card.contains(document.activeElement)) {
+    cards.forEach(card => {
+      if (card.hidden || !desktop.matches || card.contains(document.activeElement)) {
         resetDrift(card);
         return;
       }
@@ -34,7 +34,7 @@
       // Subtract the previous translation so repeated frames do not feed back.
       const center = rect.top - (drift.get(card) || 0) + rect.height / 2;
       const progress = Math.max(-1, Math.min(1, (center - window.innerHeight / 2) / (window.innerHeight * .65)));
-      const distance = index % 2 ? Math.min(56, window.innerWidth * .035) : 14;
+      const distance = card.dataset.websiteColumn === 'right' ? Math.min(56, window.innerWidth * .035) : 14;
       const amount = progress * distance;
       drift.set(card, amount);
       card.style.setProperty('--work-drift', `${amount.toFixed(2)}px`);
@@ -53,7 +53,7 @@
       {opacity:1, transform:desktop.matches ? 'perspective(1000px) translateY(0) rotateX(0) scale(1)' : 'translateY(0)'}
     ], {
       duration:desktop.matches ? 720 : 480,
-      delay:desktop.matches && cards.indexOf(card) % 2 ? 100 : 0,
+      delay:desktop.matches && card.dataset.websiteColumn === 'right' ? 100 : 0,
       easing:'cubic-bezier(.22,1,.36,1)'
     });
     animations.set(card, animation);
@@ -83,6 +83,11 @@
   };
   window.addEventListener('scroll', schedule, {passive:true});
   window.addEventListener('resize', schedule, {passive:true});
+  window.addEventListener('work:filterchange', () => {
+    cancelAnimations();
+    cards.forEach(resetDrift);
+    schedule();
+  });
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) cancelAnimations();
     else schedule();

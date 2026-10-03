@@ -12,13 +12,16 @@
   const photography = document.getElementById('work-photography');
   const curated = document.getElementById('work-curated');
   const websites = document.getElementById('work-websites');
+  const websiteTitle = document.getElementById('work-websites-title');
+  const websiteEmpty = document.getElementById('work-website-empty');
   const curatedCount = document.getElementById('work-curated-count');
   const sketchCount = document.getElementById('work-sketch-count');
   const gallery = document.getElementById('gallery');
-  const labels = {photography:'Photo', 'photo-product':'Product', 'photo-food':'Food', 'photo-dessert':'Dessert', 'photo-space':'Space', 'photo-portrait':'Portrait', images:'Concepts', food:'Food', product:'Product', brand:'Brand', carousel:'Instagram', character:'Character', website:'Website'};
+  const labels = {photography:'Photo', 'photo-product':'Product', 'photo-food':'Food', 'photo-dessert':'Dessert', 'photo-space':'Space', 'photo-portrait':'Portrait', images:'Concepts', food:'Food', product:'Product', brand:'Brand', carousel:'Instagram', character:'Character', website:'Website', 'website-signature':'Signature', 'website-essential':'Essential'};
   let activeFilter = 'photography';
   const isPhotography = value => value === 'photography' || value.startsWith('photo-');
-  const kindOf = value => value === 'website' ? 'website' : isPhotography(value) ? 'photography' : 'images';
+  const isWebsite = value => value === 'website' || value.startsWith('website-');
+  const kindOf = value => isWebsite(value) ? 'website' : isPhotography(value) ? 'photography' : 'images';
   controls.hidden = false;
   const header = document.querySelector('.header');
   const measureControls = () => {
@@ -39,14 +42,15 @@
       const images = visibleCards().reduce((sum, card) => sum + Number(card.dataset.imageCount || 0), 0);
       count.textContent = `사진과 비주얼 ${total}개 모음, ${images}장`;
     } else {
-      count.textContent = `${activeFilter === 'website' ? '웹사이트' : '이미지'} ${total}개${visible < total ? `, ${visible}개 표시, 스케치 ${total - visible}개 접힘` : ''}`;
+      count.textContent = `${isWebsite(activeFilter) ? labels[activeFilter] + ' 웹사이트' : '이미지'} ${total}개${visible < total ? `, ${visible}개 표시, 스케치 ${total - visible}개 접힘` : ''}`;
     }
   };
   sketches.addEventListener('toggle', updateCount);
   const applyFilter = (value) => {
     if (!Object.hasOwn(labels, value)) value = 'photography';
+    if (value === 'website') value = 'website-signature';
     activeFilter = value;
-    const website = value === 'website';
+    const website = isWebsite(value);
     const kind = kindOf(value);
     kindButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === kind)));
     filterGroups.forEach(group => {
@@ -55,8 +59,12 @@
     });
     cards.forEach(card => {
       const photo = card.dataset.collection === 'photography';
-      card.hidden = value === 'photography' ? !photo : value === 'images' ? photo || card.dataset.category === 'website' : card.dataset.category !== value;
+      card.hidden = website ? card.dataset.category !== 'website' || (card.dataset.websiteTier || 'signature') !== value.slice(8) : value === 'photography' ? !photo : value === 'images' ? photo || card.dataset.category === 'website' : card.dataset.category !== value;
     });
+    const selectedWebsites = cards.filter(card => !card.hidden && card.dataset.category === 'website');
+    selectedWebsites.forEach((card, index) => { card.dataset.websiteColumn = index % 2 ? 'right' : 'left'; });
+    websiteEmpty.hidden = !website || selectedWebsites.length > 0;
+    websiteTitle.textContent = website ? labels[value] + (selectedWebsites.length ? ` ${selectedWebsites.length}` : '') : '웹사이트 샘플';
     sketches.open = false;
     const matchingSketches = cards.filter(card => !card.hidden && card.dataset.collection === 'sketch').length;
     sketches.hidden = matchingSketches === 0;
@@ -66,9 +74,10 @@
     curatedCount.textContent = cards.filter(card => !card.hidden && card.dataset.collection !== 'sketch').length;
     sketchCount.textContent = matchingSketches;
     updateCount();
-    title.textContent = labels[value];
-    hint.textContent = website ? '썸네일을 누르면 샘플 사이트가 새 탭으로 열립니다.' : isPhotography(value) ? '모음을 누르면 모든 이미지를 원래 비율로 크게 볼 수 있습니다.' : '이미지를 누르면 더 크게 볼 수 있습니다.' + (matchingSketches > 0 ? ' 콘셉트 스케치는 아래에서 펼쳐볼 수 있습니다.' : '');
+    title.textContent = website ? `Website / ${labels[value]}` : labels[value];
+    hint.textContent = website ? (selectedWebsites.length ? '썸네일을 누르면 샘플 사이트가 새 탭으로 열립니다.' : '새로운 웹사이트를 준비하고 있습니다.') : isPhotography(value) ? '모음을 누르면 모든 이미지를 원래 비율로 크게 볼 수 있습니다.' : '이미지를 누르면 더 크게 볼 수 있습니다.' + (matchingSketches > 0 ? ' 콘셉트 스케치는 아래에서 펼쳐볼 수 있습니다.' : '');
     measureControls();
+    window.dispatchEvent(new Event('work:filterchange'));
   };
   const restoreFilter = () => applyFilter(new URL(location.href).searchParams.get('category') || 'photography');
   restoreFilter();
@@ -79,7 +88,7 @@
     applyFilter(button.dataset.filter);
     const url = new URL(location.href);
     if (button.dataset.filter === 'photography') url.searchParams.delete('category');
-    else url.searchParams.set('category', button.dataset.filter);
+    else url.searchParams.set('category', button.dataset.filter === 'website-signature' ? 'website' : button.dataset.filter);
     history.replaceState(null, '', url);
     window.scrollTo({top:gallery.getBoundingClientRect().top + window.scrollY - (header?.getBoundingClientRect().height || 92), behavior:'instant'});
   });

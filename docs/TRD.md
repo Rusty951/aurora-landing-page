@@ -1,3 +1,11 @@
+## 2026-10-04 웹사이트 유형 자리와 선택 상태
+
+웹사이트 필터는 `website-signature`와 `website-essential`이다. 기존 `category=website` 진입은 Signature로 해석하며 Signature 버튼은 이 주소를 유지한다. Essential은 `category=website-essential`로 새로고침과 popstate에서 복원한다. 선택은 aria-pressed, 목록 제목 및 상태 안내에 반영하고 Photo와 Concepts의 버튼을 노출하지 않는다.
+
+작품의 `data-website-tier`는 다음 리뉴얼 연결 시 지정한다. 이번에는 원본과 카탈로그 변경 없이 미지정 기존 여섯 카드를 첫 자리에 유지한다. 비어 있는 목록에서는 `work-website-empty`를 표시하며 작품이 연결되면 숨긴다. 실제 보이는 카드 순서에 따라 `data-website-column`을 지정하고 `work:filterchange` 이벤트에서 이전 이동을 초기화한다. 해당 열을 기준으로 기존 높낮이와 스크롤 모션을 유지한다. 정적 대체 목록과 prefers-reduced-motion은 보존한다.
+
+스타일 v23과 갤러리 JavaScript v12는 46개 공개 포트폴리오 문서에서, 모션 v3은 목록에서 로드한다. `check-work.mjs`는 기존 주소 호환, 두 자리의 선택과 빈 상태, 새로고침, 앞으로 연결할 작품의 분리와 보이는 열의 리듬을 검증한다. 광고와 문의 및 추적 계약은 변경하지 않는다.
+
 ## 2026-10-03 1차 기준본의 기술 계약
 
 운영 교체가 승인된 1차본은 현재 실크 renderer만 사용한다. rebrand/app.js v7은 silk.js v3을 로드하며 render=mesh로 이전 실험을 열지 않는다. 이전 rebrand/index.html과 루트 style.css, script.js, field.js 및 Three.js vendor와 캡처를 제거했다. package와 검사도 현재 운영 문서와 실크, 재생, 추적과 포트폴리오만 소비한다. 광고와 오가닉 조건, 정적 대체 이미지와 재생 상태, 공유 이미지 제작에 필요한 wave 자산은 유지한다.

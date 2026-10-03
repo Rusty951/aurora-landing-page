@@ -58,30 +58,32 @@ for (const p of catalog.filter(p=>p.category==='website')) {
  const card=gallery.match(new RegExp('<article class="work-card"[^>]*data-category="website"[^>]*>.*?href="/work/'+p.slug+'".*?</article>'))?.[0];
  assert(card && /href="\/work\/demos\//.test(card),'Website opens live demo and offers description');
 }
-function browser(start='http://localhost/work?category=images',nativeDialog=true,withObserver=false) {
+function browser(start='http://localhost/work?category=images',nativeDialog=true,withObserver=false,websiteTiers={}) {
  const subButtons=['images','product','food','brand','carousel','character'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
  const photoButtons=['photography','photo-product','photo-food','photo-dessert','photo-space','photo-portrait'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
+ const websiteButtons=['website-signature','website-essential'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
  const members=[...catalog,...photoCollections];
  const kinds=['images','website','photography'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
  const links=members.map(p=>p.category==='website'?null:{
   dataset:{fullImage:p.image,imageTitle:p.subtitle,imageBadge:p.badge,slides:p.slides?JSON.stringify(p.slides):undefined}, href:'http://localhost/work/'+p.slug, isConnected:true, focused:false,
   querySelector:()=>({alt:p.subtitle+' 자체 AI 이미지'}), focus(){this.focused=true;}
  });
- const cards=members.map((p,i)=>({dataset:{category:p.category,collection:p.collection==='photography'?'photography':p.slug.startsWith('bb-')?'sketch':'curated',imageCount:p.collection==='photography'?String(p.slides.length):undefined},hidden:false,querySelector:()=>links[i]}));
+ const cards=members.map((p,i)=>({dataset:{category:p.category,websiteTier:websiteTiers[p.slug],collection:p.collection==='photography'?'photography':p.slug.startsWith('bb-')?'sketch':'curated',imageCount:p.collection==='photography'?String(p.slides.length):undefined},hidden:false,querySelector:()=>links[i]}));
  const callbacks={};const filters={dataset:{kind:'images'},hidden:false,querySelectorAll:()=>subButtons};
  const photoFilters={dataset:{kind:'photography'},hidden:false,querySelectorAll:()=>photoButtons};
- const controls={hidden:true,querySelector:()=>filters,querySelectorAll:s=>s==='.work-filters'?[filters,photoFilters]:s.includes('work-kinds')?kinds:[...kinds,...subButtons,...photoButtons],contains:b=>[...kinds,...subButtons,...photoButtons].includes(b),addEventListener:(e,fn)=>{callbacks[e]=fn;},getBoundingClientRect:()=>({height:104})};
- const ids=['work-photography','work-count','work-section-title','work-hint','work-sketches','work-curated','work-websites','work-curated-count','work-sketch-count','gallery','work-lightbox-image','work-lightbox-title','work-lightbox-badge','work-lightbox-detail','work-lightbox-original','work-lightbox-transcript','work-lightbox-text','work-lightbox-prev','work-lightbox-next','work-lightbox-position'];
+ const websiteFilters={dataset:{kind:'website'},hidden:false,querySelectorAll:()=>websiteButtons};
+ const controls={hidden:true,querySelector:()=>filters,querySelectorAll:s=>s==='.work-filters'?[filters,photoFilters,websiteFilters]:s.includes('work-kinds')?kinds:[...kinds,...subButtons,...photoButtons,...websiteButtons],contains:b=>[...kinds,...subButtons,...photoButtons,...websiteButtons].includes(b),addEventListener:(e,fn)=>{callbacks[e]=fn;},getBoundingClientRect:()=>({height:104})};
+ const ids=['work-photography','work-count','work-section-title','work-hint','work-sketches','work-curated','work-websites','work-websites-title','work-website-empty','work-curated-count','work-sketch-count','gallery','work-lightbox-image','work-lightbox-title','work-lightbox-badge','work-lightbox-detail','work-lightbox-original','work-lightbox-transcript','work-lightbox-text','work-lightbox-prev','work-lightbox-next','work-lightbox-position'];
  const nodes=Object.fromEntries(ids.map(id=>[id,{textContent:'',open:false,hidden:false,events:{},addEventListener(e,fn){this.events[e]=fn;},removeAttribute(k){delete this[k];},getBoundingClientRect:()=>({top:240})}]));
  const grid={addEventListener:(e,fn)=>{callbacks.gridClick=fn;}};nodes['work-grid']=grid;
  const dialogEvents={};const dialog={open:false,isConnected:true,showModal:nativeDialog?function(){this.open=true;}:undefined,close(){this.open=false;dialogEvents.close();},addEventListener:(e,fn)=>{dialogEvents[e]=fn;},getBoundingClientRect:()=>({left:10,top:10,right:100,bottom:100})};
  const classNames=new Set();const pop={};const styles={};const header={height:88,getBoundingClientRect(){return{height:this.height};}};const observed=[];let observerCallback;
- const context={document:{querySelector:s=>s==='.work-controls'?controls:s==='.header'?header:dialog,querySelectorAll:()=>cards,getElementById:id=>nodes[id],body:{style:{setProperty:(k,v)=>{styles[k]=v;}},classList:{add:v=>classNames.add(v),remove:v=>classNames.delete(v)}}},window:{scrollY:0,scrollTo:v=>{callbacks.scroll=v;},addEventListener:(e,fn)=>{pop[e]=fn;}},location:{href:start},URL,history:{replaceState:(s,t,u)=>{context.location.href=u.href;}}};
+ const context={document:{querySelector:s=>s==='.work-controls'?controls:s==='.header'?header:dialog,querySelectorAll:()=>cards,getElementById:id=>nodes[id],body:{style:{setProperty:(k,v)=>{styles[k]=v;}},classList:{add:v=>classNames.add(v),remove:v=>classNames.delete(v)}}},window:{scrollY:0,scrollTo:v=>{callbacks.scroll=v;},addEventListener:(e,fn)=>{pop[e]=fn;},dispatchEvent:event=>{pop[event.type]?.(event);}},location:{href:start},URL,Event,history:{replaceState:(s,t,u)=>{context.location.href=u.href;}}};
  if(withObserver)context.ResizeObserver=class {constructor(cb){observerCallback=cb;}observe(node){observed.push(node);}};
  vm.runInNewContext(read('work/work.js'),context);
  const visible=()=>cards.filter(c=>!c.hidden&&(c.dataset.collection!=='sketch'||nodes['work-sketches'].open));
  const expand=()=>{nodes['work-sketches'].open=true;nodes['work-sketches'].events.toggle();};
- return {links,cards,filters,photoFilters,photoButtons,kinds,subButtons,nodes,dialog,dialogEvents,classNames,callbacks,context,pop,controls,visible,expand,styles,header,observed,observerCallback};
+ return {links,cards,filters,photoFilters,photoButtons,websiteFilters,websiteButtons,kinds,subButtons,nodes,dialog,dialogEvents,classNames,callbacks,context,pop,controls,visible,expand,styles,header,observed,observerCallback};
 }
 const b=browser();assert.equal(b.controls.hidden,false);assert.equal(b.visible().length,16);assert.equal(b.nodes['work-count'].textContent,'이미지 34개, 16개 표시, 스케치 18개 접힘');
 assert.equal(b.styles['--work-header-height'],'88px');assert.equal(b.styles['--work-controls-height'],'104px');
@@ -95,7 +97,7 @@ for(const [category,total,initial,sketches] of [['website',6,6,0],['food',12,6,6
  assert.equal(b.nodes['work-sketch-count'].textContent,sketches);assert.equal(b.nodes['work-curated-count'].textContent,initial);
  assert.equal(b.nodes['work-hint'].textContent.includes('콘셉트 스케치'),sketches>0,'Sketch guidance only accompanies an available sketch group');
  assert.equal(b.nodes['work-hint'].textContent.includes('새 탭'),category==='website','Website guidance follows the selected browsing mode');
- const base=`${category==='website'?'웹사이트':'이미지'} ${total}개`;
+ const base=`${category==='website'?'Signature 웹사이트':'이미지'} ${total}개`;
  assert.equal(b.nodes['work-count'].textContent,base+(sketches?`, ${initial}개 표시, 스케치 ${sketches}개 접힘`:''));
  assert.equal(b.kinds[0].attrs['aria-pressed'],String(category!=='website'));
  if(sketches){b.expand();assert.equal(b.visible().length,total);assert.equal(b.nodes['work-count'].textContent,base);}
@@ -107,6 +109,35 @@ for(const [category,n] of Object.entries({website:6,food:6,carousel:1,character:
 }
 b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.visible().length,6);
 b.context.location.href='http://localhost/work?category=images';b.pop.popstate();assert.equal(b.visible().length,16,'History restores collapsed selection');
+// Website places preserve existing work and support independent future assignments.
+const websitePlaces=browser('http://localhost/work?category=website');
+assert.equal(websitePlaces.websiteFilters.hidden,false);
+assert.equal(websitePlaces.websiteButtons[0].attrs['aria-pressed'],'true');
+assert.equal(websitePlaces.nodes['work-website-empty'].hidden,true);
+websitePlaces.callbacks.click({target:{closest:()=>websitePlaces.websiteButtons[1]}});
+assert.equal(websitePlaces.visible().length,0,'Essential is an empty place until renewal is connected');
+assert.equal(websitePlaces.nodes['work-website-empty'].hidden,false);
+assert.equal(websitePlaces.nodes['work-websites'].hidden,false);
+assert.equal(websitePlaces.nodes['work-section-title'].textContent,'Website / Essential');
+assert.equal(websitePlaces.nodes['work-count'].textContent,'Essential 웹사이트 0개');
+assert.equal(websitePlaces.kinds.find(b=>b.dataset.filter==='website').attrs['aria-pressed'],'true');
+assert(websitePlaces.context.location.href.endsWith('category=website-essential'));
+const restoredEssential=browser(websitePlaces.context.location.href);
+assert.equal(restoredEssential.nodes['work-website-empty'].hidden,false,'Refresh preserves Essential');
+websitePlaces.callbacks.click({target:{closest:()=>websitePlaces.kinds.find(b=>b.dataset.filter==='website')}});
+assert.equal(websitePlaces.visible().length,6,'Website entry defaults to the existing Signature place');
+assert(websitePlaces.context.location.href.endsWith('category=website'));
+const futurePlaces=browser('http://localhost/work?category=website',true,false,{'website-moseori':'essential'});
+assert.equal(futurePlaces.visible().length,5,'Assigned Essential work cannot leak into Signature');
+assert.deepEqual(futurePlaces.visible().map(c=>c.dataset.websiteColumn),['left','right','left','right','left'],'Stagger follows visible columns after filtering');
+futurePlaces.callbacks.click({target:{closest:()=>futurePlaces.websiteButtons[1]}});
+assert.equal(futurePlaces.visible().length,1);
+assert.equal(futurePlaces.nodes['work-website-empty'].hidden,true,'Connected work replaces the empty place');
+assert.equal(futurePlaces.visible()[0].dataset.websiteColumn,'left');
+assert.match(gallery,/<div class="work-filters work-website-filters"[^>]*data-kind="website"[^>]*hidden>/);
+assert.equal((gallery.match(/data-filter="website-(?:signature|essential)"/g)||[]).length,2);
+assert(!gallery.includes('data-filter="website-all"'),'No combined website view');
+
 const link=b.links.find(Boolean);
 function imageClick(link,extra={}) {let prevented=false;const event={target:{closest:()=>link},button:0,preventDefault(){prevented=true;},...extra};b.callbacks.gridClick(event);return prevented;}
 assert.equal(imageClick(link,{metaKey:true}),false);assert.equal(b.dialog.open,false,'Modified click retains native link');

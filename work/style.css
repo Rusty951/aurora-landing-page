@@ -109,7 +109,7 @@
     align-items:start;
     padding-bottom:var(--work-column-offset);
   }
-  #work-websites>.work-grid>.work-card:nth-child(even) {
+  #work-websites>.work-grid>.work-card[data-website-column="right"] {
     position:relative;
     top:var(--work-column-offset);
   }
@@ -308,4 +308,17 @@ body.work-image-open { overflow:hidden; }
 /* Preserve readable English category labels on compact phones. */
 @media(max-width:360px) {
  .work-controls .work-filters:not([hidden]) { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+}
+
+/* Website tiers have two places; new work can be assigned when it is ready. */
+.work-website-filters button { min-width:132px; padding:10px 20px; font-size:14px; }
+.work-website-empty[hidden] { display:none; }
+.work-website-empty { min-height:260px; display:flex; flex-direction:column; justify-content:center; gap:14px; padding:40px 0; }
+.work-website-empty .work-eyebrow { color:var(--accent); }
+.work-website-empty h3 { max-width:420px; font-size:24px; font-weight:400; line-height:1.55; letter-spacing:-.025em; word-break:keep-all; }
+@media(max-width:700px) {
+ .work-controls .work-website-filters:not([hidden]) { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:8px; }
+ .work-website-filters button { min-width:0; font-size:14px; padding:10px 14px; }
+ .work-website-empty { min-height:220px; padding:30px 0; }
+ .work-website-empty h3 { font-size:20px; }
 }
