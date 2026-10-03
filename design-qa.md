@@ -629,3 +629,8 @@ final result: passed
 - 실제 로컬 데스크톱에서 강화한 그라데이션과 윗면 반사, Asta Sans 700을 확인했다.
 - 버튼 클릭 시 `#contact`로 이동하고 호버의 `inquiry-glass-shine` 효과를 확인했다.
 - 320px 모바일에서 가로 넘침 0, 문의 버튼 높이 44px를 확인했다. `npm run check`와 `git diff --check` 통과.
+
+## 2026-10-03 — 상단 문의 버튼 비례 검수
+
+- 로컬 데스크톱 1280px에서 문의 버튼 폭 136px, 글자 굵기 600, 가로 넘침 0을 확인했다.
+- 320px 모바일에서 버튼 높이 44px, 가로 넘침 0을 확인했다. `npm run check`와 `git diff --check` 통과.

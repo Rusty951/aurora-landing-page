@@ -3303,7 +3303,7 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   border: 1px solid transparent;
   color: #241039;
   font-family: "Asta Sans", var(--sans);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.025em;
   background:
     radial-gradient(ellipse at 12% 0%, #ffffffc7 0%, #ffffff00 56%) padding-box,
@@ -3316,6 +3316,12 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
     0 6px 22px #8f53cd38,
     0 0 22px #bb91f52e;
   transition: box-shadow .25s, filter .25s;
+}
+@media (min-width: 701px) {
+  .header .contact-link {
+    width: 136px;
+    flex-shrink: 0;
+  }
 }
 .header .contact-link::before {
   content: "";
