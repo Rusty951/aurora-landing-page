@@ -9,13 +9,13 @@ const read=p=>readFileSync(resolve(root,p),'utf8');
 const allCatalog=JSON.parse(read('work/catalog.json'));
 const photoCollections=allCatalog.filter(p=>p.collection==='photography');
 const catalog=allCatalog.filter(p=>p.collection!=='photography');
-assert.equal(allCatalog.length,45);
+assert.equal(allCatalog.length,46);
 assert.equal(photoCollections.length,5);
 assert.equal(photoCollections.reduce((n,p)=>n+p.slides.length,0),41);
 for(const p of photoCollections) assert(read('sitemap.xml').includes(`<loc>https://www.aurorasound.kr/work/${p.slug}</loc>`),'Photo collection in sitemap');
-assert.equal(catalog.length,40);
-assert.equal(new Set(catalog.map(p=>p.slug)).size,40);
-for(const [category,n] of Object.entries({website:6,food:12,product:15,brand:3,carousel:1,character:3})) assert.equal(catalog.filter(p=>p.category===category).length,n,category+' agreed count');
+assert.equal(catalog.length,41);
+assert.equal(new Set(catalog.map(p=>p.slug)).size,41);
+for(const [category,n] of Object.entries({website:7,food:12,product:15,brand:3,carousel:1,character:3})) assert.equal(catalog.filter(p=>p.category===category).length,n,category+' agreed count');
 const config=JSON.parse(read('vercel.json'));
 const pages=['work/index.html',...allCatalog.map(p=>`work/${p.slug}/index.html`)];
 for(const p of pages) {
@@ -29,7 +29,7 @@ for(const p of pages) {
  const route=p==='work/index.html'?'/work':'/work/'+p.split('/')[1];
  assert(config.rewrites.some(r=>r.source===route&&r.destination==='/'+p),'Production route: '+route);
 }
-assert.equal((read('work/index.html').match(/class="work-card"/g)||[]).length,45);
+assert.equal((read('work/index.html').match(/class="work-card"/g)||[]).length,46);
 assert(!existsSync(resolve(root,'work/demos/client-previews')),'Private client files never copied');
 for(const p of allCatalog) {
  assert(p.width>0&&p.width<20000&&p.height>0&&p.height<30000,'Valid image dimensions');
@@ -40,19 +40,19 @@ for(const p of allCatalog) {
   assert.match(html,/직접 촬영한/);
   assert(!/바나나블랙|BANANA BLACK|Banana Black/.test(html),'No production-brand attribution on photographs');
  }
- else if(p.category==='website')assert.match(html,/가상 사업체/);
+ else if(p.category==='website')assert.match(html,p.slug==='website-bananablack'?/포트폴리오 보관본/:/가상 사업체/);
  else if(p.slides) assert.match(html,/오로라 자체/);
  else assert.match(html,/AI/);
  if(p.slug.startsWith('bb-'))assert.match(html,/콘셉트 스케치/);
 }
 const sourceFiles=JSON.parse(read('docs/PORTFOLIO-SOURCES.json'));
-assert.equal(sourceFiles.length,45);
+assert.equal(sourceFiles.length,46);
 assert(!sourceFiles.some(p=>/01_original|client-previews/.test(p.source||p.source_directory||'')));
 assert(config.headers.some(r=>r.source==='/work/demos/:path*'&&r.headers.some(h=>h.value==='noindex, nofollow')));
 // Verify the real catalog through both browsing modes and enlargement interactions.
 const gallery = read('work/index.html');
 assert.equal((gallery.match(/data-full-image=/g)||[]).length,39);
-assert.equal((gallery.match(/target="_blank" rel="noopener"/g)||[]).length,7,'Six website links plus original image');
+assert.equal((gallery.match(/target="_blank" rel="noopener"/g)||[]).length,8,'Seven website links plus original image');
 assert.match(gallery,/<dialog class="work-lightbox" aria-labelledby="work-lightbox-title">/);
 for (const p of catalog.filter(p=>p.category==='website')) {
  const card=gallery.match(new RegExp('<article class="work-card"[^>]*data-category="website"[^>]*>.*?href="/work/'+p.slug+'".*?</article>'))?.[0];
@@ -89,7 +89,7 @@ const b=browser();assert.equal(b.controls.hidden,false);assert.equal(b.visible()
 assert.equal(b.styles['--work-header-height'],'88px');assert.equal(b.styles['--work-controls-height'],'104px');
 b.header.height=96;b.pop.resize();assert.equal(b.styles['--work-header-height'],'96px','Resize fallback updates sticky offset');
 const observed=browser(undefined,true,true);assert.equal(observed.observed.length,2);observed.header.height=102;observed.observerCallback();assert.equal(observed.styles['--work-header-height'],'102px','Header resizing updates sticky offset');
-for(const [category,total,initial,sketches] of [['website',2,2,0],['food',12,6,6],['product',15,3,12],['brand',3,3,0],['carousel',1,1,0],['character',3,3,0],['images',34,16,18]]) {
+for(const [category,total,initial,sketches] of [['website',3,3,0],['food',12,6,6],['product',15,3,12],['brand',3,3,0],['carousel',1,1,0],['character',3,3,0],['images',34,16,18]]) {
  const button=[...b.kinds,...b.subButtons].find(x=>x.dataset.filter===category);b.callbacks.click({target:{closest:()=>button}});
  assert.equal(b.cards.filter(c=>!c.hidden).length,total);assert.equal(b.visible().length,initial);assert.equal(button.attrs['aria-pressed'],'true');
  assert.equal(b.filters.hidden,category==='website');assert.equal(b.nodes['work-sketches'].hidden,sketches===0);
@@ -104,10 +104,10 @@ for(const [category,total,initial,sketches] of [['website',2,2,0],['food',12,6,6
  assert.equal(b.callbacks.scroll.top,144,'New filter returns to gallery below measured header');
 }
 assert(b.context.location.href.includes('category=images'));
-for(const [category,n] of Object.entries({website:2,food:6,carousel:1,character:3,unknown:5,all:5,photography:5,'photo-product':1,'photo-food':1,'photo-dessert':1,'photo-space':1,'photo-portrait':1})) {
+for(const [category,n] of Object.entries({website:3,food:6,carousel:1,character:3,unknown:5,all:5,photography:5,'photo-product':1,'photo-food':1,'photo-dessert':1,'photo-space':1,'photo-portrait':1})) {
  const state=browser('http://localhost/work?category='+category);assert.equal(state.visible().length,n,'URL state '+category);
 }
-b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.visible().length,2);
+b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.visible().length,3);
 b.context.location.href='http://localhost/work?category=images';b.pop.popstate();assert.equal(b.visible().length,16,'History restores collapsed selection');
 // Website places preserve existing work and support independent future assignments.
 const websitePlaces=browser('http://localhost/work?category=website');
@@ -125,11 +125,11 @@ assert(websitePlaces.context.location.href.endsWith('category=website-essential'
 const restoredEssential=browser(websitePlaces.context.location.href);
 assert.equal(restoredEssential.visible().length,4,'Refresh preserves Essential');
 websitePlaces.callbacks.click({target:{closest:()=>websitePlaces.kinds.find(b=>b.dataset.filter==='website')}});
-assert.equal(websitePlaces.visible().length,2,'Signature preserves NOCTE and SEAM');
+assert.equal(websitePlaces.visible().length,3,'Signature preserves NOCTE, SEAM and Banana Black');
 assert(websitePlaces.context.location.href.endsWith('category=website'));
 const futurePlaces=browser('http://localhost/work?category=website',true,false,{'website-nocte':'essential'});
-assert.equal(futurePlaces.visible().length,1,'Assigned Essential work cannot leak into Signature');
-assert.deepEqual(futurePlaces.visible().map(c=>c.dataset.websiteColumn),['left'],'Stagger follows visible columns after filtering');
+assert.equal(futurePlaces.visible().length,2,'Assigned Essential work cannot leak into Signature');
+assert.deepEqual(futurePlaces.visible().map(c=>c.dataset.websiteColumn),['left','right'],'Stagger follows visible columns after filtering');
 futurePlaces.callbacks.click({target:{closest:()=>futurePlaces.websiteButtons[1]}});
 assert.equal(futurePlaces.visible().length,5);
 assert.equal(futurePlaces.nodes['work-website-empty'].hidden,true,'Connected work replaces the empty place');
@@ -174,7 +174,7 @@ assert.deepEqual(markupOrder,allCatalog.map(p=>p.slug),'Catalog and visible orde
 assert(catalog.slice(0,12).every(p=>p.category!=='website'&&!p.slug.startsWith('bb-')),'12 finished images first');
 assert(catalog.slice(16,34).every(p=>p.slug.startsWith('bb-')),'18 sketches follow');
 assert(catalog.slice(34).every(p=>p.category==='website'),'6 website samples preserved');
-console.log('Portfolio passed: 45 collections and works, filters, 6 direct demos, 8-slide carousel, 3 character series, previous/next, keyboard, touch gestures, focus and fallback.');
+console.log('Portfolio passed: 46 collections and works, filters, 7 direct demos, 8-slide carousel, 3 character series, previous/next, keyboard, touch gestures, focus and fallback.');
 
 // Real series metadata must match the clickable HTML and static fallback pages.
 const decodeAttr=s=>s.replace(/&quot;/g,'"').replace(/&#x27;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
@@ -292,7 +292,7 @@ for (const rule of config.rewrites.filter(r => r.source.startsWith('/work/demos/
 console.log('Demo canonical routes passed: ' + demoDocuments + ' HTML documents.');
 
 // Check the actual website card assignments and routes, not only the catalog model.
-const demoRoutes={'website-nocte':'15-nocte','website-seam':'16-seam-hotel','website-bitgyeol':'02-bitgyeol-curtain','website-neurin':'04-neurin-pajang','website-haebit':'05-haebit-light','website-chaon':'13-chaon-law'};
+const demoRoutes={'website-bananablack':'17-bananablack','website-nocte':'15-nocte','website-seam':'16-seam-hotel','website-bitgyeol':'02-bitgyeol-curtain','website-neurin':'04-neurin-pajang','website-haebit':'05-haebit-light','website-chaon':'13-chaon-law'};
 for(const card of cardMarkup.filter(c=>c.includes('data-category="website"'))){
  const slug=card.match(/href="\/work\/(website-[^"/]+)"/)[1];
  const item=allCatalog.find(p=>p.slug===slug);

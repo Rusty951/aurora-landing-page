@@ -213,6 +213,10 @@
     {
       "source": "/work/banana-portrait",
       "destination": "/work/banana-portrait/index.html"
+    },
+    {
+      "source": "/work/website-bananablack",
+      "destination": "/work/website-bananablack/index.html"
     }
   ],
   "redirects": [

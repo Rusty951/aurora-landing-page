@@ -963,6 +963,20 @@
     "websiteTier": "signature"
   },
   {
+    "slug": "website-bananablack",
+    "title": "Banana Black",
+    "subtitle": "사진 작업을 중심에 둔 스튜디오 브랜드 홈페이지",
+    "category": "website",
+    "label": "WEBSITE / BRAND ARCHIVE",
+    "image": "/work/assets/web-bananablack.webp",
+    "thumb": "/work/assets/web-bananablack-thumb.webp",
+    "badge": "브랜드 홈페이지 / 보관본",
+    "width": 1440,
+    "height": 810,
+    "thumbnail_fit": "contain",
+    "websiteTier": "signature"
+  },
+  {
     "slug": "website-bitgyeol",
     "title": "서래커튼",
     "subtitle": "원단과 빛을 살펴보는 커튼 스튜디오",

@@ -1,6 +1,6 @@
 # 홈페이지 V1 포트폴리오
 
-현재 목록의 원본은 work/catalog.json이다. 공개 45개 카드에는 Photo의 다섯 모음, Concepts 34개와 Website 6개가 포함된다. 이미지 및 샘플 소스는 이 저장소의 work/assets 및 work/demos에 보관한다.
+현재 목록의 원본은 work/catalog.json이다. 공개 46개 카드에는 Photo의 다섯 모음, Concepts 34개와 Website 7개가 포함된다. 이미지 및 샘플 소스는 이 저장소의 work/assets 및 work/demos에 보관한다.
 
 ## Photo
 
@@ -12,9 +12,9 @@
 
 ## Website
 
-현재 샘플은 NOCTE, SEAM, 서래커튼, 수집노트, 스위치조명과 법률사무소 서안이다. 샘플 원본은 Rusty951/aurora-website-portfolio에서 가져온 독립 디자인이며 현재 홈페이지에서 쓰는 사본은 work/demos 안에 있다. 원본 저장소의 별도 리뉴얼은 이 홈페이지의 과거 버전이 아니다. 이후 대표가 요청하면 선정한 변경을 반영한다.
+현재 샘플은 NOCTE, SEAM, Banana Black, 서래커튼, 수집노트, 스위치조명과 법률사무소 서안이다. 샘플 원본은 Rusty951/aurora-website-portfolio에서 가져온 독립 디자인이며 현재 홈페이지에서 쓰는 사본은 work/demos 안에 있다. 원본 저장소의 별도 리뉴얼은 이 홈페이지의 과거 버전이 아니다. 이후 대표가 요청하면 선정한 변경을 반영한다.
 
-Signature와 Essential은 탐색 자리다. Signature는 별도 보존작2개, Essential은 일반 홈페이지4개다. PC 두 열과 모바일 한 열, 1440×810 대표 이미지 및 높낮이와 스크롤 모션을 사용한다. 공개된 데모는 가상 사업체의 시연이며 예약과 문의가 외부로 전송되지 않는다. 각 데모의 SOURCES.md와 README.md는 출처 기록으로 보관하되 운영 배포에서 제외한다.
+Signature와 Essential은 탐색 자리다. Signature는 별도 보존작2개와 바나나블랙 보관본1개, Essential은 일반 홈페이지4개다. PC 두 열과 모바일 한 열, 1440×810 대표 이미지 및 높낮이와 스크롤 모션을 사용한다. 공개된 데모는 가상 사업체의 시연이며 예약과 문의가 외부로 전송되지 않는다. 각 데모의 SOURCES.md와 README.md는 출처 기록으로 보관하되 운영 배포에서 제외한다.
 
 ## 이용 조건과 화면
 

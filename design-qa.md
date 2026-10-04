@@ -23,3 +23,7 @@ FAQ 질문은 PC 20px, 답변은 16px 및 행간 1.8이다. 첫 질문 클릭과
 ## 단일 원본 정리 검수
 
 로컬 원본을 Documents/Projects/aurora-landing-page로 통합했다. 이전 홈페이지 사본과 단계별 자료 53개는 macOS 휴지통으로 옮겼다. 사진 및 폰트 출처와 라이선스, 독립 샘플 원본과 별도의 연구 프로젝트를 보존했다. 운영 소스 및 설정 파일 398개의 SHA256이 확정 화면과 동일하다. npm run check와 git diff --check를 통과했고 새 원본의 4173 서버에서 PC 1440px FAQ 질문 20px 및 가로 넘침 0, 모바일 390px Website 한 열과 샘플 링크를 확인했다. Obsidian A01 website.md 및 README와 links의 참조를 확인했다. GitHub의 과거 작업 브랜치 31개를 정리했고 main 하나로 관리한다. 정리 커밋 2c935f1의 Production 6835929557이 성공했고 실제 운영의 14개 응답을 비교해 소스와 같은 바이트임을 확인했다. 여기에는 광고 경로와 제품 상세, 여섯 샘플 사이트 및 두 아리따 폰트가 포함된다. Drive 홈페이지 폴더의 현재 ZIP 한 개를 확인했으며 업로드한 424개 추적 파일 ZIP과 Drive에서 다시 읽은 ZIP의 SHA256 및 크기가 동일했다. 현재 ZIP 파일 ID는 1f3THlpASI_WeAXs2vCmHys85Ob8N64BJ이며 이후 같은 ID를 갱신한다. 최종 검수 문서의 변경도 같은 main에 반영하고 ZIP의 문서 바이트를 갱신한다.
+
+## 2026-10-05 Signature 추가
+
+Banana Black 보관 홈페이지를 Signature에 연결했다. 대표 사진 목록 캡처, PC 첫 화면과 모바일 첫 화면을 사용한다. 실제 브랜드 보관본으로 표시하며 문의 비전송과 사진41장 로컬 연결을 확인했다. 390px 목록의 사진 로딩과 가로 넘침, 배포용 중첩 경로의 사진 페이지를 확인했다. npm run check를 통과했다.

@@ -1107,5 +1107,18 @@
       }
     ],
     "photography_confirmation": "The owner confirmed these are photographs they personally shot, and requested removal of Banana Black production attribution on 2026-10-03."
+  },
+  {
+    "slug": "website-bananablack",
+    "kind": "brand_website_archive",
+    "source_repo": "Rusty951/aurora-website-portfolio",
+    "source_directory": "17-bananablack",
+    "license_scope": "Previously operated owned brand homepage; 41 preserved public photographs; archive forms do not send",
+    "desktop_capture_route": "/17-bananablack/",
+    "thumbnail_capture_route": "/17-bananablack/works/index.html",
+    "desktop_capture_viewport": {
+      "width": 1440,
+      "height": 810
+    }
   }
 ]
