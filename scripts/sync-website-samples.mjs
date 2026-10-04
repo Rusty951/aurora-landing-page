@@ -10,6 +10,8 @@ const known=new Set([...routes,'01-jeongo-eye','12-moseori-studio','assets','med
 if(existsSync(dest))for(const entry of readdirSync(dest,{withFileTypes:true}))if(entry.isDirectory()&&!known.has(entry.name))throw new Error('Unrecognized folder; refusing cleanup: '+entry.name);
 rmSync(dest,{recursive:true});mkdirSync(dest,{recursive:true});
 for(const entry of [...routes,'professional','assets','site.js','foundation.css','reading.css'])if(existsSync(join(source,entry)))cpSync(join(source,entry),join(dest,entry),{recursive:true});
+// Publish the accepted photo-film journey at the existing SEAM entry URL.
+cpSync(join(source,'16-seam-hotel/flow-journey.html'),join(dest,'16-seam-hotel/index.html'));
 // Archive export contains public pages and static assets only.
 const archive=join(dest,'17-bananablack');
 for(const entry of ['.claude','supabase','docs','tests','scripts','.github','.vercel','analytics.js','AGENTS.md','CLAUDE.md','PROJECT_GUIDE.md','vercel.json','package.json','package-lock.json','works/manage.html','works/manage.js','works/upload.html','works/upload.js','works/portrait-private.html'])rmSync(join(archive,entry),{recursive:true,force:true});

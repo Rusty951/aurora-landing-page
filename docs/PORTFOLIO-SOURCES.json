@@ -53,7 +53,7 @@
     "source_repo": "Rusty951/aurora-website-portfolio",
     "source_directory": "16-seam-hotel",
     "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
-    "desktop_capture_route": "/16-seam-hotel/",
+    "desktop_capture_route": "/16-seam-hotel/flow-journey.html",
     "desktop_capture_viewport": {
       "width": 1440,
       "height": 810
@@ -1115,7 +1115,7 @@
     "source_directory": "17-bananablack",
     "license_scope": "Previously operated owned brand homepage; 41 preserved public photographs; archive forms do not send",
     "desktop_capture_route": "/17-bananablack/",
-    "thumbnail_capture_route": "/17-bananablack/works/index.html",
+    "thumbnail_capture_route": "/17-bananablack/",
     "desktop_capture_viewport": {
       "width": 1440,
       "height": 810
