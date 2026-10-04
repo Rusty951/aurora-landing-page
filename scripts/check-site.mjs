@@ -96,7 +96,7 @@ assert(allKakaoLinks.every((tag) => tag.includes(approvedKakaoUrl)), 'All Kakao 
 
 assert(/href=["']\/terms\.html["']/.test(html), 'Terms link must be root-relative.');
 assert(/href=["']\/privacy\.html["']/.test(html), 'Privacy link must be root-relative.');
-assert(/type="module" src="\/rebrand\/app\.js\?v=8"/.test(html), 'Production must load the first-release application.');
+assert(/type="module" src="\/rebrand\/app\.js\?v=9"/.test(html), 'Production must load the quiet default-music controller.');
 assert(/src=["']\/analytics\.js\?v=8["']/.test(html), 'index.html must load analytics.js?v=8.');
 
 assert(count(html, /fbq\(['"]track['"],\s*['"]PageView['"]\)/g) === 1, 'Meta PageView must be sent exactly once.');

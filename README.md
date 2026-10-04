@@ -32,8 +32,8 @@ git diff --check
 ## 소스와 계약
 
 - `index.html`: 홈과 광고 경로의 공통 문서, SEO와 광고 경로 Meta 초기화
-- `rebrand/style.css?v=41`, `rebrand/app.js?v=8`: 1차 화면과 입력, 재생, 반응형 표시
-- `rebrand/silk.js`, `audio.js`, `showcase.js`: 실크 효과, 선택 재생 음악과 상세 이미지 보기
+- `rebrand/style.css?v=41`, `rebrand/app.js?v=9`: 1차 화면과 입력, 작은 볼륨의 기본 음악, 반응형 표시
+- `rebrand/silk.js`, `audio.js?v=3`, `showcase.js`: 실크 효과, 음악 생성과 상세 이미지 보기
 - `work/index.html`, `work/style.css?v=23`, `work/work.js?v=12`, `work/motion.js?v=3`: 사진, 자체 시안과 웹사이트 목록, 분야, 이미지 확대와 웹사이트 스크롤 모션
 - `work/catalog.json`, 작업별 HTML과 `work/assets/`: 45개 모음과 작업의 구성, 상세와 자산
 - `work/assets/bananablack/`: 바나나블랙 Git 이력의 37장과 공개 촬영 소개 페이지의 4장을 최적화한 자체 파일. 외부 사진 저장소에 의존하지 않으며 원본 경로와 해시는 내부 출처 기록을 따른다.
@@ -42,7 +42,7 @@ git diff --check
 - `analytics.js?v=8`: 광고와 오가닉을 구분하는 기존 추적 계약
 - `assets/aurora-og.png`: 기존 1200×630 공유 이미지. 제작 원본이 사용하는 wave 자산은 함께 유지한다.
 
-GA4와 Meta는 운영 호스트에서만 실행한다. Meta PageView는 `/interview`에서만 한 번 전송하며 카카오 클릭은 Contact의 outbound_click 단계다. 실제 문의나 Lead로 기록하지 않는다. UTM, 공식 소셜 채널과 네이버 인증, 승인 파비콘, 개인정보처리방침과 이용약관을 유지한다. 음악은 기본 꺼짐이며 정적 실크 대체 이미지, 움직임 정지와 시스템 동작 줄이기를 지원한다.
+GA4와 Meta는 운영 호스트에서만 실행한다. Meta PageView는 `/interview`에서만 한 번 전송하며 카카오 클릭은 Contact의 outbound_click 단계다. 실제 문의나 Lead로 기록하지 않는다. UTM, 공식 소셜 채널과 네이버 인증, 승인 파비콘, 개인정보처리방침과 이용약관을 유지한다. 음악은 기본 켜짐이며 아주 작은 볼륨으로 시작한다. 브라우저가 자동재생을 막으면 첫 클릭, 터치 또는 키 입력에서 시작하고 사용자의 끄기 선택은 같은 탭의 방문 중 유지한다. 정적 실크 대체 이미지, 움직임 정지와 시스템 동작 줄이기를 지원한다.
 
 ## 배포와 버전
 

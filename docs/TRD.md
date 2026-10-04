@@ -1,3 +1,11 @@
+## 2026-10-04 작은 볼륨의 기본 음악
+
+app.js v9는 audio.js v3을 로드한다. AuroraScore의 master gain 목표는 0.018이며 기존 0.32의 5.625%, 약 25dB 낮은 신호 진폭이다. 페이드인의 시간 상수 0.65초를 유지한다. 시작 시 AudioContext가 running이면 음악을 예약하고 suspended이면 resume을 대기하지 않아 버튼을 막지 않는다. 첫 trusted click 또는 keydown에서 재시도하며 재생 버튼 자체의 입력과 합성 이벤트는 기본 시작 처리에서 제외한다. 시작 요청과 enabled 상태를 분리해 중복 resume 완료가 타이머를 복제하거나 stop 이후 음악을 되살리지 않게 한다.
+
+sessionStorage의 aurora-sound는 사용자가 직접 켜기 또는 끄기를 선택했을 때만 갱신한다. 저장소가 막혀도 기본 시작과 조작을 유지하며 poster 모드는 자동 시작하지 않는다. 대기 및 실제 재생, 오류와 busy 상태를 기존 두 버튼에 동기화한다. visibility와 pagehide에서 재생을 멈추고 복귀 및 bfcache 복원에서는 현재 선택을 따른다. 시작 중 화면 복귀는 대기 완료 후 재시도한다. 관련 엔진과 제어기 검사는 작은 출력, 허용 및 차단된 기본 시작, 첫 실제 입력, 명시적 끄기와 저장소 예외, 숨김 중 취소와 중복 타이머를 포함한다. 문의와 분석 설정은 변경하지 않는다.
+
+브라우저 정책 근거는 https://developer.chrome.com/blog/autoplay/ 의 Web Audio 절과 https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay 이다. 기기나 브라우저 설정을 우회하거나 변경하지 않는다. 다른 기기의 실제 출력 및 체감 음량은 별도 확인 대상이다.
+
 ## 2026-10-04 메인 FAQ 구현
 
 index.html에 expertise 다음, contact 이전의 faq 구역과 네이티브 details 네 개를 넣는다. 기존 process ID는 첫 질문에 유지하고 문의 구역의 중복 설명을 제거한다. JavaScript가 없어도 질문 열기와 답변 읽기가 작동한다. 앱은 toggle 이후 문서 높이를 다시 측정해 스크롤 진행 표시를 갱신한다. CSS v41, app.js v8, contact.js v5다.

@@ -1,8 +1,9 @@
 // Original generative score: 84 BPM, D minor / Bb / F / C. No external recordings.
-// AudioContext is created only after the listener explicitly enables sound.
+// Start quietly when autoplay is allowed, otherwise wait for an interaction.
 export class AuroraScore {
   constructor() {
     this.enabled = false;
+    this.requested = false;
     this.mood = 0;
     this.timer = null;
     this.step = 0;
@@ -10,19 +11,28 @@ export class AuroraScore {
     this.epoch = 0;
     this.lastTransition = -10;
   }
-  async start() {
+  async start({ automatic = false } = {}) {
+    this.requested = true;
     if (!this.ctx) this.build();
+    clearTimeout(this.suspendTimer);
+    // A policy-blocked resume() may never settle until a gesture. Keep controls
+    // available rather than leaving the initial automatic attempt busy.
+    if (automatic && this.ctx.state !== "running") return false;
     await this.ctx.resume();
+    if (!this.requested || this.ctx.state !== "running") return false;
+    if (this.enabled) return true;
     this.enabled = true;
     this.master.gain.cancelScheduledValues(this.ctx.currentTime);
-    this.master.gain.setTargetAtTime(0.32, this.ctx.currentTime, 0.65);
+    this.master.gain.setTargetAtTime(0.018, this.ctx.currentTime, 0.65);
     this.next = this.ctx.currentTime + 0.1;
     this.epoch = this.next - (this.step * (60 / 84)) / 2;
     this.schedule();
     clearInterval(this.timer);
     this.timer = setInterval(() => this.schedule(), 80);
+    return true;
   }
   stop() {
+    this.requested = false;
     this.enabled = false;
     clearInterval(this.timer);
     if (!this.ctx) return;

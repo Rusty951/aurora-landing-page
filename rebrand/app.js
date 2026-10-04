@@ -1,4 +1,4 @@
-import { AuroraScore } from "./audio.js?v=2";
+import { AuroraScore } from "./audio.js?v=3";
 import { initShowcase } from "./showcase.js?v=5";
 const $ = (selector) => document.querySelector(selector);
 const clamp = (n, a = 0, b = 1) => Math.max(a, Math.min(b, n));
@@ -36,7 +36,10 @@ let progress = 0,
   sceneVisible = true,
   needsRender = true,
   soundBusy = false,
-  resumeAudio = false;
+  resumeAudio = false,
+  restoreAudioPending = false,
+  soundFailed = false,
+  soundWanted = !posterMode && readSoundPreference();
 let range = 1,
   documentRange = 1;
 const revealObserver = new IntersectionObserver(
@@ -148,30 +151,84 @@ function soundState() {
     );
     button.querySelector(".sound-label").textContent = score.enabled
       ? "음악 켜짐"
-      : "음악 켜기";
+      : soundWanted && !soundFailed ? "음악 대기" : "음악 켜기";
   });
 }
-soundButtons.forEach((button) => button.addEventListener("click", async () => {
-  if (soundBusy) return;
+function readSoundPreference() {
+  try {
+    return sessionStorage.getItem("aurora-sound") !== "off";
+  } catch {
+    return true;
+  }
+}
+function rememberSoundPreference() {
+  try {
+    sessionStorage.setItem("aurora-sound", soundWanted ? "on" : "off");
+  } catch {
+    // Playback still works when browser storage is unavailable.
+  }
+}
+async function startSound(automatic = false) {
+  if (soundBusy || score.enabled || !soundWanted || document.hidden) return;
   soundBusy = true;
+  soundFailed = false;
   soundState();
   try {
-    if (score.enabled) score.stop();
-    else await score.start();
-    soundState();
-    status.textContent = score.enabled
-      ? "배경 음악을 재생합니다."
-      : "배경 음악을 껐습니다.";
+    await score.start({ automatic });
+    if (!soundWanted || document.hidden) score.stop();
+    if (score.enabled)
+      status.textContent = "배경 음악을 작은 볼륨으로 재생합니다.";
   } catch {
     score.stop();
-    soundState();
+    soundFailed = true;
     status.textContent =
       "배경 음악을 재생할 수 없습니다. 다시 눌러 시도해주세요.";
   } finally {
     soundBusy = false;
     soundState();
+    if (restoreAudioPending) {
+      restoreAudioPending = false;
+      restoreSound();
+    }
+  }
+}
+soundButtons.forEach((button) => button.addEventListener("click", async () => {
+  if (soundBusy) return;
+  if (score.enabled) {
+    soundWanted = false;
+    resumeAudio = false;
+    score.stop();
+    rememberSoundPreference();
+    soundState();
+    status.textContent = "배경 음악을 껐습니다.";
+  } else {
+    soundWanted = true;
+    rememberSoundPreference();
+    await startSound();
   }
 }));
+function activateSound(event) {
+  if (!event.isTrusted || event.target?.closest?.(".sound-toggle")) return;
+  if (event.type === "keydown" &&
+      (event.key === "Escape" || event.metaKey || event.ctrlKey || event.altKey)) return;
+  if (soundWanted && !score.enabled && !soundFailed) void startSound();
+}
+document.addEventListener("click", activateSound, { capture: true });
+document.addEventListener("keydown", activateSound, { capture: true });
+function pauseSound() {
+  resumeAudio = resumeAudio || score.enabled;
+  score.stop();
+  soundState();
+}
+function restoreSound() {
+  if (soundBusy) {
+    restoreAudioPending = true;
+    return;
+  }
+  const automatic = !resumeAudio;
+  resumeAudio = false;
+  if (soundWanted && !soundFailed) void startSound(automatic);
+}
 window.addEventListener(
   "pointermove",
   (event) => {
@@ -285,29 +342,16 @@ function frame(now) {
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
     cancelAnimationFrame(raf);
-    resumeAudio = score.enabled;
-    if (resumeAudio) {
-      score.stop();
-      soundState();
-    }
+    pauseSound();
   } else {
     cancelAnimationFrame(raf);
     last = performance.now();
     raf = requestAnimationFrame(frame);
-    if (resumeAudio) {
-      resumeAudio = false;
-      score
-        .start()
-        .then(soundState)
-        .catch(() => {
-          score.stop();
-          soundState();
-        });
-    }
+    restoreSound();
   }
 });
 window.addEventListener("pagehide", () => {
-  score.stop();
+  pauseSound();
   cancelAnimationFrame(raf);
 });
 window.addEventListener("pageshow", (event) => {
@@ -316,11 +360,14 @@ window.addEventListener("pageshow", (event) => {
     cancelAnimationFrame(raf);
     raf = requestAnimationFrame(frame);
     soundState();
+    restoreSound();
     measure();
   }
 });
 initShowcase({ motionAllowed: () => !paused });
 motionState();
+soundState();
+if (soundWanted && !document.hidden) void startSound(true);
 measure();
 raf = requestAnimationFrame(frame);
 // Keep the text, links, disclosures and static artwork alive if WebGL or the
