@@ -918,3 +918,8 @@ d38afe1의 Production 6834935578이 성공했고 공개 수정 파일 50개와 /
 실제 Chrome 로컬 홈페이지의 1440×1024, 390×844, 320×844 화면에서 하단 법적 상호가 온전히 보이고 가로 넘침이 0인 것을 확인했다. 1440px와 320px 캡처를 직접 검토해 글자와 링크의 겹침이 없음을 확인했다. /work의 320×844 화면에서도 같은 법적 상호와 가로 넘침 0을 확인했다. 임시 뷰포트 크기는 검수 뒤 복원했다. 캡처는 Desktop codex-output의 meta-verification-20261004 작업 폴더에 있다.
 
 npm run check와 git diff --check를 통과했다. 사용자가 홈페이지 공개, Meta 상세 정보 저장과 첨부 사업자등록증 제출 및 인증 재신청을 승인했다. 운영 사이트와 Meta 인증 완료는 공개 반영 뒤 별도로 확인한다.
+
+
+### 법적 상호 운영 반영 확인
+
+구현 8630006e09a06822018cf3fb99ed185fb2b4ce2a의 Preview 6835164052와 Production 6835182020이 성공했다. Preview 화면은 Vercel 로그인 제한으로 직접 검수하지 못했으며 로컬 검수와 승인된 운영 화면 검수로 확인했다. 실제 공개 홈페이지의 1440×1024 PC와 320×844 모바일에서 법적 상호가 온전히 표시되고 가로 넘침이 0이며 하단 링크와 겹치지 않는 것을 확인했다. 공개 HTML 49개와 /interview를 포함한 50개 응답이 승인된 소스와 바이트 단위로 일치한다. apex 도메인과 /interview/도 공식 www 주소와 /interview로 정상화된다. 증빙은 meta-verification-20261004 작업 폴더의 website-production-verification.json 및 production-footer 캡처를 따른다.
