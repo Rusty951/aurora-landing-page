@@ -6,7 +6,9 @@
 
 390×844의 FAQ 질문 17px 및 답변 15px, 서비스 큰 제목과 기존 카드명 및 한 열, Photo의 영어 분류와 기존 작품 정보, 제품 상세의 11장 및 사진 확대 닫기를 확인했다. 확대 제목은 기존 DM Sans 및 Asta Sans다. 320×844에서 FAQ 질문은 두 줄이며 클릭 높이는 98.39px, 고정 문의는 숨겨진다. 서비스 큰 제목과 가장 긴 한글 상세 제목 AI 시대의 버리는 기준, 하단 초대 제목의 의미 단위 줄바꿈 및 footer를 확인했다. 관찰한 모든 화면의 가로 넘침은 0이고 글자 잘림은 없었다. glyph별 실제 사용 서체를 조회하는 진단은 가용 도구에서 제공되지 않아 직접 화면, computed style, 폰트 원본 및 문자 지원 검증과 구별한다. 이전 통과한 모션, 추적과 음악의 검수는 재사용한다.
 
-최종 혼합 화면은 Desktop codex-output의 aurora-site-arita-20261004 폴더에서 06-faq-desktop-smaller.png부터 15-brand-message-mixed.png까지다. 01~05는 전면 서체 교체 탐색안으로 최종이 아니다. Preview 및 Production은 후속 실응답과 화면 검수 후 기록한다.
+최종 혼합 화면은 Desktop codex-output의 aurora-site-arita-20261004 폴더에서 06-faq-desktop-smaller.png부터 15-brand-message-mixed.png까지다. 01~05는 전면 서체 교체 탐색안으로 최종이 아니다. npm run check와 git diff --check를 통과했다. 두 원본 폰트의 cmap이 47개 회사 문서에 쓰인 고유 한글 403자를 모두 지원한다. 47개 HTML은 서체 등록, CSS 캐시와 제목의 언어 속성 외 모든 문구, 링크, 이미지, ID 및 스크립트가 기준선과 같다.
+
+구현 4c57b5d19f08d595dd8c0b2d455ae6f54508d396의 Preview 6835715861과 Production 6835728884가 성공했다. 실제 Preview PC 서비스와 모바일 FAQ, 운영 PC 서비스 및 FAQ와 390px 및 320px FAQ, 모바일 포트폴리오를 확인했다. 운영 FAQ의 첫 질문 펼침과 두 번째 질문 펼침, 크기 20/17px와 답변 16/15px, 가로 넘침 0 및 FAQ 화면에서 고정 문의 숨김이 유지된다. /interview#faq의 html ad-mode와 새 서체도 유지된다. 운영 console 경고 및 오류는 없다. 47개 HTML 및 광고 경로, 공통 스타일과 서체 등록, 원본 두 폰트 및 고지, 기존 동작 스크립트를 포함한 59개 응답이 저장소와 바이트 단위로 일치한다. production-verification.json에 비교 해시와 응답을 보관한다. 운영 증거는 같은 폴더의 18-production-expertise-desktop.png부터 22-production-portfolio-mobile.png다. 동작 줄이기 OS 설정, 실제 다른 기기 출력과 glyph별 렌더링 서체 진단은 이번에 새로 수행하지 않았으며 이전 유효 검사와 위 한계를 구분한다.
 
 ## 2026-10-04 Website 두 자리 검수
 
