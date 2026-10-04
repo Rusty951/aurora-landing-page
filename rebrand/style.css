@@ -6,21 +6,6 @@
   font-display: swap;
   unicode-range: U+0042, U+0064-0065, U+006E-006F, U+0079;
 }
-/* Unmodified AMOREPACIFIC webfonts; see assets/fonts/ARITA-LICENSE.txt. */
-@font-face {
-  font-family: "Arita Buri";
-  src: url("/rebrand/assets/fonts/Arita-buri-SB.woff") format("woff");
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Arita Dotum";
-  src: url("/rebrand/assets/fonts/Arita-dodeum-M.woff") format("woff");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
 :root {
   --ink: #101016;
   --paper: #eeeee8;
@@ -3628,7 +3613,7 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 .home-faq-question {
   color: #e8e3ee;
   font-family: "Arita Buri", "Asta Sans", var(--sans);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   font-synthesis: none;
   line-height: 1.5;
@@ -3683,8 +3668,8 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   font-family: "Arita Dotum", "Asta Sans", var(--sans);
   font-weight: 400;
   font-synthesis: none;
-  font-size: 17px;
-  line-height: 1.85;
+  font-size: 16px;
+  line-height: 1.8;
   letter-spacing: -.015em;
   word-break: keep-all;
   overflow-wrap: break-word;
@@ -3713,10 +3698,10 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   .home-faq-description { font-size: 15px; }
   .home-faq-description br { display: block; }
   .home-faq-list summary { grid-template-columns: 18px minmax(0, 1fr) 24px; gap: 12px; min-height: 80px; padding: 22px 0; }
-  .home-faq-question { font-size: 18px; line-height: 1.6; }
+  .home-faq-question { font-size: 17px; line-height: 1.6; }
   .home-faq-number { font-size: 11px; }
   .home-faq-answer { margin: 0 0 22px; padding: 20px; }
-  .home-faq-answer p { font-size: 16px; }
+  .home-faq-answer p { font-size: 15px; }
 }
 .motion-paused .home-faq-answer { animation: none; }
 .motion-paused .home-faq-symbol::after,
@@ -3724,4 +3709,23 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 @media (prefers-reduced-motion: reduce) {
   .home-faq-answer { animation: none; }
   .home-faq-symbol::after, .home-faq-question { transition: none; }
+}
+
+/* Buri accents the display hierarchy; the existing sans families carry the UI. */
+.silk-mode .chapter h2[lang="ko"],
+#studio-title,
+.work-page h1[lang="ko"],
+#work-cta-title {
+  font-family: var(--ko-heading);
+  font-weight: 600;
+  font-synthesis: none;
+  letter-spacing: -.03em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.studio-intro h2 span { font-weight: inherit; }
+.showcase-note.showcase-message {
+  font-family: var(--ko-heading);
+  font-weight: 600;
+  letter-spacing: -.025em;
 }

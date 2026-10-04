@@ -1,0 +1,19 @@
+/* Official AMOREPACIFIC WOFF files, unmodified. See assets/fonts/ARITA-LICENSE.txt. */
+@font-face {
+  font-family: "Arita Buri";
+  src: url("/rebrand/assets/fonts/Arita-buri-SB.woff") format("woff");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arita Dotum";
+  src: url("/rebrand/assets/fonts/Arita-dodeum-M.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --ko-heading: "Arita Buri", "Asta Sans", serif;
+}

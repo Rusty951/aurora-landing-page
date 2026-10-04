@@ -19,6 +19,20 @@ const ogCard = read('scripts/og-card.html');
 const vercelIgnore = read('.vercelignore');
 const vercel = JSON.parse(read('vercel.json'));
 
+// Every shared-style consumer needs the font definitions, including nested details.
+const typographyPages = ['index.html',
+  ...fs.readdirSync(path.join(projectRoot, 'work'), { recursive: true })
+    .filter(file => file.endsWith('.html') && !file.startsWith(`demos${path.sep}`))
+    .map(file => path.join('work', file))];
+for (const file of typographyPages) {
+  assert(count(read(file), /href="\/rebrand\/fonts\.css\?v=1"/g) === 1,
+    `${file} must load the shared font definitions exactly once.`);
+}
+for (const file of ['Arita-buri-SB.woff', 'Arita-dodeum-M.woff']) {
+  const font = fs.readFileSync(path.join(projectRoot, 'rebrand/assets/fonts', file));
+  assert(font.subarray(0, 4).toString() === 'wOFF', `${file} must be a complete WOFF asset.`);
+}
+
 assert(count(html, /<main\b/gi) === 1, 'index.html must contain exactly one <main>.');
 assert(count(html, /<h1\b/gi) === 1, 'index.html must contain exactly one <h1>.');
 assert(count(html, /<details\b/gi) >= 1, 'FAQ must use native <details>.');
@@ -51,7 +65,7 @@ assert(html.includes('<title>오로라의소리 | 리브랜딩 실행 파트너<
 assert(/<meta name="description" content="새 매장·서비스, 리뉴얼, 이전·확장처럼 사업이 바뀌는 순간/.test(html), 'SEO description must begin with the approved change moment.');
 assert(!html.includes('필요한 콘텐츠를 정하고 제작까지 맡습니다'), 'Old V2 positioning remains in metadata or body.');
 assert(!html.includes('콘텐츠 마케팅"'), 'Old V2 Open Graph alt or metadata remains.');
-assert(/href=["']\/rebrand\/style\.css\?v=42["']/.test(html), 'Production must load the released stylesheet.');
+assert(/href=["']\/rebrand\/style\.css\?v=43["']/.test(html), 'Production must load the released stylesheet.');
 assert(/prefers-reduced-motion/.test(styles), 'Reduced-motion handling is required.');
 assert(/resonance\.webp/.test(html) && /resonance\.webp/.test(styles), 'Hero must keep a static silk fallback.');
 assert(ogCard.includes('리브랜딩 실행 파트너') && ogCard.includes('고객에게 보이는 것'), 'OG render source must match the approved r2 position.');

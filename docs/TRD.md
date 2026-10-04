@@ -1,3 +1,9 @@
+## 2026-10-04 공통 서체 등록과 선택적 강조
+
+기존 공식 원본 WOFF 두 파일의 font-face를 rebrand/fonts.css?v=1로 옮기고 홈 및 46개 포트폴리오 HTML이 한 번씩 로드한다. 등록 파일의 --ko-heading은 Arita Buri와 Asta Sans 대체 경로다. 공통 --sans 및 --serif와 기존 직접 서체 선언은 보존하며 선택한 큰 한글 제목에만 부리 600과 font-synthesis: none을 적용한다. 서비스와 작품 카드 h2/h3 및 동적 확대 제목은 기존 서체를 따른다. 법적 안내 문서와 별도 데모는 변경하지 않는다.
+
+FAQ 질문 PC 20px 및 모바일 17px, 답변 PC 16px 및 모바일 15px, 답변 행간 1.8이다. 원본 두 파일 총 2,858,088바이트를 그대로 사용하며 변환과 서브셋 및 신규 preload는 없다. 공통 CSS v43, app.js v9, audio.js v3, 포트폴리오 CSS v23 및 work.js v12를 사용한다. check-site에서 중첩 상세를 포함한 47개 소비자의 서체 등록 의존성과 WOFF 헤더를 검사한다. 추적 설정과 JavaScript, 이미지 및 원본 샘플은 변경하지 않는다.
+
 ## 2026-10-04 FAQ 아리따 웹폰트
 
 공식 AMOREPACIFIC Creatives의 font.css가 연결하는 Arita-buri-SB.woff 및 Arita-dodeum-M.woff 원본을 rebrand/assets/fonts에 보관한다. 글자 형태, 포맷과 문자 집합을 수정하지 않는다. 부리 파일은 1,154,312바이트, 돋움 파일은 1,703,776바이트이며 FAQ에서 쓰일 때만 CSS 폰트 로딩으로 요청한다. 별도 preload나 외부 폰트 CDN 요청을 추가하지 않는다. 공식 배포 경로, 저작권과 재배포 조건은 같은 디렉터리의 ARITA-LICENSE.txt에 보존한다.
