@@ -6,6 +6,21 @@
   font-display: swap;
   unicode-range: U+0042, U+0064-0065, U+006E-006F, U+0079;
 }
+/* Unmodified AMOREPACIFIC webfonts; see assets/fonts/ARITA-LICENSE.txt. */
+@font-face {
+  font-family: "Arita Buri";
+  src: url("/rebrand/assets/fonts/Arita-buri-SB.woff") format("woff");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arita Dotum";
+  src: url("/rebrand/assets/fonts/Arita-dodeum-M.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 :root {
   --ink: #101016;
   --paper: #eeeee8;
@@ -3572,7 +3587,9 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 .home-faq-description {
   margin-top: 30px;
   color: #b5aebf;
-  font-family: "Asta Sans", var(--sans);
+  font-family: "Arita Dotum", "Asta Sans", var(--sans);
+  font-weight: 400;
+  font-synthesis: none;
   font-size: 16px;
   line-height: 1.8;
   letter-spacing: -.015em;
@@ -3610,11 +3627,12 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 }
 .home-faq-question {
   color: #e8e3ee;
-  font-family: "Asta Sans", var(--sans);
-  font-size: 20px;
-  font-weight: 500;
+  font-family: "Arita Buri", "Asta Sans", var(--sans);
+  font-size: 22px;
+  font-weight: 600;
+  font-synthesis: none;
   line-height: 1.5;
-  letter-spacing: -.025em;
+  letter-spacing: -.015em;
   word-break: keep-all;
   overflow-wrap: break-word;
   transition: color .2s ease;
@@ -3662,7 +3680,9 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 }
 .home-faq-answer p {
   color: #c9c2d3;
-  font-family: "Asta Sans", var(--sans);
+  font-family: "Arita Dotum", "Asta Sans", var(--sans);
+  font-weight: 400;
+  font-synthesis: none;
   font-size: 17px;
   line-height: 1.85;
   letter-spacing: -.015em;
@@ -3693,7 +3713,7 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   .home-faq-description { font-size: 15px; }
   .home-faq-description br { display: block; }
   .home-faq-list summary { grid-template-columns: 18px minmax(0, 1fr) 24px; gap: 12px; min-height: 80px; padding: 22px 0; }
-  .home-faq-question { font-size: 17px; line-height: 1.6; }
+  .home-faq-question { font-size: 18px; line-height: 1.6; }
   .home-faq-number { font-size: 11px; }
   .home-faq-answer { margin: 0 0 22px; padding: 20px; }
   .home-faq-answer p { font-size: 16px; }

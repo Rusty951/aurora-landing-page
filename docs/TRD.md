@@ -1,3 +1,9 @@
+## 2026-10-04 FAQ 아리따 웹폰트
+
+공식 AMOREPACIFIC Creatives의 font.css가 연결하는 Arita-buri-SB.woff 및 Arita-dodeum-M.woff 원본을 rebrand/assets/fonts에 보관한다. 글자 형태, 포맷과 문자 집합을 수정하지 않는다. 부리 파일은 1,154,312바이트, 돋움 파일은 1,703,776바이트이며 FAQ에서 쓰일 때만 CSS 폰트 로딩으로 요청한다. 별도 preload나 외부 폰트 CDN 요청을 추가하지 않는다. 공식 배포 경로, 저작권과 재배포 조건은 같은 디렉터리의 ARITA-LICENSE.txt에 보존한다.
+
+실제 파일의 usWeightClass에 맞춰 부리 SemiBold를 600, 돋움 Medium을 400에 연결한다. Medium은 해당 공식 WOFF의 이름이며 임의 합성 500을 적용하지 않는다. font-display: swap과 Asta Sans 대체 경로, font-synthesis: none을 사용한다. FAQ 질문은 PC 22px 및 모바일 18px, 답변은 기존 17px 및 16px다. 전역 서체 토큰과 JavaScript 및 추적 설정은 변경하지 않는다. 홈의 CSS 주소는 v42이며 로컬 서버에 font/woff MIME을 추가한다.
+
 ## 2026-10-04 작은 볼륨의 기본 음악
 
 app.js v9는 audio.js v3을 로드한다. AuroraScore의 master gain 목표는 0.018이며 기존 0.32의 5.625%, 약 25dB 낮은 신호 진폭이다. 페이드인의 시간 상수 0.65초를 유지한다. 시작 시 AudioContext가 running이면 음악을 예약하고 suspended이면 resume을 대기하지 않아 버튼을 막지 않는다. 첫 trusted click 또는 keydown에서 재시도하며 재생 버튼 자체의 입력과 합성 이벤트는 기본 시작 처리에서 제외한다. 시작 요청과 enabled 상태를 분리해 중복 resume 완료가 타이머를 복제하거나 stop 이후 음악을 되살리지 않게 한다.

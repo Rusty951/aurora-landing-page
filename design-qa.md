@@ -932,3 +932,14 @@ npm run check와 git diff --check를 통과했다. 사용자가 홈페이지 공
 ### 법적 상호 운영 반영 확인
 
 구현 8630006e09a06822018cf3fb99ed185fb2b4ce2a의 Preview 6835164052와 Production 6835182020이 성공했다. Preview 화면은 Vercel 로그인 제한으로 직접 검수하지 못했으며 로컬 검수와 승인된 운영 화면 검수로 확인했다. 실제 공개 홈페이지의 1440×1024 PC와 320×844 모바일에서 법적 상호가 온전히 표시되고 가로 넘침이 0이며 하단 링크와 겹치지 않는 것을 확인했다. 공개 HTML 49개와 /interview를 포함한 50개 응답이 승인된 소스와 바이트 단위로 일치한다. apex 도메인과 /interview/도 공식 www 주소와 /interview로 정상화된다. 증빙은 meta-verification-20261004 작업 폴더의 website-production-verification.json 및 production-footer 캡처를 따른다.
+
+
+## 2026-10-04 FAQ 아리따 서체, 로컬 검수
+
+기준은 docs/DESIGN.md의 FAQ 아리따 조합 v1, 소스 기준선은 e01defe다. 질문은 아리따 부리 SemiBold 600과 PC 22px 및 모바일 18px, 답변과 소개는 아리따 돋움 Medium 원본 400을 사용한다. 답변의 PC 17px 및 모바일 16px와 행간 1.85, 기존 문구와 유리 표면은 유지했다. 공식 font.css에서 확인한 두 WOFF를 그대로 저장했으며 변환과 서브셋 또는 글자 수정은 하지 않았다. 공식 저작권 고지와 한국저작권위원회에 게시된 재배포 조건을 폰트 옆에 보존했다.
+
+두 파일의 cmap은 실제 FAQ의 한글, 영문, 숫자와 문장부호 전체 181개 문자를 지원한다. 로컬 응답의 파일 바이트와 font/woff MIME을 확인했다. 폰트 로드 뒤 직접 본 화면에서 부리 획과 돋움 본문의 차이가 확인되며 질문과 답변의 computed style 및 공급 파일이 연결된다. 현재 브라우저 도구가 실제 glyph별 Rendered Fonts 및 document.fonts 정보를 제공하지 않아 이 별도 진단은 미검증이다. 화면 검수, 문자 지원과 파일 응답 확인을 해당 진단과 혼동하지 않는다.
+
+1440×1024 PC와 390×844, 320×844 모바일에서 첫 답변을 열어 글자와 아이콘의 겹침 및 가로 넘침 없음을 확인했다. PC 질문 네 개는 각각 한 줄, 390px는 첫 질문 한 줄 및 나머지 두 줄, 320px는 모두 두 줄이다. 320px summary 높이는 약 102px, 답변은 흐름 안에서 자연스럽게 길어지고 max-height 제한이 없다. 고정 문의는 FAQ에서 숨겨진다. 첫 질문의 클릭과 Enter, 네 질문의 Enter 열기와 닫기를 직접 수행했고 최종 네 질문의 닫힘을 확인했다. 콘솔 경고와 오류는 없다.
+
+전후 증거는 /Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-faq-arita-20261004의 02-before-desktop-open.png, 03-before-mobile-open.png, 04-after-desktop-open.png, 05-after-mobile-open.png와 06-after-320-open.png다. PC와 390px의 동일 #faq 앵커 및 첫 답변 열림 상태를 맞췄다. 좁은 화면 키보드 검수는 초점의 자동 스크롤 좌표가 달라 동일 픽셀 위치 비교가 아니다. npm run check와 git diff --check가 통과했다. Preview 및 실제 Production 화면과 공개 파일 일치는 후속 배포에서 별도로 확인한다.

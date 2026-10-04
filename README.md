@@ -15,7 +15,7 @@ Status: `LIVE V1 / PRODUCTION VERIFIED`
 - 웹사이트 목록: PC와 태블릿 두 열, 모바일 한 열, 1440×810 대표 썸네일
 - 웹사이트 유형은 Signature와 Essential로 구분한다. 이번에는 자리만 준비하며 기존 여섯 샘플은 Signature의 첫 목록에 유지하고 Essential은 준비 중 안내를 표시한다. 리뉴얼 작품과 등급 확정은 이후 요청에서 연결한다.
 - 메인: 진주빛 실크, 승인된 가로형 워드마크, 완만한 U자 서비스 배치, 라벤더 유리 버튼
-- FAQ: 서비스와 문의 사이의 네 질문, 진행 방식과 제작 범위, 비용 및 일정 협의, 별도 월간 계약 안내
+- FAQ: 서비스와 문의 사이의 네 질문, 아리따 부리 SemiBold 질문과 아리따 돋움 Medium 답변, 진행 방식과 제작 범위, 비용 및 일정 협의, 별도 월간 계약 안내
 - 문의: `https://open.kakao.com/o/sMBNyzpi`, 이메일 `contact@aurorasound.kr`
 - 대표가 직접 촬영한 사진과 자체 시안, AI 제작, 가상 사업체를 구분한다. 사진에 별도 제작 브랜드 표기를 붙이지 않으며 확인되지 않은 고객 사례나 성과를 추가하지 않는다.
 
@@ -32,7 +32,7 @@ git diff --check
 ## 소스와 계약
 
 - `index.html`: 홈과 광고 경로의 공통 문서, SEO와 광고 경로 Meta 초기화
-- `rebrand/style.css?v=41`, `rebrand/app.js?v=9`: 1차 화면과 입력, 작은 볼륨의 기본 음악, 반응형 표시
+- `rebrand/style.css?v=42`, `rebrand/app.js?v=9`: 1차 화면과 입력, 아리따 FAQ 서체, 작은 볼륨의 기본 음악, 반응형 표시
 - `rebrand/silk.js`, `audio.js?v=3`, `showcase.js`: 실크 효과, 음악 생성과 상세 이미지 보기
 - `work/index.html`, `work/style.css?v=23`, `work/work.js?v=12`, `work/motion.js?v=3`: 사진, 자체 시안과 웹사이트 목록, 분야, 이미지 확대와 웹사이트 스크롤 모션
 - `work/catalog.json`, 작업별 HTML과 `work/assets/`: 45개 모음과 작업의 구성, 상세와 자산

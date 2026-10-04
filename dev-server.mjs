@@ -18,6 +18,7 @@ const contentTypes = {
   '.avif': 'image/avif',
   '.mp4': 'video/mp4',
   '.woff2': 'font/woff2',
+  '.woff': 'font/woff',
   '.ico': 'image/x-icon',
 };
 
