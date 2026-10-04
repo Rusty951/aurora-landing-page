@@ -7,7 +7,7 @@ const routes=['15-nocte','16-seam-hotel','02-bitgyeol-curtain','04-neurin-pajang
 const dest=join(root,'work/demos');
 for(const route of routes)if(!existsSync(join(source,route,'index.html')))throw new Error('Missing canonical sample: '+route);
 const known=new Set([...routes,'01-jeongo-eye','12-moseori-studio','assets','medical','professional']);
-for(const entry of readdirSync(dest,{withFileTypes:true}))if(entry.isDirectory()&&!known.has(entry.name))throw new Error('Unrecognized folder; refusing cleanup: '+entry.name);
+if(existsSync(dest))for(const entry of readdirSync(dest,{withFileTypes:true}))if(entry.isDirectory()&&!known.has(entry.name))throw new Error('Unrecognized folder; refusing cleanup: '+entry.name);
 rmSync(dest,{recursive:true});mkdirSync(dest,{recursive:true});
 for(const entry of [...routes,'professional','assets','site.js','foundation.css','reading.css'])if(existsSync(join(source,entry)))cpSync(join(source,entry),join(dest,entry),{recursive:true});
 for(const route of routes){
