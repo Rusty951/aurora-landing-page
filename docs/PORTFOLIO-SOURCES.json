@@ -1,13 +1,11 @@
 [
   {
-    "slug": "website-moseori",
+    "slug": "website-nocte",
     "kind": "website_sample",
     "source_repo": "Rusty951/website-portfolio",
-    "source_directory": "12-moseori-studio",
-    "desktop_capture": "work/assets/web-moseori.webp",
-    "mobile_capture": "work/assets/web-moseori-mobile.webp",
-    "license_scope": "fictional web design with licensed stock imagery; no client cases",
-    "desktop_capture_route": "/work/demos/12-moseori-studio/",
+    "source_directory": "15-nocte",
+    "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
+    "desktop_capture_route": "/15-nocte/",
     "desktop_capture_viewport": {
       "width": 1440,
       "height": 810
@@ -18,10 +16,8 @@
     "kind": "website_sample",
     "source_repo": "Rusty951/website-portfolio",
     "source_directory": "02-bitgyeol-curtain",
-    "desktop_capture": "work/assets/web-bitgyeol.webp",
-    "mobile_capture": "work/assets/web-bitgyeol-mobile.webp",
-    "license_scope": "fictional web design with licensed stock imagery; no client cases",
-    "desktop_capture_route": "/work/demos/02-bitgyeol-curtain/",
+    "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
+    "desktop_capture_route": "/02-bitgyeol-curtain/",
     "desktop_capture_viewport": {
       "width": 1440,
       "height": 810
@@ -32,10 +28,8 @@
     "kind": "website_sample",
     "source_repo": "Rusty951/website-portfolio",
     "source_directory": "04-neurin-pajang",
-    "desktop_capture": "work/assets/web-neurin.webp",
-    "mobile_capture": "work/assets/web-neurin-mobile.webp",
-    "license_scope": "fictional web design with licensed stock imagery; no client cases",
-    "desktop_capture_route": "/work/demos/04-neurin-pajang/",
+    "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
+    "desktop_capture_route": "/04-neurin-pajang/",
     "desktop_capture_viewport": {
       "width": 1440,
       "height": 810
@@ -46,24 +40,20 @@
     "kind": "website_sample",
     "source_repo": "Rusty951/website-portfolio",
     "source_directory": "05-haebit-light",
-    "desktop_capture": "work/assets/web-haebit.webp",
-    "mobile_capture": "work/assets/web-haebit-mobile.webp",
-    "license_scope": "fictional web design with licensed stock imagery; no client cases",
-    "desktop_capture_route": "/work/demos/05-haebit-light/#services",
+    "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
+    "desktop_capture_route": "/05-haebit-light/",
     "desktop_capture_viewport": {
       "width": 1440,
       "height": 810
     }
   },
   {
-    "slug": "website-jeongo",
+    "slug": "website-seam",
     "kind": "website_sample",
     "source_repo": "Rusty951/website-portfolio",
-    "source_directory": "01-jeongo-eye",
-    "desktop_capture": "work/assets/web-jeongo.webp",
-    "mobile_capture": "work/assets/web-jeongo-mobile.webp",
-    "license_scope": "fictional web design with licensed stock imagery; no client cases",
-    "desktop_capture_route": "/work/demos/01-jeongo-eye/#care",
+    "source_directory": "16-seam-hotel",
+    "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
+    "desktop_capture_route": "/16-seam-hotel/",
     "desktop_capture_viewport": {
       "width": 1440,
       "height": 810
@@ -74,10 +64,8 @@
     "kind": "website_sample",
     "source_repo": "Rusty951/website-portfolio",
     "source_directory": "13-chaon-law",
-    "desktop_capture": "work/assets/web-chaon.webp",
-    "mobile_capture": "work/assets/web-chaon-mobile.webp",
-    "license_scope": "fictional web design with licensed stock imagery; no client cases",
-    "desktop_capture_route": "/work/demos/13-chaon-law/",
+    "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
+    "desktop_capture_route": "/13-chaon-law/",
     "desktop_capture_viewport": {
       "width": 1440,
       "height": 810

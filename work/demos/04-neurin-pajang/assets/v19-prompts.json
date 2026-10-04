@@ -1,0 +1,10 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-04",
+  "file": "issue-cover-v19.webp",
+  "prompt": "Use case: compositing. Asset type: a large editorial cover photograph for a fictional Korean culture and lifestyle journal called Sujip Note, about music and hand-made objects. Input 1 is the licensed turntable reference: preserve believable turntable hardware, platter, vinyl grooves and tonearm mechanics, but remove its manufacturer logo and do not preserve its dark room background. Input 2 is the licensed ceramic reference: use the warm unglazed clay texture and irregular hand-made cup form as supporting object inspiration, remove all maker stamps. Make a new original bright editorial still life, landscape 1536x1024. A simple unbranded black turntable with a black vinyl record on its platter on the right half, clear acrylic lid open or absent, plausible tonearm placed near the record's outer groove. One handmade warm clay ceramic cup beside it, plus a single plain record sleeve without text. Matte cobalt blue tabletop and matching clean backdrop, soft natural studio window light, gentle real shadows and fine texture, photographed at a slightly elevated 35-degree angle. The subject should be crisp, with ordinary material imperfections, not plastic CGI. Keep the upper-left area relatively quiet for a large web title; do not bake any title into the image. No people, no text, no labels, no logos, no watermark, no decorative plants, no retro grain filter, no dramatic darkness, no repeated object collage. The devices and objects illustrate a fictional journal and are not products offered for sale or proof of real events. Borrow no photographs or branded objects from the website references.",
+  "inputRoles": {
+    "record-player.jpg": "licensed turntable reference and edit input",
+    "ceramic-cups.jpg": "licensed material and object reference"
+  }
+}

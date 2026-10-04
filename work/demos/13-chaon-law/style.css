@@ -18,7 +18,7 @@ h2,
 .brand strong,
 .practice-tabs button,
 .practice-panels h3 {
-  font-family: "Noto Serif KR", "AppleMyungjo", serif;
+  font-family: "MaruBuri", "AppleMyungjo", serif;
   font-weight: 400;
 }
 .container {
@@ -834,7 +834,7 @@ summary,
   padding-left: 40px;
 }
 .contact-columns h3 {
-  font-family: "Noto Serif KR", "AppleMyungjo", serif;
+  font-family: "MaruBuri", "AppleMyungjo", serif;
   font-size: 29px;
   font-weight: 400;
   line-height: 1.5;

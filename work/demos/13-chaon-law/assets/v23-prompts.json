@@ -1,0 +1,20 @@
+{
+  "tool": "built-in imagegen",
+  "created": "2026-10-04",
+  "assets": [
+    {
+      "file": "document-review-v23.webp",
+      "role": "first-screen illustration",
+      "prompt": "Create a realistic editorial business photograph for a fictional South Korean legal consultation homepage. This is an anonymous fictional person, not a real lawyer, staff member or client. Landscape 3:2. A Korean woman around forty, wearing a plain dark navy blazer over a simple ivory blouse, seated at an ordinary walnut meeting desk in a modest clean Korean professional office. She is calmly reviewing two plain unbranded sheets and an open folder, looking down toward the documents rather than smiling at the camera. Natural attentive expression and understated realistic appearance, believable adult facial features, neat shoulder-length dark hair, natural skin texture, no heavy glamour retouching. Medium shot from a slightly angled eye-level camera so both face and hands, desk and surrounding office are visible. Soft neutral daylight from a large side window, warm-white walls, a simple dark bookshelf blurred behind, no visible book titles or badges. The desk has one closed notebook, a plain ceramic water cup, a pen and an unbranded folder only. No scales of justice, gavel, court seal, diploma, certificate, lawyer pin, giant law books, courthouse, client information or readable writing. Natural documentary photographic style, neutral white balance, refined quiet office mood, navy, white and restrained walnut colors. All people must be Korean. No text, logos, watermark, collage, diagrams or CGI sheen. Do not imply a real professional credential or a completed legal case.",
+      "references": []
+    },
+    {
+      "file": "consultation-v23.webp",
+      "role": "consultation process illustration",
+      "prompt": "Create a new realistic editorial photograph of the SAME fictional Korean woman and the SAME modest professional office shown in the supplied reference. This is a generic illustrated consultation meeting, not a real lawyer, employee or client and not a real legal case. Landscape 3:2, natural eye-level documentary business photography. The Korean woman around forty wears the same plain navy blazer and ivory blouse, with the same shoulder-length dark hair and understated realistic appearance. She sits at the same walnut meeting desk by the soft daylight window and calmly points to a plain unbranded sheet inside the same open folder. An anonymous Korean man around fifty wearing a simple dark gray jacket sits across the desk, seen mostly from behind and partly in profile, listening. Show exactly two adults, both Korean, with natural expressions and plausible hands. Wider framing than the reference so the desk, seating and shared document review are visible. Warm-white walls, the same dark bookshelf blurred behind, neutral white balance and realistic daylight shadows. No gavel, scales of justice, courtroom, diploma, certificate, badges or lawyer pins. No readable writing, personal information, contract signatures, recognizable brands, logos, watermarks, diagrams or collages. Keep the identities, furniture, wardrobe, lighting and photographic style consistent with the first reference. No enthusiastic commercial smiles or exaggerated gestures. Do not imply a real professional credential, representation, client endorsement or completed result.",
+      "references": [
+        "v23-source/document-review.png"
+      ]
+    }
+  ]
+}

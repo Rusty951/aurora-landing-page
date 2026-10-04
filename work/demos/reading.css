@@ -1,0 +1,11 @@
+/* Reading and interaction defaults; colors and composition stay site-specific. */
+body { font-family:var(--font-sans); font-synthesis:none; letter-spacing:-.02em; }
+h1,h2,h3 { word-break:keep-all; overflow-wrap:break-word; text-wrap:balance; }
+p,li,dd { word-break:keep-all; overflow-wrap:break-word; }
+.editorial,.serif { font-family:var(--font-serif); }
+.hero-action,.button,.link-button,.s-text-link,.mnd-text-link { min-height:48px; }
+button,summary { touch-action:manipulation; }
+summary:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible { outline:2px solid currentColor; outline-offset:5px; }
+figcaption { line-height:1.7; }
+@media(max-width:760px) { main p:not(.eyebrow):not(.kicker):not(.fine):not([class$="-note"]):not([class$="-fine"]) { line-height:1.85; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } }

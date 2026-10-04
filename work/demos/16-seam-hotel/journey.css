@@ -1,0 +1,233 @@
+@font-face{font-family:'Bodoni Moda';src:url('assets/fonts/BodoniModa-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'Bodoni Moda';src:url('assets/fonts/BodoniModa-Italic.ttf') format('truetype');font-style:italic;font-weight:400;font-display:swap}
+/* SEAM's photographic journey: type and controls sit around the physical camera. */
+body.journey-film{--paper:#ece7de;--white:#fffaf1;--ink:#302f27;--gold:#dbc8a2;--edge:clamp(24px,4.7vw,88px);font-synthesis:none}
+.journey-film .header{padding-top:28px;padding-bottom:22px;align-items:center}
+.journey-film .wordmark{font-family:'Bodoni Moda',Georgia,serif;font-size:37px;letter-spacing:.1em;font-weight:400;line-height:.95}
+.journey-film .wordmark span{font-size:8px;letter-spacing:.2em;margin-top:10px}
+.journey-film .header-note{font:italic 18px/1.2 'Bodoni Moda',Georgia,serif;letter-spacing:0;opacity:.9}
+.journey-film .header-actions{gap:27px}
+.journey-film .icon{width:18px;height:18px;display:block;flex-shrink:0;filter:brightness(0) invert(1)}
+.journey-film .mode-button{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.025em;min-height:48px;color:var(--white);opacity:.86}
+.journey-film .mode-button:hover{opacity:1}
+.journey-film .mode-icon{width:13px;height:13px}
+.journey-film .room-button{border:1px solid #fff6;border-radius:100px;padding:7px 8px 7px 23px;gap:22px;min-height:48px;background:#f4efdfeb;color:#302e25;font-size:12px;letter-spacing:.025em;box-shadow:0 3px 18px #1111;transition:background .4s,box-shadow .4s,transform .4s}
+.journey-film .room-button span{font-size:inherit}
+.journey-film .button-icon{display:grid;place-items:center;width:32px;height:32px;border:1px solid #8b806650;border-radius:50%;transition:transform .45s cubic-bezier(.2,.7,.2,1),border-color .4s}
+.journey-film .room-button .icon{filter:none;width:16px;height:16px;opacity:.8}
+.journey-film .room-button:hover .button-icon{transform:rotate(45deg);border-color:#8b8066}
+.journey-film .light-button{position:relative;isolation:isolate;overflow:hidden}
+.journey-film .light-button::before{content:'';position:absolute;inset:0;z-index:-1;border-radius:inherit;background:radial-gradient(110px circle at var(--shine-x,50%) var(--shine-y,50%),#fff9,transparent 75%);opacity:0;transition:opacity .45s;pointer-events:none}
+.journey-film .light-button:hover::before{opacity:.9}
+.journey-film .room-button:hover{background:#fff6df;box-shadow:0 0 32px #ffe7a52b,0 5px 24px #0001;transform:translateY(-1px)}
+body.journey-film .shade{background:linear-gradient(0deg,#101a17df 0%,#131a1870 20%,#111c1800 63%),linear-gradient(180deg,#111b16c7 0%,#15201b6b 110px,#17201c00 230px),linear-gradient(90deg,#1016119c 0%,#17201c32 43%,#17201c00 75%);transition:background .65s}
+.journey-film #stage[data-scene="terrace"] .shade{background:linear-gradient(180deg,#111b1670,#111b1600 170px),linear-gradient(0deg,#14211ce6 0%,#17241c88 32%,#17241c78 74%,#17241c88 100%)}
+.journey-film .scene-copy{left:var(--edge);bottom:158px;width:min(800px,calc(100% - var(--edge)*2));max-width:none;transform:none;filter:none;transition:opacity .35s ease;pointer-events:none}
+.journey-film .scene-copy.is-current{transform:none;filter:none;pointer-events:auto}
+.journey-film .eyebrow{display:flex;align-items:center;gap:16px;font-size:10px;font-weight:400;letter-spacing:.19em;margin-bottom:26px;color:#fff9eddf}
+.journey-film .scene-ordinal{font:italic 17px/1 'Bodoni Moda',Georgia,serif;color:var(--gold);letter-spacing:0}
+.journey-film .scene-copy .display-title{font:400 clamp(78px,9.15vw,154px)/1.02 'Bodoni Moda',Georgia,serif;letter-spacing:-.05em;margin:0 0 25px;word-break:normal;font-optical-sizing:auto}
+.journey-film .scene-copy .display-title em{font-weight:400;letter-spacing:-.055em}
+.journey-film .scene-copy .hero-title{font-size:clamp(82px,9.45vw,168px)}
+.journey-film .type-line{display:block;overflow:hidden;padding:.12em .08em .14em 0;margin:-.12em -.08em -.14em 0}
+.journey-film .type-line>span{display:block;transform-origin:0 100%}
+.journey-film .scene-copy .korean-title{font:300 clamp(42px,4.65vw,76px)/1.4 Maru,serif;letter-spacing:-.055em;margin:0 0 26px}
+.journey-film .hero-line{font:300 24px/1.5 Maru,serif;letter-spacing:-.03em;margin:0 0 10px}
+body.journey-film .caption{font-size:13px;line-height:1.9;font-weight:300;letter-spacing:.005em;color:#fffaf1ef;max-width:440px;word-break:keep-all}
+.journey-film .scene-aside{font:italic 22px/1.5 'Bodoni Moda',Georgia,serif;margin:24px 0 0;color:var(--gold)}
+.journey-film .scene-copy[data-scene="1"],.journey-film .scene-copy[data-scene="3"]{bottom:172px}
+.journey-film .scene-copy[data-scene="4"]{left:50%;bottom:153px;width:min(780px,calc(100% - var(--edge)*2));transform:translateX(-50%);text-align:center}
+.journey-film .scene-copy[data-scene="4"] .eyebrow{justify-content:center;margin-bottom:20px}
+.journey-film .scene-copy[data-scene="4"] .display-title{font-size:clamp(72px,7.8vw,132px);margin-bottom:19px;line-height:1.04}
+.journey-film .scene-copy[data-scene="4"] .hero-line{font-size:23px}
+.journey-film .ending-actions{justify-content:center;margin-top:27px;gap:14px}
+.journey-film .ending-actions .room-button{font-size:12px;padding:7px 8px 7px 23px;min-height:48px}
+.journey-film .restart-button{display:flex;align-items:center;gap:18px;border:1px solid #fffaed60;border-radius:100px;min-height:48px;padding:12px 22px;font-size:12px;background:#fff2;backdrop-filter:blur(10px);transition:background .4s,box-shadow .4s}
+.journey-film .restart-button span{margin:0;font-size:12px}
+.journey-film .restart-button .icon{width:16px;height:16px}
+.journey-film .restart-button:hover{background:#fff3;box-shadow:0 0 22px #ffe7a51c}
+.journey-film .journey-bottom{bottom:42px;pointer-events:none}
+.journey-film .journey-bottom>*{pointer-events:auto}
+.journey-film .continue-button{gap:16px;min-height:50px;padding:0;font-size:12px;text-align:left}
+.journey-film .down-arrow{width:50px;height:50px;border-color:#fffaed50;transition:background .4s,border-color .4s,box-shadow .4s}
+.journey-film .down-arrow .icon{width:19px;height:19px;transition:transform .5s cubic-bezier(.2,.75,.2,1)}
+.journey-film .continue-button:hover .down-arrow{background:#f9e4b629;border-color:#f1d8a5ba;box-shadow:0 0 24px #e4cd9a1a}
+.journey-film .continue-button:hover .down-arrow .icon{transform:translateY(3px)}
+.journey-film .continue-copy{display:grid;gap:7px;font-size:11px;letter-spacing:.025em}
+.journey-film .continue-overline{font-size:8px;letter-spacing:.19em;color:#ebdfc4b8}
+.journey-film .concept-note{position:absolute;left:66px;bottom:-21px;font-size:8px;letter-spacing:.12em;color:#fff9e9a6;max-width:none;text-align:left}
+.journey-film .chapters{bottom:39px;right:var(--edge);left:auto;display:flex;flex-direction:row;align-items:center;gap:17px}
+body.journey-film .chapters a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:58px;min-height:57px;color:#fff9ede0}
+.journey-film .chapter-index{width:31px;height:29px;display:grid;place-items:center;font:italic 21px/1 'Bodoni Moda',Georgia,serif;color:#f4e9d2b8;transition:color .4s,transform .4s}
+.journey-film .chapter-name{opacity:.75;transform:none;font-size:10px;letter-spacing:.015em;transition:opacity .3s,color .3s}
+body.journey-film .chapters a[aria-current] .chapter-index{color:var(--gold);transform:translateY(-2px)}
+body.journey-film .chapters a[aria-current] .chapter-name{opacity:1;color:var(--white)}
+body.journey-film .chapters a[aria-current]::after{content:'';position:absolute;width:3px;height:3px;background:var(--gold);border-radius:50%;bottom:-7px;left:calc(50% - 1.5px)}
+body.journey-film .chapters a:hover .chapter-index{color:#fff1ce;transform:translateY(-3px)}
+.journey-film .progress{display:none}
+.journey-film :is(a,button):focus-visible{outline:2px solid #fff1cc;outline-offset:5px}
+/* Distinct but related chapter entrances, all bounded and interruptible. */
+.journey-film .is-current .eyebrow{animation:seamFade .85s .08s both}
+.journey-film .is-current :is(.caption,.hero-line,.scene-aside,.ending-actions){animation:seamQuietRise .95s .4s both}
+.journey-film .is-current .type-line:nth-child(2)>span{animation-delay:.19s}
+.journey-film [data-scene="0"].is-current .type-line>span{animation:seamUnfold 1.45s cubic-bezier(.16,.75,.18,1) both}
+.journey-film [data-scene="0"].is-current .type-line:nth-child(2)>span{animation-delay:.19s}
+.journey-film [data-scene="1"].is-current .type-line>span{animation:seamAcross 1.2s cubic-bezier(.16,.8,.2,1) both}
+.journey-film [data-scene="1"].is-current .type-line:nth-child(2)>span{animation-delay:.17s}
+.journey-film [data-scene="2"].is-current .type-line>span{animation:seamLight 1.45s cubic-bezier(.18,.7,.2,1) both}
+.journey-film [data-scene="2"].is-current .type-line:nth-child(2)>span{animation-delay:.18s}
+.journey-film .type-glyph{display:inline-block}
+.journey-film [data-scene="3"].is-current .type-glyph{animation:seamLetter 1.05s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--glyph)*38ms + 80ms)}
+.journey-film [data-scene="3"].is-current .type-line:nth-child(2) .type-glyph{animation-delay:calc(var(--glyph)*38ms + 240ms)}
+.journey-film [data-scene="4"].is-current .type-line>span{animation:seamSettle 1.6s cubic-bezier(.2,.65,.2,1) both;transform-origin:50% 50%}
+.journey-film [data-scene="4"].is-current .type-line:nth-child(2)>span{animation-delay:.16s}
+@keyframes seamFade{from{opacity:0}to{opacity:1}}
+@keyframes seamQuietRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes seamUnfold{from{opacity:.1;transform:translateY(112%) rotate(2deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
+@keyframes seamAcross{from{opacity:.2;clip-path:inset(0 100% 0 0);transform:translateX(20px)}to{opacity:1;clip-path:inset(0 0 0 0);transform:translateX(0)}}
+@keyframes seamLight{from{opacity:0;filter:blur(7px);transform:translateY(16px);letter-spacing:.008em}to{opacity:1;filter:blur(0);transform:translateY(0);letter-spacing:inherit}}
+@keyframes seamLetter{from{opacity:0;filter:blur(5px);transform:translateY(22px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes seamSettle{from{opacity:0;transform:translateY(18px) scale(.97);filter:blur(3px)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+/* A quiet editorial room sheet, built from the same two actual film frames. */
+.journey-film dialog{background:#eee9df;color:var(--ink);padding:135px var(--edge) 55px}
+.journey-film dialog[open]{animation:seamFade .55s ease both}
+.journey-film .detail-wordmark{position:absolute;top:35px;left:var(--edge);font:400 35px/1 'Bodoni Moda',Georgia,serif;letter-spacing:.1em}
+.journey-film .close-dialog{position:fixed;display:flex;align-items:center;gap:22px;top:25px;right:var(--edge);background:#eee9dff0;border-color:#5e5c4530;padding:10px 16px 10px 22px;min-height:48px;backdrop-filter:blur(12px)}
+.journey-film dialog .icon{filter:none;opacity:.75}
+.journey-film .detail-intro{grid-template-columns:1.2fr 1fr;align-items:end;margin:0 auto 56px;max-width:1320px;gap:10vw}
+.journey-film dialog .eyebrow{color:#6d695b;margin-bottom:26px;letter-spacing:.19em}
+.journey-film .detail-intro h2{font:400 clamp(62px,6.8vw,104px)/1.06 'Bodoni Moda',Georgia,serif;letter-spacing:-.045em}
+.journey-film .detail-intro h2 em{font-weight:400}
+.journey-film .detail-description{padding-bottom:6px}
+.journey-film .detail-korean{font:300 clamp(23px,2.4vw,34px)/1.6 Maru,serif;letter-spacing:-.045em;margin:0 0 21px}
+.journey-film .detail-description>p:last-child{font-size:13px;line-height:2;color:#686455;word-break:keep-all;margin:0}
+.journey-film figure{max-width:1320px;margin-bottom:0}
+.journey-film figure img{width:100%;height:auto;display:block}
+.journey-film figcaption{display:flex;align-items:baseline;justify-content:flex-start;gap:14px;margin-top:19px;letter-spacing:0;color:#716b5b}
+.journey-film figcaption .figure-number{font:italic 18px/1 'Bodoni Moda',serif;color:#867c64}
+.journey-film figcaption .figure-label{font:400 27px/1.2 'Bodoni Moda',serif;color:var(--ink)}
+.journey-film figcaption span:last-child{margin-left:auto;font-size:11px}
+.journey-film .detail-interlude{display:flex;gap:8vw;align-items:center;justify-content:center;margin:125px 0 85px}
+.journey-film .detail-interlude>p:first-child{font:400 clamp(35px,4.5vw,68px)/1.13 'Bodoni Moda',serif;letter-spacing:-.035em;margin:0}
+.journey-film .detail-interlude>p:last-child{font:300 18px/1.9 Maru,serif;color:#686455;letter-spacing:-.04em;margin:0}
+.journey-film .detail-terrace{width:78%;margin-left:auto}
+.journey-film .detail-footer{max-width:1320px;margin-top:120px;align-items:flex-end}
+.journey-film .detail-footer p{font-size:11px;color:#706b5e}
+.journey-film .detail-footer .detail-signature{font:italic 29px/1.3 'Bodoni Moda',serif;color:var(--ink);margin:0 0 17px}
+.journey-film .return-button{display:flex;gap:23px;align-items:center;min-height:48px;padding:15px 23px;border-color:#6d695b50;font-size:12px}
+.journey-film .return-button span{margin:0}
+.journey-film dialog :is(button,a):focus-visible{outline-color:#554a2c}
+.journey-film .will-reveal{opacity:0;transform:translateY(25px);transition:opacity .9s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.journey-film .will-reveal.is-seen{opacity:1;transform:none}
+@media(min-width:1600px){.journey-film .scene-copy{bottom:20vh}.journey-film .scene-copy[data-scene="4"]{bottom:20vh}}
+@media(max-width:900px){.journey-film .header-note{display:none}.journey-film .header-actions{gap:20px}.journey-film .chapters{gap:4px}body.journey-film .chapters a{min-width:51px}.journey-film .scene-copy{bottom:160px}.journey-film .scene-copy .display-title{font-size:clamp(76px,10vw,108px)}.journey-film .detail-intro{gap:40px}}
+@media(max-width:600px){
+ .journey-film{--edge:24px}
+ .journey-film .header{padding-top:23px;gap:12px}
+ .journey-film .wordmark{font-size:29px}.journey-film .wordmark span{font-size:6px;letter-spacing:.12em;margin-top:9px}
+ .journey-film .header-actions{gap:14px}.journey-film .header-actions .room-button{min-height:44px;gap:12px;padding:6px 7px 6px 16px;font-size:11px}
+ .journey-film .button-icon{width:27px;height:27px}.journey-film .room-button .icon{width:14px;height:14px}
+ .journey-film .mode-button{min-width:44px;min-height:44px;padding:0;max-width:none;justify-content:center}
+ .journey-film .mode-button [data-mode-label]{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ .journey-film .mode-icon{width:17px;height:17px}
+ .journey-film .scene-copy,.journey-film .scene-copy[data-scene="1"],.journey-film .scene-copy[data-scene="3"]{bottom:205px;width:calc(100% - var(--edge)*2)}
+ .journey-film .scene-copy .display-title,.journey-film .scene-copy .hero-title{font-size:clamp(57px,18.3vw,106px);line-height:1.04;letter-spacing:-.052em;margin-bottom:24px}
+ .journey-film .hero-line{font-size:21px;letter-spacing:-.055em;margin-bottom:11px}
+ body.journey-film .caption{font-size:12px;line-height:1.85;max-width:none;letter-spacing:-.015em}
+ .journey-film .eyebrow{font-size:9px;gap:12px;margin-bottom:27px;letter-spacing:.15em}
+ .journey-film .scene-ordinal{font-size:16px}
+ .journey-film .scene-copy .korean-title{font-size:clamp(34px,10.25vw,56px);line-height:1.43;margin-bottom:23px}
+ .journey-film .scene-aside{font-size:21px;margin-top:20px}
+ .journey-film .scene-copy[data-scene="4"]{bottom:203px}
+ .journey-film .scene-copy[data-scene="4"] .display-title{font-size:clamp(45px,13.5vw,74px);line-height:1.06;margin-bottom:22px}
+ .journey-film .scene-copy[data-scene="4"] .hero-line{font-size:20px}
+ .journey-film .ending-actions{gap:10px;margin-top:25px;flex-wrap:nowrap}
+ .journey-film .ending-actions .room-button{font-size:11px;gap:13px;padding-left:17px;min-height:46px;white-space:nowrap}
+ .journey-film .restart-button{min-height:46px;gap:12px;padding:11px 17px;white-space:nowrap}
+ .journey-film .restart-button span{font-size:11px}
+ .journey-film .chapters{left:var(--edge);right:var(--edge);bottom:111px;justify-content:space-between;gap:0}
+ body.journey-film .chapters a{min-width:48px;min-height:56px;gap:5px}
+ .journey-film .chapter-index{font-size:23px}.journey-film .chapter-name{font-size:10px}
+ .journey-film .journey-bottom{bottom:39px;align-items:center}
+ .journey-film .continue-button{gap:12px}.journey-film .down-arrow{width:44px;height:44px}
+ .journey-film .continue-copy{font-size:10px;gap:6px}.journey-film .continue-overline{font-size:7px}
+ .journey-film .concept-note{left:auto;right:0;bottom:9px;width:87px;max-width:none;text-align:right;font-size:7px;line-height:1.7}
+ .journey-film dialog{padding:113px var(--edge) 40px}.journey-film .detail-wordmark{top:29px;font-size:30px}
+ .journey-film .close-dialog{top:20px;min-height:44px;gap:15px;padding:10px 15px 10px 18px}
+ .journey-film .detail-intro{display:block;margin:0 0 36px}.journey-film .detail-intro h2{font-size:clamp(58px,17.5vw,95px);margin:0 0 29px}
+ .journey-film .detail-intro .eyebrow{margin-bottom:22px}.journey-film .detail-description{padding:0}
+ .journey-film .detail-korean{font-size:25px;margin-bottom:17px}.journey-film .detail-description>p:last-child{font-size:12px}
+ .journey-film figcaption{gap:8px;margin-top:14px}.journey-film figcaption .figure-label{font-size:23px}.journey-film figcaption span:last-child{font-size:9px}
+ .journey-film .detail-interlude{display:block;margin:66px 0 40px}.journey-film .detail-interlude>p:first-child{font-size:42px;margin-bottom:24px}
+ .journey-film .detail-interlude>p:last-child{font-size:17px}.journey-film .detail-terrace{width:100%}
+ .journey-film .detail-footer{display:block;margin-top:65px}.journey-film .detail-footer .detail-signature{font-size:27px}
+ .journey-film .return-button{margin-top:26px}
+}
+@media(max-width:350px){.journey-film{--edge:20px}.journey-film .header-actions{gap:5px}.journey-film .wordmark{font-size:26px}.journey-film .header-actions .room-button{font-size:10px;padding-left:12px;gap:8px}.journey-film .hero-line{font-size:19px}.journey-film .ending-actions .room-button{padding-left:11px;gap:7px}.journey-film .restart-button{padding:11px 12px;gap:8px}.journey-film .concept-note{display:none}body.journey-film .chapters a{min-width:44px}}
+@media(max-height:650px) and (max-width:600px){.journey-film .scene-copy,.journey-film .scene-copy[data-scene="1"],.journey-film .scene-copy[data-scene="3"],.journey-film .scene-copy[data-scene="4"]{bottom:167px}.journey-film .scene-copy .display-title,.journey-film .scene-copy .hero-title{font-size:55px;margin-bottom:17px}.journey-film .eyebrow{margin-bottom:18px}.journey-film .hero-line{font-size:18px;margin-bottom:7px}body.journey-film .caption{font-size:11px}.journey-film .scene-copy .korean-title{font-size:34px;margin-bottom:17px}.journey-film .scene-aside{font-size:18px;margin-top:14px}.journey-film .chapters{bottom:80px}.journey-film .journey-bottom{bottom:18px}.journey-film .ending-actions{margin-top:19px}.journey-film .scene-copy[data-scene="4"] .display-title{font-size:42px}.journey-film .scene-copy[data-scene="4"] .hero-line{font-size:18px}}
+/* The explicit still mode and OS setting both stop presentation motion. */
+.journey-film.scene-mode :is(.scene-copy,.scene-copy *,.will-reveal),.journey-film.scene-mode dialog[open]{animation:none!important;transition:none!important}
+.journey-film.scene-mode .type-line>span,.journey-film.scene-mode .type-glyph{transform:none!important;opacity:1!important;clip-path:none!important;filter:none!important}
+.journey-film.scene-mode .will-reveal{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.journey-film *,.journey-film *::before,.journey-film *::after{animation:none!important;transition:none!important}.journey-film .type-line>span,.journey-film .type-glyph,.journey-film .will-reveal{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}.journey-film .scene-copy[data-scene="4"]{transform:translateX(-50%)}.journey-film .light-button::before{display:none}}
+
+.journey-film .close-dialog span{font-size:12px;margin:0}
+
+/* Optional, user-started soundtrack stays independent from camera scrubbing. */
+.journey-film .music-button{position:absolute;left:230px;display:flex;align-items:center;justify-content:center;gap:11px;min-width:118px;min-height:44px;padding:10px 16px;border:1px solid #fffaed45;border-radius:100px;background:#fff1;color:var(--white);font-size:11px;letter-spacing:.02em;backdrop-filter:blur(10px);transition:background .4s,border-color .4s}
+.journey-film .music-button:hover,.journey-film .music-button[aria-pressed="true"]{background:#fff2;border-color:#ead7ad99}
+.journey-film .sound-bars{display:flex;align-items:center;justify-content:center;gap:3px;width:18px;height:18px}
+.journey-film .sound-bars i{display:block;width:2px;height:3px;background:currentColor;border-radius:2px;transform-origin:center;transition:height .4s}
+.journey-film .music-button[data-state="playing"] .sound-bars i{height:13px;animation:seamSound 1.4s ease-in-out infinite alternate}
+.journey-film .music-button[data-state="playing"] .sound-bars i:nth-child(2){animation-delay:-.7s}
+.journey-film .music-button[data-state="playing"] .sound-bars i:nth-child(3){animation-delay:-1.1s}
+.journey-film .music-button[data-state="playing"] .sound-bars i:nth-child(4){animation-delay:-.4s}
+@keyframes seamSound{from{transform:scaleY(.3)}to{transform:scaleY(1)}}
+.journey-film .music-status{position:fixed;z-index:6;bottom:105px;left:var(--edge);max-width:calc(100% - var(--edge)*2);font-size:12px;background:var(--paper);color:var(--ink);border-radius:8px;padding:12px 16px;pointer-events:none}
+.journey-film .music-status:empty{display:none}
+.journey-film .music-credit{line-height:1.9;margin-top:20px}
+.journey-film .music-credit a{text-decoration:underline;text-underline-offset:3px;display:inline-block;min-height:24px}
+@media(max-width:900px){.journey-film .music-button{left:200px;min-width:108px;padding:10px 12px}}
+@media(max-width:600px){.journey-film .music-button{left:auto;right:0;min-width:108px}.journey-film .concept-note{bottom:-23px;width:auto;white-space:nowrap;font-size:6px}.journey-film .music-status{bottom:180px}}
+@media(prefers-reduced-motion:reduce){.journey-film .music-button .sound-bars i{animation:none!important;transition:none}}
+.journey-film.scene-mode .sound-bars i{animation:none!important}
+@media(min-width:601px) and (max-width:750px){.journey-film .music-button{left:180px;min-width:44px;padding:10px 12px}.journey-film .music-button [data-music-label]{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}}
+
+/* Audit v2: readable supporting text, quieter endings and a clear mobile doorway. */
+body.journey-film .caption{font-size:14px;font-weight:400;line-height:1.8}
+.journey-film .mode-button,.journey-film .continue-copy,.journey-film .music-button,.journey-film .chapter-name{font-size:12px}
+.journey-film .chapter-name{opacity:.9}
+.journey-film .journey-bottom{min-height:50px}
+.journey-film .concept-note{font-size:10px;color:#fff9e9df;letter-spacing:.04em}
+.journey-film .detail-description>p:last-child{font-size:14px}
+.journey-film .detail-footer p{font-size:12px}
+.journey-film figcaption span:last-child{font-size:12px}
+.journey-film.is-ending .music-button{left:0}
+.journey-film.is-ending .concept-note{left:0}
+@media(max-width:600px){
+ .journey-film .scene-copy[data-scene="0"]{top:clamp(126px,18svh,190px);bottom:auto}
+ .journey-film .scene-copy[data-scene="0"] .eyebrow{margin-bottom:22px}
+ .journey-film .header-actions .room-button,.journey-film .ending-actions .room-button,.journey-film .restart-button span{font-size:12px}
+ .journey-film .concept-note{display:block;left:0;right:auto;bottom:-25px;font-size:10px}
+ .journey-film .music-button{min-width:112px}
+ .journey-film.is-ending .music-button{left:auto;right:0}
+ .journey-film.is-ending .concept-note{bottom:14px}
+ .journey-film .continue-button{gap:9px}
+ .journey-film .continue-copy{font-size:12px;letter-spacing:0}
+ .journey-film .continue-overline{font-size:7px}
+ .journey-film .detail-description>p:last-child{font-size:14px}
+ .journey-film .detail-footer p{font-size:12px}
+ .journey-film figcaption span:last-child{font-size:11px}
+}
+@media(max-width:350px){
+ .journey-film .header-actions .room-button{font-size:12px}
+ .journey-film .continue-copy{max-width:94px;line-height:1.45}
+ .journey-film .journey-bottom{bottom:31px}
+ .journey-film .concept-note{bottom:-22px}
+ .journey-film .chapters{bottom:96px}
+ .journey-film .scene-copy[data-scene="4"]{bottom:182px}
+}
+@media(max-height:650px) and (max-width:600px){
+ .journey-film .scene-copy[data-scene="0"]{top:112px;bottom:auto}
+}
+@media(max-width:600px){.journey-film #stage[data-scene="arrival"] .shade{background:linear-gradient(180deg,#111b16ad 0%,#111b1680 38%,#111b1600 61%),linear-gradient(0deg,#101a17df 0%,#131a1870 20%,#111b1600 55%)}}

@@ -1,0 +1,363 @@
+/* Site-specific design refinement, October 2026. */
+body  {
+  background: #f7f3e9;
+}
+.hero  {
+  height: 740px;
+  background: #20343e;
+}
+.hero>img  {
+  width: 59%;
+  left: auto;
+  right: 0;
+  object-position: center;
+  filter: saturate(.78);
+}
+.hero .shade  {
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg,#20343e 24%,#20343ec9 48%,#20343e0a 77%);
+}
+.hero-copy  {
+  left: 48px;
+  top: 190px;
+  bottom: auto;
+  width: 760px;
+  max-width: 70%;
+}
+.hero h1  {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 78px;
+  line-height: 1.32;
+  letter-spacing: -.04em;
+  margin: 25px 0 28px;
+}
+.hero-copy .kicker  {
+  color: #e2bea1;
+  letter-spacing: .1em;
+}
+.hero-copy>p:last-child  {
+  font-size: 17px;
+  max-width: 41ch;
+  color: #dfe5e5;
+}
+.scroll  {
+  border-bottom: 1px solid #dbded2aa;
+  padding: 12px 0;
+  min-height: 44px;
+  letter-spacing: .04em;
+}
+.intro h2  {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 43px;
+  line-height: 1.5;
+}
+.people h2  {
+  letter-spacing: -.04em;
+  font-weight: 450;
+}
+.people article:nth-child(2)  {
+  padding-top: 80px;
+}
+.moments h3  {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+.contact h2  {
+  font-size: 43px;
+  letter-spacing: -.04em;
+}
+@media(max-width:760px) {
+  .hero  {
+    height: auto;
+    padding-top: 105px;
+  }
+  .hero-copy  {
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    padding: 26px 24px 36px;
+    max-width: none;
+    width: auto;
+  }
+  .hero h1  {
+    font-size: 45px;
+    line-height: 1.43;
+    margin: 24px 0;
+  }
+  .hero-copy>p:last-child  {
+    font-size: 15px;
+  }
+  .hero>img  {
+    position: relative;
+    width: 100%;
+    height: 330px;
+    display: block;
+  }
+  .hero .shade  {
+    display: none;
+  }
+  .scroll  {
+    position: relative;
+    display: inline-flex;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    margin: 0 24px 30px;
+    background: none;
+    padding: 10px 0;
+  }
+  .people article:nth-child(2)  {
+    padding-top: 20px;
+  }
+  .intro h2,.contact h2  {
+    font-size: 32px;
+  }
+}
+.image-source-note {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #5b665e;
+  margin-block: 0 30px;
+}
+/* v15: purpose-specific reading and spacing pass. Licensed local fonts only. */
+@font-face {
+  font-family: Freesentation;
+  src: url('../professional/fonts/Freesentation-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Freesentation;
+  src: url('../professional/fonts/Freesentation-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: -.018em;
+  font-synthesis: none;
+}
+main h1,main h2 {
+  letter-spacing: -.035em;
+}
+main h3 {
+  letter-spacing: -.025em;
+}
+header nav {
+  font-size: 14px;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+header nav a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.hero p,.hero-lead {
+  font-size: 17px;
+  line-height: 1.85;
+}
+.hero .kicker,.hero .eyebrow,.hero-copy>small,.hero-intro>.kicker {
+  font-size: 13px;
+  letter-spacing: .035em;
+  line-height: 1.7;
+}
+.hero-action,.project-entry,.home-project-link {
+  font-size: 15px;
+  min-height: 48px;
+}
+.fiction-label,.image-tag,.hero-tag,.note,.fine,.disclaimer,.care-image-note,main figcaption {
+  font-size: 13px;
+  line-height: 1.8;
+}
+header,header.is-scrolled {
+  box-shadow: none;
+}
+footer p {
+  font-size: 13px;
+  line-height: 1.85;
+}
+footer small,.portfolio-return {
+  font-size: 13px;
+  line-height: 1.8;
+}
+#demo-dialog>.dialog-detail {
+  border-top: 0;
+  padding-top: 0;
+}
+#demo-dialog>.dialog-detail li {
+  border-bottom: 0;
+  padding: 9px 0;
+  font-size: 16px;
+}
+#demo-dialog>p {
+  font-size: 13px;
+}
+.study-map {
+  width: 100%;
+  height: 340px;
+  border: 0;
+  display: block;
+}
+.map-example-note {
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 12px 0 0;
+  color: inherit;
+}
+.contact-number {
+  font-size: 23px!important;
+  font-weight: 500;
+  letter-spacing: .015em;
+  margin: 20px 0;
+}
+.contact-number small {
+  font-size: 13px;
+  font-weight: 400;
+  margin-left: 8px;
+}
+@media(max-width:760px) {
+  body {
+    font-size: 16px;
+  }
+  .hero p,.hero-lead {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  header nav a {
+    font-size: 16px;
+    min-height: 48px;
+    border-bottom: 0;
+  }
+  main h1,main h2 {
+    overflow-wrap: break-word;
+  }
+  .study-map {
+    height: 280px;
+  }
+}
+header .logo {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+header nav {
+  gap: 30px;
+}
+.hero {
+  height: 690px;
+}
+.hero h1 {
+  font-size: 62px;
+  font-weight: 400;
+  line-height: 1.38;
+  max-width: 680px;
+}
+.hero-copy {
+  top: 180px;
+  width: 660px;
+}
+.hero-copy>p:last-child {
+  font-size: 17px;
+}
+.hero-copy .kicker {
+  font-size: 13px;
+  letter-spacing: .05em;
+}
+.scroll {
+  border: 0;
+  font-size: 14px;
+}
+.intro {
+  border: 0;
+}
+.intro h2 {
+  font-size: 38px;
+  font-weight: 400;
+}
+.intro p,.people-grid p,.overview-top p,.overview-grid p,.contact p {
+  font-size: 16px;
+  line-height: 1.85;
+}
+.people>h2,.overview-top h2,.contact h2 {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.people>h2 small,.overview-grid h3,.people-grid h3 {
+  font-size: 23px;
+}
+.people>h2 small {
+  font-size: 13px;
+  letter-spacing: .05em;
+}
+.overview {
+  border: 0;
+}
+.people-grid article:nth-child(2) {
+  padding-top: 40px;
+}
+.people-grid img {
+  filter: saturate(.82) contrast(.97);
+}
+.overview-grid img,.contact img {
+  filter: saturate(.85) contrast(.96);
+}
+.contact button {
+  background: #233a42;
+  border: 0;
+  color: #fff;
+  font-size: 15px;
+  min-height: 48px;
+  padding: 14px 22px;
+}
+.contact,.footline {
+  border: 0;
+}
+@media(max-width:760px) {
+  .hero {
+    height: auto;
+  }
+  .hero-copy {
+    top: auto;
+    width: auto;
+    padding-top: 28px;
+  }
+  .hero h1 {
+    font-size: 38px;
+    line-height: 1.5;
+    margin: 18px 0;
+  }
+  .hero>img {
+    height: 260px;
+  }
+  .hero-copy>p:last-child {
+    font-size: 16px;
+  }
+  .intro h2,.people>h2,.overview-top h2,.contact h2 {
+    font-size: 29px;
+    line-height: 1.5;
+  }
+  .people-grid article:nth-child(2) {
+    padding-top: 0;
+  }
+  .people-grid img {
+    height: 280px;
+  }
+  .people-grid {
+    gap: 34px;
+  }
+  .overview-grid h3,.people-grid h3 {
+    font-size: 22px;
+  }
+  .contact p {
+    font-size: 14px;
+  }
+}

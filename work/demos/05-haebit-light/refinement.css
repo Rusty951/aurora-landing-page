@@ -18,7 +18,7 @@ header {
   gap: 35px;
 }
 .logo {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-size: 31px;
   font-weight: 500;
   line-height: 0.95;
@@ -97,7 +97,7 @@ header nav {
   color: #926b41;
 }
 .head h2 {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-weight: 400;
   font-size: 39px;
   line-height: 1.5;
@@ -204,7 +204,7 @@ header nav {
   padding: 55px;
 }
 .belt p {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-size: 31px;
   font-weight: 400;
   line-height: 1.8;
@@ -271,7 +271,7 @@ header nav {
   padding: 70px 12%;
 }
 .why h2 {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-size: 34px;
   font-weight: 400;
   line-height: 1.55;
@@ -288,7 +288,7 @@ header nav {
   grid-template-columns: 1fr 1.4fr;
 }
 .faq h2 {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-size: 36px;
   font-weight: 400;
   line-height: 1.5;
@@ -333,7 +333,7 @@ header nav {
   grid-template-columns: 1.3fr 1fr;
 }
 .info h2 {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-size: 36px;
   font-weight: 400;
   margin: 18px 0 36px;
@@ -366,7 +366,7 @@ header nav {
   color: #717655;
 }
 .map strong {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-size: 47px;
   font-weight: 400;
 }
@@ -383,7 +383,7 @@ header nav {
   padding-right: 40px;
 }
 .consult h2 {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-size: 39px;
   font-weight: 400;
   line-height: 1.5;
@@ -407,7 +407,7 @@ footer a {
   font-size: 12px;
 }
 footer strong {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-weight: 400;
   font-size: 24px;
 }
@@ -887,7 +887,7 @@ footer strong {
 /* Separate daily-use questions from installation checks without losing the comparison. */
 .decision-tables { display:grid; grid-template-columns:1fr 1fr; gap:48px; }
 .decision-table { width:100%; table-layout:fixed; border-collapse:collapse; font-size:14px; text-align:left; }
-.decision-table caption { text-align:left; font-size:20px; font-family:"Noto Serif KR",serif; padding-bottom:25px; color:#514631; }
+.decision-table caption { text-align:left; font-size:20px; font-family:"MaruBuri",serif; padding-bottom:25px; color:#514631; }
 .decision-table th,.decision-table td { padding:18px 12px; border-bottom:1px solid #d1c9b9; line-height:1.8; word-break:keep-all; }
 .decision-table thead th { background:#e6e1d5; font-weight:500; font-size:13px; }
 .decision-table th:first-child { width:24%; }

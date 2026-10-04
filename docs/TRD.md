@@ -26,6 +26,6 @@ GA4와 Meta는 운영 호스트에서만 실행한다. localhost, Tailscale와 V
 
 ## 포트폴리오와 검사
 
-work/catalog.json은 45개 모음 및 작품의 공개 목록이다. Photo 41장과 Concepts 34개 및 Website 6개를 관리한다. 정적 목록과 상세, 사진 확대, 캐러셀과 캐릭터 시리즈, 키보드 및 터치 탐색을 보존한다. Website 유형은 website-signature와 website-essential이며 category=website는 Signature를 연다. 미지정 기존 여섯 작품은 Signature에 있고 Essential은 준비 중이다. 필터 상태는 주소, aria-pressed와 보이는 열 순서 및 스크롤 모션에 동기화한다.
+work/catalog.json은 45개 모음 및 작품의 공개 목록이다. Photo 41장과 Concepts 34개 및 Website 6개를 관리한다. 정적 목록과 상세, 사진 확대, 캐러셀과 캐릭터 시리즈, 키보드 및 터치 탐색을 보존한다. Website 유형은 website-signature와 website-essential이며 category=website는 Signature를 연다. Signature는 NOCTE와 SEAM 2개, Essential은 일반 샘플 4개다. 필터 상태는 주소, aria-pressed와 보이는 열 순서 및 스크롤 모션에 동기화한다.
 
 npm run check는 사이트와 자산 및 경로, renderer와 음악, 추적, 필터와 시리즈, 사진 출처와 해시, 데모 내부 경로, 고정 문의의 가림 방지를 검사한다. git diff --check와 실제 viewport 검수를 병행한다. 내부 docs와 scripts, QA 및 개발 자료는 .vercelignore에서 배포 제외한다. ZIP에도 .git, .env, node_modules와 도구 상태를 넣지 않는다.

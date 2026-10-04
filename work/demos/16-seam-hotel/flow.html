@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#e9e4dc">
+  <meta name="description" content="객실에서 바다 앞 테라스까지. 하나의 AI 생성 영상을 스크롤로 이어보는 SEAM 포트폴리오 시험 버전.">
+  <title>SEAM — 방에서 바다까지</title>
+  <link rel="preload" href="assets/fonts/MaruBuri-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/flow/poster.webp" as="image">
+  <link rel="stylesheet" href="style.css?v=4">
+  <script defer src="app.js?v=7"></script>
+</head>
+<body class="flow-film" data-film="flow">
+  <a class="skip-link" href="#journey">호텔 여정으로</a>
+  <header class="header">
+    <a class="wordmark" href="#room" aria-label="SEAM, 여정의 시작">SEAM<span>COASTAL DESIGN HOTEL</span></a>
+    <p class="header-note">Between land &amp; sea.</p>
+    <div class="header-actions">
+      <button class="mode-button" id="mode" type="button" aria-pressed="false">장면으로 보기</button>
+      <button class="room-button" type="button" data-room>객실 보기 <span aria-hidden="true">↗</span></button>
+    </div>
+  </header>
+  <main id="journey" tabindex="-1">
+    <div class="scroll-track" id="scroll-track">
+      <div class="stage" id="stage">
+        <img class="poster" src="assets/flow/poster.webp" width="640" height="360" alt="햇빛이 드는 리넨 침대와 바다 쪽 전면 유리창">
+        <canvas id="film" width="640" height="360" aria-hidden="true"></canvas>
+        <div class="shade" aria-hidden="true"></div>
+        <div class="loading" id="loading" role="status">공간을 여는 중<span aria-hidden="true"></span></div>
+        <section class="scene-copy is-current" data-scene="0" aria-labelledby="room-heading">
+          <p class="eyebrow">01 / THE ROOM</p>
+          <h1 class="hero-name" id="room-heading">SEAM</h1>
+          <p class="hero-line">바다 곁에 머무는 하루.</p>
+          <p class="caption">리넨 위로 오후의 빛이 내려앉습니다.</p>
+        </section>
+        <section class="scene-copy" data-scene="1" aria-labelledby="light-heading" inert aria-hidden="true">
+          <p class="eyebrow">02 / THE LIGHT</p>
+          <h2 id="light-heading">방 안으로,<br>스며드는 바다.</h2>
+          <p class="caption">유리창 너머, 물빛이 가까워집니다.</p>
+        </section>
+        <section class="scene-copy" data-scene="2" aria-labelledby="threshold-heading" inert aria-hidden="true">
+          <p class="eyebrow">03 / THE THRESHOLD</p>
+          <h2 id="threshold-heading">문턱 너머,<br>이어지는 하루.</h2>
+          <p class="caption">천천히, 바다 쪽으로.</p>
+        </section>
+        <section class="scene-copy" data-scene="3" aria-labelledby="terrace-heading" inert aria-hidden="true">
+          <p class="eyebrow">04 / THE TERRACE</p>
+          <h2 id="terrace-heading">바람이 머무는<br>자리.</h2>
+          <p class="caption">나무 데크 끝에서 마주한 두 자리.</p>
+        </section>
+        <section class="scene-copy" data-scene="4" aria-labelledby="horizon-heading" inert aria-hidden="true">
+          <p class="eyebrow">05 / THE HORIZON</p>
+          <h2 id="horizon-heading">오늘은,<br>여기 머뭅니다.</h2>
+          <div class="ending-actions">
+            <button class="room-button" type="button" data-room>객실 살펴보기 <span aria-hidden="true">↗</span></button>
+            <button class="restart-button" type="button" id="restart">처음부터 둘러보기 <span aria-hidden="true">↶</span></button>
+          </div>
+        </section>
+        <div class="journey-bottom">
+          <button id="continue" class="continue-button" type="button"><span class="down-arrow" aria-hidden="true">↓</span><span id="continue-label">스크롤하며 둘러보기</span></button>
+          <p class="concept-note">A FICTIONAL HOTEL / AI FILM STUDY</p>
+        </div>
+        <nav class="chapters" aria-label="호텔 여정의 장면">
+          <a href="#room" data-chapter="0" aria-current="step" aria-label="1, 객실"><span class="chapter-dot"></span><span class="chapter-name">객실</span></a>
+          <a href="#light" data-chapter="1" aria-label="2, 빛"><span class="chapter-dot"></span><span class="chapter-name">빛</span></a>
+          <a href="#threshold" data-chapter="2" aria-label="3, 문턱"><span class="chapter-dot"></span><span class="chapter-name">문턱</span></a>
+          <a href="#terrace" data-chapter="3" aria-label="4, 테라스"><span class="chapter-dot"></span><span class="chapter-name">테라스</span></a>
+          <a href="#horizon" data-chapter="4" aria-label="5, 바다"><span class="chapter-dot"></span><span class="chapter-name">바다</span></a>
+          <span class="chapter-count" aria-hidden="true"><span id="chapter-number">01</span><span class="chapter-total">/ 05</span></span>
+        </nav>
+        <div class="progress" aria-hidden="true"><span id="progress-fill"></span></div>
+        <p class="media-error" id="media-error" hidden role="status">이동 영상을 불러오지 못했습니다. 장면 사진으로 둘러보세요.</p>
+      </div>
+    </div>
+    <noscript><div class="no-script"><h2>바다와 맞닿은 작은 호텔.</h2><p>이 여정은 JavaScript를 사용합니다. 아래 이미지로 객실과 테라스를 살펴보세요.</p><img src="assets/flow/poster.webp" alt="바다 쪽 창을 향한 SEAM 객실"><img src="assets/flow/horizon.webp" alt="SEAM의 목재 테라스와 바다"></div></noscript>
+  </main>
+  <dialog id="room-dialog" aria-labelledby="detail-heading">
+    <button class="close-dialog" type="button" aria-label="객실 상세 닫기">닫기 <span aria-hidden="true">×</span></button>
+    <div class="detail-intro"><p class="eyebrow">A ROOM AT SEAM</p><h2 id="detail-heading">방의 끝에서,<br>바다가 시작됩니다.</h2><p>낮은 침대, 짙은 목재와 밝은 리넨.<br>창을 지나면 바다 쪽으로 열린 작은 테라스가 있습니다.</p></div>
+    <figure class="detail-room"><img src="assets/flow/poster.webp" width="640" height="360" alt="밝은 리넨 침대와 유리창 너머의 해안 풍경"><figcaption>THE ROOM <span>문턱부터 창까지</span></figcaption></figure>
+    <figure class="detail-terrace"><img src="assets/flow/horizon.webp" width="640" height="360" alt="객실에서 이어진 목재 테라스의 두 의자와 바다"><figcaption>THE TERRACE <span>잠시, 바다 쪽으로</span></figcaption></figure>
+    <footer class="detail-footer"><p>SEAM은 가상 호텔 포트폴리오입니다. 이 버전은 AI 생성 영상의 질감과 스크롤 경험을 살펴보는 시험 작업입니다.</p><button class="return-button" type="button">여정으로 돌아가기 <span aria-hidden="true">↗</span></button></footer>
+  </dialog>
+</body>
+</html>

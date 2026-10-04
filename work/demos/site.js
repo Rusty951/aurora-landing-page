@@ -1,6 +1,7 @@
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const motion = reducedMotion ? "auto" : "smooth";
-function closeMenus() {
+function closeMenus(restoreFocus = false) {
+  const activeToggle = document.querySelector('[data-menu-toggle][aria-expanded="true"]');
   document
     .querySelectorAll("header nav.open")
     .forEach((nav) => nav.classList.remove("open"));
@@ -8,6 +9,7 @@ function closeMenus() {
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-label", "메뉴 열기");
   });
+  if (restoreFocus) activeToggle?.focus();
 }
 document.addEventListener("click", (event) => {
   const menu = event.target.closest("[data-menu-toggle]");
@@ -73,7 +75,7 @@ document.addEventListener("click", (event) => {
     event.target.closest("dialog")?.close();
 });
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeMenus();
+  if (event.key === "Escape") closeMenus(true);
 });
 window.addEventListener("resize", () => {
   if (innerWidth > 700) closeMenus();
@@ -98,7 +100,7 @@ if (projectImages.length) {
   dialog.className = "image-dialog";
   dialog.setAttribute("aria-label", "공간 콘셉트 자세히 보기");
   dialog.innerHTML =
-    '<img alt=""><h2></h2><p>가상 공간 제안 · 연출용 스톡 이미지이며 실제 시공 실적이 아닙니다.</p><button data-close-dialog>닫기</button>';
+    '<img alt=""><h2></h2><p>가상 공간 제안, 연출용 스톡 이미지이며 실제 시공 실적이 아닙니다.</p><button data-close-dialog>닫기</button>';
   dialog.querySelector("img").src = projectImages[0].src;
   dialog.querySelector("img").alt = projectImages[0].alt;
   document.body.append(dialog);
@@ -120,7 +122,7 @@ if (projectImages.length) {
       dialog.querySelector("h2").textContent = title;
       dialog.querySelector("p").textContent = [
         article.querySelector("p")?.textContent.trim(),
-        "가상 공간 제안 · 연출용 스톡 이미지이며 실제 시공 실적이 아닙니다.",
+        "가상 공간 제안, 연출용 스톡 이미지이며 실제 시공 실적이 아닙니다.",
       ]
         .filter(Boolean)
         .join(" ");

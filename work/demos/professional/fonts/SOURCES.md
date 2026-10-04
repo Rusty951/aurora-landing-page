@@ -19,3 +19,7 @@
 - 파일: PretendardVariable.woff2. 배포 바이너리를 수정·서브셋·변환하지 않았다.
 
 2026-09-30 공식 출처와 사용 조건을 확인했다. 글꼴 자체를 판매하지 않는다.
+
+## Freesentation 재사용, 비의료 v15
+
+서초수안과 v14에서 이미 사용권을 확인한 Light 300과 Regular 400 전체 배포 파일을 그대로 복사했다. 원본은 `01-jeongo-eye/assets/fonts/Freesentation-3Light.woff2`와 `Freesentation-4Regular.woff2`다. 파일 수정과 서브셋 변환은 하지 않았다. The Freesentation Authors의 SIL OFL 1.1 원문은 `LICENSE-FREESENTATION.txt`에 보존한다. 상업적 웹 사용과 라이선스 포함 배포가 가능하며 글꼴 파일 자체를 판매하지 않는다.

@@ -1,3 +1,11 @@
+## 2026-10-05 웹 샘플 정리 검수
+
+현재 로컬 목록은 Signature의 NOCTE/SEAM2개, Essential의 일반4개다. 원본은 website-portfolio에 두고 sync:samples로 배포 사본을 만든다. Photo41장과 Concepts34개, 문의/분석은 유지했다. 폐기된 스튜디오와 이전 안과의 데모, 상세, 썸네일 및 라우트를 제거했다. 병원4개와 디자인플레아는 이 배포 사본에서 제외한다.
+
+실제 브라우저에서 Signature2개, Essential4개와 각 링크/썸네일 일치를 확인했다. 초기 카드 교체에서 tier가 중복되고 링크가 잘못 묶이는 오류를 발견해 카드별로 다시 구성했다. 실제HTML의 단일tier, 카탈로그와 동일한썸네일 및 개별데모목적지를 검사에 추가하고 재확인했다. PC1440×1000과 모바일390×844에서 목록, 원본에서 동기화한 커튼과 SEAM의 로컬 연결을 확인했다. npm run check 및 diff 검사가 통과했다.
+
+증거: /Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/34-샘플원본통합-20261005/ 의 aurora-signature-PC.jpg, aurora-essential-PC.jpg, aurora-essential-mobile.jpg 및 원본NOCTE/SEAM캡처. 공개 배포는 하지 않았다. 기존 아래 검수는 당시 기록이다.
+
 # 홈페이지 V1 검수
 
 현재 기준일은 2026-10-04다. 확정 화면의 구현 소스는 4c57b5d이며 운영 검수 기록 059b26d까지 반영됐다. 이번 단일 버전 정리는 화면 소스와 공개 자산을 유지하고 관리 위치 및 내부 문서만 통합한다.

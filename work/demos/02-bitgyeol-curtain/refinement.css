@@ -20,7 +20,7 @@ header {
   border-bottom: 1px solid #deded1;
 }
 .logo {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   color: #343d2d;
   font-size: 30px;
   font-weight: 500;
@@ -145,7 +145,7 @@ header nav {
 }
 .center-title h2 {
   font-size: 38px;
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -221,7 +221,7 @@ header nav {
   position: relative;
 }
 .principle h2 {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-size: 38px;
   line-height: 1.65;
   max-width: 560px;
@@ -259,7 +259,7 @@ header nav {
 .facility h2,
 .designer h2,
 .location h2 {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-weight: 400;
   font-size: 34px;
   line-height: 1.5;
@@ -327,7 +327,7 @@ tbody td {
   padding-bottom: 60px;
 }
 .notice h2 {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-size: 32px;
   font-weight: 400;
 }
@@ -352,7 +352,7 @@ tbody td {
   color: #65735a;
 }
 .map-panel strong {
-  font-family: "Noto Serif KR", serif;
+  font-family: "MaruBuri", serif;
   font-weight: 400;
 }
 .map-panel span {

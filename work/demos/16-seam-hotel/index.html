@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head><base href="/work/demos/16-seam-hotel/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#e9e4dc">
+  <meta name="description" content="바깥 풍경에서 객실과 테라스까지. 가상의 해안 디자인 호텔 SEAM을 걸어보는 웹 포트폴리오.">
+  <title>SEAM — 바다 곁에 머무는 하루</title>
+  <link rel="preload" href="assets/fonts/MaruBuri-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/poster.webp" as="image">
+  <link rel="stylesheet" href="style.css?v=4">
+  <script defer src="app.js?v=7"></script>
+</head>
+<body>
+  <a class="skip-link" href="#journey">호텔 여정으로</a>
+  <header class="header">
+    <a class="wordmark" href="#arrival" aria-label="SEAM, 여정의 시작">SEAM<span>COASTAL DESIGN HOTEL</span></a>
+    <p class="header-note">Between land &amp; sea.</p>
+    <div class="header-actions">
+      <button class="mode-button" id="mode" type="button" aria-pressed="false">장면으로 보기</button>
+      <button class="room-button" type="button" data-room>객실 보기 <span aria-hidden="true">↗</span></button>
+    </div>
+  </header>
+  <main id="journey" tabindex="-1">
+    <div class="scroll-track" id="scroll-track">
+      <div class="stage" id="stage">
+        <img class="poster" src="assets/poster.webp" width="1280" height="720" alt="석회빛 벽과 짙은 목재 입구를 가진 낮은 해안 호텔">
+        <canvas id="film" width="1280" height="720" aria-hidden="true"></canvas>
+        <div class="shade" aria-hidden="true"></div>
+        <div class="loading" id="loading" role="status">공간을 여는 중<span aria-hidden="true"></span></div>
+        <section class="scene-copy is-current" data-scene="0" aria-labelledby="arrival-heading">
+          <p class="eyebrow">01 / THE APPROACH</p>
+          <h1 class="hero-name" id="arrival-heading">SEAM</h1>
+          <p class="hero-line">바다 곁에 머무는 하루.</p>
+          <p class="caption">길을 따라, 천천히 안으로.</p>
+        </section>
+        <section class="scene-copy" data-scene="1" aria-labelledby="courtyard-heading" inert aria-hidden="true">
+          <p class="eyebrow">02 / THE THRESHOLD</p>
+          <h2 id="courtyard-heading">돌과 나무<br>사이로.</h2>
+          <p class="caption">작은 중정을 지나 문턱을 넘습니다.</p>
+        </section>
+        <section class="scene-copy" data-scene="2" aria-labelledby="lobby-heading" inert aria-hidden="true">
+          <p class="eyebrow">03 / THE PASSAGE</p>
+          <h2 id="lobby-heading">안쪽으로<br>이어지는 빛.</h2>
+          <p class="caption">잠깐 앉았다가, 방으로 이어지는 길.</p>
+        </section>
+        <section class="scene-copy" data-scene="3" aria-labelledby="room-heading" inert aria-hidden="true">
+          <p class="eyebrow">04 / THE ROOM</p>
+          <h2 id="room-heading">창 너머까지,<br>하나의 방.</h2>
+          <p class="caption">침대 곁에서 테라스까지 시선이 이어집니다.</p>
+        </section>
+        <section class="scene-copy" data-scene="4" aria-labelledby="terrace-heading" inert aria-hidden="true">
+          <p class="eyebrow">05 / THE HORIZON</p>
+          <h2 id="terrace-heading">오늘은,<br>여기 머뭅니다.</h2>
+          <div class="ending-actions">
+            <button class="room-button" type="button" data-room>객실 살펴보기 <span aria-hidden="true">↗</span></button>
+            <button class="restart-button" type="button" id="restart">처음부터 둘러보기 <span aria-hidden="true">↶</span></button>
+          </div>
+        </section>
+        <div class="journey-bottom">
+          <button id="continue" class="continue-button" type="button"><span class="down-arrow" aria-hidden="true">↓</span><span id="continue-label">스크롤하며 둘러보기</span></button>
+          <p class="concept-note">A FICTIONAL HOTEL / AURORA PORTFOLIO</p>
+        </div>
+        <nav class="chapters" aria-label="호텔 여정의 장면">
+          <a href="#arrival" data-chapter="0" aria-current="step" aria-label="1, 접근로"><span class="chapter-dot"></span><span class="chapter-name">접근로</span></a>
+          <a href="#courtyard" data-chapter="1" aria-label="2, 중정"><span class="chapter-dot"></span><span class="chapter-name">중정</span></a>
+          <a href="#lobby" data-chapter="2" aria-label="3, 로비"><span class="chapter-dot"></span><span class="chapter-name">로비</span></a>
+          <a href="#room" data-chapter="3" aria-label="4, 객실"><span class="chapter-dot"></span><span class="chapter-name">객실</span></a>
+          <a href="#terrace" data-chapter="4" aria-label="5, 테라스"><span class="chapter-dot"></span><span class="chapter-name">테라스</span></a>
+          <span class="chapter-count" aria-hidden="true"><span id="chapter-number">01</span><span class="chapter-total">/ 05</span></span>
+        </nav>
+        <div class="progress" aria-hidden="true"><span id="progress-fill"></span></div>
+        <p class="media-error" id="media-error" hidden role="status">이동 영상을 불러오지 못했습니다. 장면 사진으로 둘러보세요.</p>
+      </div>
+    </div>
+    <noscript><div class="no-script"><h2>바다와 맞닿은 작은 호텔.</h2><p>이 여정은 JavaScript를 사용합니다. 아래 이미지로 객실과 테라스를 살펴보세요.</p><img src="assets/room.webp" alt="바다 쪽 창을 향한 SEAM 객실"><img src="assets/terrace.webp" alt="SEAM의 목재 테라스와 바다"></div></noscript>
+  </main>
+  <dialog id="room-dialog" aria-labelledby="detail-heading">
+    <button class="close-dialog" type="button" aria-label="객실 상세 닫기">닫기 <span aria-hidden="true">×</span></button>
+    <div class="detail-intro"><p class="eyebrow">A ROOM AT SEAM</p><h2 id="detail-heading">방의 끝에서,<br>바다가 시작됩니다.</h2><p>낮은 침대, 짙은 목재와 밝은 리넨.<br>창을 지나면 바다 쪽으로 열린 작은 테라스가 있습니다.</p></div>
+    <figure class="detail-room"><img src="assets/room.webp" width="1280" height="720" alt="밝은 리넨 침대 왼편과 테라스를 향한 오른편 통로가 함께 보이는 객실"><figcaption>THE ROOM <span>문턱부터 창까지</span></figcaption></figure>
+    <figure class="detail-terrace"><img src="assets/terrace.webp" width="1280" height="720" alt="같은 객실에서 이어지는 짙은 목재 테라스, 낮은 의자와 바다"><figcaption>THE TERRACE <span>잠시, 바다 쪽으로</span></figcaption></figure>
+    <footer class="detail-footer"><p>SEAM은 공간과 인터랙션을 탐구하는 가상 호텔 포트폴리오입니다.</p><button class="return-button" type="button">여정으로 돌아가기 <span aria-hidden="true">↗</span></button></footer>
+  </dialog>
+</body>
+</html>

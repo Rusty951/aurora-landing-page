@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap");
+500;600&display=swap");
 
 /* Shared interaction and reading defaults; visual identities live in each site. */
 :root {
@@ -90,7 +90,7 @@ img {
   text-transform: uppercase;
 }
 .editorial {
-  font-family: "Noto Serif KR", Georgia, serif;
+  font-family: "MaruBuri", Georgia, serif;
   font-weight: 400;
   letter-spacing: -0.06em;
 }

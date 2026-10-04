@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-03",
+  "generator": "built-in image_gen",
+  "mode": "edit",
+  "fictional": true,
+  "assets": [
+    {
+      "input": "/Users/bananabk/Documents/Projects/website-portfolio/assets/listening-window.jpg",
+      "source": "v15-source/listening-korean.png",
+      "web_output": "listening-korean-v15.jpg",
+      "prompt": "Use case: precise-object-edit. Edit this lifestyle photograph for a fictional Korean cultural brand website. Replace the existing subject with a distinct fictional Korean woman around 30, with natural dark straight-to-wavy hair and an understated olive knit top. Keep the rear-view listening posture, headphones held naturally by both hands, large softly lit window, original landscape framing and gentle daylight. Change the original person's identity completely; do not depict an identifiable real person. Neutral cream and oak palette, natural skin and fabric texture, quiet documentary finish, no glamour retouch. Keep hands and headphones anatomically and physically natural, five fingers per visible hand. No added people, logos, readable text or watermark. Output one finished photograph, not a collage."
+    },
+    {
+      "input": "/Users/bananabk/Documents/Projects/website-portfolio/assets/pottery-studio.jpg",
+      "source": "v15-source/pottery-korean.png",
+      "web_output": "pottery-korean-v15.jpg",
+      "prompt": "Use case: precise-object-edit. Edit this pottery workshop photo for a fictional Korean cultural brand. Replace the existing person with a distinct fictional Korean woman around 35, dark hair loosely tied back, an ordinary charcoal knit sweater, natural everyday features and skin texture. Keep the authentic working pose, careful hand-to-bowl contact, shelves of ceramics, clay-stained work table, quiet cream wall and portrait 4:5 composition. Simplify only scattered plastic bags and distracting packaging at the far edges. Gentle neutral daylight and restrained warm cream/wood photographic palette that pairs with a window listening portrait. Preserve the ordinary working workshop atmosphere, real-looking clay and imperfect everyday details; no luxury showroom, glamour, posed smiles or plastic skin. Do not retain the original person's identity or imitate any recognizable real person. All depicted people must be fictional Korean adults, no additional people. No readable brands, names, text, watermark, credentials or claims of real brand activity. One finished photograph only, no collage."
+    }
+  ]
+}

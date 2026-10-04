@@ -949,22 +949,23 @@
     "thumbnail_fit": "contain"
   },
   {
-    "slug": "website-moseori",
-    "title": "모서리",
-    "subtitle": "프로젝트가 먼저 보이는 웹사이트",
+    "slug": "website-nocte",
+    "title": "NOCTE",
+    "subtitle": "향의 장면을 따라가는 브랜드 웹사이트",
     "category": "website",
     "label": "WEBSITE / DESIGN SAMPLE",
-    "image": "/work/assets/web-moseori.webp",
-    "thumb": "/work/assets/web-moseori-thumb.webp",
+    "image": "/work/assets/web-nocte.webp",
+    "thumb": "/work/assets/web-nocte-thumb.webp",
     "badge": "자체 제작 웹사이트 샘플",
     "width": 1440,
     "height": 810,
-    "thumbnail_fit": "contain"
+    "thumbnail_fit": "contain",
+    "websiteTier": "signature"
   },
   {
     "slug": "website-bitgyeol",
-    "title": "빛결",
-    "subtitle": "빛을 고르는 커튼 스튜디오",
+    "title": "서래커튼",
+    "subtitle": "원단과 빛을 살펴보는 커튼 스튜디오",
     "category": "website",
     "label": "WEBSITE / DESIGN SAMPLE",
     "image": "/work/assets/web-bitgyeol.webp",
@@ -972,12 +973,13 @@
     "badge": "자체 제작 웹사이트 샘플",
     "width": 1440,
     "height": 810,
-    "thumbnail_fit": "contain"
+    "thumbnail_fit": "contain",
+    "websiteTier": "essential"
   },
   {
     "slug": "website-neurin",
-    "title": "느린파장",
-    "subtitle": "취향과 이야기를 담은 브랜드",
+    "title": "수집노트",
+    "subtitle": "음악과 손작업을 읽는 문화 매거진",
     "category": "website",
     "label": "WEBSITE / DESIGN SAMPLE",
     "image": "/work/assets/web-neurin.webp",
@@ -985,12 +987,13 @@
     "badge": "자체 제작 웹사이트 샘플",
     "width": 1440,
     "height": 810,
-    "thumbnail_fit": "contain"
+    "thumbnail_fit": "contain",
+    "websiteTier": "essential"
   },
   {
     "slug": "website-haebit",
-    "title": "해빛",
-    "subtitle": "선택을 돕는 서비스 안내",
+    "title": "스위치조명",
+    "subtitle": "기구의 형태와 공간의 빛",
     "category": "website",
     "label": "WEBSITE / DESIGN SAMPLE",
     "image": "/work/assets/web-haebit.webp",
@@ -998,25 +1001,27 @@
     "badge": "자체 제작 웹사이트 샘플",
     "width": 1440,
     "height": 810,
-    "thumbnail_fit": "contain"
+    "thumbnail_fit": "contain",
+    "websiteTier": "essential"
   },
   {
-    "slug": "website-jeongo",
-    "title": "정오안과",
-    "subtitle": "방문 전에 필요한 안내",
+    "slug": "website-seam",
+    "title": "SEAM HOTEL",
+    "subtitle": "바다 곁 호텔을 걷는 웹사이트",
     "category": "website",
     "label": "WEBSITE / DESIGN SAMPLE",
-    "image": "/work/assets/web-jeongo.webp",
-    "thumb": "/work/assets/web-jeongo-thumb.webp",
+    "image": "/work/assets/web-seam.webp",
+    "thumb": "/work/assets/web-seam-thumb.webp",
     "badge": "자체 제작 웹사이트 샘플",
     "width": 1440,
     "height": 810,
-    "thumbnail_fit": "contain"
+    "thumbnail_fit": "contain",
+    "websiteTier": "signature"
   },
   {
     "slug": "website-chaon",
-    "title": "차온",
-    "subtitle": "첫 상담을 준비하는 웹사이트",
+    "title": "법률사무소 서안",
+    "subtitle": "첫 상담에 필요한 이야기와 자료",
     "category": "website",
     "label": "WEBSITE / DESIGN SAMPLE",
     "image": "/work/assets/web-chaon.webp",
@@ -1024,6 +1029,7 @@
     "badge": "자체 제작 웹사이트 샘플",
     "width": 1440,
     "height": 810,
-    "thumbnail_fit": "contain"
+    "thumbnail_fit": "contain",
+    "websiteTier": "essential"
   }
 ]

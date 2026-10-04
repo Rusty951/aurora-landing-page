@@ -1,0 +1,24 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-04",
+  "fictional": true,
+  "assets": [
+    {
+      "file": "living-room-v17.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: large photographic website hero for a fictional Korean made-to-measure curtain shop called Seorae Curtain. Create a new original editorial interior photograph, landscape 1536x1024. Scene: a believable contemporary Korean apartment living room, ceiling about 2.5m, a broad three-panel window in the center with a slim concealed ceiling rail. Two curtain layers: softly translucent warm ivory sheer curtains across most of the window, plain oatmeal linen drapes drawn partly to either side. Show the COMPLETE length from rail to a straight, clean hem just above the pale oak floor, natural regular folds, subtle woven texture. A low beige fabric sofa enters at the far left edge, a simple dark walnut side table and a small ceramic bowl near the lower left, otherwise restrained lived-in styling. Camera at normal human eye level, approximately 35mm architectural photograph, straight vertical lines, a little diagonal depth but no exaggerated wide angle. Neutral bright late-morning window light, gentle shadows, balanced whites, muted oatmeal, taupe, pale wood and charcoal. Curtains and the room dominate; keep the central curtain area usable for a portrait mobile crop. Premium natural photography with small real material imperfections and plausible construction, NOT a glossy 3D render, not a showroom mansion. No people, no text, no logo, no watermark, no branded objects. No blown-out pure white window, no excessive orange grading, no arched windows, no double-height ceiling, no floating furniture, no decorative dividers. This is a fictional staged room, not a real customer's installation.",
+      "role": "original room"
+    },
+    {
+      "file": "bedroom-v17.webp",
+      "prompt": "Use case: photorealistic-natural. Edit the supplied fictional curtain interior into a second photograph for the SAME Korean curtain brand's image set. Supporting style input: the reference establishes linen colors, quiet natural photography, ordinary Korean apartment proportions and neutral daylight. Create a bedroom scene instead of the living room, landscape 1536x1024. A modest Korean apartment bedroom, ceiling about 2.5m, a broad rectangular window with a slim concealed curtain rail. Plain opaque warm taupe curtains drawn mostly closed, leaving a narrow sliver of softly translucent ivory sheer near the right side. The whole curtain length and neat hem above pale oak flooring visible. Edge of a low bed with off-white washed cotton bedding at lower left, one compact dark walnut nightstand, no other styling props. Camera at human eye level, straight architectural verticals, 35mm perspective. Quiet diffuse daytime light: the opaque curtains look materially dense without artificial glow. Preserve the warm neutral whites, taupe, pale wood and soft photographic texture of the style input. Original new room, do not simply copy the furniture arrangement. No people, no logos, no text, no watermark, no gold grading, no dramatic lighting, no luxury mansion or 3D rendering, no floating furniture. The photo is a staged fictional example and must not imply a measured light-blocking specification.",
+      "input": "v17-source/living-room.png",
+      "role": "same brand, second fictional room"
+    },
+    {
+      "file": "fabric-detail-v17.webp",
+      "prompt": "Use case: photorealistic-natural. Edit the supplied fictional curtain room into a CLOSE-UP textile photograph from the same photographic session. Preserve the source's warm neutral ivory, oatmeal and taupe palette and soft neutral daylight. View one light ivory sheer curtain against a thicker oatmeal linen drape, with a narrow darker taupe folded fabric swatch in the lower right. Show finely woven fibers and natural folds at arm's-length scale, believable tiny material irregularities, soft background, no showroom room overview. Landscape 1536x1024. Window light from the left, no harsh studio spotlights, no glossy plastic fabric, no excessive orange tone. No people or hands, no books, no text, no product labels, no logo or watermark. Original staged textile illustration for a fictional Korean curtain brand. Do not imply a real supplier, tested blackout percentage or particular named product.",
+      "input": "v17-source/living-room.png",
+      "role": "same photographic set, textile detail"
+    }
+  ]
+}

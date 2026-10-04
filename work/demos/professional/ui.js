@@ -74,7 +74,7 @@
       .addEventListener("click", (event) => {
         const status = dialog.querySelector("[role=status]");
         const chosen = dialog.querySelector("select");
-        status.textContent = `${chosen.options[chosen.selectedIndex].text} 안내 시연이 끝났습니다. 실제 상담은 접수되지 않았으며 선택한 내용은 전송·저장되지 않습니다.`;
+        status.textContent = `${chosen.options[chosen.selectedIndex].text} 안내 시연이 끝났습니다. 실제 상담은 접수되지 않았으며 선택한 내용은 전송, 저장되지 않습니다.`;
         status.hidden = false;
         event.currentTarget.hidden = true;
         status.focus();

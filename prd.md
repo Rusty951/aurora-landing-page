@@ -12,7 +12,7 @@ FAQ는 진행 과정, 개별 의뢰, 비용과 일정, 월간 운영의 네 질�
 
 Photo는 직접 촬영한 41장의 다섯 모음, Concepts는 자체 시안 34개, Website는 가상 사업체 샘플 6개다. 목록 카드 수는 모음 단위를 포함해 45개다. 작품과 출처는 work/catalog.json 및 docs/PORTFOLIO-SOURCES.json을 따른다. 현재 공개 자료의 사진, AI 제작, 자체 시안과 가상 사례를 구별하고 확인되지 않은 고객명이나 성과를 추가하지 않는다.
 
-Website의 Signature와 Essential은 탐색 자리다. 현재 여섯 작품은 Signature이며 리뉴얼 작업은 이후 대표 요청에서 연결한다. Essential은 준비 중이다. 샘플 웹사이트는 work/demos의 독립된 여섯 디자인을 유지한다. 영상은 현재 공개 목록에 새 작품을 추가하지 않으며 이후 실제 자료와 링크가 제공되면 연결한다.
+Website의 Signature와 Essential은 탐색 자리다. Signature에는 NOCTE와 SEAM, Essential에는 서래커튼, 수집노트, 스위치조명과 법률사무소 서안을 둔다. 샘플 웹사이트는 work/demos의 독립된 여섯 디자인을 유지한다. 영상은 현재 공개 목록에 새 작품을 추가하지 않으며 이후 실제 자료와 링크가 제공되면 연결한다.
 
 ## 관리와 완료 기준
 

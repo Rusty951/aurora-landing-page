@@ -21,11 +21,6 @@
       document.getElementById(item.getAttribute("aria-controls")).hidden =
         !selected;
     });
-    if (mobileTabs.matches)
-      tab.parentElement.scrollTo({
-        left: tab.offsetLeft - 2,
-        behavior: "auto",
-      });
   };
   document
     .querySelectorAll("[data-practice]")

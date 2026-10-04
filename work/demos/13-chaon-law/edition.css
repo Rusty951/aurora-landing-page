@@ -1,0 +1,414 @@
+/* Site-specific design refinement, October 2026. */
+.hero  {
+  min-height: 760px;
+}
+.hero-image  {
+  left: 48%;
+  width: 52%;
+  overflow: hidden;
+}
+.hero-image::after  {
+  background: linear-gradient(90deg,#202d27c9,transparent 40%);
+}
+.hero-image img  {
+  opacity: .82;
+  object-position: center 65%;
+}
+.hero-content  {
+  padding-top: 158px;
+  padding-bottom: 35px;
+}
+.hero h1  {
+  max-width: 800px;
+  font-size: 58px;
+  line-height: 1.48;
+  letter-spacing: -.04em;
+}
+.hero-story  {
+  max-width: 540px;
+  margin-top: 28px;
+}
+.hero-story>.eyebrow  {
+  display: none;
+}
+.hero-story h2  {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.hero-story>p:not(.eyebrow)  {
+  max-width: 43ch;
+  font-size: 16px;
+  margin-top: 15px;
+}
+.hero-story .link-button  {
+  background: #e9e7d8;
+  color: #293c30;
+  border: 0;
+  min-width: 240px;
+  min-height: 52px;
+  padding: 14px 20px;
+  margin-top: 23px;
+}
+.hero-story .arrow-icon  {
+  filter: none;
+}
+.hero-practices  {
+  padding-top: 18px;
+  border-top: 1px solid #ffffff3d;
+  max-width: 600px;
+  margin-top: 26px;
+}
+.hero-practices a  {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+}
+.hero .fiction-label  {
+  margin-top: 12px;
+}
+.office h2  {
+  font-size: 48px;
+  line-height: 1.55;
+}
+@media(max-width:760px) {
+  .hero  {
+    min-height: 0;
+  }
+  .hero-content  {
+    padding-top: 131px;
+    padding-bottom: 34px;
+  }
+  .hero-image  {
+    left: 0;
+    width: 100%;
+  }
+  .hero-image img  {
+    opacity: .36;
+    transform: none;
+  }
+  .hero-image::after  {
+    background: #202d274a;
+  }
+  .hero h1  {
+    font-size: 32px;
+    line-height: 1.6;
+  }
+  .hero-story  {
+    margin-top: 28px;
+  }
+  .hero-story h2  {
+    font-size: 18px;
+  }
+  .hero-story>p:not(.eyebrow)  {
+    font-size: 15px;
+  }
+  .hero-practices  {
+    gap: 8px 18px;
+  }
+  .hero-practices a  {
+    border: 0;
+    font-size: 13px;
+  }
+  .office h2  {
+    font-size: 31px;
+  }
+}
+/* Body copy remains readable at both review widths. */
+.office-layout>p  {
+  font-size: 15px;
+}
+.practice-tabs [aria-selected="true"]  {
+  background: #e8e9de;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.site-header:not(.is-scrolled)  {
+  background: linear-gradient(90deg,#202d27f5,#202d27d9);
+}
+/* v15: purpose-specific reading and spacing pass. Licensed local fonts only. */
+@font-face {
+  font-family: Freesentation;
+  src: url('../professional/fonts/Freesentation-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Freesentation;
+  src: url('../professional/fonts/Freesentation-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: -.018em;
+  font-synthesis: none;
+}
+main h1,main h2 {
+  letter-spacing: -.035em;
+}
+main h3 {
+  letter-spacing: -.025em;
+}
+header nav {
+  font-size: 14px;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+header nav a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.hero p,.hero-lead {
+  font-size: 17px;
+  line-height: 1.85;
+}
+.hero .kicker,.hero .eyebrow,.hero-copy>small,.hero-intro>.kicker {
+  font-size: 13px;
+  letter-spacing: .035em;
+  line-height: 1.7;
+}
+.hero-action,.project-entry,.home-project-link {
+  font-size: 15px;
+  min-height: 48px;
+}
+.fiction-label,.image-tag,.hero-tag,.note,.fine,.disclaimer,.care-image-note,main figcaption {
+  font-size: 13px;
+  line-height: 1.8;
+}
+header,header.is-scrolled {
+  box-shadow: none;
+}
+footer p {
+  font-size: 13px;
+  line-height: 1.85;
+}
+footer small,.portfolio-return {
+  font-size: 13px;
+  line-height: 1.8;
+}
+#demo-dialog>.dialog-detail {
+  border-top: 0;
+  padding-top: 0;
+}
+#demo-dialog>.dialog-detail li {
+  border-bottom: 0;
+  padding: 9px 0;
+  font-size: 16px;
+}
+#demo-dialog>p {
+  font-size: 13px;
+}
+.study-map {
+  width: 100%;
+  height: 340px;
+  border: 0;
+  display: block;
+}
+.map-example-note {
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 12px 0 0;
+  color: inherit;
+}
+.contact-number {
+  font-size: 23px!important;
+  font-weight: 500;
+  letter-spacing: .015em;
+  margin: 20px 0;
+}
+.contact-number small {
+  font-size: 13px;
+  font-weight: 400;
+  margin-left: 8px;
+}
+@media(max-width:760px) {
+  body {
+    font-size: 16px;
+  }
+  .hero p,.hero-lead {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  header nav a {
+    font-size: 16px;
+    min-height: 48px;
+    border-bottom: 0;
+  }
+  main h1,main h2 {
+    overflow-wrap: break-word;
+  }
+  .study-map {
+    height: 280px;
+  }
+}
+.site-header {
+  border-bottom: 0;
+}
+.brand strong {
+  font-size: 34px;
+}
+.main-nav a {
+  font-size: 14px;
+}
+.hero {
+  min-height: 710px;
+}
+.hero-content {
+  padding-top: 155px;
+  padding-bottom: 38px;
+}
+.hero h1 {
+  font-size: 51px;
+  font-weight: 400;
+  line-height: 1.45;
+  max-width: 670px;
+}
+.hero-story h2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+.hero-story>p:not(.eyebrow) {
+  font-size: 17px;
+  line-height: 1.85;
+}
+.hero-practices {
+  border: 0;
+  margin-top: 24px;
+  gap: 24px;
+}
+.hero-practices a {
+  font-size: 15px;
+}
+.hero .fiction-label {
+  font-size: 13px;
+  max-width: 45ch;
+}
+.hero-image figcaption {
+  font-size: 13px;
+}
+.office h2,.section-head h2,.contact-heading h2 {
+  font-size: 36px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.office-layout>p,.section-head>p,.practice-panels article>p,.practice-panels li,.process p,.contact-columns p,.contact-columns dl {
+  font-size: 16px;
+  line-height: 1.85;
+}
+.practice-panels h3 {
+  font-size: 27px;
+  line-height: 1.45;
+}
+.practice-tabs button {
+  font-size: 18px;
+}
+.practice-tabs button[aria-selected=true] {
+  border: 0;
+  background: #e9ece3;
+}
+.practice-tabs button {
+  border: 0;
+  min-height: 64px;
+}
+.process li {
+  border: 0;
+  margin-bottom: 24px;
+}
+.process h3 {
+  font-size: 21px;
+  font-weight: 500;
+}
+.checklist label {
+  border: 0;
+  margin-bottom: 12px;
+  padding: 18px;
+  background: #eeeee5;
+}
+.checklist strong {
+  font-size: 17px;
+}
+.checklist small {
+  font-size: 14px;
+}
+.contact-columns>div {
+  border: 0;
+}
+.contact-columns dl div {
+  border: 0;
+  padding-block: 9px;
+}
+.contact-columns p.note {
+  font-size: 13px;
+}
+.contact-number {
+  font-size: 25px!important;
+}
+.contact-number span {
+  font-size: 13px;
+}
+.dialog p,.dialog label,.dialog select {
+  font-size: 16px;
+}
+.dialog .note {
+  font-size: 13px;
+}
+.section-head .eyebrow,.contact-heading .eyebrow {
+  font-size: 13px;
+  letter-spacing: .04em;
+}
+@media(max-width:760px) {
+  .hero {
+    min-height: 0;
+  }
+  .hero-content {
+    padding-top: 132px;
+    padding-bottom: 36px;
+  }
+  .hero h1 {
+    font-size: 34px;
+    line-height: 1.5;
+    max-width: 100%;
+  }
+  .hero-story>p:not(.eyebrow) {
+    font-size: 16px;
+  }
+  .hero-practices {
+    gap: 8px 22px;
+  }
+  .hero-practices a {
+    font-size: 14px;
+  }
+  .hero-image figcaption {
+    display: none;
+  }
+  .office h2,.section-head h2,.contact-heading h2 {
+    font-size: 29px;
+  }
+  .practice-tabs button {
+    font-size: 16px;
+    min-height: 52px;
+  }
+  .practice-tabs button[aria-selected=true] {
+    border: 0;
+    background: #e9ece3;
+  }
+  .practice-panels h3 {
+    font-size: 25px;
+  }
+  .process p,.contact-columns p,.contact-columns dl,.office-layout>p,.section-head>p {
+    font-size: 16px;
+  }
+  .checklist label {
+    padding: 16px;
+  }
+  .main-nav a {
+    font-size: 18px;
+  }
+}

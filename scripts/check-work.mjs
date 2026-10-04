@@ -68,7 +68,7 @@ function browser(start='http://localhost/work?category=images',nativeDialog=true
   dataset:{fullImage:p.image,imageTitle:p.subtitle,imageBadge:p.badge,slides:p.slides?JSON.stringify(p.slides):undefined}, href:'http://localhost/work/'+p.slug, isConnected:true, focused:false,
   querySelector:()=>({alt:p.subtitle+' 자체 AI 이미지'}), focus(){this.focused=true;}
  });
- const cards=members.map((p,i)=>({dataset:{category:p.category,websiteTier:websiteTiers[p.slug],collection:p.collection==='photography'?'photography':p.slug.startsWith('bb-')?'sketch':'curated',imageCount:p.collection==='photography'?String(p.slides.length):undefined},hidden:false,querySelector:()=>links[i]}));
+ const cards=members.map((p,i)=>({dataset:{category:p.category,websiteTier:websiteTiers[p.slug]||p.websiteTier,collection:p.collection==='photography'?'photography':p.slug.startsWith('bb-')?'sketch':'curated',imageCount:p.collection==='photography'?String(p.slides.length):undefined},hidden:false,querySelector:()=>links[i]}));
  const callbacks={};const filters={dataset:{kind:'images'},hidden:false,querySelectorAll:()=>subButtons};
  const photoFilters={dataset:{kind:'photography'},hidden:false,querySelectorAll:()=>photoButtons};
  const websiteFilters={dataset:{kind:'website'},hidden:false,querySelectorAll:()=>websiteButtons};
@@ -89,7 +89,7 @@ const b=browser();assert.equal(b.controls.hidden,false);assert.equal(b.visible()
 assert.equal(b.styles['--work-header-height'],'88px');assert.equal(b.styles['--work-controls-height'],'104px');
 b.header.height=96;b.pop.resize();assert.equal(b.styles['--work-header-height'],'96px','Resize fallback updates sticky offset');
 const observed=browser(undefined,true,true);assert.equal(observed.observed.length,2);observed.header.height=102;observed.observerCallback();assert.equal(observed.styles['--work-header-height'],'102px','Header resizing updates sticky offset');
-for(const [category,total,initial,sketches] of [['website',6,6,0],['food',12,6,6],['product',15,3,12],['brand',3,3,0],['carousel',1,1,0],['character',3,3,0],['images',34,16,18]]) {
+for(const [category,total,initial,sketches] of [['website',2,2,0],['food',12,6,6],['product',15,3,12],['brand',3,3,0],['carousel',1,1,0],['character',3,3,0],['images',34,16,18]]) {
  const button=[...b.kinds,...b.subButtons].find(x=>x.dataset.filter===category);b.callbacks.click({target:{closest:()=>button}});
  assert.equal(b.cards.filter(c=>!c.hidden).length,total);assert.equal(b.visible().length,initial);assert.equal(button.attrs['aria-pressed'],'true');
  assert.equal(b.filters.hidden,category==='website');assert.equal(b.nodes['work-sketches'].hidden,sketches===0);
@@ -104,10 +104,10 @@ for(const [category,total,initial,sketches] of [['website',6,6,0],['food',12,6,6
  assert.equal(b.callbacks.scroll.top,144,'New filter returns to gallery below measured header');
 }
 assert(b.context.location.href.includes('category=images'));
-for(const [category,n] of Object.entries({website:6,food:6,carousel:1,character:3,unknown:5,all:5,photography:5,'photo-product':1,'photo-food':1,'photo-dessert':1,'photo-space':1,'photo-portrait':1})) {
+for(const [category,n] of Object.entries({website:2,food:6,carousel:1,character:3,unknown:5,all:5,photography:5,'photo-product':1,'photo-food':1,'photo-dessert':1,'photo-space':1,'photo-portrait':1})) {
  const state=browser('http://localhost/work?category='+category);assert.equal(state.visible().length,n,'URL state '+category);
 }
-b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.visible().length,6);
+b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.visible().length,2);
 b.context.location.href='http://localhost/work?category=images';b.pop.popstate();assert.equal(b.visible().length,16,'History restores collapsed selection');
 // Website places preserve existing work and support independent future assignments.
 const websitePlaces=browser('http://localhost/work?category=website');
@@ -115,23 +115,23 @@ assert.equal(websitePlaces.websiteFilters.hidden,false);
 assert.equal(websitePlaces.websiteButtons[0].attrs['aria-pressed'],'true');
 assert.equal(websitePlaces.nodes['work-website-empty'].hidden,true);
 websitePlaces.callbacks.click({target:{closest:()=>websitePlaces.websiteButtons[1]}});
-assert.equal(websitePlaces.visible().length,0,'Essential is an empty place until renewal is connected');
-assert.equal(websitePlaces.nodes['work-website-empty'].hidden,false);
+assert.equal(websitePlaces.visible().length,4,'Four selected general samples are Essential');
+assert.equal(websitePlaces.nodes['work-website-empty'].hidden,true);
 assert.equal(websitePlaces.nodes['work-websites'].hidden,false);
 assert.equal(websitePlaces.nodes['work-section-title'].textContent,'Website / Essential');
-assert.equal(websitePlaces.nodes['work-count'].textContent,'Essential 웹사이트 0개');
+assert.equal(websitePlaces.nodes['work-count'].textContent,'Essential 웹사이트 4개');
 assert.equal(websitePlaces.kinds.find(b=>b.dataset.filter==='website').attrs['aria-pressed'],'true');
 assert(websitePlaces.context.location.href.endsWith('category=website-essential'));
 const restoredEssential=browser(websitePlaces.context.location.href);
-assert.equal(restoredEssential.nodes['work-website-empty'].hidden,false,'Refresh preserves Essential');
+assert.equal(restoredEssential.visible().length,4,'Refresh preserves Essential');
 websitePlaces.callbacks.click({target:{closest:()=>websitePlaces.kinds.find(b=>b.dataset.filter==='website')}});
-assert.equal(websitePlaces.visible().length,6,'Website entry defaults to the existing Signature place');
+assert.equal(websitePlaces.visible().length,2,'Signature preserves NOCTE and SEAM');
 assert(websitePlaces.context.location.href.endsWith('category=website'));
-const futurePlaces=browser('http://localhost/work?category=website',true,false,{'website-moseori':'essential'});
-assert.equal(futurePlaces.visible().length,5,'Assigned Essential work cannot leak into Signature');
-assert.deepEqual(futurePlaces.visible().map(c=>c.dataset.websiteColumn),['left','right','left','right','left'],'Stagger follows visible columns after filtering');
+const futurePlaces=browser('http://localhost/work?category=website',true,false,{'website-nocte':'essential'});
+assert.equal(futurePlaces.visible().length,1,'Assigned Essential work cannot leak into Signature');
+assert.deepEqual(futurePlaces.visible().map(c=>c.dataset.websiteColumn),['left'],'Stagger follows visible columns after filtering');
 futurePlaces.callbacks.click({target:{closest:()=>futurePlaces.websiteButtons[1]}});
-assert.equal(futurePlaces.visible().length,1);
+assert.equal(futurePlaces.visible().length,5);
 assert.equal(futurePlaces.nodes['work-website-empty'].hidden,true,'Connected work replaces the empty place');
 assert.equal(futurePlaces.visible()[0].dataset.websiteColumn,'left');
 assert.match(gallery,/<div class="work-filters work-website-filters"[^>]*data-kind="website"[^>]*hidden>/);
@@ -279,7 +279,7 @@ for (const rule of config.rewrites.filter(r => r.source.startsWith('/work/demos/
   refs.push(...[...html.matchAll(/url\(&quot;([^&]+)&quot;\)/g)].map(m => m[1]));
   for (const ref of refs) {
    if (ref.startsWith('#')) continue;
-   const url = new URL(ref.replace(/&amp;/g, '&'), 'https://www.aurorasound.kr' + documentPath);
+   const url = new URL(ref.replace(/&amp;/g, '&'), 'https://www.aurorasound.kr' + (html.match(/<base href="([^"]+)"/)?.[1] || documentPath));
    if (url.origin !== 'https://www.aurorasound.kr') continue;
    const target = resolve(root, '.' + decodeURIComponent(url.pathname));
    assert(existsSync(target), 'Demo URL after canonical redirect: ' + documentPath + ' -> ' + url.pathname);
@@ -290,3 +290,14 @@ for (const rule of config.rewrites.filter(r => r.source.startsWith('/work/demos/
  }
 }
 console.log('Demo canonical routes passed: ' + demoDocuments + ' HTML documents.');
+
+// Check the actual website card assignments and routes, not only the catalog model.
+const demoRoutes={'website-nocte':'15-nocte','website-seam':'16-seam-hotel','website-bitgyeol':'02-bitgyeol-curtain','website-neurin':'04-neurin-pajang','website-haebit':'05-haebit-light','website-chaon':'13-chaon-law'};
+for(const card of cardMarkup.filter(c=>c.includes('data-category="website"'))){
+ const slug=card.match(/href="\/work\/(website-[^"/]+)"/)[1];
+ const item=allCatalog.find(p=>p.slug===slug);
+ assert.equal((card.match(/data-website-tier=/g)||[]).length,1,'Exactly one tier per rendered card');
+ assert(card.includes('data-website-tier="'+item.websiteTier+'"'));
+ assert(card.includes('href="/work/demos/'+demoRoutes[slug]+'/"'),'Card opens its own sample');
+ assert(card.includes('src="'+item.thumb+'?v=47"'),'Card uses its own capture');
+}

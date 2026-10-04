@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head><base href="/work/demos/15-nocte/">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#17241d">
+  <meta name="description" content="꽃을 스친 짧은 순간을 한 병의 향으로 남기는 다섯 장면. NOCTE 가상 향수 브랜드의 스크롤 포트폴리오.">
+  <title>NOCTE — From a garden, into a memory</title>
+  <link rel="stylesheet" href="style.css?v=12"><script src="app.js?v=12" defer></script>
+</head>
+<body data-theme="dark">
+  <a class="skip" href="#garden">이야기로 이동</a>
+  <header class="header">
+    <a class="wordmark" href="#garden" aria-label="NOCTE 첫 장면">NOCTE<span>EAU DE MÉMOIRE</span></a>
+    <div class="header-actions">
+      <button class="music-toggle" type="button" aria-pressed="false" aria-label="배경 음악 켜기">음악 켜기</button>
+      <button class="about-link" type="button" data-open-story>About the story</button>
+    </div>
+  </header>
+  <audio id="background-music" src="assets/audio/reverie-web.mp3" loop preload="none" aria-hidden="true"></audio>
+  <p class="sr-only" data-music-status role="status" aria-live="polite"></p>
+  <main class="journey" id="journey">
+    <div class="stage">
+      <section class="scene scene--garden is-active" id="garden" data-label="정원" aria-labelledby="garden-title" data-name="THE GARDEN" data-theme="dark">
+        <div class="media"><video muted loop playsinline preload="auto" poster="assets/garden-poster.jpg" aria-label="햇빛과 바람이 잎 사이를 지나는 정원"><source src="assets/garden.mp4" type="video/mp4"></video></div>
+        <div class="shade"></div>
+        <div class="scene-content">
+          <p class="eyebrow"><span>01 / THE GARDEN</span></p>
+          <h1 class="display" id="garden-title" tabindex="-1"><span class="title-line"><span>Before</span></span><span class="title-line"><span>the <em>bottle.</em></span></span></h1>
+          <p class="support">향이 되기 전,<br>하나의 정원이 있었습니다.</p>
+          <a class="text-link story-cta" href="#bloom">정원 안으로</a>
+        </div>
+      </section>
+      <section class="scene scene--bloom" id="bloom" data-label="꽃잎" aria-labelledby="bloom-title" data-name="THE BLOOM" data-theme="dark">
+        <div class="media"><video muted loop playsinline preload="none" poster="assets/bloom-poster.jpg" aria-label="이슬을 머금은 흰 꽃잎을 가까이 비추는 장면"><source src="assets/bloom.mp4" type="video/mp4"></video></div>
+        <div class="shade"></div>
+        <div class="scene-content">
+          <p class="eyebrow"><span>02 / THE BLOOM</span></p>
+          <h2 class="display" id="bloom-title" tabindex="-1"><span class="title-line"><span>Petal</span></span><span class="title-line"><span>by <em>petal.</em></span></span></h2>
+          <p class="support">지나칠 뻔한 꽃잎에<br>시선이 머뭅니다.</p>
+        </div>
+      </section>
+      <section class="scene scene--touch" id="touch" data-label="손끝" aria-labelledby="touch-title" data-name="THE TOUCH" data-theme="dark">
+        <div class="media"><video muted playsinline preload="auto" data-scroll-video poster="assets/touch-scroll-v6-poster.jpg" aria-label="스크롤을 따라 손끝이 꽃잎에 닿는 장면"><source src="assets/touch-scroll-v6.mp4" type="video/mp4"></video></div>
+        <div class="shade"></div>
+        <div class="scene-content">
+          <p class="eyebrow"><span>03 / THE TOUCH</span></p>
+          <h2 class="display" id="touch-title" tabindex="-1"><span class="title-line"><span>Held for</span></span><span class="title-line"><span>a <em>moment.</em></span></span></h2>
+          <p class="support">꽃에 닿는 건 잠깐,<br>감각은 손끝에 남습니다.</p>
+        </div>
+      </section>
+      <section class="scene scene--essence" id="essence" data-label="한 병의 향" aria-labelledby="essence-title" data-name="THE ESSENCE" data-theme="dark">
+        <div class="media media--still">
+          <div class="product-visual"><img src="assets/nocte-essence-v6.webp" width="1672" height="941" decoding="async" alt="돌 위에 놓인 짙은 앰버색 NOCTE 향수병. 작은 검은 캡과 크림색 라벨."></div>
+        </div>
+        <div class="shade"></div>
+        <div class="scene-content">
+          <p class="eyebrow"><span>04 / THE ESSENCE</span></p>
+          <h2 class="display" id="essence-title" tabindex="-1"><span class="title-line"><span>A garden,</span></span><span class="title-line"><span><em>kept.</em></span></span></h2>
+          <p class="support">손끝에 남은 정원을<br>한 병의 향으로.</p>
+          <span class="chapter-word">NOCTE — EAU DE MÉMOIRE</span>
+        </div>
+      </section>
+      <section class="scene scene--echo" id="echo" data-label="잔향" aria-labelledby="echo-title" data-name="THE ECHO" data-theme="dark">
+        <div class="media"><video muted loop playsinline preload="none" poster="assets/garden-poster.jpg" data-start="3" aria-label="처음의 정원으로 돌아와 잎 사이의 빛과 바람을 바라보는 장면"><source src="assets/garden.mp4" type="video/mp4"></video></div>
+        <div class="shade"></div>
+        <div class="scene-content">
+          <p class="eyebrow"><span>05 / THE ECHO</span></p>
+          <h2 class="display" id="echo-title" tabindex="-1"><span class="title-line"><span>The garden</span></span><span class="title-line"><span><em>stays.</em></span></span></h2>
+          <p class="support">손을 거둔 뒤에도,<br>정원은 향으로 남습니다.</p>
+          <a class="text-link story-cta" href="#garden">처음부터 다시 보기</a>
+          <p class="concept-note">A fictional fragrance study</p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="story-controls">
+    <div class="chapter-caption" role="status" aria-live="polite" aria-atomic="true"><span data-current-count>01</span><span class="divider">/ 05</span><span data-current-name>정원</span></div>
+    <nav class="chapter-nav" aria-label="다섯 장면 탐색">
+      <a href="#garden" aria-label="1장, 정원" aria-current="location"><span class="nav-number">01</span><span class="nav-name">Garden</span><i></i></a>
+      <a href="#bloom" aria-label="2장, 꽃"><span class="nav-number">02</span><span class="nav-name">Bloom</span><i></i></a>
+      <a href="#touch" aria-label="3장, 손끝"><span class="nav-number">03</span><span class="nav-name">Touch</span><i></i></a>
+      <a href="#essence" aria-label="4장, 한 병의 향"><span class="nav-number">04</span><span class="nav-name">Essence</span><i></i></a>
+      <a href="#echo" aria-label="5장, 잔향"><span class="nav-number">05</span><span class="nav-name">Echo</span><i></i></a>
+    </nav>
+    <div class="controls-right"><button class="motion-toggle" type="button" aria-label="배경 움직임 일시 정지" aria-pressed="false"><span data-motion-label>움직임 정지</span></button><button class="next-scene" type="button" aria-label="다음 장면"><span>다음</span></button></div>
+  </footer>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <dialog class="story" aria-labelledby="story-title">
+    <div class="story-bar"><span>NOCTE / THE STORY</span><button class="story-close" type="button" aria-label="이야기 닫기">닫기</button></div>
+    <div class="story-body">
+    <p class="eyebrow">THE IDEA BEHIND NOCTE</p>
+    <h2 id="story-title">From a garden,<br><em>into a memory.</em></h2>
+    <p>NOCTE는 꽃을 스친 짧은 순간을 오래 남긴다는 상상에서 출발한 가상의 향수 브랜드입니다.</p>
+    <p>꽃을 스치는 손의 움직임을 스크롤에 연결했습니다. 병을 먼저 드러내고 문구를 뒤따르게 해, 향수 장면에 시선이 머물도록 설계했습니다.</p>
+    <p>실제 상품 판매나 고객 프로젝트가 아닌 웹 포트폴리오 시안입니다.</p>
+    <dl class="project-scope" aria-label="이 시안의 제작 범위">
+      <div><dt>기획</dt><dd>가상 브랜드 콘셉트와 다섯 장면의 이야기</dd></div>
+      <div><dt>디자인</dt><dd>향수 이미지 방향, 타이포그래피와 화면 구성</dd></div>
+      <div><dt>개발</dt><dd>스크롤에 연결된 모션과 반응형 웹 구현</dd></div>
+    </dl>
+    <details><summary>Visual credits</summary><p class="credits">Garden & Echo: ROMAN ODINTSOV<br>Bloom & Touch: Ron Lach<br>실사 영상은 <a href="https://www.pexels.com/license/" target="_blank" rel="noreferrer">Pexels License</a>로 사용했습니다. 향수 장면은 AI로 만든 이미지에 웹 모션을 적용했습니다.</p></details>
+    <p class="credits music-credit">Music: <a href="https://www.scottbuckley.com.au/library/reverie/" target="_blank" rel="noreferrer">Reverie by Scott Buckley</a><br><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>, 웹 재생용으로 압축했습니다.</p>
+    <small>BRAND CONCEPT & WEB EXPERIENCE / 2026</small>
+    </div>
+  </dialog>
+</body>
+</html>
