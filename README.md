@@ -19,7 +19,7 @@
 
 진주빛 실크 첫 화면, 가로형 aurora sound 워드마크, Selected work, U자 서비스 소개, FAQ와 문의로 이어진다. 큰 한글 제목은 아리따 부리, 메뉴와 버튼 및 작품 정보는 DM Sans와 Asta Sans다. FAQ 질문은 PC 20px 및 모바일 17px, 답변은 16px 및 15px다. 작은 볼륨의 배경 음악과 재생 설정, 은은한 유리 표면 및 기존 모션을 사용한다.
 
-포트폴리오는 Photo 41장 다섯 모음, Concepts 34개, Website 6개다. Photo의 분야는 Product, Food, Dessert, Space, Portrait다. Website는 Signature와 Essential로 구분하며 기존 여섯 작품은 Signature, Essential은 준비 중이다. PC 두 열과 모바일 한 열을 사용한다. 샘플 원본은 ../website-portfolio이며 npm run sync:samples로 work/demos의 배포용 사본을 갱신한다. 직접 사본을 수정하지 않는다.
+포트폴리오는 Photo 41장 다섯 모음, Concepts 34개, Website 6개다. Photo의 분야는 Product, Food, Dessert, Space, Portrait다. Website는 Signature와 Essential로 구분하며 Signature는 NOCTE와 SEAM 2개, Essential은 일반 홈페이지 4개다. PC 두 열과 모바일 한 열을 사용한다. 샘플 원본은 ../aurora-website-portfolio이며 npm run sync:samples로 work/demos의 배포용 사본을 갱신한다. 직접 사본을 수정하지 않는다.
 
 ## 실행과 검증
 

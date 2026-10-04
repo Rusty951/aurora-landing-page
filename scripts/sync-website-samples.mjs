@@ -2,7 +2,7 @@ import {cpSync,existsSync,mkdirSync,readdirSync,readFileSync,writeFileSync,rmSyn
 import {resolve,dirname,join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-const source=resolve(process.argv[2]||join(root,'../website-portfolio'));
+const source=resolve(process.argv[2]||join(root,'../aurora-website-portfolio'));
 const routes=['15-nocte','16-seam-hotel','02-bitgyeol-curtain','04-neurin-pajang','05-haebit-light','13-chaon-law'];
 const dest=join(root,'work/demos');
 for(const route of routes)if(!existsSync(join(source,route,'index.html')))throw new Error('Missing canonical sample: '+route);

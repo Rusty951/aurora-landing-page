@@ -2,7 +2,7 @@
   {
     "slug": "website-nocte",
     "kind": "website_sample",
-    "source_repo": "Rusty951/website-portfolio",
+    "source_repo": "Rusty951/aurora-website-portfolio",
     "source_directory": "15-nocte",
     "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
     "desktop_capture_route": "/15-nocte/",
@@ -14,7 +14,7 @@
   {
     "slug": "website-bitgyeol",
     "kind": "website_sample",
-    "source_repo": "Rusty951/website-portfolio",
+    "source_repo": "Rusty951/aurora-website-portfolio",
     "source_directory": "02-bitgyeol-curtain",
     "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
     "desktop_capture_route": "/02-bitgyeol-curtain/",
@@ -26,7 +26,7 @@
   {
     "slug": "website-neurin",
     "kind": "website_sample",
-    "source_repo": "Rusty951/website-portfolio",
+    "source_repo": "Rusty951/aurora-website-portfolio",
     "source_directory": "04-neurin-pajang",
     "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
     "desktop_capture_route": "/04-neurin-pajang/",
@@ -38,7 +38,7 @@
   {
     "slug": "website-haebit",
     "kind": "website_sample",
-    "source_repo": "Rusty951/website-portfolio",
+    "source_repo": "Rusty951/aurora-website-portfolio",
     "source_directory": "05-haebit-light",
     "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
     "desktop_capture_route": "/05-haebit-light/",
@@ -50,7 +50,7 @@
   {
     "slug": "website-seam",
     "kind": "website_sample",
-    "source_repo": "Rusty951/website-portfolio",
+    "source_repo": "Rusty951/aurora-website-portfolio",
     "source_directory": "16-seam-hotel",
     "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
     "desktop_capture_route": "/16-seam-hotel/",
@@ -62,7 +62,7 @@
   {
     "slug": "website-chaon",
     "kind": "website_sample",
-    "source_repo": "Rusty951/website-portfolio",
+    "source_repo": "Rusty951/aurora-website-portfolio",
     "source_directory": "13-chaon-law",
     "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
     "desktop_capture_route": "/13-chaon-law/",
