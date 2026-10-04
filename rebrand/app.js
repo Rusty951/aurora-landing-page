@@ -77,6 +77,10 @@ function onScroll() {
 window.addEventListener("scroll", onScroll, { passive: true });
 window.addEventListener("resize", measure, { passive: true });
 document.fonts?.ready.then(measure);
+// Native disclosures change the page length without a viewport resize.
+document.querySelectorAll(".home-faq details").forEach((detail) => {
+  detail.addEventListener("toggle", measure);
+});
 function setChapter(p) {
   const weights = [1, 0, 0];
   const selected = weights.indexOf(Math.max(...weights));

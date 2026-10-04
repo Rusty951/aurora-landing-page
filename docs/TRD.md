@@ -1,3 +1,9 @@
+## 2026-10-04 메인 FAQ 구현
+
+index.html에 expertise 다음, contact 이전의 faq 구역과 네이티브 details 네 개를 넣는다. 기존 process ID는 첫 질문에 유지하고 문의 구역의 중복 설명을 제거한다. JavaScript가 없어도 질문 열기와 답변 읽기가 작동한다. 앱은 toggle 이후 문서 높이를 다시 측정해 스크롤 진행 표시를 갱신한다. CSS v41, app.js v8, contact.js v4다.
+
+모바일에서 FAQ가 보이면 기존 고정 문의를 숨겨 질문과 답변을 가리지 않는다. 이미 키보드 초점이 있는 링크는 초점 이탈까지 보존한다. 기존 갤러리와 사진 상세, hero, 주 문의 및 dialog 상태를 재사용하고 관련 가림 방지 검사에 FAQ를 추가한다. 새 패키지와 외부 요청은 없으며 기존 추적과 URL 정책은 유지한다.
+
 ## 2026-10-04 웹사이트 유형 자리와 선택 상태
 
 웹사이트 필터는 `website-signature`와 `website-essential`이다. 기존 `category=website` 진입은 Signature로 해석하며 Signature 버튼은 이 주소를 유지한다. Essential은 `category=website-essential`로 새로고침과 popstate에서 복원한다. 선택은 aria-pressed, 목록 제목 및 상태 안내에 반영하고 Photo와 Concepts의 버튼을 노출하지 않는다.

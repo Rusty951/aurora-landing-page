@@ -15,6 +15,7 @@ Status: `LIVE V1 / PRODUCTION VERIFIED`
 - 웹사이트 목록: PC와 태블릿 두 열, 모바일 한 열, 1440×810 대표 썸네일
 - 웹사이트 유형은 Signature와 Essential로 구분한다. 이번에는 자리만 준비하며 기존 여섯 샘플은 Signature의 첫 목록에 유지하고 Essential은 준비 중 안내를 표시한다. 리뉴얼 작품과 등급 확정은 이후 요청에서 연결한다.
 - 메인: 진주빛 실크, 승인된 가로형 워드마크, 완만한 U자 서비스 배치, 라벤더 유리 버튼
+- FAQ: 서비스와 문의 사이의 네 질문, 진행 방식과 제작 범위, 비용 및 일정 협의, 별도 월간 계약 안내
 - 문의: `https://open.kakao.com/o/sMBNyzpi`, 이메일 `contact@aurorasound.kr`
 - 대표가 직접 촬영한 사진과 자체 시안, AI 제작, 가상 사업체를 구분한다. 사진에 별도 제작 브랜드 표기를 붙이지 않으며 확인되지 않은 고객 사례나 성과를 추가하지 않는다.
 
@@ -31,13 +32,13 @@ git diff --check
 ## 소스와 계약
 
 - `index.html`: 홈과 광고 경로의 공통 문서, SEO와 광고 경로 Meta 초기화
-- `rebrand/style.css?v=40`, `rebrand/app.js?v=7`: 1차 화면과 입력, 재생, 반응형 표시
+- `rebrand/style.css?v=41`, `rebrand/app.js?v=8`: 1차 화면과 입력, 재생, 반응형 표시
 - `rebrand/silk.js`, `audio.js`, `showcase.js`: 실크 효과, 선택 재생 음악과 상세 이미지 보기
 - `work/index.html`, `work/style.css?v=23`, `work/work.js?v=12`, `work/motion.js?v=3`: 사진, 자체 시안과 웹사이트 목록, 분야, 이미지 확대와 웹사이트 스크롤 모션
 - `work/catalog.json`, 작업별 HTML과 `work/assets/`: 45개 모음과 작업의 구성, 상세와 자산
 - `work/assets/bananablack/`: 바나나블랙 Git 이력의 37장과 공개 촬영 소개 페이지의 4장을 최적화한 자체 파일. 외부 사진 저장소에 의존하지 않으며 원본 경로와 해시는 내부 출처 기록을 따른다.
 - `work/demos/`: 홈페이지 안에 포함한 여섯 웹사이트 샘플. 원본 저장소는 `Rusty951/website-portfolio`이며 출처는 `docs/PORTFOLIO-SOURCES.json`을 따른다.
-- `rebrand/contact.js?v=3`: 모바일 작품 목록과 사진 상세, 주 문의, 이미지 확대에서 고정 문의의 겹침 방지
+- `rebrand/contact.js?v=4`: 모바일 작품 목록과 사진 상세, 주 문의, 이미지 확대에서 고정 문의의 겹침 방지
 - `analytics.js?v=8`: 광고와 오가닉을 구분하는 기존 추적 계약
 - `assets/aurora-og.png`: 기존 1200×630 공유 이미지. 제작 원본이 사용하는 wave 자산은 함께 유지한다.
 
