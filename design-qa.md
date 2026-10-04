@@ -895,3 +895,7 @@ npm run check와 git diff --check를 통과했다. 광고와 오가닉 추적, �
 구현 8dcaae9093d5869251b128aac2a7b84bcfaffb48의 Preview 6834914870이 성공했다. https://aurora-landing-page-85ybxt80b-rusty951s-projects.vercel.app/ 의 실제 320×844 화면에서 네 질문과 영어 제목의 정확한 접근성 이름, 질문 17px와 답변 16px, 요약 높이 98.39px, 가로 넘침 0을 확인했다. Enter 펼침과 Space 닫힘이 작동하며 FAQ 안에서는 고정 문의가 숨겨진다. CSS v41이고 gtag 및 fbq는 미정의이며 콘솔 경고와 오류가 없다. 운영 반영 뒤 실제 도메인의 화면과 소스를 다시 확인한다.
 
 로컬 /interview에서도 같은 네 질문과 핵심 문구가 표시되고 기존 ad-mode 및 비필수 소셜 숨김이 유지된다. 로컬 분석 함수는 미정의다. 최종 운영 검증 데이터와 화면은 위 검수 폴더의 production-verification.json 및 production 캡처를 따른다.
+
+### 운영 화면에서 발견한 겹침 보완
+
+d38afe1의 Production 6834935578이 성공했고 공개 수정 파일 50개와 /interview가 소스와 일치했다. 실제 PC에서 FAQ의 마지막 질문이 화면 아래에 있을 때 고정 문의가 펼침 아이콘을 가리는 상태를 발견했다. 모바일에만 적용했던 FAQ 읽기 중 고정 문의 숨김을 모든 화면 폭으로 확장하며 초점 보존은 유지한다. contact.js v5와 공개 HTML의 캐시를 갱신한다. PC와 모바일 FAQ 진입 및 이탈, 이미 초점이 있는 문의 보존을 기존 검사로 확인하고 수정본의 Preview와 Production을 다시 확인한다.

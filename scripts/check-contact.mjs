@@ -23,7 +23,7 @@ for (const path of ['index.html', 'work/index.html', ...catalog.map(work => `wor
   assert(links[0].includes('data-cta-location="floating"'));
   assert(links[0].includes('data-primary-cta="false"'));
   assert(links[0].includes('rel="noopener noreferrer"'));
-  assert.equal((html.match(/src="\/rebrand\/contact\.js\?v=4"/g) || []).length, 1);
+  assert.equal((html.match(/src="\/rebrand\/contact\.js\?v=5"/g) || []).length, 1);
 }
 const source = read('rebrand/contact.js');
 function browser({hero = true, primary = true, workPrimary = false, gallery = false, photoGallery = false, faq = false, width = 1280, observers = true} = {}) {
@@ -36,7 +36,7 @@ function browser({hero = true, primary = true, workPrimary = false, gallery = fa
   const document = {
     activeElement: null,
     getElementById: id => id === 'floating-cta-btn' ? link : id === 'final-cta-btn' && primary ? primaryNode : null,
-    querySelector: selector => selector === '.work-gallery, .photography-gallery, .home-faq' ? gallery || photoGallery || faq ? galleryNode : null : selector === '.work-cta-link' ? workPrimary ? primaryNode : null : selector === '.experience' ? hero ? heroNode : null : selector === '.header' ? {getBoundingClientRect: () => ({bottom: 96})} : selector === 'dialog[open]' ? state.modal ? {} : null : null,
+    querySelector: selector => selector === '.home-faq' ? faq ? galleryNode : null : selector === '.work-gallery, .photography-gallery' ? gallery || photoGallery ? galleryNode : null : selector === '.work-cta-link' ? workPrimary ? primaryNode : null : selector === '.experience' ? hero ? heroNode : null : selector === '.header' ? {getBoundingClientRect: () => ({bottom: 96})} : selector === 'dialog[open]' ? state.modal ? {} : null : null,
     querySelectorAll: () => [{}],
   };
   const window = {document, innerHeight: 844, innerWidth:width, addEventListener: (name, callback) => {handlers[name] = callback;}, requestAnimationFrame: callback => {frames.push(callback);}};
@@ -99,8 +99,9 @@ assert.equal(b.link.hidden, true, 'Mobile FAQ leaves questions and answers unobs
 b.state.galleryBottom = 95; b.event('scroll');
 assert.equal(b.link.hidden, false, 'Leaving the FAQ restores inquiry');
 b.state.galleryBottom = 2200; b.window.innerWidth = 1440; b.event('resize');
-assert.equal(b.link.hidden, false, 'Desktop FAQ preserves secondary inquiry');
-b.document.activeElement = b.link; b.window.innerWidth = 320; b.event('resize');
+assert.equal(b.link.hidden, true, 'Desktop FAQ keeps the last question unobstructed');
+b.state.galleryBottom = 95; b.event('scroll');
+b.document.activeElement = b.link; b.state.galleryBottom = 2200; b.window.innerWidth = 320; b.event('resize');
 assert.equal(b.link.hidden, false, 'Mobile FAQ preserves an already focused inquiry');
 b.document.activeElement = null; b.event('link:blur');
 assert.equal(b.link.hidden, true, 'Blur applies FAQ reading space');
