@@ -889,3 +889,9 @@ Product Design 평가에서 승인된 개선을 적용했다. Photo 목록의 �
 process와 faq 앵커에서 정지 모드의 제목 및 요약이 헤더 아래에 보이며 프로젝트 문의를 눌러 contact에 도달했다. 주 문의는 230×64px이고 고정 문의가 숨겨져 중복되지 않는다. 콘솔 경고와 오류는 없다. FAQ가 추가되고 진행 설명이 옮겨져 페이지 길이가 달라졌으므로 전후 이미지를 같은 절대 스크롤 좌표 비교로 해석하지 않는다. 변경 전 서비스 및 문의 화면은 기준 관찰이며 기존 영역 보존은 소스 비교와 이전 1차 검수도 재사용한다. 고객 이해도와 문의 효과는 검증하지 않았다.
 
 npm run check와 git diff --check를 통과했다. 광고와 오가닉 추적, 포트폴리오와 기존 자산, 문의 목적지는 보존한다. Preview와 Production 검증은 로컬 검수 이후 이어간다.
+
+### FAQ Preview 확인
+
+구현 8dcaae9093d5869251b128aac2a7b84bcfaffb48의 Preview 6834914870이 성공했다. https://aurora-landing-page-85ybxt80b-rusty951s-projects.vercel.app/ 의 실제 320×844 화면에서 네 질문과 영어 제목의 정확한 접근성 이름, 질문 17px와 답변 16px, 요약 높이 98.39px, 가로 넘침 0을 확인했다. Enter 펼침과 Space 닫힘이 작동하며 FAQ 안에서는 고정 문의가 숨겨진다. CSS v41이고 gtag 및 fbq는 미정의이며 콘솔 경고와 오류가 없다. 운영 반영 뒤 실제 도메인의 화면과 소스를 다시 확인한다.
+
+로컬 /interview에서도 같은 네 질문과 핵심 문구가 표시되고 기존 ad-mode 및 비필수 소셜 숨김이 유지된다. 로컬 분석 함수는 미정의다. 최종 운영 검증 데이터와 화면은 위 검수 폴더의 production-verification.json 및 production 캡처를 따른다.
