@@ -9,7 +9,8 @@
 - 운영 홈페이지: https://www.aurorasound.kr/
 - 광고 경로: https://www.aurorasound.kr/interview
 - 포트폴리오: https://www.aurorasound.kr/work
-- Drive 현재 소스: https://drive.google.com/drive/folders/1r6FRYHs6Cx9_s2UEn76IF8JGVkwNQFVU
+- Drive 현재 소스: https://drive.google.com/file/d/1f3THlpASI_WeAXs2vCmHys85Ob8N64BJ/view
+- Drive 홈페이지 폴더: https://drive.google.com/drive/folders/1r6FRYHs6Cx9_s2UEn76IF8JGVkwNQFVU
 - Obsidian 안내: `30_ENTITIES/A01_오로라의소리/website.md`
 
 작업은 이 로컬 저장소와 GitHub main 하나로 관리한다. Drive에는 같은 소스의 aurora-landing-page-v1.zip 하나를 갱신한다. Obsidian에는 소스를 복제하지 않고 현재 원본의 위치와 운영 방법만 기록한다. 과거 비교본과 단계별 설명서는 현행 자료에 포함하지 않는다. Git 변경 이력은 복구와 변경 추적용이며 별도의 운영 버전이 아니다.

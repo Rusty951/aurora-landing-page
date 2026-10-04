@@ -12,6 +12,6 @@ npm run check와 git diff --check를 실행하고 변화에 맞는 PC 1440px, �
 
 ## 공개와 보관
 
-대표가 승인한 범위에서 main에 commit 및 push하고 Vercel Production 완료와 실제 운영 URL 및 소스 응답을 확인한다. 이후 Drive의 aurora-landing-page-v1.zip 같은 파일 ID를 갱신한다. ZIP은 현재 Git 추적 파일만 포함하며 .git, .env와 도구 상태는 제외한다. ZIP의 SHA256과 Drive md5Checksum으로 같은 바이트인지 확인한다.
+대표가 승인한 범위에서 main에 commit 및 push하고 Vercel Production 완료와 실제 운영 URL 및 소스 응답을 확인한다. 이후 Drive의 aurora-landing-page-v1.zip 같은 파일 ID를 갱신한다. ZIP은 현재 Git 추적 파일만 포함하며 .git, .env와 도구 상태는 제외한다. 로컬 ZIP과 Drive에서 다시 읽은 ZIP의 SHA256 및 크기를 비교해 같은 바이트인지 확인한다.
 
 Obsidian의 A01 website.md에는 로컬 원본, GitHub main, 운영 주소와 Drive 현재 소스 링크만 유지한다. 과거 버전의 폴더나 ZIP, 단계별 캡처를 새 보관 위치에 누적하지 않는다. 변경 이력은 Git으로 추적한다.
