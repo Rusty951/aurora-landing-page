@@ -1,52 +1,17 @@
-# Workflows
+# 홈페이지 V1 작업과 배포
 
-## 작업 전
+## 원본
 
-1. `README.md`, `AGENTS.md`, `prd.md`를 읽는다.
-2. 작업 성격에 맞는 `docs/*`를 읽는다.
-3. 카피 변경이면 최신 오로라 Voice와 사용자 직접 발언을 우선한다.
-4. 현재 `git status`와 배포 경계를 확인한다.
+로컬 Documents/Projects/aurora-landing-page와 GitHub main 하나로 관리한다. README.md, AGENTS.md, prd.md와 직접 영향을 받는 docs를 읽고 현재 git status를 확인한다. 변경 전 사용자 의도와 기존 승인 범위를 재사용한다. 이전 시안이나 폐기한 브리프를 현재 승인으로 읽지 않는다.
 
-## 랜딩 수정
+## 수정과 검수
 
-1. 현재 Creative Brief 상태를 확인한다. `DRAFT`·`HELD`면 브리프 검토에서 멈추고 source·카피·디자인·OG를 수정하지 않는다.
-2. `APPROVED` 브리프에서 문제·타깃·약속·CTA 중 무엇을 바꾸는지 고정한다.
-3. `/`와 `/interview`가 같은 핵심 화면을 유지하는지 확인한다.
-4. CTA는 `id`, `data-track`, `data-cta-location`, 필요 시 `data-primary-cta`를 함께 갱신한다.
-5. 스타일·UI·추적 파일을 바꾸면 캐시 버전을 올린다.
-6. `npm run check`를 실행한다.
-7. 로컬 데스크톱과 390px 모바일을 캡처하고 육안 비교한다.
+요청한 범위의 소스와 직접 소비자에서 시작한다. 카피 변경은 최신 사용자 원문 및 Voice와 aurora-copy-writing을 따른다. 자산과 출처, 법적 안내와 문의 목적지, 광고 및 오가닉 수집 경계를 유지한다. 공개 파일이 바뀌면 해당 캐시 주소를 갱신한다.
 
-## 분석 수정
+npm run check와 git diff --check를 실행하고 변화에 맞는 PC 1440px, 모바일 390px 및 좁은 320px의 실제 화면과 주요 조작을 확인한다. 유효한 기존 검수는 재사용하며 단순한 관리 문서 수정에 불필요한 화면 재설계를 하지 않는다. 검수 기준과 결과는 design-qa.md의 현재 항목을 갱신한다.
 
-1. HTML `data-track` 계약을 단일 원본으로 유지한다.
-2. GA4·Meta가 운영 호스트에서만 실행되는지 확인한다.
-3. Meta `PageView`가 광고 경로에서 한 번만 전송되는지 확인한다.
-4. 카카오 클릭 `Contact`와 실제 문의·`Lead`를 구분한다.
-5. 루트·광고 경로·UTM 5종이 이벤트에 붙는지 확인한다.
-6. localhost에서 네트워크 수집이 없는지 확인한다.
+## 공개와 보관
 
-## UI QA
+대표가 승인한 범위에서 main에 commit 및 push하고 Vercel Production 완료와 실제 운영 URL 및 소스 응답을 확인한다. 이후 Drive의 aurora-landing-page-v1.zip 같은 파일 ID를 갱신한다. ZIP은 현재 Git 추적 파일만 포함하며 .git, .env와 도구 상태는 제외한다. ZIP의 SHA256과 Drive md5Checksum으로 같은 바이트인지 확인한다.
 
-1. 1440px 데스크톱과 390×844 모바일을 확인한다.
-2. 가로 스크롤, 텍스트 잘림, 배경 대비, 섹션 여백을 본다.
-3. 헤더, 모든 CTA, 외부 링크, FAQ를 직접 작동시킨다.
-4. 키보드 포커스와 터치 영역을 확인한다.
-5. 레퍼런스와 구현을 하나의 비교 이미지로 본다.
-6. P0·P1·P2 문제를 수정하고 `design-qa.md`에 결과를 기록한다.
-
-## 배포
-
-1. 기능 브랜치에서 로컬 검수를 완료한다.
-2. 변경 파일, 검증 결과, 남은 위험을 보고한다.
-3. 사용자의 명시적 공개 승인을 받는다.
-4. 그 뒤에만 commit, push, production 배포를 진행한다.
-5. 운영 `/`, `/interview`, `/interview/` 정규화와 실제 이벤트를 다시 확인한다.
-
-## 문서 갱신
-
-- 제품·CTA·URL: `prd.md`, `README.md`, `docs/PRD.md`
-- 디자인·카피: `docs/DESIGN.md`
-- 기술·추적·check: `docs/TRD.md`, `README.md`
-- 반복 절차: `docs/WORKFLOWS.md`
-- 공통 전제 변경: `docs/DECISIONS.md`
+Obsidian의 A01 website.md에는 로컬 원본, GitHub main, 운영 주소와 Drive 현재 소스 링크만 유지한다. 과거 버전의 폴더나 ZIP, 단계별 캡처를 새 보관 위치에 누적하지 않는다. 변경 이력은 Git으로 추적한다.

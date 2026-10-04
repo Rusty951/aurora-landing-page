@@ -4,5 +4,7 @@
     "preview": "node dev-server.mjs",
     "check": "node scripts/check-site.mjs && node --check analytics.js && node --check dev-server.mjs && node scripts/check-rebrand.mjs && node --check rebrand/app.js && node --check rebrand/audio.js && node --check rebrand/silk.js && node --check rebrand/showcase.js && node scripts/check-tracking.mjs && node --check work/work.js && node --check work/motion.js && node scripts/check-work.mjs && node --check rebrand/contact.js && node scripts/check-contact.mjs"
   },
-  "private": true
+  "private": true,
+  "name": "aurora-landing-page",
+  "version": "1.0.0"
 }
