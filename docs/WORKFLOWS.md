@@ -2,7 +2,7 @@
 
 ## 원본
 
-로컬 Documents/Projects/aurora-landing-page와 GitHub main 하나로 관리한다. README.md, AGENTS.md, prd.md와 직접 영향을 받는 docs를 읽고 현재 git status를 확인한다. 변경 전 사용자 의도와 기존 승인 범위를 재사용한다. 이전 시안이나 폐기한 브리프를 현재 승인으로 읽지 않는다.
+코드 원격, 기기별 경로와 `main` 운영은 [README.md](../README.md)를 따른다. AGENTS.md, prd.md와 직접 영향을 받는 docs를 읽고 현재 git status를 확인한다. 변경 전 사용자 의도와 기존 승인 범위를 재사용한다. 이전 시안이나 폐기한 브리프를 현재 승인으로 읽지 않는다. 미커밋, 미푸시 변경과 stash가 발견되면 해당 작업부터 보존하며, 옛 이력을 강제로 합치거나 원본을 덮어쓰지 않는다.
 
 ## 수정과 검수
 

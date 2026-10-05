@@ -16,6 +16,6 @@ Website의 Signature와 Essential은 탐색 자리다. Signature에는 NOCTE, SE
 
 ## 관리와 완료 기준
 
-로컬 aurora-landing-page와 GitHub main을 소스 원본으로 사용한다. Drive에는 현재 원본 ZIP 하나만 갱신하고 Obsidian에는 운영 안내 한 문서를 연결한다. 과거 비교 파일, 옛 설명서와 별도 홈페이지 작업 브랜치는 현행 관리에서 제거한다. Git 변경 이력은 복구용으로 유지한다.
+코드 원본, 기기별 경로와 현재 `main` 운영은 [README.md](README.md)를 따른다. Drive에는 현재 원본 ZIP 하나만 갱신하고 Obsidian에는 운영 안내 한 문서를 연결한다. 2026-10-04의 과거 비교본과 작업 브랜치 정리 결정은 당시 기록이며, 남은 원본과 고유 변경의 추가 삭제 지시가 아니다. Git 변경 이력과 확인 중인 로컬 작업은 복구용으로 보존한다.
 
 검증은 npm run check, git diff --check, PC 1440px와 모바일 390px 및 좁은 320px의 실제 화면을 따른다. Production 성공과 공개 소스 응답의 일치가 확인돼야 배포 완료로 기록한다. 음악과 모션, 추적과 법적 안내, 현재 이미지 및 출처 조건은 보존한다.

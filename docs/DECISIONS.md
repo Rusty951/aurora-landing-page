@@ -1,5 +1,7 @@
 # 홈페이지 V1 기준 결정
 
+아래 날짜별 결정은 당시 범위와 이유를 보존한다. 현재 코드 원격과 기기별 경로는 [README.md](../README.md), 작업은 [WORKFLOWS.md](WORKFLOWS.md)를 따른다. 과거 정리 기록을 남아 있는 원본, 로컬 브랜치와 stash의 추가 삭제 승인으로 사용하지 않는다.
+
 2026-10-04 대표가 현재 운영 화면을 첫 번째 버전으로 확정했다. 지금 버전의 소스와 이미지, 폰트, 샘플 및 출처 자료를 기준으로 관리한다.
 
 - 결정: 로컬 aurora-landing-page와 GitHub main 하나를 원본으로, Obsidian website.md를 운영 안내로, Drive aurora-landing-page-v1.zip 하나를 현재 소스 보관본으로 사용한다.

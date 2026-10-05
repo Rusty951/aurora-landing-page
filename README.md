@@ -1,10 +1,11 @@
 # 오로라의소리 홈페이지 V1
 
-현재 기준일: 2026-10-04, 한국 시간. 대표가 확정한 이번 화면을 첫 번째 버전으로 관리한다.
+화면 기준일: 2026-10-04, 운영 안내 갱신일: 2026-10-05, 한국 시간. 대표가 확정한 화면을 첫 번째 버전으로 관리한다.
 
 ## 관리 위치
 
-- 로컬 작업 원본: `/Users/bananabk/Documents/Projects/aurora-landing-page`
+- Mac Studio 코드 원본: `/Users/bananabk/Documents/Projects/aurora-landing-page`
+- MacBook 코드 원본: `/Users/bananabk/Documents/Projects/aurora-landing-page` (사용자 전달 보고서, 2026-10-05 17:29:41 KST). 경로와 당시 `main`의 clean 상태는 보고서 근거이며 MacBook을 직접 조회한 결과는 아니다.
 - GitHub 원본: https://github.com/Rusty951/aurora-landing-page/tree/main
 - 운영 홈페이지: https://www.aurorasound.kr/
 - 광고 경로: https://www.aurorasound.kr/interview
@@ -13,7 +14,7 @@
 - Drive 홈페이지 폴더: https://drive.google.com/drive/folders/1r6FRYHs6Cx9_s2UEn76IF8JGVkwNQFVU
 - Obsidian 안내: `30_ENTITIES/A01_오로라의소리/website.md`
 
-작업은 이 로컬 저장소와 GitHub main 하나로 관리한다. Drive에는 같은 소스의 aurora-landing-page-v1.zip 하나를 갱신한다. Obsidian에는 소스를 복제하지 않고 현재 원본의 위치와 운영 방법만 기록한다. 과거 비교본과 단계별 설명서는 현행 자료에 포함하지 않는다. Git 변경 이력은 복구와 변경 추적용이며 별도의 운영 버전이 아니다.
+작업과 공유는 GitHub `main` 하나로 관리한다. 기기 간 적용 전에는 HEAD, 미커밋 변경, 미푸시 커밋과 stash를 확인해 고유 작업부터 보존한다. Drive에는 같은 소스의 aurora-landing-page-v1.zip 하나를 갱신한다. Obsidian에는 소스를 복제하지 않고 현재 원본의 위치와 운영 방법만 기록한다. 과거 비교본과 단계별 설명서는 현행 운영 기준에 포함하지 않는다. 이 구분은 보존 중인 원본, 브랜치와 stash의 추가 삭제 승인이 아니다. Git 변경 이력은 복구와 변경 추적용이며 별도의 운영 버전이 아니다.
 
 ## 현재 화면
 
@@ -29,7 +30,7 @@ npm run check
 git diff --check
 ```
 
-로컬 주소는 http://localhost:4173/다. 페이지와 연결 자산의 원본은 저장소 안에 있으며 외부 사진 목록 서비스에 의존하지 않는다. 정적 파일의 배포는 GitHub main 변경을 Vercel이 받아 진행한다.
+로컬 주소는 http://localhost:4173/다. 페이지와 공개용 연결 자산은 Git 추적 파일로 관리하며 외부 사진 목록 서비스에 의존하지 않는다. 샘플 소스 원본은 별도 Portfolio 저장소이고 `work/demos`는 배포 사본이다. 촬영 원본과 제작 미디어, 권리 및 출처 자료는 각 원래 보관 위치에 유지한다. 코드 적용만으로 Drive ZIP, Obsidian 안내와 실제 배포가 갱신되지는 않는다. 정적 파일의 배포는 GitHub main 변경을 Vercel이 받아 진행한다.
 
 공개 승인된 변경은 검수 후 main에 commit 및 push하고 Vercel Production 성공과 실제 운영 화면을 확인한다. Drive ZIP과 Obsidian 안내를 같은 기준으로 갱신한다. 이미지, 폰트 및 외부 출처의 이용 조건과 광고 및 오가닉 추적 경계를 유지한다.
 
