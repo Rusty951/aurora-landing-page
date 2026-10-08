@@ -217,6 +217,14 @@
     {
       "source": "/work/website-bananablack",
       "destination": "/work/website-bananablack/index.html"
+    },
+    {
+      "source": "/work/website-formkey",
+      "destination": "/work/website-formkey/index.html"
+    },
+    {
+      "source": "/work/demos/18-formkey-productivity",
+      "destination": "/work/demos/18-formkey-productivity/index.html"
     }
   ],
   "redirects": [

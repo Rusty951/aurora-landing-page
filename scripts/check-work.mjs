@@ -9,13 +9,13 @@ const read=p=>readFileSync(resolve(root,p),'utf8');
 const allCatalog=JSON.parse(read('work/catalog.json'));
 const photoCollections=allCatalog.filter(p=>p.collection==='photography');
 const catalog=allCatalog.filter(p=>p.collection!=='photography');
-assert.equal(allCatalog.length,46);
+assert.equal(allCatalog.length,47);
 assert.equal(photoCollections.length,5);
 assert.equal(photoCollections.reduce((n,p)=>n+p.slides.length,0),41);
 for(const p of photoCollections) assert(read('sitemap.xml').includes(`<loc>https://www.aurorasound.kr/work/${p.slug}</loc>`),'Photo collection in sitemap');
-assert.equal(catalog.length,41);
-assert.equal(new Set(catalog.map(p=>p.slug)).size,41);
-for(const [category,n] of Object.entries({website:7,food:12,product:15,brand:3,carousel:1,character:3})) assert.equal(catalog.filter(p=>p.category===category).length,n,category+' agreed count');
+assert.equal(catalog.length,42);
+assert.equal(new Set(catalog.map(p=>p.slug)).size,42);
+for(const [category,n] of Object.entries({website:8,food:12,product:15,brand:3,carousel:1,character:3})) assert.equal(catalog.filter(p=>p.category===category).length,n,category+' agreed count');
 const config=JSON.parse(read('vercel.json'));
 const pages=['work/index.html',...allCatalog.map(p=>`work/${p.slug}/index.html`)];
 for(const p of pages) {
@@ -29,7 +29,7 @@ for(const p of pages) {
  const route=p==='work/index.html'?'/work':'/work/'+p.split('/')[1];
  assert(config.rewrites.some(r=>r.source===route&&r.destination==='/'+p),'Production route: '+route);
 }
-assert.equal((read('work/index.html').match(/class="work-card"/g)||[]).length,46);
+assert.equal((read('work/index.html').match(/class="work-card"/g)||[]).length,47);
 assert(!existsSync(resolve(root,'work/demos/client-previews')),'Private client files never copied');
 for(const p of allCatalog) {
  assert(p.width>0&&p.width<20000&&p.height>0&&p.height<30000,'Valid image dimensions');
@@ -46,13 +46,13 @@ for(const p of allCatalog) {
  if(p.slug.startsWith('bb-'))assert.match(html,/콘셉트 스케치/);
 }
 const sourceFiles=JSON.parse(read('docs/PORTFOLIO-SOURCES.json'));
-assert.equal(sourceFiles.length,46);
+assert.equal(sourceFiles.length,47);
 assert(!sourceFiles.some(p=>/01_original|client-previews/.test(p.source||p.source_directory||'')));
 assert(config.headers.some(r=>r.source==='/work/demos/:path*'&&r.headers.some(h=>h.value==='noindex, nofollow')));
 // Verify the real catalog through both browsing modes and enlargement interactions.
 const gallery = read('work/index.html');
 assert.equal((gallery.match(/data-full-image=/g)||[]).length,39);
-assert.equal((gallery.match(/target="_blank" rel="noopener"/g)||[]).length,8,'Seven website links plus original image');
+assert.equal((gallery.match(/target="_blank" rel="noopener"/g)||[]).length,9,'Eight website links plus original image');
 assert.match(gallery,/<dialog class="work-lightbox" aria-labelledby="work-lightbox-title">/);
 for (const p of catalog.filter(p=>p.category==='website')) {
  const card=gallery.match(new RegExp('<article class="work-card"[^>]*data-category="website"[^>]*>.*?href="/work/'+p.slug+'".*?</article>'))?.[0];
@@ -87,7 +87,7 @@ const b=browser();assert.equal(b.controls.hidden,false);assert.equal(b.visible()
 assert.equal(b.styles['--work-header-height'],'88px');assert.equal(b.styles['--work-controls-height'],'104px');
 b.header.height=96;b.pop.resize();assert.equal(b.styles['--work-header-height'],'96px','Resize fallback updates sticky offset');
 const observed=browser(undefined,true,true);assert.equal(observed.observed.length,2);observed.header.height=102;observed.observerCallback();assert.equal(observed.styles['--work-header-height'],'102px','Header resizing updates sticky offset');
-for(const [category,total,initial,sketches] of [['website',7,7,0],['food',12,6,6],['product',15,3,12],['brand',3,3,0],['carousel',1,1,0],['character',3,3,0],['images',34,16,18]]) {
+for(const [category,total,initial,sketches] of [['website',8,8,0],['food',12,6,6],['product',15,3,12],['brand',3,3,0],['carousel',1,1,0],['character',3,3,0],['images',34,16,18]]) {
  const button=[...b.kinds,...b.subButtons].find(x=>x.dataset.filter===category);b.callbacks.click({target:{closest:()=>button}});
  assert.equal(b.cards.filter(c=>!c.hidden).length,total);assert.equal(b.visible().length,initial);assert.equal(button.attrs['aria-pressed'],'true');
  assert.equal(b.filters.hidden,category==='website');assert.equal(b.nodes['work-sketches'].hidden,sketches===0);
@@ -102,14 +102,14 @@ for(const [category,total,initial,sketches] of [['website',7,7,0],['food',12,6,6
  assert.equal(b.callbacks.scroll.top,144,'New filter returns to gallery below measured header');
 }
 assert(b.context.location.href.includes('category=images'));
-for(const [category,n] of Object.entries({website:7,'website-signature':7,'website-essential':7,food:6,carousel:1,character:3,unknown:7,all:7,photography:5,'photo-product':1,'photo-food':1,'photo-dessert':1,'photo-space':1,'photo-portrait':1})) {
+for(const [category,n] of Object.entries({website:8,'website-signature':8,'website-essential':8,food:6,carousel:1,character:3,unknown:8,all:8,photography:5,'photo-product':1,'photo-food':1,'photo-dessert':1,'photo-space':1,'photo-portrait':1})) {
  const state=browser('http://localhost/work?category='+category);assert.equal(state.visible().length,n,'URL state '+category);
 }
-b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.visible().length,7);
+b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.visible().length,8);
 b.context.location.href='http://localhost/work?category=images';b.pop.popstate();assert.equal(b.visible().length,16,'History restores collapsed selection');
 // One website list, including shared links saved before the groups were merged.
 const defaultPlaces=browser('http://localhost/work');
-assert.equal(defaultPlaces.visible().length,7,'Opening the portfolio without a category shows websites first');
+assert.equal(defaultPlaces.visible().length,8,'Opening the portfolio without a category shows websites first');
 assert.equal(defaultPlaces.kinds[0].attrs['aria-pressed'],'true');
 defaultPlaces.callbacks.click({target:{closest:()=>defaultPlaces.kinds.find(button=>button.dataset.filter==='photography')}});
 assert.equal(defaultPlaces.visible().length,5);
@@ -117,27 +117,27 @@ assert.equal(new URL(defaultPlaces.context.location.href).searchParams.get('cate
 assert.equal(browser(defaultPlaces.context.location.href).visible().length,5);
 assert.deepEqual([...gallery.match(/<div class="work-kinds".*?<\/div>/s)[0].matchAll(/data-filter="([^"]+)"/g)].map(m=>m[1]),['website','images','photography']);
 const websitePlaces=browser('http://localhost/work?category=website');
-assert.equal(websitePlaces.visible().length,7);
+assert.equal(websitePlaces.visible().length,8);
 assert.equal(websitePlaces.nodes['work-websites'].hidden,false);
 assert.equal(websitePlaces.nodes['work-section-title'].textContent,'Website');
-assert.equal(websitePlaces.nodes['work-count'].textContent,'웹사이트 7개');
+assert.equal(websitePlaces.nodes['work-count'].textContent,'웹사이트 8개');
 assert.equal(websitePlaces.kinds.find(b=>b.dataset.filter==='website').attrs['aria-pressed'],'true');
-assert.deepEqual(websitePlaces.visible().map(c=>c.dataset.websiteColumn),['left','right','left','right','left','right','left'],'Stagger follows the full website list');
+assert.deepEqual(websitePlaces.visible().map(c=>c.dataset.websiteColumn),['left','right','left','right','left','right','left','right'],'Stagger follows the full website list');
 for(const legacy of ['website-signature','website-essential']) {
  const shared=browser('http://localhost/work?category='+legacy+'&ref=shared#gallery');
- assert.equal(shared.visible().length,7,'Legacy shared link shows all seven sites');
+ assert.equal(shared.visible().length,8,'Legacy shared link shows all eight sites');
  const normalized=new URL(shared.context.location.href);
  assert.equal(normalized.searchParams.get('category'),'website');
  assert.equal(normalized.searchParams.get('ref'),'shared');
  assert.equal(normalized.hash,'#gallery');
  shared.context.location.href='http://localhost/work?category=images';shared.pop.popstate();
  shared.context.location.href='http://localhost/work?category='+legacy;shared.pop.popstate();
- assert.equal(shared.visible().length,7,'History restores the combined website list');
+ assert.equal(shared.visible().length,8,'History restores the combined website list');
  assert.equal(new URL(shared.context.location.href).searchParams.get('category'),'website');
 }
 assert(!gallery.includes('work-website-filters'),'No second website navigation');
 assert(!/data-filter="website-(?:signature|essential)"/.test(gallery));
-assert.deepEqual(catalog.filter(p=>p.category==='website').map(p=>p.slug),['website-nocte','website-bitgyeol','website-haebit','website-neurin','website-seam','website-chaon','website-bananablack'],'Light and dark work alternate in the approved combined order');
+assert.deepEqual(catalog.filter(p=>p.category==='website').map(p=>p.slug),['website-formkey','website-nocte','website-bitgyeol','website-haebit','website-neurin','website-seam','website-chaon','website-bananablack'],'Formkey comes first and existing work retains its relative order');
 
 const link=b.links.find(Boolean);
 const secondConcept=catalog.filter(p=>p.category!=='website')[1];
@@ -174,13 +174,13 @@ assert.match(gallery,/<a id="work-lightbox-original"[^>]*target="_blank"[^>]*rel
 const cardMarkup=[...gallery.matchAll(/<article class="work-card".*?<\/article>/gs)].map(m=>m[0]);
 const markupOrder=cardMarkup.map(c=>c.match(/href="\/work\/(?!demos\/)([^"/]+)"/)[1]);
 assert.deepEqual(markupOrder,allCatalog.map(p=>p.slug),'Catalog and visible order match');
-assert(allCatalog.slice(0,7).every(p=>p.category==='website'),'Seven websites first');
+assert(allCatalog.slice(0,8).every(p=>p.category==='website'),'Eight websites first');
 assert(allCatalog.slice(-5).every(p=>p.collection==='photography'),'Five photo collections last');
 const concepts=catalog.filter(p=>p.category!=='website');
 assert(concepts.slice(0,12).every(p=>!p.slug.startsWith('bb-')),'12 finished concepts first');
 assert(concepts.slice(16).every(p=>p.slug.startsWith('bb-')),'18 sketches follow');
 
-console.log('Portfolio passed: 46 collections and works, filters, 7 direct demos, 8-slide carousel, 3 character series, previous/next, keyboard, touch gestures, focus and fallback.');
+console.log('Portfolio passed: 47 collections and works, filters, 8 direct demos, 8-slide carousel, 3 character series, previous/next, keyboard, touch gestures, focus and fallback.');
 
 // Real series metadata must match the clickable HTML and static fallback pages.
 const decodeAttr=s=>s.replace(/&quot;/g,'"').replace(/&#x27;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
@@ -298,7 +298,7 @@ for (const rule of config.rewrites.filter(r => r.source.startsWith('/work/demos/
 console.log('Demo canonical routes passed: ' + demoDocuments + ' HTML documents.');
 
 // Check the actual website card assignments and routes, not only the catalog model.
-const demoRoutes={'website-bananablack':'17-bananablack','website-nocte':'15-nocte','website-seam':'16-seam-hotel','website-bitgyeol':'02-bitgyeol-curtain','website-neurin':'04-neurin-pajang','website-haebit':'05-haebit-light','website-chaon':'13-chaon-law'};
+const demoRoutes={'website-formkey':'18-formkey-productivity','website-bananablack':'17-bananablack','website-nocte':'15-nocte','website-seam':'16-seam-hotel','website-bitgyeol':'02-bitgyeol-curtain','website-neurin':'04-neurin-pajang','website-haebit':'05-haebit-light','website-chaon':'13-chaon-law'};
 for(const card of cardMarkup.filter(c=>c.includes('data-category="website"'))){
  const slug=card.match(/href="\/work\/(website-[^"/]+)"/)[1];
  const item=allCatalog.find(p=>p.slug===slug);

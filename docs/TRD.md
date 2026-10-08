@@ -4,9 +4,9 @@
 
 ## 문서와 경로
 
-index.html은 홈과 /interview의 공통 문서다. vercel.json이 광고 경로, /work 목록과 각 상세 및 일곱 데모 경로를 연결한다. 이전 /rebrand 주소는 현재 홈으로 정규화되며 별도 비교 페이지를 제공하지 않는다. 개인정보 처리방침과 이용약관, robots.txt와 sitemap.xml, 공식 소셜 주소 및 인증 값을 보존한다.
+index.html은 홈과 /interview의 공통 문서다. vercel.json이 광고 경로, /work 목록과 각 상세 및 여덟 데모 경로를 연결한다. 이전 /rebrand 주소는 현재 홈으로 정규화되며 별도 비교 페이지를 제공하지 않는다. 개인정보 처리방침과 이용약관, robots.txt와 sitemap.xml, 공식 소셜 주소 및 인증 값을 보존한다.
 
-홈과 포트폴리오 46개 문서는 rebrand/fonts.css?v=1을 한 번씩 로드한다. 공통 CSS v46, app.js v10, audio.js v3, silk.js v3, contact.js v5, 포트폴리오 CSS v24, work.js v14 및 motion.js v3을 사용한다. 캐시 숫자는 파일 갱신용이며 홈페이지 V1의 버전명과 별개다.
+홈과 포트폴리오 47개 문서는 rebrand/fonts.css?v=1을 한 번씩 로드한다. 공통 CSS v46, app.js v10, audio.js v3, silk.js v3, contact.js v5, 포트폴리오 CSS v24, work.js v14 및 motion.js v3을 사용한다. 캐시 숫자는 파일 갱신용이며 홈페이지 V1의 버전명과 별개다.
 
 ## 서체와 실크
 
@@ -26,6 +26,6 @@ GA4와 Meta는 운영 호스트에서만 실행한다. localhost, Tailscale와 V
 
 ## 포트폴리오와 검사
 
-work/catalog.json은 46개 모음 및 작품의 공개 목록이다. Photo 41장과 Concepts 34개 및 Website 7개를 관리한다. 정적 목록과 상세, 사진 확대, 캐러셀과 캐릭터 시리즈, 키보드 및 터치 탐색을 보존한다. 분류 순서는 Website, Concepts, Photo다. category를 지정하지 않은 /work도 일곱 웹사이트를 먼저 연다. Photo 선택은 category=photography로 주소에 남겨 새로고침 후 유지한다. category=website는 일곱 웹사이트의 통합 목록을 연다. 과거 website-signature와 website-essential 공유 주소도 같은 목록으로 열고 category=website로 정규화한다. 필터 상태는 주소, aria-pressed와 보이는 열 순서 및 스크롤 모션에 동기화한다.
+work/catalog.json은 47개 모음 및 작품의 공개 목록이다. Photo 41장과 Concepts 34개 및 Website 8개를 관리한다. 정적 목록과 상세, 사진 확대, 캐러셀과 캐릭터 시리즈, 키보드 및 터치 탐색을 보존한다. 분류 순서는 Website, Concepts, Photo다. category를 지정하지 않은 /work도 여덟 웹사이트를 먼저 연다. Photo 선택은 category=photography로 주소에 남겨 새로고침 후 유지한다. category=website는 여덟 웹사이트의 통합 목록을 연다. 과거 website-signature와 website-essential 공유 주소도 같은 목록으로 열고 category=website로 정규화한다. 필터 상태는 주소, aria-pressed와 보이는 열 순서 및 스크롤 모션에 동기화한다.
 
 npm run check는 사이트와 자산 및 경로, renderer와 음악, 추적, 필터와 시리즈, 사진 출처와 해시, 데모 내부 경로, 고정 문의의 가림 방지를 검사한다. git diff --check와 실제 viewport 검수를 병행한다. 내부 docs와 scripts, QA 및 개발 자료는 .vercelignore에서 배포 제외한다. ZIP에도 .git, .env, node_modules와 도구 상태를 넣지 않는다.

@@ -7,7 +7,7 @@ const routeOption=args.find(arg=>arg.startsWith('--route='));
 const sourceArg=args.find(arg=>!arg.startsWith('--'));
 if(args.some(arg=>arg.startsWith('--')&&!arg.startsWith('--route='))||args.filter(arg=>arg.startsWith('--route=')).length>1||args.filter(arg=>!arg.startsWith('--')).length>1)throw new Error('Usage: sync-website-samples.mjs [source] [--route=canonical-route]');
 const source=resolve(sourceArg||join(root,'../aurora-website-portfolio'));
-const allRoutes=['15-nocte','16-seam-hotel','17-bananablack','02-bitgyeol-curtain','04-neurin-pajang','05-haebit-light','13-chaon-law'];
+const allRoutes=['15-nocte','16-seam-hotel','17-bananablack','02-bitgyeol-curtain','04-neurin-pajang','05-haebit-light','13-chaon-law','18-formkey-productivity'];
 const requested=routeOption?.slice('--route='.length);
 if(routeOption&&!allRoutes.includes(requested))throw new Error('Unknown canonical route: '+requested);
 const routes=routeOption?[requested]:allRoutes;
@@ -32,6 +32,7 @@ for(const route of routes){
  if(route==='17-bananablack')continue;
  const file=join(dest,route,'index.html');let html=readFileSync(file,'utf8');
  html=html.replace(/<head>/,'<head><base href="/work/demos/'+route+'/">');
+ if(route==='18-formkey-productivity')html=html.replace('href="../index.html"','href="/work?category=website"');
  html=html.replace(/<a\b[^>]*href=["'][^"']*(?:SOURCES|README)\.md[^"']*["'][^>]*>[\s\S]*?<\/a>/g,'');
  writeFileSync(file,html);
  const license=join(dest,route,'assets/fonts/BodoniModa-OFL.txt');

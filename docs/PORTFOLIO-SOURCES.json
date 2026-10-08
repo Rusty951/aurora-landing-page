@@ -1,5 +1,23 @@
 [
   {
+    "slug": "website-formkey",
+    "kind": "website_sample",
+    "source_repo": "Rusty951/aurora-website-portfolio",
+    "source_directory": "18-formkey-productivity",
+    "license_scope": "Original generated raster assets, Phosphor MIT icons and OFL fonts preserved; fictional product, no client case",
+    "desktop_capture_route": "/work/demos/18-formkey-productivity",
+    "desktop_capture_viewport": {
+      "width": 1440,
+      "height": 810
+    },
+    "canonical_commit": "e521c6c",
+    "sample_version": "59.3",
+    "capture_date": "2026-10-08",
+    "desktop_capture_sha256": "ec8667c3e491b06285ae808005a10285bd4a721800873e28f7219c8f9b3fa8f7",
+    "mobile_capture_sha256": "16dadbf1c8507b64844f90e30011f108c8fdb4832af476818d0d67717a45927b",
+    "capture_note": "Actual local deployment-copy screenshots, motion paused for consistent still images. Desktop1440x810/mobile390x844. No artwork editing."
+  },
+  {
     "slug": "website-nocte",
     "kind": "website_sample",
     "source_repo": "Rusty951/aurora-website-portfolio",
