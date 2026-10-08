@@ -37,7 +37,7 @@ assert(count(html, /<main\b/gi) === 1, 'index.html must contain exactly one <mai
 assert(count(html, /<h1\b/gi) === 1, 'index.html must contain exactly one <h1>.');
 assert(/<h1 class="hero-title">/.test(html) && html.includes('<span>Beyond</span><span>the <em>ordinary.</em></span>'), 'Restore the original English hero and its type structure');
 assert(!html.includes('class="hero-message"'), 'Do not reintroduce the rejected Korean hero');
-assert(html.includes('<span class="hero-role">리브랜딩 실행 파트너</span>') && html.includes('웹사이트와 콘텐츠,<br />사진과 영상을 만듭니다.'), 'Keep the large original hero with the updated service introduction');
+assert(html.includes('<span class="hero-role">리브랜딩 실행 파트너</span>') && html.includes('눈길이 머물고,<br />브랜드가 기억되도록.'), 'Keep the large original hero with the updated service introduction');
 assert(html.includes('웹사이트, 콘텐츠, 사진 및 영상'), 'Keep the user-approved service order');
 assert(/id="hero-cta-btn" href="#contact">프로젝트 문의/.test(html), 'Primary hero inquiry leads to consultation guidance');
 assert(/class="hero-portfolio" href="\/work"/.test(html), 'Secondary hero link opens the portfolio');
