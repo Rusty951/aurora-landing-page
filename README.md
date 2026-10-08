@@ -20,7 +20,7 @@
 
 진주빛 실크 첫 화면, 가로형 aurora sound 워드마크, Selected work, U자 서비스 소개, FAQ와 문의로 이어진다. 큰 한글 제목은 아리따 부리, 메뉴와 버튼 및 작품 정보는 DM Sans와 Asta Sans다. FAQ 질문은 PC 20px 및 모바일 17px, 답변은 16px 및 15px다. 작은 볼륨의 배경 음악과 재생 설정, 은은한 유리 표면 및 기존 모션을 사용한다.
 
-포트폴리오는 Photo 41장 다섯 모음, Concepts 34개, Website 7개다. Photo의 분야는 Product, Food, Dessert, Space, Portrait다. Website는 Signature와 Essential로 구분하며 Signature는 NOCTE, SEAM과 Banana Black 3개, Essential은 일반 홈페이지 4개다. PC 두 열과 모바일 한 열을 사용한다. 샘플 원본은 ../aurora-website-portfolio이며 npm run sync:samples로 work/demos의 배포용 사본을 갱신한다. 직접 사본을 수정하지 않는다. 한 샘플만 반영할 때는 `npm run sync:samples -- --route=13-chaon-law`처럼 정본 폴더를 지정하며, 선택하지 않은 사본과 기존 공유 자산은 유지한다. 일반4개는 정본0c5beb9의 서래커튼 v55.1, 수집노트 v56.1, 스위치조명 v57.2, 서안 v58.2를 적용했다.
+포트폴리오는 Photo 41장 다섯 모음, Concepts 34개, Website 7개다. Photo의 분야는 Product, Food, Dessert, Space, Portrait다. Website는 일곱 작업을 한 목록으로 보여준다. NOCTE, 서래커튼, 스위치조명, 수집노트, SEAM HOTEL, 법률사무소 서안과 Banana Black 순서다. 분야와 가상 샘플 또는 보관본 여부를 카드에 표시한다. PC 두 열과 모바일 한 열을 사용한다. 샘플 원본은 ../aurora-website-portfolio이며 npm run sync:samples로 work/demos의 배포용 사본을 갱신한다. 직접 사본을 수정하지 않는다. 한 샘플만 반영할 때는 `npm run sync:samples -- --route=13-chaon-law`처럼 정본 폴더를 지정하며, 선택하지 않은 사본과 기존 공유 자산은 유지한다. 일반4개는 정본0c5beb9의 서래커튼 v55.1, 수집노트 v56.1, 스위치조명 v57.2, 서안 v58.2를 적용했다.
 
 ## 실행과 검증
 

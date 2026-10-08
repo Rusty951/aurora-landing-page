@@ -37,5 +37,5 @@ for(const route of routes){
  const license=join(dest,route,'assets/fonts/BodoniModa-OFL.txt');
  if(existsSync(license))writeFileSync(license,readFileSync(license,'utf8').replace(/[ \t]+$/gm,''));
 }
-if(!routeOption)writeFileSync(join(dest,'index.html'),'<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta http-equiv="refresh" content="0;url=/work?category=website-essential"><title>홈페이지 샘플</title></head><body><a href="/work?category=website-essential">홈페이지 포트폴리오로 이동</a></body></html>');
+if(!routeOption)writeFileSync(join(dest,'index.html'),'<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta http-equiv="refresh" content="0;url=/work?category=website"><title>홈페이지 샘플</title></head><body><a href="/work?category=website">홈페이지 포트폴리오로 이동</a></body></html>');
 console.log('Synced canonical samples:',routes.join(', '));

@@ -58,22 +58,20 @@ for (const p of catalog.filter(p=>p.category==='website')) {
  const card=gallery.match(new RegExp('<article class="work-card"[^>]*data-category="website"[^>]*>.*?href="/work/'+p.slug+'".*?</article>'))?.[0];
  assert(card && /href="\/work\/demos\//.test(card),'Website opens live demo and offers description');
 }
-function browser(start='http://localhost/work?category=images',nativeDialog=true,withObserver=false,websiteTiers={}) {
+function browser(start='http://localhost/work?category=images',nativeDialog=true,withObserver=false) {
  const subButtons=['images','product','food','brand','carousel','character'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
  const photoButtons=['photography','photo-product','photo-food','photo-dessert','photo-space','photo-portrait'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
- const websiteButtons=['website-signature','website-essential'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
  const members=[...catalog,...photoCollections];
  const kinds=['images','website','photography'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
  const links=members.map(p=>p.category==='website'?null:{
   dataset:{fullImage:p.image,imageTitle:p.subtitle,imageBadge:p.badge,slides:p.slides?JSON.stringify(p.slides):undefined}, href:'http://localhost/work/'+p.slug, isConnected:true, focused:false,
   querySelector:()=>({alt:p.subtitle+' 자체 AI 이미지'}), focus(){this.focused=true;}
  });
- const cards=members.map((p,i)=>({dataset:{category:p.category,websiteTier:websiteTiers[p.slug]||p.websiteTier,collection:p.collection==='photography'?'photography':p.slug.startsWith('bb-')?'sketch':'curated',imageCount:p.collection==='photography'?String(p.slides.length):undefined},hidden:false,querySelector:()=>links[i]}));
+ const cards=members.map((p,i)=>({dataset:{category:p.category,collection:p.collection==='photography'?'photography':p.slug.startsWith('bb-')?'sketch':'curated',imageCount:p.collection==='photography'?String(p.slides.length):undefined},hidden:false,querySelector:()=>links[i]}));
  const callbacks={};const filters={dataset:{kind:'images'},hidden:false,querySelectorAll:()=>subButtons};
  const photoFilters={dataset:{kind:'photography'},hidden:false,querySelectorAll:()=>photoButtons};
- const websiteFilters={dataset:{kind:'website'},hidden:false,querySelectorAll:()=>websiteButtons};
- const controls={hidden:true,querySelector:()=>filters,querySelectorAll:s=>s==='.work-filters'?[filters,photoFilters,websiteFilters]:s.includes('work-kinds')?kinds:[...kinds,...subButtons,...photoButtons,...websiteButtons],contains:b=>[...kinds,...subButtons,...photoButtons,...websiteButtons].includes(b),addEventListener:(e,fn)=>{callbacks[e]=fn;},getBoundingClientRect:()=>({height:104})};
- const ids=['work-photography','work-count','work-section-title','work-hint','work-sketches','work-curated','work-websites','work-websites-title','work-website-empty','work-curated-count','work-sketch-count','gallery','work-lightbox-image','work-lightbox-title','work-lightbox-badge','work-lightbox-detail','work-lightbox-original','work-lightbox-transcript','work-lightbox-text','work-lightbox-prev','work-lightbox-next','work-lightbox-position'];
+ const controls={hidden:true,querySelector:()=>filters,querySelectorAll:s=>s==='.work-filters'?[filters,photoFilters]:s.includes('work-kinds')?kinds:[...kinds,...subButtons,...photoButtons],contains:b=>[...kinds,...subButtons,...photoButtons].includes(b),addEventListener:(e,fn)=>{callbacks[e]=fn;},getBoundingClientRect:()=>({height:104})};
+ const ids=['work-photography','work-count','work-section-title','work-hint','work-sketches','work-curated','work-websites','work-websites-title','work-curated-count','work-sketch-count','gallery','work-lightbox-image','work-lightbox-title','work-lightbox-badge','work-lightbox-detail','work-lightbox-original','work-lightbox-transcript','work-lightbox-text','work-lightbox-prev','work-lightbox-next','work-lightbox-position'];
  const nodes=Object.fromEntries(ids.map(id=>[id,{textContent:'',open:false,hidden:false,events:{},addEventListener(e,fn){this.events[e]=fn;},removeAttribute(k){delete this[k];},getBoundingClientRect:()=>({top:240})}]));
  const grid={addEventListener:(e,fn)=>{callbacks.gridClick=fn;}};nodes['work-grid']=grid;
  const dialogEvents={};const dialog={open:false,isConnected:true,showModal:nativeDialog?function(){this.open=true;}:undefined,close(){this.open=false;dialogEvents.close();},addEventListener:(e,fn)=>{dialogEvents[e]=fn;},getBoundingClientRect:()=>({left:10,top:10,right:100,bottom:100})};
@@ -83,13 +81,13 @@ function browser(start='http://localhost/work?category=images',nativeDialog=true
  vm.runInNewContext(read('work/work.js'),context);
  const visible=()=>cards.filter(c=>!c.hidden&&(c.dataset.collection!=='sketch'||nodes['work-sketches'].open));
  const expand=()=>{nodes['work-sketches'].open=true;nodes['work-sketches'].events.toggle();};
- return {links,cards,filters,photoFilters,photoButtons,websiteFilters,websiteButtons,kinds,subButtons,nodes,dialog,dialogEvents,classNames,callbacks,context,pop,controls,visible,expand,styles,header,observed,observerCallback};
+ return {links,cards,filters,photoFilters,photoButtons,kinds,subButtons,nodes,dialog,dialogEvents,classNames,callbacks,context,pop,controls,visible,expand,styles,header,observed,observerCallback};
 }
 const b=browser();assert.equal(b.controls.hidden,false);assert.equal(b.visible().length,16);assert.equal(b.nodes['work-count'].textContent,'이미지 34개, 16개 표시, 스케치 18개 접힘');
 assert.equal(b.styles['--work-header-height'],'88px');assert.equal(b.styles['--work-controls-height'],'104px');
 b.header.height=96;b.pop.resize();assert.equal(b.styles['--work-header-height'],'96px','Resize fallback updates sticky offset');
 const observed=browser(undefined,true,true);assert.equal(observed.observed.length,2);observed.header.height=102;observed.observerCallback();assert.equal(observed.styles['--work-header-height'],'102px','Header resizing updates sticky offset');
-for(const [category,total,initial,sketches] of [['website',3,3,0],['food',12,6,6],['product',15,3,12],['brand',3,3,0],['carousel',1,1,0],['character',3,3,0],['images',34,16,18]]) {
+for(const [category,total,initial,sketches] of [['website',7,7,0],['food',12,6,6],['product',15,3,12],['brand',3,3,0],['carousel',1,1,0],['character',3,3,0],['images',34,16,18]]) {
  const button=[...b.kinds,...b.subButtons].find(x=>x.dataset.filter===category);b.callbacks.click({target:{closest:()=>button}});
  assert.equal(b.cards.filter(c=>!c.hidden).length,total);assert.equal(b.visible().length,initial);assert.equal(button.attrs['aria-pressed'],'true');
  assert.equal(b.filters.hidden,category==='website');assert.equal(b.nodes['work-sketches'].hidden,sketches===0);
@@ -97,46 +95,41 @@ for(const [category,total,initial,sketches] of [['website',3,3,0],['food',12,6,6
  assert.equal(b.nodes['work-sketch-count'].textContent,sketches);assert.equal(b.nodes['work-curated-count'].textContent,initial);
  assert.equal(b.nodes['work-hint'].textContent.includes('콘셉트 스케치'),sketches>0,'Sketch guidance only accompanies an available sketch group');
  assert.equal(b.nodes['work-hint'].textContent.includes('새 탭'),category==='website','Website guidance follows the selected browsing mode');
- const base=`${category==='website'?'Signature 웹사이트':'이미지'} ${total}개`;
+ const base=`${category==='website'?'웹사이트':'이미지'} ${total}개`;
  assert.equal(b.nodes['work-count'].textContent,base+(sketches?`, ${initial}개 표시, 스케치 ${sketches}개 접힘`:''));
  assert.equal(b.kinds[0].attrs['aria-pressed'],String(category!=='website'));
  if(sketches){b.expand();assert.equal(b.visible().length,total);assert.equal(b.nodes['work-count'].textContent,base);}
  assert.equal(b.callbacks.scroll.top,144,'New filter returns to gallery below measured header');
 }
 assert(b.context.location.href.includes('category=images'));
-for(const [category,n] of Object.entries({website:3,food:6,carousel:1,character:3,unknown:5,all:5,photography:5,'photo-product':1,'photo-food':1,'photo-dessert':1,'photo-space':1,'photo-portrait':1})) {
+for(const [category,n] of Object.entries({website:7,'website-signature':7,'website-essential':7,food:6,carousel:1,character:3,unknown:5,all:5,photography:5,'photo-product':1,'photo-food':1,'photo-dessert':1,'photo-space':1,'photo-portrait':1})) {
  const state=browser('http://localhost/work?category='+category);assert.equal(state.visible().length,n,'URL state '+category);
 }
-b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.visible().length,3);
+b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.visible().length,7);
 b.context.location.href='http://localhost/work?category=images';b.pop.popstate();assert.equal(b.visible().length,16,'History restores collapsed selection');
-// Website places preserve existing work and support independent future assignments.
+// One website list, including shared links saved before the groups were merged.
 const websitePlaces=browser('http://localhost/work?category=website');
-assert.equal(websitePlaces.websiteFilters.hidden,false);
-assert.equal(websitePlaces.websiteButtons[0].attrs['aria-pressed'],'true');
-assert.equal(websitePlaces.nodes['work-website-empty'].hidden,true);
-websitePlaces.callbacks.click({target:{closest:()=>websitePlaces.websiteButtons[1]}});
-assert.equal(websitePlaces.visible().length,4,'Four selected general samples are Essential');
-assert.equal(websitePlaces.nodes['work-website-empty'].hidden,true);
+assert.equal(websitePlaces.visible().length,7);
 assert.equal(websitePlaces.nodes['work-websites'].hidden,false);
-assert.equal(websitePlaces.nodes['work-section-title'].textContent,'Website / Essential');
-assert.equal(websitePlaces.nodes['work-count'].textContent,'Essential 웹사이트 4개');
+assert.equal(websitePlaces.nodes['work-section-title'].textContent,'Website');
+assert.equal(websitePlaces.nodes['work-count'].textContent,'웹사이트 7개');
 assert.equal(websitePlaces.kinds.find(b=>b.dataset.filter==='website').attrs['aria-pressed'],'true');
-assert(websitePlaces.context.location.href.endsWith('category=website-essential'));
-const restoredEssential=browser(websitePlaces.context.location.href);
-assert.equal(restoredEssential.visible().length,4,'Refresh preserves Essential');
-websitePlaces.callbacks.click({target:{closest:()=>websitePlaces.kinds.find(b=>b.dataset.filter==='website')}});
-assert.equal(websitePlaces.visible().length,3,'Signature preserves NOCTE, SEAM and Banana Black');
-assert(websitePlaces.context.location.href.endsWith('category=website'));
-const futurePlaces=browser('http://localhost/work?category=website',true,false,{'website-nocte':'essential'});
-assert.equal(futurePlaces.visible().length,2,'Assigned Essential work cannot leak into Signature');
-assert.deepEqual(futurePlaces.visible().map(c=>c.dataset.websiteColumn),['left','right'],'Stagger follows visible columns after filtering');
-futurePlaces.callbacks.click({target:{closest:()=>futurePlaces.websiteButtons[1]}});
-assert.equal(futurePlaces.visible().length,5);
-assert.equal(futurePlaces.nodes['work-website-empty'].hidden,true,'Connected work replaces the empty place');
-assert.equal(futurePlaces.visible()[0].dataset.websiteColumn,'left');
-assert.match(gallery,/<div class="work-filters work-website-filters"[^>]*data-kind="website"[^>]*hidden>/);
-assert.equal((gallery.match(/data-filter="website-(?:signature|essential)"/g)||[]).length,2);
-assert(!gallery.includes('data-filter="website-all"'),'No combined website view');
+assert.deepEqual(websitePlaces.visible().map(c=>c.dataset.websiteColumn),['left','right','left','right','left','right','left'],'Stagger follows the full website list');
+for(const legacy of ['website-signature','website-essential']) {
+ const shared=browser('http://localhost/work?category='+legacy+'&ref=shared#gallery');
+ assert.equal(shared.visible().length,7,'Legacy shared link shows all seven sites');
+ const normalized=new URL(shared.context.location.href);
+ assert.equal(normalized.searchParams.get('category'),'website');
+ assert.equal(normalized.searchParams.get('ref'),'shared');
+ assert.equal(normalized.hash,'#gallery');
+ shared.context.location.href='http://localhost/work?category=images';shared.pop.popstate();
+ shared.context.location.href='http://localhost/work?category='+legacy;shared.pop.popstate();
+ assert.equal(shared.visible().length,7,'History restores the combined website list');
+ assert.equal(new URL(shared.context.location.href).searchParams.get('category'),'website');
+}
+assert(!gallery.includes('work-website-filters'),'No second website navigation');
+assert(!/data-filter="website-(?:signature|essential)"/.test(gallery));
+assert.deepEqual(catalog.filter(p=>p.category==='website').map(p=>p.slug),['website-nocte','website-bitgyeol','website-haebit','website-neurin','website-seam','website-chaon','website-bananablack'],'Light and dark work alternate in the approved combined order');
 
 const link=b.links.find(Boolean);
 function imageClick(link,extra={}) {let prevented=false;const event={target:{closest:()=>link},button:0,preventDefault(){prevented=true;},...extra};b.callbacks.gridClick(event);return prevented;}
@@ -173,7 +166,7 @@ const markupOrder=cardMarkup.map(c=>c.match(/href="\/work\/(?!demos\/)([^"/]+)"/
 assert.deepEqual(markupOrder,allCatalog.map(p=>p.slug),'Catalog and visible order match');
 assert(catalog.slice(0,12).every(p=>p.category!=='website'&&!p.slug.startsWith('bb-')),'12 finished images first');
 assert(catalog.slice(16,34).every(p=>p.slug.startsWith('bb-')),'18 sketches follow');
-assert(catalog.slice(34).every(p=>p.category==='website'),'6 website samples preserved');
+assert(catalog.slice(34).every(p=>p.category==='website'),'7 websites preserved');
 console.log('Portfolio passed: 46 collections and works, filters, 7 direct demos, 8-slide carousel, 3 character series, previous/next, keyboard, touch gestures, focus and fallback.');
 
 // Real series metadata must match the clickable HTML and static fallback pages.
@@ -296,8 +289,8 @@ const demoRoutes={'website-bananablack':'17-bananablack','website-nocte':'15-noc
 for(const card of cardMarkup.filter(c=>c.includes('data-category="website"'))){
  const slug=card.match(/href="\/work\/(website-[^"/]+)"/)[1];
  const item=allCatalog.find(p=>p.slug===slug);
- assert.equal((card.match(/data-website-tier=/g)||[]).length,1,'Exactly one tier per rendered card');
- assert(card.includes('data-website-tier="'+item.websiteTier+'"'));
+ assert(!card.includes('data-website-tier='),'Cards have no retired tier assignment');
+ assert(card.includes('<span class="work-badge">'+item.badge+'</span>'),'Card describes its field and sample or archive status');
  assert(card.includes('href="/work/demos/'+demoRoutes[slug]+'/"'),'Card opens its own sample');
  const captureVersion=sourceFiles.find(source=>source.slug===slug)?.sample_version||(['website-bananablack','website-seam'].includes(slug)?'48':'47');
  assert(card.includes('src="'+item.thumb+'?v='+captureVersion+'"'),'Card uses its own capture and recorded cache revision');

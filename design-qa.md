@@ -71,3 +71,11 @@ npm run check와 diff 검사를 통과했다. 기존 capture assertion이47 캐�
 커밋8d152c2의 Vercel 배포 완료를 확인했고 실제 운영 목록, 네 상세, 네 데모 HTML 및 각 CSS/JS, PC/썸네일/모바일 이미지 총29개 응답이200이며 로컬 최신 파일과 SHA256이 일치했다. 실제 운영 목록에서55.1/56.1/57.2/58.2 썸네일 네 개가 모두 로드됐고, 목록 링크로 연 세 데모에서도 각 최신 스타일 주소와 폰트 loaded를 확인했다. 새1440×1300 운영 캡처 live-all-four-PC.jpg에는 네 카드와 이름이 함께 보인다. 임시 뷰포트는 확인 후 초기화했다.
 
 검수 결과: 일반4개 전체 운영 반영 passed. Drive 백업은 같은 파일ID의 Google Drive Desktop 동기화 파일을 최종 추적 소스 ZIP으로 갱신한다. 로컬 ZIP과 동기화 사본의 SHA256 및 파일ID, 서버 메타데이터의 크기를 확인하며, 커넥터 원격 ZIP 읽기의 기존403 제한 때문에 원격 다운로드 바이트의 SHA256까지 검증했다고 주장하지 않는다.
+
+## 웹사이트 목록 통합, 2026-10-08
+
+사용자가 Signature와 Essential을 합치도록 확정했다. Website를 선택하면 전체7개를 표시하고 두 등급 버튼 및 카드의 tier 조건을 없앴다. 밝고 어두운 화면과 분야가 섞이도록 NOCTE, 서래커튼, 스위치조명, 수집노트, SEAM HOTEL, 법률사무소 서안, Banana Black으로 정적 목록과 카탈로그의 순서를 함께 맞췄다. 각 카드에는 분야와 가상 샘플 또는 보관본 여부를 표시한다. 일곱 데모의 디자인과 이미지, 문의 목적지 및 출처는 유지했다.
+
+과거 category=website-signature/website-essential은7개 목록으로 연결하고 category=website로 주소를 정규화한다. 다른 query와 fragment는 보존한다. 샘플 목록으로 돌아오는 기본 경로도 통합 주소로 변경했고 소유 동기화 스크립트에도 반영했다. work.js13과style.css24 캐시를 목록/상세에 적용했으며 상세HTML의 다른 바이트는 기존HEAD와 같음을 확인했다.
+
+실제PC1440×1000에서 통합 목록7개와 분야 설명을 확인했다. Photo5개 모음41장, Concepts34개와16개 표시 및18개 접힘, Website7개로 전환됐다. 모바일390×844의 과거Essential 링크와320×844의 과거Signature 링크가 모두 통합 주소와7개로 열리며 가로 넘침0, console error/warn 없음. 증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-website-merge-20261008/local-PC.jpg, local-mobile.jpg, local-320.jpg이며 직접 열어 확인했다. npm run check와 git diff --check 통과. 운영 반영은 main 푸시와 실제 공개 응답 확인 후 보고한다.

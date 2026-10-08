@@ -956,25 +956,10 @@
     "label": "WEBSITE / DESIGN SAMPLE",
     "image": "/work/assets/web-nocte.webp",
     "thumb": "/work/assets/web-nocte-thumb.webp",
-    "badge": "자체 제작 웹사이트 샘플",
+    "badge": "향수 브랜드 / 가상 샘플",
     "width": 1440,
     "height": 810,
-    "thumbnail_fit": "contain",
-    "websiteTier": "signature"
-  },
-  {
-    "slug": "website-bananablack",
-    "title": "Banana Black",
-    "subtitle": "사진 작업을 중심에 둔 스튜디오 브랜드 홈페이지",
-    "category": "website",
-    "label": "WEBSITE / BRAND ARCHIVE",
-    "image": "/work/assets/web-bananablack.webp",
-    "thumb": "/work/assets/web-bananablack-thumb.webp",
-    "badge": "브랜드 홈페이지 / 보관본",
-    "width": 1440,
-    "height": 810,
-    "thumbnail_fit": "contain",
-    "websiteTier": "signature"
+    "thumbnail_fit": "contain"
   },
   {
     "slug": "website-bitgyeol",
@@ -984,25 +969,10 @@
     "label": "WEBSITE / DESIGN SAMPLE",
     "image": "/work/assets/web-bitgyeol.webp",
     "thumb": "/work/assets/web-bitgyeol-thumb.webp",
-    "badge": "자체 제작 웹사이트 샘플",
+    "badge": "커튼 브랜드 / 가상 샘플",
     "width": 1440,
     "height": 810,
-    "thumbnail_fit": "contain",
-    "websiteTier": "essential"
-  },
-  {
-    "slug": "website-neurin",
-    "title": "수집노트",
-    "subtitle": "음악과 손작업을 읽는 문화 매거진",
-    "category": "website",
-    "label": "WEBSITE / DESIGN SAMPLE",
-    "image": "/work/assets/web-neurin.webp",
-    "thumb": "/work/assets/web-neurin-thumb.webp",
-    "badge": "자체 제작 웹사이트 샘플",
-    "width": 1440,
-    "height": 810,
-    "thumbnail_fit": "contain",
-    "websiteTier": "essential"
+    "thumbnail_fit": "contain"
   },
   {
     "slug": "website-haebit",
@@ -1012,11 +982,23 @@
     "label": "WEBSITE / DESIGN SAMPLE",
     "image": "/work/assets/web-haebit.webp",
     "thumb": "/work/assets/web-haebit-thumb.webp",
-    "badge": "자체 제작 웹사이트 샘플",
+    "badge": "조명 브랜드 / 가상 샘플",
     "width": 1440,
     "height": 810,
-    "thumbnail_fit": "contain",
-    "websiteTier": "essential"
+    "thumbnail_fit": "contain"
+  },
+  {
+    "slug": "website-neurin",
+    "title": "수집노트",
+    "subtitle": "음악과 손작업을 읽는 문화 매거진",
+    "category": "website",
+    "label": "WEBSITE / DESIGN SAMPLE",
+    "image": "/work/assets/web-neurin.webp",
+    "thumb": "/work/assets/web-neurin-thumb.webp",
+    "badge": "문화 매거진 / 가상 샘플",
+    "width": 1440,
+    "height": 810,
+    "thumbnail_fit": "contain"
   },
   {
     "slug": "website-seam",
@@ -1026,11 +1008,10 @@
     "label": "WEBSITE / DESIGN SAMPLE",
     "image": "/work/assets/web-seam.webp",
     "thumb": "/work/assets/web-seam-thumb.webp",
-    "badge": "자체 제작 웹사이트 샘플",
+    "badge": "호텔 / 가상 샘플",
     "width": 1440,
     "height": 810,
-    "thumbnail_fit": "contain",
-    "websiteTier": "signature"
+    "thumbnail_fit": "contain"
   },
   {
     "slug": "website-chaon",
@@ -1040,10 +1021,22 @@
     "label": "WEBSITE / DESIGN SAMPLE",
     "image": "/work/assets/web-chaon.webp",
     "thumb": "/work/assets/web-chaon-thumb.webp",
-    "badge": "자체 제작 웹사이트 샘플",
+    "badge": "법률사무소 / 가상 샘플",
     "width": 1440,
     "height": 810,
-    "thumbnail_fit": "contain",
-    "websiteTier": "essential"
+    "thumbnail_fit": "contain"
+  },
+  {
+    "slug": "website-bananablack",
+    "title": "Banana Black",
+    "subtitle": "사진 작업을 중심에 둔 스튜디오 브랜드 홈페이지",
+    "category": "website",
+    "label": "WEBSITE / BRAND ARCHIVE",
+    "image": "/work/assets/web-bananablack.webp",
+    "thumb": "/work/assets/web-bananablack-thumb.webp",
+    "badge": "사진 스튜디오 / 보관본",
+    "width": 1440,
+    "height": 810,
+    "thumbnail_fit": "contain"
   }
 ]
