@@ -79,3 +79,9 @@ npm run check와 diff 검사를 통과했다. 기존 capture assertion이47 캐�
 과거 category=website-signature/website-essential은7개 목록으로 연결하고 category=website로 주소를 정규화한다. 다른 query와 fragment는 보존한다. 샘플 목록으로 돌아오는 기본 경로도 통합 주소로 변경했고 소유 동기화 스크립트에도 반영했다. work.js13과style.css24 캐시를 목록/상세에 적용했으며 상세HTML의 다른 바이트는 기존HEAD와 같음을 확인했다.
 
 실제PC1440×1000에서 통합 목록7개와 분야 설명을 확인했다. Photo5개 모음41장, Concepts34개와16개 표시 및18개 접힘, Website7개로 전환됐다. 모바일390×844의 과거Essential 링크와320×844의 과거Signature 링크가 모두 통합 주소와7개로 열리며 가로 넘침0, console error/warn 없음. 증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-website-merge-20261008/local-PC.jpg, local-mobile.jpg, local-320.jpg이며 직접 열어 확인했다. npm run check와 git diff --check 통과. 운영 반영은 main 푸시와 실제 공개 응답 확인 후 보고한다.
+
+### 통합 목록 운영 확인
+
+커밋28846c6의 Vercel success를 확인했다. 운영의 목록,work.js13,style.css24,카탈로그 및46개 상세 총50개 응답이200이며 로컬 최신 파일과 SHA256이 일치했다. 실제 기존Essential 공유 링크가 통합category=website로 정규화되고, 등급 버튼 없이 일곱 카드가 같은 순서로 표시된다. 스크롤해 일곱 썸네일의 loaded를 확인했다. 운영PC1440×1000과모바일390×844를 live-unified-PC.jpg/live-unified-mobile.jpg로 캡처해 직접 열었다. 모바일7개 표시와 가로 넘침0,console error/warn 없음. 뷰포트 초기화 및 운영 목록 탭 유지. 통합 목록 운영 검수passed. 후속 기록은 문서만 추가하며 검증한 공개 파일의 바이트는 유지한다.
+
+같은Drive ZIP ID의 Desktop 동기화 파일을 최종 추적 소스 ZIP으로 갱신한다. 로컬ZIP과동기화사본의SHA256,파일ID와원격메타데이터 크기를 확인한다. 원격 ZIP 다운로드의 기존403 때문에 원격 바이트SHA256 검증 완료로 확대하지 않는다. Obsidian현재안내의 원본/운영/같은ZIP 링크는 유효하다.
