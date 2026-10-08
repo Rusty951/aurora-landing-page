@@ -1,0 +1,69 @@
+{
+  "mode": "built-in image_gen",
+  "referenced_images": [],
+  "outputs": {
+    "wall": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-acfd9920-0f9a-4520-825e-71632accc18a.png",
+    "wall-mobile": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-afb4edb5-607a-42a4-a2cb-b4d693dd805a.png",
+    "portable": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-6840f8c0-6f7d-45f5-8dfe-b5d1f743f511.png",
+    "night": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-6b24f0f0-1696-4feb-b7db-578b8372a957.png",
+    "making": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-d8c89ce0-0758-4fd0-9c5b-3d2c5b40aef4.png",
+    "table": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-f3f29ed9-950b-42ed-a541-5f540edc961e.png",
+    "pendant": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-c56ddcf2-eb49-41a9-aed9-0a84e05e556e.png"
+  },
+  "prompts": [
+    [
+      "wall",
+      "Use case: photorealistic-natural. Asset: fictional lighting brand website full bleed hero, wide 16:9. Dark charcoal concrete gallery interior at dusk, polished gray floor. On the upper right half of a plaster wall, three original elongated oval frosted-glass wall lights, asymmetrically arranged with slight overlaps, emit soft warm white light and believable reflected halo. Not paper lamps, not a known brand design. A simple original dark timber lounge chair sits below in the lower center foreground; low stone plinth at far right with a small abstract ceramic object. Camera wide, straight architecture photograph. The entire left 45 percent must remain a dark uncluttered wall for a large white headline in website code. Lighting fixtures occupy upper right, chair near center bottom. High-end real editorial interior photo, no stylized rendering, no floating objects, correct shadows and materials. No text, logos, watermark, website UI, no Flos products or their patented shapes."
+    ],
+    [
+      "wall-mobile",
+      "Use case: photorealistic-natural. Asset: portrait 3:4 mobile hero for fictional lighting brand. Dark gray concrete gallery room at dusk. Three original long oval frosted-glass wall lights arranged asymmetrically along upper third of right wall, softly glowing warm white. No known brand designs, no paper petal lamp. One simple dark timber lounge chair in the lower third, polished concrete floor. Keep middle-left and central area below the fixtures dark and uncluttered for website white text. Architectural photograph with real texture, natural reflected light, restrained premium scene. Portrait framing with all three glass lights visible in upper third, chair below; no people, logos, text, website, watermark."
+    ],
+    [
+      "portable",
+      "Use case: photorealistic-natural. Asset: 16:9 landscape hero photo. A refined evening terrace with dense realistic green foliage in back and a low black horizontal railing. Gray and ivory outdoor sofa at right half, striped cushions, low dark wood coffee table with three small original matte cylindrical portable lamps in muted charcoal, moss green and stone gray, glowing warm white diffusers. A smaller round side table at far right holds another small lamp. Keep upper and middle left 45 percent dark empty greenery for website copy. Camera slightly low, wide real architecture/lifestyle photograph, natural furniture proportions, correct contact shadows, no excessive decoration. No known brand products, no logo, text, watermark or UI."
+    ],
+    [
+      "night",
+      "Use case: photorealistic-natural. Asset: 16:9 dark architectural lighting hero. Contemporary charcoal-gray living room at night, modest square fireplace glowing at rear center-right, simple original dark oak reading chair under an original slender black floor light at right. The light has a small translucent opal tapered shade and circular base, warm pool of light on pale wood floor. Floor-to-ceiling glazing at far right looks onto leaves and twilight. Left 45 percent is an empty very dark plaster wall for website copy. Photographic real textures, understated premium interior, believable physically accurate fixture, no copied known product, no logos, text, people or watermark."
+    ],
+    [
+      "making",
+      "Use case: photorealistic-natural. Asset: 16:9 black and white editorial photograph for a fictional lighting website. Fictional Korean adult male around 45, ordinary workshop clothing, at lower right looking carefully at a cluster of original clear glass light diffusers on an oak workbench. Side profile and hands with natural imperfections and realistic fingers, do not imitate any real designer. Dark studio, beautiful reflections in glass spheres and cylinders, light comes from the right. Leave entire left 45 percent black negative space for website text. Medium format black-and-white documentary craft photograph. No text, branding, actual staff identity, famous products, watermark or website UI."
+    ],
+    [
+      "table",
+      "Use case: photorealistic-natural. Asset: portrait 3:5 product-in-room photo for fictional lighting category. A single original table light with a pale opal glass oval bowl diffuser, understated black cylindrical stem and round base, glows warm white on a dark oak round side table. Light pale textured plaster wall, a corner of gray lounge seating and small stack of plain books nearby. Fixture is large and centered, with the complete lamp and table visible. Quiet real daylight interior photograph, refined glass texture, no excessive yellow filter, accurate geometry. No known branded product, logos, text, people or watermark."
+    ],
+    [
+      "pendant",
+      "Use case: photorealistic-natural. Asset: portrait 3:5 product-in-room category photo. An original matte black flared shallow-cone pendant lamp with warm white underside hangs above a slim round black dining table. Tall pale linen curtains behind, daylight from large window, subtle black and wood dining chair and simple white ceramic cup on table. The pendant dominates upper center but the room, table and its intended use are legible. Real high-end interior photography, soft natural light, neutral gray-white-black palette. Do not recreate any specific branded lamp, no logos, text, people, watermark or website."
+    ]
+  ],
+  "polish_edits": [{"mode":"built-in image_gen edit","input":"05-haebit-light/assets/wall-mobile-v57-2.webp","prompt":"Edit this existing fictional lighting brand photograph minimally. Move ONLY the uppermost left oval glowing glass wall fixture vertically downward by about 100 pixels in this 1086 x 1448 portrait photograph, so its top edge is about 215-230 pixels from the top, leaving the top 200 pixels of the dark wall uncluttered and dark for a website header. Preserve this fixture's size, horizontal oval silhouette, metal mounting, brightness and glass texture. It may sit slightly alongside the middle fixture but must remain physically plausible; retain three distinct lights with no merged malformed glass. Preserve the other two fixtures and their positions, chair, window, plant, floor, camera, perspective, all other room details, colors and photorealistic photographic quality exactly. Keep the existing dark middle-left space for the main title. Do not add any text, logo, UI, extra objects or brand products. No global darkening of the entire photo. The goal is a dark clear top header zone while the lights remain naturally bright below.","output":"/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-4306efd5-36f2-4e81-80b4-ee68643aa56e.png","selected":"wall-mobile-v57-3.webp","note":"Upper header area is dark; the three lights moved slightly down in the edited result. Room and furniture composition retained."}],
+  "selected_project_assets": [
+    "wall-v57-2.webp",
+    "wall-mobile-v57-3.webp",
+    "portable-v57.webp",
+    "night-v57.webp",
+    "making-v57.webp",
+    "table-v57.webp",
+    "pendant-v57.webp"
+  ],
+  "edits": [
+    {
+      "name": "wall",
+      "prompt": "Enlarge only the wall lighting composition in this photograph. Preserve the camera, dark warm charcoal wall, chair, floor, moody photographic quality, and left-side negative space exactly. Replace the three small vertical oval glowing fixtures with a striking original cluster of three large horizontal elongated oval frosted glass diffusers, subtly asymmetric and overlapping, occupying about 45 percent of the whole landscape image width in the upper right, from x roughly 52% to 95% and y 12% to 47%. The large oval glass surfaces glow softly warm white. No recognizable branded product, no paper petals, no logo or text. Keep the left half dark and clear for website white headlines. Photorealistic architectural lighting editorial, natural glass texture, not illustration.",
+      "input": "05-haebit-light/assets/wall-v57.webp",
+      "output": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-d2940f1e-a696-41dd-914c-106a4bfc9b70.png",
+      "selected": "wall-v57-2.webp"
+    },
+    {
+      "name": "wall-mobile",
+      "prompt": "Enlarge only the wall light composition in this portrait photograph. Preserve the dark charcoal wall, room composition, chair and floor and photographic quality. Replace the small upper-right fixtures with three large horizontally elongated oval frosted glass diffusers, subtly overlapping asymmetric original arrangement filling roughly 55% of frame width at upper right, between x 43% and 96%, y 15% and 42%. Glowing warm white glass with soft believable reflection on wall. Preserve the middle-left dark negative space for a white website headline and the chair below. Original generic unbranded lighting design, no paper petals, no logo, no text. Photorealistic architectural lighting editorial.",
+      "input": "05-haebit-light/assets/wall-mobile-v57.webp",
+      "output": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-6467c1af-faea-4794-8248-b072d0679c74.png",
+      "selected": "wall-mobile-v57-2.webp"
+    }
+  ]
+}

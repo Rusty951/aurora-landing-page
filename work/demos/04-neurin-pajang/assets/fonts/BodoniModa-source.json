@@ -1,0 +1,20 @@
+[
+  {
+    "file": "16-seam-hotel/assets/fonts/BodoniModa-OFL.txt",
+    "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/bodonimoda/OFL.txt",
+    "bytes": 4400,
+    "sha256": "931dfe2e0cd3c9443295f5c1d754b8a8403bf060df50c1d5900267ade83d0046"
+  },
+  {
+    "file": "16-seam-hotel/assets/fonts/BodoniModa-Italic.ttf",
+    "url": "https://fonts.gstatic.com/s/bodonimoda/v28/aFT07PxzY382XsXX63LUYJSPUqb0pL6OQqxrZLnVbvZedvJtj-V7tIaZKMN4sQ.ttf",
+    "bytes": 47556,
+    "sha256": "04e9d8c1baad0a16a87663969fd26109c4a7796436264a71492c2477e9b76ff6"
+  },
+  {
+    "file": "16-seam-hotel/assets/fonts/BodoniModa-Regular.ttf",
+    "url": "https://fonts.gstatic.com/s/bodonimoda/v28/aFT67PxzY382XsXX63LUYL6GYFcan6NJrKp-VPjfJMShrpsGFUt8oU7awIA.ttf",
+    "bytes": 44752,
+    "sha256": "7bf8604bdeb63fe00278935c1a7e8595de56dfc053ab43581ca848ffd5ad11ba"
+  }
+]

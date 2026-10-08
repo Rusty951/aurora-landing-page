@@ -17,11 +17,16 @@
     "source_repo": "Rusty951/aurora-website-portfolio",
     "source_directory": "02-bitgyeol-curtain",
     "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
-    "desktop_capture_route": "/02-bitgyeol-curtain/",
+    "desktop_capture_route": "/work/demos/02-bitgyeol-curtain",
     "desktop_capture_viewport": {
       "width": 1440,
       "height": 810
-    }
+    },
+    "canonical_commit": "0c5beb976a280f36d2b385f5171d80ea9864b809",
+    "sample_version": "55.1",
+    "capture_date": "2026-10-08",
+    "desktop_capture_sha256": "dd47771af501466c6f410462ee93955f99c1fd55acd1771e157085a23e2d1849",
+    "mobile_capture_sha256": "678434b90422305ff8e8b178e62a5079976604103e29ae2c9797844d3342d9af"
   },
   {
     "slug": "website-neurin",
@@ -29,11 +34,16 @@
     "source_repo": "Rusty951/aurora-website-portfolio",
     "source_directory": "04-neurin-pajang",
     "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
-    "desktop_capture_route": "/04-neurin-pajang/",
+    "desktop_capture_route": "/work/demos/04-neurin-pajang",
     "desktop_capture_viewport": {
       "width": 1440,
       "height": 810
-    }
+    },
+    "canonical_commit": "0c5beb976a280f36d2b385f5171d80ea9864b809",
+    "sample_version": "56.1",
+    "capture_date": "2026-10-08",
+    "desktop_capture_sha256": "ab4111e51593e9948db609a65aab142ab3bec99bc9266cc6eff14ff3770deaa5",
+    "mobile_capture_sha256": "36532d878b71a8cf185e669b4bccb3a4ecf505ace405aa7c974833423b1efd70"
   },
   {
     "slug": "website-haebit",
@@ -41,11 +51,16 @@
     "source_repo": "Rusty951/aurora-website-portfolio",
     "source_directory": "05-haebit-light",
     "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
-    "desktop_capture_route": "/05-haebit-light/",
+    "desktop_capture_route": "/work/demos/05-haebit-light",
     "desktop_capture_viewport": {
       "width": 1440,
       "height": 810
-    }
+    },
+    "canonical_commit": "0c5beb976a280f36d2b385f5171d80ea9864b809",
+    "sample_version": "57.2",
+    "capture_date": "2026-10-08",
+    "desktop_capture_sha256": "356c2b453dcf094c0b2c6aca37ccaf3aa5ca3ed7a1ba605589c8a67856d46c9d",
+    "mobile_capture_sha256": "80fad09170d23bdcac0529804700246049cee0aa8cd9c19f8356d9ca8b721a41"
   },
   {
     "slug": "website-seam",

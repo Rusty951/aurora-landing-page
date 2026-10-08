@@ -36,3 +36,28 @@ zoomButton.addEventListener('click', () => {
   photoViewport.focus({ preventScroll: true });
 });
 photoDialog.addEventListener('close', () => photoOpener?.focus({ preventScroll: true }));
+
+const menuToggle = document.querySelector('[data-menu-toggle]');
+const menuLabel = menuToggle.querySelector('[data-menu-label]');
+new MutationObserver(() => {
+  menuLabel.textContent = menuToggle.getAttribute('aria-expanded') === 'true' ? '닫기' : '메뉴';
+}).observe(menuToggle, { attributes: true, attributeFilter: ['aria-expanded'] });
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const destination = document.getElementById(link.hash.slice(1));
+    if (!destination) return;
+    event.preventDefault();
+    closeMenus();
+    const title = destination.id === 'hero'
+      ? destination.querySelector('button')
+      : destination.matches('h1,h2') ? destination : destination.querySelector('h1,h2');
+    if (title) {
+      if (!title.matches('button,a')) title.setAttribute('tabindex', '-1');
+      title.focus({ preventScroll: true });
+    }
+    if (destination.id === 'hero') window.scrollTo({ top: 0, behavior: motion });
+    else destination.scrollIntoView({ behavior: motion, block: 'start' });
+    history.replaceState(null, '', link.hash);
+  });
+});

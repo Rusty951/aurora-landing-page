@@ -1,0 +1,18 @@
+{
+  "mode": "built-in image_gen",
+  "referenced_images": [],
+  "prompts": [
+    [
+      "cover",
+      "Use case: ads-marketing. Create a flat front cover for a fictional independent Korean music and craft magazine. Portrait ratio 3:4, full bleed print-ready rectangle with absolutely no surrounding border, no book mockup, no perspective, no website. Photographic editorial portrait of a fictional Korean adult woman around 30, relaxed confident face, wearing an olive green tailored jacket and ivory shirt, casually holding one pale handmade ceramic cup at waist, seated on a simple stool. Warm burnt orange studio backdrop and subtle real paper texture. Natural facial asymmetry, accurate hands, film photography texture, fashion editorial art direction. Wide tracked white elegant serif masthead across the very top exactly 'SUJIP NOTE', small bottom white serif text exactly 'MUSIC & MAKING', bottom corner 'VOL. 01'. Full body torso and knees in frame with calm negative space. Do not include Kinfolk name, their people or copied art, no watermark, no UI. Finish as a polished original believable magazine cover."
+    ],
+    [
+      "hero",
+      "Use case: photorealistic-natural. A high-end independent culture magazine editorial photograph, wide 16:9 landscape. Fictional Korean adult potter and adult music enthusiast sharing a bright art studio, no actual identifiable people. They sit casually on low wooden stools beside a small table with a vinyl record player and two unglazed cups, low placed at right half of the image. Full figures, loosely dressed pale cotton and muted olive clothes. Large pale gray plaster wall, subtle warm daylight window shadows, clean concrete floor, paper clay studies leaning at back. Quiet candid moment, not posing or smiling at camera. Shot on medium-format film, subdued ivory, gray, olive and terracotta, accurate hands and equipment. Interior occupies frame rather than close face. White wall clear at left for white text on dark translucent overlay by the website. No logos, text, watermark or webpage."
+    ],
+    [
+      "still",
+      "Use case: photorealistic-natural. Portrait 3:4 independent culture magazine still life photograph, original artwork. A real black vinyl record leaning against a cobalt blue painted wall, a pale pink handmade ceramic sphere vase, and one matte forest green small cube pedestal on ochre table edge. Real physical objects, believable contact and sunlight shadows, no floating objects. Rich but restrained blue-green-pink palette, large clean blue background, diagonal afternoon light. Editorial print photography, tactile matte paper and handmade glaze, visually spare with objects occupying lower two thirds. No text, branding, website or watermark. This illustrates music and hands-on making for a fictional Korean culture magazine."
+    ]
+  ]
+}

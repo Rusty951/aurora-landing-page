@@ -1,0 +1,23 @@
+{
+  "version": "55.0",
+  "date": "2026-10-06",
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "file": "hero-v55.webp",
+      "raw": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-67db3555-325d-4bb8-815c-6c07ae5db816.png",
+      "prompt": "Use case: photorealistic-natural. A brand-new editorial photograph for fictional Korean curtain brand Seorae, landscape 16:9. An adult Korean woman seen only from behind, in a simple soft ivory cotton blouse, standing beside an off-white linen sheer curtain in a believable contemporary Seoul apartment. Her relaxed left hand lightly touches the hanging curtain. Medium rear framing from mid-back upward, person occupies right center, softly lit pale warm gray plaster wall on left, sheer curtain on far left and window on right. Quiet cinematic muted daylight, linen texture, natural skin at neck, realistic loose hair gathered in a low bun, no visible face, no exaggerated perfection. A genuine interior brand campaign photo, subtle photographic grain, 35mm lens, soft focus background, restrained highlights. Entirely new person and room, not a replica of a known photograph. Composition works for central mobile crop. No brand marks, lettering, logos, watermark or baked captions."
+    },
+    {
+      "file": "room-v55.webp",
+      "raw": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-6af42933-0f3c-4929-908c-501a5c598318.png",
+      "prompt": "Use case: photorealistic-natural. New editorial interior photo for a fictional Korean made-to-measure curtain brand, portrait 3:4. A contemporary Seoul apartment dining corner with a tall wide window covered in pale oat linen sheer curtains and deep muted olive gray outer drapes. A simple dark oak dining table and one woven chair partially visible at bottom, textured white wall, small ceramic cup on table. Curtains are the subject and hang from a believable concealed double rail, with natural folds, slightly imperfect hems and real weave. Gentle late afternoon side light, natural exposure, no golden CGI glow, subtle analog photographic grain, clean architectural verticals. Quiet material-focused interior magazine photography. No people, no logos, no text, no watermark. Not a hotel or a mansion."
+    },
+    {
+      "file": "fabric-v55.webp",
+      "raw": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-0ed5aa00-524c-480e-a135-6eeb7c6ec44f.png",
+      "prompt": "Use case: photorealistic-natural. New editorial close-up photograph for a fictional Korean curtain brand, landscape 3:2. Adult hands in a plain cream cotton sleeve gently arranging neutral curtain fabric samples on a worn oak work table beside a window: translucent ivory woven sheer, warm oatmeal linen-textured cloth, charcoal gray and muted olive fabric. The real irregular woven edges, light transmitted through the sheer, natural folds and texture are clear. No faces. Documentary material-selection photograph, 50mm lens, soft natural daylight, restrained palette and contrast, shallow but sufficient depth of field, no excessive product-retouching shine. No branded sample books, no writing or labels, no logos, no watermark. A realistic small curtain studio rather than an industrial factory."
+    }
+  ],
+  "notes": "New fictional brand scenes, generated without source-company image inputs. No actual staff, customers, products or completed work are claimed. Existing project-owned v17 and v53 assets are reused."
+}

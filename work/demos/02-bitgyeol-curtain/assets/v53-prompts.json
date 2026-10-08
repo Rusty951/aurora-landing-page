@@ -1,0 +1,16 @@
+{
+  "version": "53.0",
+  "created": "2026-10-06",
+  "tool": "built-in image_gen",
+  "use_case": "photorealistic-natural",
+  "assets": [
+    {
+      "file": "space-hero-v53.webp",
+      "source": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-ef6aa001-d4e2-4323-bd42-b31a77b53b8d.png",
+      "width": 1536,
+      "height": 1024,
+      "prompt": "Use case: photorealistic-natural. Asset type: full-width curtain brand website hero photograph, landscape 3:2, no typography. Primary request: create an editorial interior photograph for a fictional Korean made-to-measure curtain brand. Scene: a believable contemporary Seoul apartment living room, an entire wall of wide floor-to-ceiling windows dressed in softly translucent ivory sheer curtains and linen-textured warm gray outer drapes, ceiling concealed double curtain rail, real deep vertical fabric folds and subtly uneven natural hem. A low dark walnut wood sofa with neutral upholstery appears partially at the bottom left, a simple low wood coffee table and a warm oak floor, just enough furniture to show room scale. Curtains and sunlight are the subject, no people. Framing: architectural 35mm photograph from across the room, straight vertical lines, gentle oblique angle rather than perfect frontal symmetry. Full window, curtains, ceiling edge and floor are visible. The center of the composition contains the curtain-covered window down to the floor and remains useful in a narrow centered mobile crop. Afternoon daylight filtered through woven fabric, soft realistic shadows and restrained highlights, visible linen fibers, wood grain and quiet imperfections. Palette: chalk white, warm gray linen, walnut and muted oak, no golden filter. Looks like an actual interior magazine photograph, not a 3D render, not an overdecorated luxury hotel. No arched Mediterranean windows, no marble mansion, no potted jungle, no floating furniture, no impossible folds or rails. No logos, no text, no watermarks."
+    }
+  ],
+  "notes": "A fictional interior scene, not an actual product or completed installation. Existing source files and licenses remain in SOURCES.md."
+}

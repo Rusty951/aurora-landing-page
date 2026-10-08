@@ -53,3 +53,13 @@ npm run check와 diff 검사를 통과했다. 기존 capture assertion이47 캐�
 현재 추적 파일 전체 ZIP은195179388바이트로 커넥터의100MB 전달 상한을 넘어 첫 업로드는 action 전에 거부됐다. Google Drive Desktop의 기존 동기화 파일에 com.google.drivefs.item-id#S=1f3THlpASI_WeAXs2vCmHys85Ob8N64BJ가 붙어 같은 파일임을 확인했다. 새 파일/폴더나 공유 권한을 만들지 않고 기존 ZIP을 갱신하는 경로를 사용한다. 인증 정보와 .git/.claude/.vercel/node_modules는 ZIP에서 제외한다.
 
 운영 홈페이지 반영 검수 결과: passed.
+
+## 일반4개 전체 반영 범위 수정, 2026-10-08
+
+사용자가 모두 반영되지 않은 것 같다고 지적했다. 직전 반영이 서안 하나로 좁혀졌던 것을 인정하고 앞서 작업한 일반4개 전체를 최신본으로 연결했다. 소비자 소유 선택 동기화 명령으로 서래커튼55.1, 수집노트56.1, 스위치조명57.2를 추가 반영했고 서안58.2를 그대로 유지했다. 정본0c5beb9의 네 디렉터리와 모든 파일이 같으며 HTML의 배포 base 추가만 차이임을 확인했다. 변경 대상 외 데모/공유 파일1471개의 해시는 같았다.
+
+새 증거는 `/Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-essentials-update-20261008/`다. 각 데모의 실제1440×810/390×844 첫 화면을 curtain,magazine,lighting-PC/mobile.jpg로 캡처했고 latest-samples.jpg로 함께 열었다. 폰트 loaded, 해당 최신 CSS주소와 모바일 가로 넘침0을 확인했다. 캡처를 WebP로 인코딩해 공개 PC/모바일 상세와960×540 썸네일로 교체했다. 이미지 자체의 내용 편집이나 새 생성은 없다.
+
+로컬 Essential 목록의 네 썸네일이 각각55.1/56.1/57.2/58.2로 로드됨을 확인했다. gallery-top-PC.jpg와 gallery-bottom-PC.jpg에서 두 줄의 최신 카드가 보이며, 세 상세 페이지의 PC/모바일 이미지도 로드됐다. 상세 모바일390px, 커튼 상세 및 목록320px 가로 넘침0을 확인했다. 샘플 전체의 기존 상세 검수는 원본에서 완료한 유효한 결과를 재사용하며 이번은 연결/배포 사본 검수다. npm run check와 diff 검사는 통과했다. 기존 출처와 문의/추적 및 Signature는 유지한다.
+
+로컬 반영 검수: passed. 운영 배포 완료와 응답 일치는 main 푸시 후 실제 URL로 확인한다.
