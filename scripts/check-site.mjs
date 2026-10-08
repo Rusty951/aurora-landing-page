@@ -42,7 +42,8 @@ assert(html.includes('웹사이트, 콘텐츠, 사진 및 영상'), 'Keep the us
 assert(/class="hero-discover magnetic"[\s\S]*?href="#approach"/.test(html), 'Original hero button leads to selected work');
 assert(html.includes('첫 상담은 한 시간 이내로 진행합니다.'), 'Keep the improved lower consultation guidance');
 assert(!html.includes('무료 진단'), 'Do not invent an unconfirmed free diagnosis offer');
-assert(html.includes('함께 일하는 사람') && html.includes('대표는 초기 상담'), 'Show the verified representative role without inventing credentials');
+assert(html.includes('함께 일하는 방식') && html.includes('목표와 예산, 일정에 맞춰 작업 범위를 정하고'), 'Describe the collaboration process');
+assert(!html.includes('대표가 직접') && !html.includes('대표는 초기 상담'), 'Do not reintroduce representative-led sales copy');
 assert(count(html, /<details\b/gi) >= 1, 'FAQ must use native <details>.');
 assert(html.includes('자체 시안') && html.includes('AI 이미지'), 'Generated studies must keep own-concept labels and the AI disclosure.');
 
