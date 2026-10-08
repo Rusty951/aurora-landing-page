@@ -95,3 +95,13 @@ npm run check 및 diff 검사를 통과했다. PC1440×1000의 기본Website7개
 ### 분야 순서 운영 확인
 
 커밋1ea36cd의 Vercel 배포success와 운영/work의 Website, Concepts, Photo 순서 및 기본Website7개를 확인했다. 운영PC1440×1000 및390×844에서 전환과모바일가로넘침0을 확인하고 live-PC.jpg/live-mobile.jpg를 직접 열었다. 목록,work.js14,카탈로그 및46개상세 총49개운영응답의SHA256이로컬과일치했다. 후속문서기록은이공개바이트를유지한다. 최종추적소스ZIP은기존DriveID를갱신하고 로컬/동기화사본SHA256과원격크기를확인한다. 원격다운로드의기존403으로원격바이트SHA256까지확인했다고주장하지않는다.
+
+## 외부 마케팅팀 역할과 상담 흐름 보완, 2026-10-08
+
+사용자가 제안한 보완을 승인하고 제작 항목을 웹사이트, 콘텐츠, 사진 및 영상 순으로 지정했다. 한글 핵심 메시지와 외부 마케팅팀 역할을 앞세우고 Beyond는 같은 서체의 보조 브랜드 문구로 유지했다. 첫 상담 문의는 안내영역으로, 포트폴리오 보기는 기존목록으로 연결한다. 서비스의 방향 정리/제작과 적용/월간 운영, 자체시안 세작업의 의도와구현 설명, 대표의 확인된역할 및 상담내용과한시간이내 안내를 반영했다. 무료진단, 별도보고서와성과수치를 추가하지 않았다. 대표이름/경력/사업자정보는 대표가 나중에 추가하도록 답했으므로 이번범위에서보류했다. 등록상호로확인되지않은JSON legalName은제외하고 공식브랜드name은유지했다.
+
+제목,description/OG/Twitter/Organization설명을같은범위로맞췄다. scripts/og-card.html의문구를수정하고 실제1200×630화면을02-og.jpg로촬영해열어확인한뒤assets/aurora-og.png로인코딩했다. 처음새탭에서뷰포트가적용되지않은공유/모바일캡처는기존검수탭에서실제innerWidth/Height를확인해다시촬영했다. 이전캡처를치수검증근거로사용하지않는다. 한국어이용안내는기존출처/이용조건을유지해번역했고,공통메뉴와공개이름표기를맞췄다. 일곱데모및작품자산,법적원본문서/문의목적지/광고와오가닉추적/음악및실크동작은유지한다.
+
+로컬PC1440×900/1024와390×844 및320×844에서첫화면의한글/영문역할과버튼,문장줄바꿈및가로넘침0을확인했다.320px첫상담버튼이#contact로이동한뒤안내전체와원래카카오목적지가보였다.서비스PC와모바일,대표역할영역및세작업설명,VEIL확대/닫기를확인했다. /interview의ad-mode와포트폴리오보조링크숨김, /work의Website7개및한국어footer,console error/warn없음을확인했다. 공유소비자47문서는캐시/메뉴/안내/공개이름이외바이트가기존HEAD와같다. npm run check 및git diff --check통과.
+
+증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-home-clarity-20261008/의01-local-home-PC.jpg,02-og.jpg,03-local-home-mobile.jpg,04-local-home-320.jpg,05-local-contact-320.jpg,06-local-services-PC.jpg,07-local-about-PC.jpg,08-local-work-PC.jpg,09-local-services-mobile.jpg이며모두직접열었다. 공개완료는배포와실제응답확인후보고한다.

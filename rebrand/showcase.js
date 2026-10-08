@@ -17,7 +17,7 @@ const studies = {
   identity: {
     image: "/rebrand/assets/showcase-identity.webp",
     title: "Aurora, in print.",
-    kind: "01 / BRAND IDENTITY · 자체 시안",
+    kind: "01 / BRAND IDENTITY / 자체 시안",
     alt: "진주빛 실크가 인쇄된 오로라 북 커버와 라벤더 명함의 콘셉트 이미지",
     description:
       "화면 속 진주빛을 종이와 인쇄물의 감각으로 옮겼습니다. 표지의 소재, 명함의 색, 타이포그래피가 하나의 인상으로 이어지도록 만든 브랜드 콘셉트입니다.",
@@ -25,7 +25,7 @@ const studies = {
   digital: {
     image: "/rebrand/assets/showcase-digital.webp",
     title: "Aura archive.",
-    kind: "02 / DIGITAL EXPERIENCE · 콘셉트 시안",
+    kind: "02 / DIGITAL EXPERIENCE / 콘셉트 시안",
     alt: "빛과 소재를 아카이브하는 AURA 디지털 화면의 콘셉트 이미지",
     description:
       "빛과 소재를 수집하는 가상의 디지털 아카이브입니다. 넓은 여백과 큰 타이포, 한 장의 강한 이미지가 함께 작동하는 화면을 탐구했습니다.",
@@ -33,7 +33,7 @@ const studies = {
   material: {
     image: "/rebrand/assets/showcase-material.webp",
     title: "Soft resonance.",
-    kind: "03 / VISUAL DIRECTION · 소재 연구",
+    kind: "03 / VISUAL DIRECTION / 소재 연구",
     alt: "진주빛 유리와 실크의 섬세한 주름을 확대한 비주얼 스터디",
     description:
       "실크의 주름과 유리의 투명함, 빛이 겹치는 순간을 가까이 들여다봅니다. 브랜드의 감각을 사진과 비주얼 콘텐츠로 확장하기 위한 자체 소재 연구입니다.",

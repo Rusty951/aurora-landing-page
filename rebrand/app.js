@@ -1,5 +1,5 @@
 import { AuroraScore } from "./audio.js?v=3";
-import { initShowcase } from "./showcase.js?v=5";
+import { initShowcase } from "./showcase.js?v=6";
 const $ = (selector) => document.querySelector(selector);
 const clamp = (n, a = 0, b = 1) => Math.max(a, Math.min(b, n));
 const reduced = matchMedia("(prefers-reduced-motion: reduce)");

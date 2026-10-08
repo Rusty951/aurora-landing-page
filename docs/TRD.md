@@ -6,7 +6,7 @@
 
 index.html은 홈과 /interview의 공통 문서다. vercel.json이 광고 경로, /work 목록과 각 상세 및 일곱 데모 경로를 연결한다. 이전 /rebrand 주소는 현재 홈으로 정규화되며 별도 비교 페이지를 제공하지 않는다. 개인정보 처리방침과 이용약관, robots.txt와 sitemap.xml, 공식 소셜 주소 및 인증 값을 보존한다.
 
-홈과 포트폴리오 46개 문서는 rebrand/fonts.css?v=1을 한 번씩 로드한다. 공통 CSS v43, app.js v9, audio.js v3, silk.js v3, contact.js v5, 포트폴리오 CSS v24, work.js v14 및 motion.js v3을 사용한다. 캐시 숫자는 파일 갱신용이며 홈페이지 V1의 버전명과 별개다.
+홈과 포트폴리오 46개 문서는 rebrand/fonts.css?v=1을 한 번씩 로드한다. 공통 CSS v44, app.js v10, audio.js v3, silk.js v3, contact.js v5, 포트폴리오 CSS v24, work.js v14 및 motion.js v3을 사용한다. 캐시 숫자는 파일 갱신용이며 홈페이지 V1의 버전명과 별개다.
 
 ## 서체와 실크
 

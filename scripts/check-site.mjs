@@ -35,15 +35,20 @@ for (const file of ['Arita-buri-SB.woff', 'Arita-dodeum-M.woff']) {
 
 assert(count(html, /<main\b/gi) === 1, 'index.html must contain exactly one <main>.');
 assert(count(html, /<h1\b/gi) === 1, 'index.html must contain exactly one <h1>.');
+assert(/<h1 class="hero-message"[^>]*>무엇부터 바꿀지 정하고,/.test(html), 'The Korean role leads the page heading');
+assert(html.includes('웹사이트, 콘텐츠, 사진 및 영상'), 'Keep the user-approved service order');
+assert(/id="hero-cta-btn" href="#contact"/.test(html), 'Hero consultation leads to the on-page preparation guidance');
+assert(!html.includes('무료 진단'), 'Do not invent an unconfirmed free diagnosis offer');
+assert(html.includes('함께 일하는 사람') && html.includes('대표는 초기 상담'), 'Show the verified representative role without inventing credentials');
 assert(count(html, /<details\b/gi) >= 1, 'FAQ must use native <details>.');
-assert(html.includes('자체 시안') && html.includes('AI-generated images'), 'Generated studies must keep own-concept labels and the AI disclosure.');
+assert(html.includes('자체 시안') && html.includes('AI 이미지'), 'Generated studies must keep own-concept labels and the AI disclosure.');
 
 [
-  '리브랜딩 실행 파트너',
+  '외부 마케팅팀',
   '리브랜딩 실행 프로젝트',
   '월간 브랜드 마케팅',
-  '카카오톡 문의하기',
-  '필요한 작업과 현재 상황'
+  '첫 상담 문의',
+  '업종과 현재 상황'
 ].forEach((requiredCopy) => {
   assert(html.includes(requiredCopy), `Missing approved site copy: ${requiredCopy}`);
 });
@@ -61,14 +66,14 @@ assert(html.includes('자체 시안') && html.includes('AI-generated images'), '
   assert(!html.includes(forbiddenCopy), `Removed or held V2 copy returned: ${forbiddenCopy}`);
 });
 
-assert(html.includes('<title>오로라의소리 | 리브랜딩 실행 파트너</title>'), 'SEO title must match the approved r2 position.');
-assert(/<meta name="description" content="새 매장·서비스, 리뉴얼, 이전·확장처럼 사업이 바뀌는 순간/.test(html), 'SEO description must begin with the approved change moment.');
+assert(html.includes('<title>오로라의소리 | 웹사이트, 콘텐츠, 사진 및 영상과 마케팅 운영</title>'), 'SEO title must match the approved external marketing team position.');
+assert(/<meta name="description" content="무엇부터 바꿀지 정하고 필요한 마케팅을 실행합니다\./.test(html), 'Metadata and first-screen role must align.');
 assert(!html.includes('필요한 콘텐츠를 정하고 제작까지 맡습니다'), 'Old V2 positioning remains in metadata or body.');
 assert(!html.includes('콘텐츠 마케팅"'), 'Old V2 Open Graph alt or metadata remains.');
-assert(/href=["']\/rebrand\/style\.css\?v=43["']/.test(html), 'Production must load the released stylesheet.');
+assert(/href=["']\/rebrand\/style\.css\?v=44["']/.test(html), 'Production must load the released stylesheet.');
 assert(/prefers-reduced-motion/.test(styles), 'Reduced-motion handling is required.');
 assert(/resonance\.webp/.test(html) && /resonance\.webp/.test(styles), 'Hero must keep a static silk fallback.');
-assert(ogCard.includes('리브랜딩 실행 파트너') && ogCard.includes('고객에게 보이는 것'), 'OG render source must match the approved r2 position.');
+assert(ogCard.includes('외부 마케팅팀') && ogCard.includes('필요한 마케팅을'), 'OG render source must match the approved external marketing team position.');
 
 ['README.md', 'AGENTS.md', 'CLAUDE.md', 'docs/', 'prd.md', 'dev-server.mjs', 'scripts/', 'design-qa.md'].forEach((privatePath) => {
   assert(vercelIgnore.split(/\r?\n/).includes(privatePath), `Internal path must be excluded from Vercel: ${privatePath}`);
@@ -110,7 +115,7 @@ assert(allKakaoLinks.every((tag) => tag.includes(approvedKakaoUrl)), 'All Kakao 
 
 assert(/href=["']\/terms\.html["']/.test(html), 'Terms link must be root-relative.');
 assert(/href=["']\/privacy\.html["']/.test(html), 'Privacy link must be root-relative.');
-assert(/type="module" src="\/rebrand\/app\.js\?v=9"/.test(html), 'Production must load the quiet default-music controller.');
+assert(/type="module" src="\/rebrand\/app\.js\?v=10"/.test(html), 'Production must load the quiet default-music controller.');
 assert(/src=["']\/analytics\.js\?v=8["']/.test(html), 'index.html must load analytics.js?v=8.');
 
 assert(count(html, /fbq\(['"]track['"],\s*['"]PageView['"]\)/g) === 1, 'Meta PageView must be sent exactly once.');
