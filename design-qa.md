@@ -105,3 +105,9 @@ npm run check 및 diff 검사를 통과했다. PC1440×1000의 기본Website7개
 로컬PC1440×900/1024와390×844 및320×844에서첫화면의한글/영문역할과버튼,문장줄바꿈및가로넘침0을확인했다.320px첫상담버튼이#contact로이동한뒤안내전체와원래카카오목적지가보였다.서비스PC와모바일,대표역할영역및세작업설명,VEIL확대/닫기를확인했다. /interview의ad-mode와포트폴리오보조링크숨김, /work의Website7개및한국어footer,console error/warn없음을확인했다. 공유소비자47문서는캐시/메뉴/안내/공개이름이외바이트가기존HEAD와같다. npm run check 및git diff --check통과.
 
 증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-home-clarity-20261008/의01-local-home-PC.jpg,02-og.jpg,03-local-home-mobile.jpg,04-local-home-320.jpg,05-local-contact-320.jpg,06-local-services-PC.jpg,07-local-about-PC.jpg,08-local-work-PC.jpg,09-local-services-mobile.jpg이며모두직접열었다. 공개완료는배포와실제응답확인후보고한다.
+
+### 설명과상담흐름 운영확인
+
+커밋011db6d의Vercel success를확인했고, 운영홈/광고경로/공통CSS44/app10/showcase6/새OG이미지/목록및46개상세 총53개응답이200이며로컬과SHA256이일치했다. 실제운영PC1440×1024및390×844첫화면의역할/문구/서비스순서와새CSS를확인했다.모바일첫상담문의가#contact로이동해안내영역top약100px과원래카카오목적지를보여주며가로넘침0,console error/warn없음. 10-live-home-PC.jpg,11-live-home-mobile.jpg,12-live-contact-mobile.jpg를직접열어검수했다.임시뷰포트는초기화하고운영홈탭을유지했다. 후속기록은문서만추가하며검증한공개바이트를유지한다.
+
+같은DriveID의현재ZIP을최종추적소스로갱신하고로컬ZIP/동기화사본SHA256과원격크기를확인한다.원격다운로드의기존403으로원격바이트SHA256검증완료로확대하지않는다. Obsidian의현재원본/운영/같은ZIP안내는유효하며추가사본을만들지않는다.
