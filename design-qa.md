@@ -45,3 +45,11 @@ npm run check와 diff 검사를 통과했다. 기존 capture assertion이47 캐�
 ![갱신된 서안 목록 카드](</Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-seoan-update-20261008/04-gallery-PC.jpg>)
 
 로컬 연결 검수 결과: passed. 운영 반영은 main 푸시와 Vercel Production 및 실제 응답 확인 뒤에 완료로 보고한다.
+
+### 운영 반영 확인, 2026-10-08
+
+코드 커밋 a0434e7의 GitHub Vercel 상태 success와 Production deployment6925055161 success를 확인했다. 실제 www.aurorasound.kr의 목록/상세/데모 HTML, 데모 CSS/JS, PC/썸네일/모바일 이미지 여덟 응답이 모두200이고 해당 로컬 파일과 SHA256이 일치했다. 운영 브라우저의 새 썸네일58.2, 상세 두 이미지 loaded, 샘플 seum58.css?v=58.2 및 폰트 loaded를 확인했다. 샘플의 포트폴리오 링크로 실제 /work?category=website-essential에 돌아오는 것도 확인했다.09-live-gallery-PC.jpg는 실제 운영 목록이다. 후속 운영 기록은 문서만 추가하며 배포용 파일은 이 검증의 바이트를 유지한다.
+
+현재 추적 파일 전체 ZIP은195179388바이트로 커넥터의100MB 전달 상한을 넘어 첫 업로드는 action 전에 거부됐다. Google Drive Desktop의 기존 동기화 파일에 com.google.drivefs.item-id#S=1f3THlpASI_WeAXs2vCmHys85Ob8N64BJ가 붙어 같은 파일임을 확인했다. 새 파일/폴더나 공유 권한을 만들지 않고 기존 ZIP을 갱신하는 경로를 사용한다. 인증 정보와 .git/.claude/.vercel/node_modules는 ZIP에서 제외한다.
+
+운영 홈페이지 반영 검수 결과: passed.
