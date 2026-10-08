@@ -1,370 +1,94 @@
 [
   {
-    "slug": "banana-product",
-    "title": "Product",
-    "subtitle": "패키지와 오브젝트, 제품의 형태와 재질을 보여주는 제작 작업입니다.",
-    "category": "photo-product",
-    "collection": "photography",
-    "label": "PHOTOGRAPHY / PRODUCT",
-    "image": "/work/assets/bananablack/product-01.webp",
-    "thumb": "/work/assets/bananablack/product-thumb.webp",
-    "badge": "직접 촬영",
-    "width": 1800,
-    "height": 1350,
-    "thumbnail_fit": "contain",
-    "slides": [
-      {
-        "image": "/work/assets/bananablack/product-01.webp",
-        "caption": "푸른 패키지 비주얼",
-        "alt": "푸른 패키지 비주얼",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/product-02.webp",
-        "caption": "다양한 색의 패키지 연출",
-        "alt": "다양한 색의 패키지 연출",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/product-03.webp",
-        "caption": "붉은 패키지와 빛",
-        "alt": "붉은 패키지와 빛",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/product-04.webp",
-        "caption": "녹색 배경의 패키지",
-        "alt": "녹색 배경의 패키지",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/product-05.webp",
-        "caption": "도자기 오브젝트의 형태",
-        "alt": "도자기 오브젝트의 형태",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/product-06.webp",
-        "caption": "커피 패키지와 원두",
-        "alt": "커피 패키지와 원두",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/product-07.webp",
-        "caption": "맥주 캔과 잔의 연출",
-        "alt": "맥주 캔과 잔의 연출",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/product-08.webp",
-        "caption": "구름을 배경으로 한 운동화 비주얼",
-        "alt": "구름을 배경으로 한 운동화 비주얼",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/product-09.webp",
-        "caption": "컬러 필름 롤의 배열",
-        "alt": "컬러 필름 롤의 배열",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/product-10.webp",
-        "caption": "키오스크 제품 이미지",
-        "alt": "키오스크 제품 이미지",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/product-11.webp",
-        "caption": "바다를 배경으로 한 헤어드라이어 비주얼",
-        "alt": "바다를 배경으로 한 헤어드라이어 비주얼",
-        "width": 1800,
-        "height": 1349
-      }
-    ]
+    "slug": "website-nocte",
+    "title": "NOCTE",
+    "subtitle": "향의 장면을 따라가는 브랜드 웹사이트",
+    "category": "website",
+    "label": "WEBSITE / DESIGN SAMPLE",
+    "image": "/work/assets/web-nocte.webp",
+    "thumb": "/work/assets/web-nocte-thumb.webp",
+    "badge": "향수 브랜드 / 가상 샘플",
+    "width": 1440,
+    "height": 810,
+    "thumbnail_fit": "contain"
   },
   {
-    "slug": "banana-food",
-    "title": "Food",
-    "subtitle": "메뉴 단독 사진부터 상차림과 매장 장면까지 담았습니다.",
-    "category": "photo-food",
-    "collection": "photography",
-    "label": "PHOTOGRAPHY / FOOD",
-    "image": "/work/assets/bananablack/food-01.webp",
-    "thumb": "/work/assets/bananablack/food-thumb.webp",
-    "badge": "직접 촬영",
-    "width": 1800,
-    "height": 1350,
-    "thumbnail_fit": "contain",
-    "slides": [
-      {
-        "image": "/work/assets/bananablack/food-01.webp",
-        "caption": "붉은 배경의 치킨 플래터",
-        "alt": "붉은 배경의 치킨 플래터",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/food-02.webp",
-        "caption": "포장 용기에 담긴 치킨",
-        "alt": "포장 용기에 담긴 치킨",
-        "width": 1800,
-        "height": 1349
-      },
-      {
-        "image": "/work/assets/bananablack/food-03.webp",
-        "caption": "그릴을 중심으로 한 상차림",
-        "alt": "그릴을 중심으로 한 상차림",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/food-04.webp",
-        "caption": "한식 메뉴와 반찬의 구성",
-        "alt": "한식 메뉴와 반찬의 구성",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/food-05.webp",
-        "caption": "한식 메뉴의 질감과 색감",
-        "alt": "한식 메뉴의 질감과 색감",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/food-06.webp",
-        "caption": "접시에 담긴 해산물",
-        "alt": "접시에 담긴 해산물",
-        "width": 1800,
-        "height": 1349
-      },
-      {
-        "image": "/work/assets/bananablack/food-07.webp",
-        "caption": "밝은 배경의 치킨 플래터",
-        "alt": "밝은 배경의 치킨 플래터",
-        "width": 1000,
-        "height": 1000
-      },
-      {
-        "image": "/work/assets/bananablack/food-08.webp",
-        "caption": "국물 요리와 반찬",
-        "alt": "국물 요리와 반찬",
-        "width": 1000,
-        "height": 750
-      },
-      {
-        "image": "/work/assets/bananablack/food-09.webp",
-        "caption": "테이블 그릴과 매장 상차림",
-        "alt": "테이블 그릴과 매장 상차림",
-        "width": 1000,
-        "height": 750
-      }
-    ]
+    "slug": "website-bitgyeol",
+    "title": "서래커튼",
+    "subtitle": "원단과 빛을 살펴보는 커튼 스튜디오",
+    "category": "website",
+    "label": "WEBSITE / DESIGN SAMPLE",
+    "image": "/work/assets/web-bitgyeol.webp",
+    "thumb": "/work/assets/web-bitgyeol-thumb.webp",
+    "badge": "커튼 브랜드 / 가상 샘플",
+    "width": 1440,
+    "height": 810,
+    "thumbnail_fit": "contain"
   },
   {
-    "slug": "banana-dessert",
-    "title": "Dessert",
-    "subtitle": "떡과 재료, 차와 카페 메뉴를 다양한 배경과 빛으로 연출했습니다.",
-    "category": "photo-dessert",
-    "collection": "photography",
-    "label": "PHOTOGRAPHY / DESSERT",
-    "image": "/work/assets/bananablack/dessert-01.webp",
-    "thumb": "/work/assets/bananablack/dessert-thumb.webp",
-    "badge": "직접 촬영",
-    "width": 1800,
-    "height": 1349,
-    "thumbnail_fit": "contain",
-    "slides": [
-      {
-        "image": "/work/assets/bananablack/dessert-01.webp",
-        "caption": "떡의 형태와 단면",
-        "alt": "떡의 형태와 단면",
-        "width": 1800,
-        "height": 1349
-      },
-      {
-        "image": "/work/assets/bananablack/dessert-02.webp",
-        "caption": "다양한 곡물과 재료의 배열",
-        "alt": "다양한 곡물과 재료의 배열",
-        "width": 1800,
-        "height": 1201
-      },
-      {
-        "image": "/work/assets/bananablack/dessert-03.webp",
-        "caption": "여러 맛의 디저트와 패키지",
-        "alt": "여러 맛의 디저트와 패키지",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/dessert-04.webp",
-        "caption": "차와 디저트를 함께 담은 장면",
-        "alt": "차와 디저트를 함께 담은 장면",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/dessert-05.webp",
-        "caption": "와플과 음료가 놓인 카페 테이블",
-        "alt": "와플과 음료가 놓인 카페 테이블",
-        "width": 1800,
-        "height": 1349
-      },
-      {
-        "image": "/work/assets/bananablack/dessert-06.webp",
-        "caption": "노란 배경의 커피와 카페 메뉴",
-        "alt": "노란 배경의 커피와 카페 메뉴",
-        "width": 1200,
-        "height": 899
-      }
-    ]
+    "slug": "website-haebit",
+    "title": "스위치조명",
+    "subtitle": "기구의 형태와 공간의 빛",
+    "category": "website",
+    "label": "WEBSITE / DESIGN SAMPLE",
+    "image": "/work/assets/web-haebit.webp",
+    "thumb": "/work/assets/web-haebit-thumb.webp",
+    "badge": "조명 브랜드 / 가상 샘플",
+    "width": 1440,
+    "height": 810,
+    "thumbnail_fit": "contain"
   },
   {
-    "slug": "banana-space",
-    "title": "Space",
-    "subtitle": "주거 공간과 주방, 오브젝트가 놓인 공간의 분위기를 담았습니다.",
-    "category": "photo-space",
-    "collection": "photography",
-    "label": "PHOTOGRAPHY / SPACE",
-    "image": "/work/assets/bananablack/space-01.webp",
-    "thumb": "/work/assets/bananablack/space-thumb.webp",
-    "badge": "직접 촬영",
-    "width": 1800,
-    "height": 1349,
-    "thumbnail_fit": "contain",
-    "slides": [
-      {
-        "image": "/work/assets/bananablack/space-01.webp",
-        "caption": "빛이 들어오는 침실",
-        "alt": "빛이 들어오는 침실",
-        "width": 1800,
-        "height": 1349
-      },
-      {
-        "image": "/work/assets/bananablack/space-02.webp",
-        "caption": "짙은 톤의 주방 공간",
-        "alt": "짙은 톤의 주방 공간",
-        "width": 1800,
-        "height": 1200
-      },
-      {
-        "image": "/work/assets/bananablack/space-03.webp",
-        "caption": "나무 소재의 주방과 식탁",
-        "alt": "나무 소재의 주방과 식탁",
-        "width": 1800,
-        "height": 1350
-      },
-      {
-        "image": "/work/assets/bananablack/space-04.webp",
-        "caption": "푸른 오브젝트가 놓인 공간",
-        "alt": "푸른 오브젝트가 놓인 공간",
-        "width": 1800,
-        "height": 1349
-      }
-    ]
+    "slug": "website-neurin",
+    "title": "수집노트",
+    "subtitle": "음악과 손작업을 읽는 문화 매거진",
+    "category": "website",
+    "label": "WEBSITE / DESIGN SAMPLE",
+    "image": "/work/assets/web-neurin.webp",
+    "thumb": "/work/assets/web-neurin-thumb.webp",
+    "badge": "문화 매거진 / 가상 샘플",
+    "width": 1440,
+    "height": 810,
+    "thumbnail_fit": "contain"
   },
   {
-    "slug": "banana-portrait",
-    "title": "Portrait",
-    "subtitle": "얼굴의 표정과 상반신, 전신을 담은 인물 작업입니다.",
-    "category": "photo-portrait",
-    "collection": "photography",
-    "label": "PHOTOGRAPHY / PORTRAIT",
-    "image": "/work/assets/bananablack/portrait-01.webp",
-    "thumb": "/work/assets/bananablack/portrait-thumb.webp",
-    "badge": "직접 촬영",
-    "width": 1350,
-    "height": 1800,
-    "thumbnail_fit": "contain",
-    "slides": [
-      {
-        "image": "/work/assets/bananablack/portrait-01.webp",
-        "caption": "검은 의상의 인물 포트레이트",
-        "alt": "검은 의상의 인물 포트레이트",
-        "width": 1350,
-        "height": 1800
-      },
-      {
-        "image": "/work/assets/bananablack/portrait-02.webp",
-        "caption": "얼굴과 손의 포트레이트",
-        "alt": "얼굴과 손의 포트레이트",
-        "width": 1349,
-        "height": 1800
-      },
-      {
-        "image": "/work/assets/bananablack/portrait-03.webp",
-        "caption": "검은 드레스의 인물 포트레이트",
-        "alt": "검은 드레스의 인물 포트레이트",
-        "width": 1349,
-        "height": 1800
-      },
-      {
-        "image": "/work/assets/bananablack/portrait-04.webp",
-        "caption": "옆모습을 담은 인물 포트레이트",
-        "alt": "옆모습을 담은 인물 포트레이트",
-        "width": 1349,
-        "height": 1800
-      },
-      {
-        "image": "/work/assets/bananablack/portrait-05.webp",
-        "caption": "어깨 너머의 시선을 담은 포트레이트",
-        "alt": "어깨 너머의 시선을 담은 포트레이트",
-        "width": 1349,
-        "height": 1800
-      },
-      {
-        "image": "/work/assets/bananablack/portrait-06.webp",
-        "caption": "검은 의상의 남성 포트레이트",
-        "alt": "검은 의상의 남성 포트레이트",
-        "width": 1351,
-        "height": 1800
-      },
-      {
-        "image": "/work/assets/bananablack/portrait-07.webp",
-        "caption": "밝은 의상의 인물 포트레이트",
-        "alt": "밝은 의상의 인물 포트레이트",
-        "width": 1349,
-        "height": 1800
-      },
-      {
-        "image": "/work/assets/bananablack/portrait-08.webp",
-        "caption": "미소를 담은 인물 포트레이트",
-        "alt": "미소를 담은 인물 포트레이트",
-        "width": 1351,
-        "height": 1800
-      },
-      {
-        "image": "/work/assets/bananablack/portrait-09.webp",
-        "caption": "색과 스타일을 담은 인물 포트레이트",
-        "alt": "색과 스타일을 담은 인물 포트레이트",
-        "width": 1349,
-        "height": 1800
-      },
-      {
-        "image": "/work/assets/bananablack/portrait-10.webp",
-        "caption": "녹색 셔츠의 인물 포트레이트",
-        "alt": "녹색 셔츠의 인물 포트레이트",
-        "width": 1349,
-        "height": 1800
-      },
-      {
-        "image": "/work/assets/bananablack/portrait-11.webp",
-        "caption": "전신을 담은 인물 포트레이트",
-        "alt": "전신을 담은 인물 포트레이트",
-        "width": 1350,
-        "height": 1800
-      }
-    ]
+    "slug": "website-seam",
+    "title": "SEAM HOTEL",
+    "subtitle": "바다 곁 호텔을 걷는 웹사이트",
+    "category": "website",
+    "label": "WEBSITE / DESIGN SAMPLE",
+    "image": "/work/assets/web-seam.webp",
+    "thumb": "/work/assets/web-seam-thumb.webp",
+    "badge": "호텔 / 가상 샘플",
+    "width": 1440,
+    "height": 810,
+    "thumbnail_fit": "contain"
+  },
+  {
+    "slug": "website-chaon",
+    "title": "법률사무소 서안",
+    "subtitle": "첫 상담에 필요한 이야기와 자료",
+    "category": "website",
+    "label": "WEBSITE / DESIGN SAMPLE",
+    "image": "/work/assets/web-chaon.webp",
+    "thumb": "/work/assets/web-chaon-thumb.webp",
+    "badge": "법률사무소 / 가상 샘플",
+    "width": 1440,
+    "height": 810,
+    "thumbnail_fit": "contain"
+  },
+  {
+    "slug": "website-bananablack",
+    "title": "Banana Black",
+    "subtitle": "사진 작업을 중심에 둔 스튜디오 브랜드 홈페이지",
+    "category": "website",
+    "label": "WEBSITE / BRAND ARCHIVE",
+    "image": "/work/assets/web-bananablack.webp",
+    "thumb": "/work/assets/web-bananablack-thumb.webp",
+    "badge": "사진 스튜디오 / 보관본",
+    "width": 1440,
+    "height": 810,
+    "thumbnail_fit": "contain"
   },
   {
     "slug": "veil",
@@ -949,94 +673,370 @@
     "thumbnail_fit": "contain"
   },
   {
-    "slug": "website-nocte",
-    "title": "NOCTE",
-    "subtitle": "향의 장면을 따라가는 브랜드 웹사이트",
-    "category": "website",
-    "label": "WEBSITE / DESIGN SAMPLE",
-    "image": "/work/assets/web-nocte.webp",
-    "thumb": "/work/assets/web-nocte-thumb.webp",
-    "badge": "향수 브랜드 / 가상 샘플",
-    "width": 1440,
-    "height": 810,
-    "thumbnail_fit": "contain"
+    "slug": "banana-product",
+    "title": "Product",
+    "subtitle": "패키지와 오브젝트, 제품의 형태와 재질을 보여주는 제작 작업입니다.",
+    "category": "photo-product",
+    "collection": "photography",
+    "label": "PHOTOGRAPHY / PRODUCT",
+    "image": "/work/assets/bananablack/product-01.webp",
+    "thumb": "/work/assets/bananablack/product-thumb.webp",
+    "badge": "직접 촬영",
+    "width": 1800,
+    "height": 1350,
+    "thumbnail_fit": "contain",
+    "slides": [
+      {
+        "image": "/work/assets/bananablack/product-01.webp",
+        "caption": "푸른 패키지 비주얼",
+        "alt": "푸른 패키지 비주얼",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-02.webp",
+        "caption": "다양한 색의 패키지 연출",
+        "alt": "다양한 색의 패키지 연출",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-03.webp",
+        "caption": "붉은 패키지와 빛",
+        "alt": "붉은 패키지와 빛",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-04.webp",
+        "caption": "녹색 배경의 패키지",
+        "alt": "녹색 배경의 패키지",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-05.webp",
+        "caption": "도자기 오브젝트의 형태",
+        "alt": "도자기 오브젝트의 형태",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-06.webp",
+        "caption": "커피 패키지와 원두",
+        "alt": "커피 패키지와 원두",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-07.webp",
+        "caption": "맥주 캔과 잔의 연출",
+        "alt": "맥주 캔과 잔의 연출",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-08.webp",
+        "caption": "구름을 배경으로 한 운동화 비주얼",
+        "alt": "구름을 배경으로 한 운동화 비주얼",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-09.webp",
+        "caption": "컬러 필름 롤의 배열",
+        "alt": "컬러 필름 롤의 배열",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-10.webp",
+        "caption": "키오스크 제품 이미지",
+        "alt": "키오스크 제품 이미지",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/product-11.webp",
+        "caption": "바다를 배경으로 한 헤어드라이어 비주얼",
+        "alt": "바다를 배경으로 한 헤어드라이어 비주얼",
+        "width": 1800,
+        "height": 1349
+      }
+    ]
   },
   {
-    "slug": "website-bitgyeol",
-    "title": "서래커튼",
-    "subtitle": "원단과 빛을 살펴보는 커튼 스튜디오",
-    "category": "website",
-    "label": "WEBSITE / DESIGN SAMPLE",
-    "image": "/work/assets/web-bitgyeol.webp",
-    "thumb": "/work/assets/web-bitgyeol-thumb.webp",
-    "badge": "커튼 브랜드 / 가상 샘플",
-    "width": 1440,
-    "height": 810,
-    "thumbnail_fit": "contain"
+    "slug": "banana-food",
+    "title": "Food",
+    "subtitle": "메뉴 단독 사진부터 상차림과 매장 장면까지 담았습니다.",
+    "category": "photo-food",
+    "collection": "photography",
+    "label": "PHOTOGRAPHY / FOOD",
+    "image": "/work/assets/bananablack/food-01.webp",
+    "thumb": "/work/assets/bananablack/food-thumb.webp",
+    "badge": "직접 촬영",
+    "width": 1800,
+    "height": 1350,
+    "thumbnail_fit": "contain",
+    "slides": [
+      {
+        "image": "/work/assets/bananablack/food-01.webp",
+        "caption": "붉은 배경의 치킨 플래터",
+        "alt": "붉은 배경의 치킨 플래터",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/food-02.webp",
+        "caption": "포장 용기에 담긴 치킨",
+        "alt": "포장 용기에 담긴 치킨",
+        "width": 1800,
+        "height": 1349
+      },
+      {
+        "image": "/work/assets/bananablack/food-03.webp",
+        "caption": "그릴을 중심으로 한 상차림",
+        "alt": "그릴을 중심으로 한 상차림",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/food-04.webp",
+        "caption": "한식 메뉴와 반찬의 구성",
+        "alt": "한식 메뉴와 반찬의 구성",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/food-05.webp",
+        "caption": "한식 메뉴의 질감과 색감",
+        "alt": "한식 메뉴의 질감과 색감",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/food-06.webp",
+        "caption": "접시에 담긴 해산물",
+        "alt": "접시에 담긴 해산물",
+        "width": 1800,
+        "height": 1349
+      },
+      {
+        "image": "/work/assets/bananablack/food-07.webp",
+        "caption": "밝은 배경의 치킨 플래터",
+        "alt": "밝은 배경의 치킨 플래터",
+        "width": 1000,
+        "height": 1000
+      },
+      {
+        "image": "/work/assets/bananablack/food-08.webp",
+        "caption": "국물 요리와 반찬",
+        "alt": "국물 요리와 반찬",
+        "width": 1000,
+        "height": 750
+      },
+      {
+        "image": "/work/assets/bananablack/food-09.webp",
+        "caption": "테이블 그릴과 매장 상차림",
+        "alt": "테이블 그릴과 매장 상차림",
+        "width": 1000,
+        "height": 750
+      }
+    ]
   },
   {
-    "slug": "website-haebit",
-    "title": "스위치조명",
-    "subtitle": "기구의 형태와 공간의 빛",
-    "category": "website",
-    "label": "WEBSITE / DESIGN SAMPLE",
-    "image": "/work/assets/web-haebit.webp",
-    "thumb": "/work/assets/web-haebit-thumb.webp",
-    "badge": "조명 브랜드 / 가상 샘플",
-    "width": 1440,
-    "height": 810,
-    "thumbnail_fit": "contain"
+    "slug": "banana-dessert",
+    "title": "Dessert",
+    "subtitle": "떡과 재료, 차와 카페 메뉴를 다양한 배경과 빛으로 연출했습니다.",
+    "category": "photo-dessert",
+    "collection": "photography",
+    "label": "PHOTOGRAPHY / DESSERT",
+    "image": "/work/assets/bananablack/dessert-01.webp",
+    "thumb": "/work/assets/bananablack/dessert-thumb.webp",
+    "badge": "직접 촬영",
+    "width": 1800,
+    "height": 1349,
+    "thumbnail_fit": "contain",
+    "slides": [
+      {
+        "image": "/work/assets/bananablack/dessert-01.webp",
+        "caption": "떡의 형태와 단면",
+        "alt": "떡의 형태와 단면",
+        "width": 1800,
+        "height": 1349
+      },
+      {
+        "image": "/work/assets/bananablack/dessert-02.webp",
+        "caption": "다양한 곡물과 재료의 배열",
+        "alt": "다양한 곡물과 재료의 배열",
+        "width": 1800,
+        "height": 1201
+      },
+      {
+        "image": "/work/assets/bananablack/dessert-03.webp",
+        "caption": "여러 맛의 디저트와 패키지",
+        "alt": "여러 맛의 디저트와 패키지",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/dessert-04.webp",
+        "caption": "차와 디저트를 함께 담은 장면",
+        "alt": "차와 디저트를 함께 담은 장면",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/dessert-05.webp",
+        "caption": "와플과 음료가 놓인 카페 테이블",
+        "alt": "와플과 음료가 놓인 카페 테이블",
+        "width": 1800,
+        "height": 1349
+      },
+      {
+        "image": "/work/assets/bananablack/dessert-06.webp",
+        "caption": "노란 배경의 커피와 카페 메뉴",
+        "alt": "노란 배경의 커피와 카페 메뉴",
+        "width": 1200,
+        "height": 899
+      }
+    ]
   },
   {
-    "slug": "website-neurin",
-    "title": "수집노트",
-    "subtitle": "음악과 손작업을 읽는 문화 매거진",
-    "category": "website",
-    "label": "WEBSITE / DESIGN SAMPLE",
-    "image": "/work/assets/web-neurin.webp",
-    "thumb": "/work/assets/web-neurin-thumb.webp",
-    "badge": "문화 매거진 / 가상 샘플",
-    "width": 1440,
-    "height": 810,
-    "thumbnail_fit": "contain"
+    "slug": "banana-space",
+    "title": "Space",
+    "subtitle": "주거 공간과 주방, 오브젝트가 놓인 공간의 분위기를 담았습니다.",
+    "category": "photo-space",
+    "collection": "photography",
+    "label": "PHOTOGRAPHY / SPACE",
+    "image": "/work/assets/bananablack/space-01.webp",
+    "thumb": "/work/assets/bananablack/space-thumb.webp",
+    "badge": "직접 촬영",
+    "width": 1800,
+    "height": 1349,
+    "thumbnail_fit": "contain",
+    "slides": [
+      {
+        "image": "/work/assets/bananablack/space-01.webp",
+        "caption": "빛이 들어오는 침실",
+        "alt": "빛이 들어오는 침실",
+        "width": 1800,
+        "height": 1349
+      },
+      {
+        "image": "/work/assets/bananablack/space-02.webp",
+        "caption": "짙은 톤의 주방 공간",
+        "alt": "짙은 톤의 주방 공간",
+        "width": 1800,
+        "height": 1200
+      },
+      {
+        "image": "/work/assets/bananablack/space-03.webp",
+        "caption": "나무 소재의 주방과 식탁",
+        "alt": "나무 소재의 주방과 식탁",
+        "width": 1800,
+        "height": 1350
+      },
+      {
+        "image": "/work/assets/bananablack/space-04.webp",
+        "caption": "푸른 오브젝트가 놓인 공간",
+        "alt": "푸른 오브젝트가 놓인 공간",
+        "width": 1800,
+        "height": 1349
+      }
+    ]
   },
   {
-    "slug": "website-seam",
-    "title": "SEAM HOTEL",
-    "subtitle": "바다 곁 호텔을 걷는 웹사이트",
-    "category": "website",
-    "label": "WEBSITE / DESIGN SAMPLE",
-    "image": "/work/assets/web-seam.webp",
-    "thumb": "/work/assets/web-seam-thumb.webp",
-    "badge": "호텔 / 가상 샘플",
-    "width": 1440,
-    "height": 810,
-    "thumbnail_fit": "contain"
-  },
-  {
-    "slug": "website-chaon",
-    "title": "법률사무소 서안",
-    "subtitle": "첫 상담에 필요한 이야기와 자료",
-    "category": "website",
-    "label": "WEBSITE / DESIGN SAMPLE",
-    "image": "/work/assets/web-chaon.webp",
-    "thumb": "/work/assets/web-chaon-thumb.webp",
-    "badge": "법률사무소 / 가상 샘플",
-    "width": 1440,
-    "height": 810,
-    "thumbnail_fit": "contain"
-  },
-  {
-    "slug": "website-bananablack",
-    "title": "Banana Black",
-    "subtitle": "사진 작업을 중심에 둔 스튜디오 브랜드 홈페이지",
-    "category": "website",
-    "label": "WEBSITE / BRAND ARCHIVE",
-    "image": "/work/assets/web-bananablack.webp",
-    "thumb": "/work/assets/web-bananablack-thumb.webp",
-    "badge": "사진 스튜디오 / 보관본",
-    "width": 1440,
-    "height": 810,
-    "thumbnail_fit": "contain"
+    "slug": "banana-portrait",
+    "title": "Portrait",
+    "subtitle": "얼굴의 표정과 상반신, 전신을 담은 인물 작업입니다.",
+    "category": "photo-portrait",
+    "collection": "photography",
+    "label": "PHOTOGRAPHY / PORTRAIT",
+    "image": "/work/assets/bananablack/portrait-01.webp",
+    "thumb": "/work/assets/bananablack/portrait-thumb.webp",
+    "badge": "직접 촬영",
+    "width": 1350,
+    "height": 1800,
+    "thumbnail_fit": "contain",
+    "slides": [
+      {
+        "image": "/work/assets/bananablack/portrait-01.webp",
+        "caption": "검은 의상의 인물 포트레이트",
+        "alt": "검은 의상의 인물 포트레이트",
+        "width": 1350,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-02.webp",
+        "caption": "얼굴과 손의 포트레이트",
+        "alt": "얼굴과 손의 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-03.webp",
+        "caption": "검은 드레스의 인물 포트레이트",
+        "alt": "검은 드레스의 인물 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-04.webp",
+        "caption": "옆모습을 담은 인물 포트레이트",
+        "alt": "옆모습을 담은 인물 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-05.webp",
+        "caption": "어깨 너머의 시선을 담은 포트레이트",
+        "alt": "어깨 너머의 시선을 담은 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-06.webp",
+        "caption": "검은 의상의 남성 포트레이트",
+        "alt": "검은 의상의 남성 포트레이트",
+        "width": 1351,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-07.webp",
+        "caption": "밝은 의상의 인물 포트레이트",
+        "alt": "밝은 의상의 인물 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-08.webp",
+        "caption": "미소를 담은 인물 포트레이트",
+        "alt": "미소를 담은 인물 포트레이트",
+        "width": 1351,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-09.webp",
+        "caption": "색과 스타일을 담은 인물 포트레이트",
+        "alt": "색과 스타일을 담은 인물 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-10.webp",
+        "caption": "녹색 셔츠의 인물 포트레이트",
+        "alt": "녹색 셔츠의 인물 포트레이트",
+        "width": 1349,
+        "height": 1800
+      },
+      {
+        "image": "/work/assets/bananablack/portrait-11.webp",
+        "caption": "전신을 담은 인물 포트레이트",
+        "alt": "전신을 담은 인물 포트레이트",
+        "width": 1350,
+        "height": 1800
+      }
+    ]
   }
 ]

@@ -18,7 +18,7 @@
   const gallery = document.getElementById('gallery');
   const labels = {photography:'Photo', 'photo-product':'Product', 'photo-food':'Food', 'photo-dessert':'Dessert', 'photo-space':'Space', 'photo-portrait':'Portrait', images:'Concepts', food:'Food', product:'Product', brand:'Brand', carousel:'Instagram', character:'Character', website:'Website'};
   const legacyWebsiteFilters = new Set(['website-signature', 'website-essential']);
-  let activeFilter = 'photography';
+  let activeFilter = 'website';
   const isPhotography = value => value === 'photography' || value.startsWith('photo-');
   const isWebsite = value => value === 'website';
   const kindOf = value => isWebsite(value) ? 'website' : isPhotography(value) ? 'photography' : 'images';
@@ -48,7 +48,7 @@
   sketches.addEventListener('toggle', updateCount);
   const applyFilter = (value) => {
     if (legacyWebsiteFilters.has(value)) value = 'website';
-    if (!Object.hasOwn(labels, value)) value = 'photography';
+    if (!Object.hasOwn(labels, value)) value = 'website';
     activeFilter = value;
     const website = isWebsite(value);
     const kind = kindOf(value);
@@ -80,7 +80,7 @@
   };
   const restoreFilter = () => {
     const url = new URL(location.href);
-    const value = url.searchParams.get('category') || 'photography';
+    const value = url.searchParams.get('category') || 'website';
     applyFilter(value);
     if (legacyWebsiteFilters.has(value)) {
       url.searchParams.set('category', 'website');
@@ -94,8 +94,7 @@
     if (!button || !controls.contains(button)) return;
     applyFilter(button.dataset.filter);
     const url = new URL(location.href);
-    if (button.dataset.filter === 'photography') url.searchParams.delete('category');
-    else url.searchParams.set('category', button.dataset.filter);
+    url.searchParams.set('category', button.dataset.filter);
     history.replaceState(null, '', url);
     window.scrollTo({top:gallery.getBoundingClientRect().top + window.scrollY - (header?.getBoundingClientRect().height || 92), behavior:'instant'});
   });

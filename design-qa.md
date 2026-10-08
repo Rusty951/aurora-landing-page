@@ -85,3 +85,9 @@ npm run check와 diff 검사를 통과했다. 기존 capture assertion이47 캐�
 커밋28846c6의 Vercel success를 확인했다. 운영의 목록,work.js13,style.css24,카탈로그 및46개 상세 총50개 응답이200이며 로컬 최신 파일과 SHA256이 일치했다. 실제 기존Essential 공유 링크가 통합category=website로 정규화되고, 등급 버튼 없이 일곱 카드가 같은 순서로 표시된다. 스크롤해 일곱 썸네일의 loaded를 확인했다. 운영PC1440×1000과모바일390×844를 live-unified-PC.jpg/live-unified-mobile.jpg로 캡처해 직접 열었다. 모바일7개 표시와 가로 넘침0,console error/warn 없음. 뷰포트 초기화 및 운영 목록 탭 유지. 통합 목록 운영 검수passed. 후속 기록은 문서만 추가하며 검증한 공개 파일의 바이트는 유지한다.
 
 같은Drive ZIP ID의 Desktop 동기화 파일을 최종 추적 소스 ZIP으로 갱신한다. 로컬ZIP과동기화사본의SHA256,파일ID와원격메타데이터 크기를 확인한다. 원격 ZIP 다운로드의 기존403 때문에 원격 바이트SHA256 검증 완료로 확대하지 않는다. Obsidian현재안내의 원본/운영/같은ZIP 링크는 유효하다.
+
+## 포트폴리오 분야 순서 변경, 2026-10-08
+
+사용자 요청에 따라 Website, Concepts, Photo 순으로 분류와 정적 섹션/카탈로그를 함께 정렬했다. /work의 기본 진입은7개Website이며, 기존 category 링크는 해당분야로 연결한다. Photo를 선택하면 category=photography를 주소에 남겨 새로고침에서도 사진41장/5개모음을 유지한다. 카탈로그의46개항목은 내용변경 없이 순서만 변경했고 상세HTML의 변화는work.js14 캐시뿐임을 기존HEAD와 비교했다.
+
+npm run check 및 diff 검사를 통과했다. PC1440×1000의 기본Website7개와 분류 순서, Concepts34개/16개표시/18개접힘 전환과 Photo5개모음41장의새로고침을 확인했다. 모바일390×844 및320×844의 같은순서와Website7개,가로넘침0 및console error/warn없음을 확인했다. 캡처는 Desktop/codex-output/99_최종아님_삭제대기/aurora-portfolio-order-20261008/local-PC.jpg,local-mobile.jpg,local-320.jpg를 직접 열어 검수했다. 기존문의/추적/작품및출처와일곱데모를 유지했다. 공개완료는 운영응답과화면을 확인한뒤 보고한다.

@@ -62,7 +62,7 @@ function browser(start='http://localhost/work?category=images',nativeDialog=true
  const subButtons=['images','product','food','brand','carousel','character'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
  const photoButtons=['photography','photo-product','photo-food','photo-dessert','photo-space','photo-portrait'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
  const members=[...catalog,...photoCollections];
- const kinds=['images','website','photography'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
+ const kinds=['website','images','photography'].map(filter=>({dataset:{filter},attrs:{},setAttribute(k,v){this.attrs[k]=v;}}));
  const links=members.map(p=>p.category==='website'?null:{
   dataset:{fullImage:p.image,imageTitle:p.subtitle,imageBadge:p.badge,slides:p.slides?JSON.stringify(p.slides):undefined}, href:'http://localhost/work/'+p.slug, isConnected:true, focused:false,
   querySelector:()=>({alt:p.subtitle+' 자체 AI 이미지'}), focus(){this.focused=true;}
@@ -97,17 +97,25 @@ for(const [category,total,initial,sketches] of [['website',7,7,0],['food',12,6,6
  assert.equal(b.nodes['work-hint'].textContent.includes('새 탭'),category==='website','Website guidance follows the selected browsing mode');
  const base=`${category==='website'?'웹사이트':'이미지'} ${total}개`;
  assert.equal(b.nodes['work-count'].textContent,base+(sketches?`, ${initial}개 표시, 스케치 ${sketches}개 접힘`:''));
- assert.equal(b.kinds[0].attrs['aria-pressed'],String(category!=='website'));
+ assert.equal(b.kinds.find(button=>button.dataset.filter==='images').attrs['aria-pressed'],String(category!=='website'));
  if(sketches){b.expand();assert.equal(b.visible().length,total);assert.equal(b.nodes['work-count'].textContent,base);}
  assert.equal(b.callbacks.scroll.top,144,'New filter returns to gallery below measured header');
 }
 assert(b.context.location.href.includes('category=images'));
-for(const [category,n] of Object.entries({website:7,'website-signature':7,'website-essential':7,food:6,carousel:1,character:3,unknown:5,all:5,photography:5,'photo-product':1,'photo-food':1,'photo-dessert':1,'photo-space':1,'photo-portrait':1})) {
+for(const [category,n] of Object.entries({website:7,'website-signature':7,'website-essential':7,food:6,carousel:1,character:3,unknown:7,all:7,photography:5,'photo-product':1,'photo-food':1,'photo-dessert':1,'photo-space':1,'photo-portrait':1})) {
  const state=browser('http://localhost/work?category='+category);assert.equal(state.visible().length,n,'URL state '+category);
 }
 b.context.location.href='http://localhost/work?category=website';b.pop.popstate();assert.equal(b.visible().length,7);
 b.context.location.href='http://localhost/work?category=images';b.pop.popstate();assert.equal(b.visible().length,16,'History restores collapsed selection');
 // One website list, including shared links saved before the groups were merged.
+const defaultPlaces=browser('http://localhost/work');
+assert.equal(defaultPlaces.visible().length,7,'Opening the portfolio without a category shows websites first');
+assert.equal(defaultPlaces.kinds[0].attrs['aria-pressed'],'true');
+defaultPlaces.callbacks.click({target:{closest:()=>defaultPlaces.kinds.find(button=>button.dataset.filter==='photography')}});
+assert.equal(defaultPlaces.visible().length,5);
+assert.equal(new URL(defaultPlaces.context.location.href).searchParams.get('category'),'photography','Photo selection survives refresh after changing the default');
+assert.equal(browser(defaultPlaces.context.location.href).visible().length,5);
+assert.deepEqual([...gallery.match(/<div class="work-kinds".*?<\/div>/s)[0].matchAll(/data-filter="([^"]+)"/g)].map(m=>m[1]),['website','images','photography']);
 const websitePlaces=browser('http://localhost/work?category=website');
 assert.equal(websitePlaces.visible().length,7);
 assert.equal(websitePlaces.nodes['work-websites'].hidden,false);
@@ -132,6 +140,8 @@ assert(!/data-filter="website-(?:signature|essential)"/.test(gallery));
 assert.deepEqual(catalog.filter(p=>p.category==='website').map(p=>p.slug),['website-nocte','website-bitgyeol','website-haebit','website-neurin','website-seam','website-chaon','website-bananablack'],'Light and dark work alternate in the approved combined order');
 
 const link=b.links.find(Boolean);
+const secondConcept=catalog.filter(p=>p.category!=='website')[1];
+const secondConceptLink=b.links[catalog.indexOf(secondConcept)];
 function imageClick(link,extra={}) {let prevented=false;const event={target:{closest:()=>link},button:0,preventDefault(){prevented=true;},...extra};b.callbacks.gridClick(event);return prevented;}
 assert.equal(imageClick(link,{metaKey:true}),false);assert.equal(b.dialog.open,false,'Modified click retains native link');
 const hiddenSketch=b.links[catalog.findIndex(p=>p.slug.startsWith('bb-'))];assert.equal(imageClick(hiddenSketch),false,'Closed sketches cannot open or leak into viewer');
@@ -139,8 +149,8 @@ assert.equal(imageClick(link),true);assert.equal(b.dialog.open,true);assert.equa
 assert.equal(b.nodes['work-lightbox-original'].href,link.dataset.fullImage);assert.equal(b.nodes['work-lightbox-transcript'].hidden,true);
 assert.equal(b.nodes['work-lightbox-position'].textContent,'1 / 16');
 b.nodes['work-lightbox-next'].events.click();
-assert.equal(b.nodes['work-lightbox-position'].textContent,'2 / 16');assert.equal(b.nodes['work-lightbox-title'].textContent,catalog[1].subtitle);
-assert.equal(b.nodes['work-lightbox-original'].href,catalog[1].image);assert.equal(b.nodes['work-lightbox-detail'].href,b.links[1].href);
+assert.equal(b.nodes['work-lightbox-position'].textContent,'2 / 16');assert.equal(b.nodes['work-lightbox-title'].textContent,secondConcept.subtitle);
+assert.equal(b.nodes['work-lightbox-original'].href,secondConcept.image);assert.equal(b.nodes['work-lightbox-detail'].href,secondConceptLink.href);
 b.nodes['work-lightbox-prev'].events.click();assert.equal(b.nodes['work-lightbox-image'].src,link.dataset.fullImage);
 b.dialogEvents.click({target:b.dialog,clientX:50,clientY:50});assert.equal(b.dialog.open,true,'Interior does not close image');
 b.dialogEvents.click({target:b.dialog,clientX:150,clientY:150});assert.equal(b.dialog.open,false);assert(link.focused);assert(!b.classNames.has('work-image-open'));assert.equal(b.nodes['work-lightbox-image'].src,undefined);assert.equal(b.nodes['work-lightbox-original'].href,undefined);
@@ -164,15 +174,18 @@ assert.match(gallery,/<a id="work-lightbox-original"[^>]*target="_blank"[^>]*rel
 const cardMarkup=[...gallery.matchAll(/<article class="work-card".*?<\/article>/gs)].map(m=>m[0]);
 const markupOrder=cardMarkup.map(c=>c.match(/href="\/work\/(?!demos\/)([^"/]+)"/)[1]);
 assert.deepEqual(markupOrder,allCatalog.map(p=>p.slug),'Catalog and visible order match');
-assert(catalog.slice(0,12).every(p=>p.category!=='website'&&!p.slug.startsWith('bb-')),'12 finished images first');
-assert(catalog.slice(16,34).every(p=>p.slug.startsWith('bb-')),'18 sketches follow');
-assert(catalog.slice(34).every(p=>p.category==='website'),'7 websites preserved');
+assert(allCatalog.slice(0,7).every(p=>p.category==='website'),'Seven websites first');
+assert(allCatalog.slice(-5).every(p=>p.collection==='photography'),'Five photo collections last');
+const concepts=catalog.filter(p=>p.category!=='website');
+assert(concepts.slice(0,12).every(p=>!p.slug.startsWith('bb-')),'12 finished concepts first');
+assert(concepts.slice(16).every(p=>p.slug.startsWith('bb-')),'18 sketches follow');
+
 console.log('Portfolio passed: 46 collections and works, filters, 7 direct demos, 8-slide carousel, 3 character series, previous/next, keyboard, touch gestures, focus and fallback.');
 
 // Real series metadata must match the clickable HTML and static fallback pages.
 const decodeAttr=s=>s.replace(/&quot;/g,'"').replace(/&#x27;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
 assert(!JSON.stringify(catalog).includes('/Users/'),'No private source paths in public catalog');
-assert(catalog.slice(12,16).every(p=>['carousel','character'].includes(p.category)),'Own series follow the 12 finished images');
+assert(concepts.slice(12,16).every(p=>['carousel','character'].includes(p.category)),'Own series follow the 12 finished images');
 for (const p of catalog.filter(p=>p.slides)) {
  assert.equal(p.slides.length,p.category==='carousel'?8:3);
  const card=cardMarkup.find(c=>c.includes('href="/work/'+p.slug+'"'));
@@ -244,8 +257,8 @@ for(const p of photoCollections) {
  }
 }
 assert.equal(destinations.size,41);
-const photos=browser('http://localhost/work');
-assert.equal(photos.visible().length,5,'Default portfolio shows the five new collections');
+const photos=browser('http://localhost/work?category=photography');
+assert.equal(photos.visible().length,5,'Photo shows the five existing collections');
 assert.equal(photos.nodes['work-count'].textContent,'사진과 비주얼 5개 모음, 41장');
 assert.equal(photos.filters.hidden,true);assert.equal(photos.photoFilters.hidden,false);
 const photoLink=photos.links.find(l=>l&&l.href.endsWith('/banana-product'));
@@ -257,7 +270,7 @@ for(let i=0;i<11;i++)photos.nodes['work-lightbox-next'].events.click();
 assert.equal(photos.nodes['work-lightbox-position'].textContent,'1 / 11','All images are navigable and wrap within the collection');
 photos.dialog.close();assert(photoLink.focused,'Closing returns focus to the collection');
 photos.callbacks.click({target:{closest:()=>photos.photoButtons[0]}});
-assert(!photos.context.location.href.includes('category='),'The default photo view has a clean URL');
+assert.equal(new URL(photos.context.location.href).searchParams.get('category'),'photography','Photo remains an explicit refreshable selection');
 console.log('Banana Black import passed: 41 images, five collections, checksums, static fallback, source isolation and gallery navigation.');
 
 
