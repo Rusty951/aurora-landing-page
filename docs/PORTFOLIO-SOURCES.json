@@ -65,11 +65,16 @@
     "source_repo": "Rusty951/aurora-website-portfolio",
     "source_directory": "13-chaon-law",
     "license_scope": "Canonical sample assets and licenses preserved; fictional business, no client cases",
-    "desktop_capture_route": "/13-chaon-law/",
+    "desktop_capture_route": "/work/demos/13-chaon-law",
     "desktop_capture_viewport": {
       "width": 1440,
       "height": 810
-    }
+    },
+    "canonical_commit": "0c5beb976a280f36d2b385f5171d80ea9864b809",
+    "sample_version": "58.2",
+    "capture_date": "2026-10-08",
+    "desktop_capture_sha256": "cc331076b25ba4827d665baae8ad3bbd7351b7e29d5322726ac5822bdc69e6b5",
+    "mobile_capture_sha256": "754dd153f5a45ee05ec4268e30e5e034903b6ed886f2f8eddfd9d422d44ece0e"
   },
   {
     "slug": "food-moon",

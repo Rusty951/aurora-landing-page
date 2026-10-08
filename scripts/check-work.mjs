@@ -299,5 +299,6 @@ for(const card of cardMarkup.filter(c=>c.includes('data-category="website"'))){
  assert.equal((card.match(/data-website-tier=/g)||[]).length,1,'Exactly one tier per rendered card');
  assert(card.includes('data-website-tier="'+item.websiteTier+'"'));
  assert(card.includes('href="/work/demos/'+demoRoutes[slug]+'/"'),'Card opens its own sample');
- assert(card.includes('src="'+item.thumb+'?v='+(['website-bananablack','website-seam'].includes(slug)?'48':'47')+'"'),'Card uses its own capture');
+ const captureVersion=sourceFiles.find(source=>source.slug===slug)?.sample_version||(['website-bananablack','website-seam'].includes(slug)?'48':'47');
+ assert(card.includes('src="'+item.thumb+'?v='+captureVersion+'"'),'Card uses its own capture and recorded cache revision');
 }

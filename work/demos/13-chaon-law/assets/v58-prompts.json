@@ -1,0 +1,19 @@
+{
+  "images": [
+    {
+      "prompt": "Photorealistic architectural photograph for a fictional Korean law office website hero. Wide landscape 3:2 composition. Soft pale blue daytime sky with natural thin white clouds occupies approximately the upper 72 percent of the frame and provides uncluttered space for black website headings. Only the bottom 28 percent shows the top storey and roofline of an original unbranded contemporary office building, dark charcoal aluminum window mullions and clear cool gray glazing, a few broad rectangular facade modules of subtly varied widths. Seen from a natural low street camera angle. Roofline makes a restrained gentle step along the bottom, no skyscrapers, no landmark architecture. Natural light and realistic glass reflections, slightly muted corporate editorial color, clean accurate perspective, believable building detailing. No people, cars, text, logos, signage, watermark, UI, excessive blue saturation or stylized 3D render. Do not reproduce a particular real building. This is only a website photograph asset, not a complete web design.",
+      "input_mode": "new image; no source image input",
+      "original": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-b974fb89-8b3a-4344-a03a-6919a49c5317.png",
+      "selected_asset": "13-chaon-law/assets/hero-sky-v58.webp",
+      "conversion": "Pillow WebP quality90, no content editing"
+    },
+    {
+      "prompt": "Photorealistic wide landscape architectural interior photograph of an original fictional small Korean law office meeting room. A long warm oak conference table and six simple dark charcoal meeting chairs, black framed floor to ceiling glazing on the left and right, natural green trees softly visible outside the left window, pale matte ceiling with ordinary rectangular acoustic panels and one understated black pendant. Daylight, restrained warm gray and brown color, accurate architectural perspective, credible ordinary professional office, polished editorial photography but not luxury hotel or futuristic render. Camera from the short end of the room at standing eye height, wide landscape 3:2, table in center lower half, room structure fills frame. No people, text, company logos, signage, books with readable text, ornate marble, plants covering the frame, watermark. This photograph will sit behind a dark overlay and white website text. Do not reproduce any particular real office.",
+      "input_mode": "new image; no source image input",
+      "original": "/Users/bananabk/.codex/generated_images/01a10e56-4fef-7841-a856-8008ec648416/exec-cc8f1e60-cdfc-424e-8c62-7aa7e141d096.png",
+      "selected_asset": "13-chaon-law/assets/meeting-room-v58.webp",
+      "conversion": "Pillow WebP quality90, no content editing",
+      "reason": "Source comparison P2 correction: room-focused backdrop rather than dominant portrait."
+    }
+  ]
+}
