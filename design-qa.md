@@ -91,3 +91,7 @@ npm run check와 diff 검사를 통과했다. 기존 capture assertion이47 캐�
 사용자 요청에 따라 Website, Concepts, Photo 순으로 분류와 정적 섹션/카탈로그를 함께 정렬했다. /work의 기본 진입은7개Website이며, 기존 category 링크는 해당분야로 연결한다. Photo를 선택하면 category=photography를 주소에 남겨 새로고침에서도 사진41장/5개모음을 유지한다. 카탈로그의46개항목은 내용변경 없이 순서만 변경했고 상세HTML의 변화는work.js14 캐시뿐임을 기존HEAD와 비교했다.
 
 npm run check 및 diff 검사를 통과했다. PC1440×1000의 기본Website7개와 분류 순서, Concepts34개/16개표시/18개접힘 전환과 Photo5개모음41장의새로고침을 확인했다. 모바일390×844 및320×844의 같은순서와Website7개,가로넘침0 및console error/warn없음을 확인했다. 캡처는 Desktop/codex-output/99_최종아님_삭제대기/aurora-portfolio-order-20261008/local-PC.jpg,local-mobile.jpg,local-320.jpg를 직접 열어 검수했다. 기존문의/추적/작품및출처와일곱데모를 유지했다. 공개완료는 운영응답과화면을 확인한뒤 보고한다.
+
+### 분야 순서 운영 확인
+
+커밋1ea36cd의 Vercel 배포success와 운영/work의 Website, Concepts, Photo 순서 및 기본Website7개를 확인했다. 운영PC1440×1000 및390×844에서 전환과모바일가로넘침0을 확인하고 live-PC.jpg/live-mobile.jpg를 직접 열었다. 목록,work.js14,카탈로그 및46개상세 총49개운영응답의SHA256이로컬과일치했다. 후속문서기록은이공개바이트를유지한다. 최종추적소스ZIP은기존DriveID를갱신하고 로컬/동기화사본SHA256과원격크기를확인한다. 원격다운로드의기존403으로원격바이트SHA256까지확인했다고주장하지않는다.
