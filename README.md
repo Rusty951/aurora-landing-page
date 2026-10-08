@@ -18,7 +18,7 @@
 
 ## 현재 화면
 
-진주빛 실크 첫 화면, 가로형 aurora sound 워드마크, Selected work, U자 서비스 소개, FAQ와 문의로 이어진다. 외부 마케팅팀의 역할과 한글 핵심 메시지를 먼저 보여주고, 제작 항목은 웹사이트, 콘텐츠, 사진 및 영상 순이다. 첫 상담 문의를 중심으로 작업 보기와 연결한다. 큰 한글 제목은 아리따 부리, 메뉴와 버튼 및 작품 정보는 DM Sans와 Asta Sans다. FAQ 질문은 PC 20px 및 모바일 17px, 답변은 16px 및 15px다. 작은 볼륨의 배경 음악과 재생 설정, 은은한 유리 표면 및 기존 모션을 사용한다.
+진주빛 실크 첫 화면, 가로형 aurora sound 워드마크, Selected work, U자 서비스 소개, FAQ와 문의로 이어진다. 첫 화면은 기존 리브랜딩 실행 파트너와 큰 Beyond, 제품 이미지와 인스타 콘텐츠 및 웹사이트 소개, 작업 보기 구성이다. 서비스 안내는 웹사이트, 콘텐츠, 사진 및 영상과 월간 운영을 설명하며, 하단 첫 상담 안내를 보완했다. 큰 한글 제목은 아리따 부리, 메뉴와 버튼 및 작품 정보는 DM Sans와 Asta Sans다. FAQ 질문은 PC 20px 및 모바일 17px, 답변은 16px 및 15px다. 작은 볼륨의 배경 음악과 재생 설정, 은은한 유리 표면 및 기존 모션을 사용한다.
 
 포트폴리오는 Photo 41장 다섯 모음, Concepts 34개, Website 7개다. Photo의 분야는 Product, Food, Dessert, Space, Portrait다. Website는 일곱 작업을 한 목록으로 보여준다. NOCTE, 서래커튼, 스위치조명, 수집노트, SEAM HOTEL, 법률사무소 서안과 Banana Black 순서다. 분야와 가상 샘플 또는 보관본 여부를 카드에 표시한다. 분류는 Website, Concepts, Photo 순이며 /work 첫 진입은 Website다. PC 두 열과 모바일 한 열을 사용한다. 샘플 원본은 ../aurora-website-portfolio이며 npm run sync:samples로 work/demos의 배포용 사본을 갱신한다. 직접 사본을 수정하지 않는다. 한 샘플만 반영할 때는 `npm run sync:samples -- --route=13-chaon-law`처럼 정본 폴더를 지정하며, 선택하지 않은 사본과 기존 공유 자산은 유지한다. 일반4개는 정본0c5beb9의 서래커튼 v55.1, 수집노트 v56.1, 스위치조명 v57.2, 서안 v58.2를 적용했다.
 

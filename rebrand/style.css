@@ -3730,16 +3730,7 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   letter-spacing: -.025em;
 }
 
-/* Lead with the service role while preserving the established silk and type. */
-.silk-mode .hero-message { max-width:850px; font-family:var(--ko-heading); font-weight:600; font-size:clamp(40px,3.65vw,58px); line-height:1.35; letter-spacing:-.045em; word-break:keep-all; color:var(--white); }
-.silk-mode .hero-title.hero-brandline { margin-top:22px; font-size:clamp(36px,3.8vw,56px); line-height:1.1; letter-spacing:-.05em; }
-.silk-mode .hero-title.hero-brandline > span { color:#d1cadc; }
-.silk-mode .hero-copy-row { margin-top:24px; }
-.silk-mode .hero-copy-row .hero-services { max-width:570px; font-size:20px; font-weight:400; line-height:1.75; color:#e1dbe8; }
-.hero-services > span { color:var(--white); }
-.hero-actions { display:flex; flex-wrap:wrap; align-items:center; gap:24px; }
-.hero-portfolio { display:inline-flex; align-items:center; gap:18px; min-height:48px; font-size:15px; color:#eee8f5; }
-.ad-mode .hero-portfolio { display:none; }
+/* Work rationale, representative role and consultation guidance. */
 .home-project-grid .project-reason { max-width:430px; margin-top:18px; padding-top:18px; border-top:1px solid #38313f24; font-size:14px; line-height:1.85; word-break:keep-all; color:#57535e; }
 .studio-about { display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:80px; padding-top:40px; border-top:1px solid #c9bad72e; }
 .studio-about .eyebrow { font-size:12px; margin-bottom:20px; }
@@ -3750,11 +3741,6 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 .contact-guidance > span { font-size:16px; }
 .site-notice p { word-break:keep-all; }
 @media(max-width:700px) {
- .silk-mode .hero-message { font-size:clamp(28px,7.4vw,40px); line-height:1.45; }
- .silk-mode .hero-title.hero-brandline { font-size:34px; margin-top:20px; }
- .silk-mode .hero-copy-row .hero-services { font-size:17px; line-height:1.8; }
- .hero-actions { gap:18px; }
- .hero-portfolio { font-size:14px; gap:10px; }
  .home-project-grid .project-reason { font-size:14px; margin-top:16px; padding-top:16px; }
  .studio-about { grid-template-columns:1fr; gap:24px; margin-top:48px; padding-top:32px; }
  .studio-about h3 { font-size:25px; }
@@ -3763,13 +3749,3 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
  .contact-compact .contact-guidance { font-size:16px; }
  .contact-guidance > span { font-size:15px; }
 }
-@media(max-width:360px) {
- .silk-mode .hero-message { font-size:27px; }
- .silk-mode .hero-title.hero-brandline { font-size:30px; }
- .silk-mode .hero-copy-row .hero-services { font-size:16px; }
- .hero-actions { gap:10px; }
- .hero-portfolio { font-size:13px; gap:6px; }
- .silk-mode .hero-actions .hero-discover { min-width:130px; padding:12px 16px; }
-}
-
-@media(max-width:700px) { .hero-copy-break { display:none; } }

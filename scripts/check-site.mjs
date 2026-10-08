@@ -35,9 +35,12 @@ for (const file of ['Arita-buri-SB.woff', 'Arita-dodeum-M.woff']) {
 
 assert(count(html, /<main\b/gi) === 1, 'index.html must contain exactly one <main>.');
 assert(count(html, /<h1\b/gi) === 1, 'index.html must contain exactly one <h1>.');
-assert(/<h1 class="hero-message"[^>]*>무엇부터 바꿀지 정하고,/.test(html), 'The Korean role leads the page heading');
+assert(/<h1 class="hero-title">/.test(html) && html.includes('<span>Beyond</span><span>the <em>ordinary.</em></span>'), 'Restore the original English hero and its type structure');
+assert(!html.includes('class="hero-message"'), 'Do not reintroduce the rejected Korean hero');
+assert(html.includes('<span class="hero-role">리브랜딩 실행 파트너</span>') && html.includes('제품 이미지와 인스타 콘텐츠,<br />웹사이트를 만듭니다.'), 'Restore the original visible hero copy');
 assert(html.includes('웹사이트, 콘텐츠, 사진 및 영상'), 'Keep the user-approved service order');
-assert(/id="hero-cta-btn" href="#contact"/.test(html), 'Hero consultation leads to the on-page preparation guidance');
+assert(/class="hero-discover magnetic"[\s\S]*?href="#approach"/.test(html), 'Original hero button leads to selected work');
+assert(html.includes('첫 상담은 한 시간 이내로 진행합니다.'), 'Keep the improved lower consultation guidance');
 assert(!html.includes('무료 진단'), 'Do not invent an unconfirmed free diagnosis offer');
 assert(html.includes('함께 일하는 사람') && html.includes('대표는 초기 상담'), 'Show the verified representative role without inventing credentials');
 assert(count(html, /<details\b/gi) >= 1, 'FAQ must use native <details>.');
@@ -70,7 +73,7 @@ assert(html.includes('<title>오로라의소리 | 웹사이트, 콘텐츠, 사�
 assert(/<meta name="description" content="무엇부터 바꿀지 정하고 필요한 마케팅을 실행합니다\./.test(html), 'Metadata and first-screen role must align.');
 assert(!html.includes('필요한 콘텐츠를 정하고 제작까지 맡습니다'), 'Old V2 positioning remains in metadata or body.');
 assert(!html.includes('콘텐츠 마케팅"'), 'Old V2 Open Graph alt or metadata remains.');
-assert(/href=["']\/rebrand\/style\.css\?v=44["']/.test(html), 'Production must load the released stylesheet.');
+assert(/href=["']\/rebrand\/style\.css\?v=45["']/.test(html), 'Production must load the released stylesheet.');
 assert(/prefers-reduced-motion/.test(styles), 'Reduced-motion handling is required.');
 assert(/resonance\.webp/.test(html) && /resonance\.webp/.test(styles), 'Hero must keep a static silk fallback.');
 assert(ogCard.includes('외부 마케팅팀') && ogCard.includes('필요한 마케팅을'), 'OG render source must match the approved external marketing team position.');

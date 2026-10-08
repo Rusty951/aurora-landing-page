@@ -4,7 +4,7 @@
 
 ## 로고와 서체
 
-위와 아래 로고는 rebrand/assets/aurora-wordmark.svg?v=2의 가로형 맞춤 워드마크다. 한글 보조 이름과 로고의 기준 정렬을 유지한다. 한글 역할 메시지를 먼저 보여주고 Beyond는 보조 브랜드 문구로 크기를 조정한다. Beyond는 보정된 Aurora Hero Sans 450, 영문 본문과 제목은 DM Sans, 이탤릭 강조는 Instrument Serif다. 메뉴, 버튼, 서비스명과 작품 목록, 본문과 확대 제목은 기존 Asta Sans 및 DM Sans다.
+위와 아래 로고는 rebrand/assets/aurora-wordmark.svg?v=2의 가로형 맞춤 워드마크다. 한글 보조 이름과 로고의 기준 정렬을 유지한다. 첫 화면은 기존의 큰 Beyond와 제작 항목 소개 구성으로 복구한다. Beyond는 보정된 Aurora Hero Sans 450, 영문 본문과 제목은 DM Sans, 이탤릭 강조는 Instrument Serif다. 메뉴, 버튼, 서비스명과 작품 목록, 본문과 확대 제목은 기존 Asta Sans 및 DM Sans다.
 
 큰 한글 브랜드 메시지와 서비스 소개 제목, 한글 포트폴리오 h1과 상세 하단 초대 제목은 아리따 부리 SemiBold 600을 사용한다. 모든 한글에 부리를 적용하지 않는다. FAQ 질문은 부리, 답변 및 짧은 소개는 아리따 돋움 Medium 400이다. 두 폰트는 공식 WOFF 원본을 그대로 자체 보관하며 고지 및 변환 금지 조건은 rebrand/assets/fonts/ARITA-LICENSE.txt를 따른다.
 
