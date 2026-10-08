@@ -159,3 +159,9 @@ npm run check와diff검사를통과했다. PC1440×1024,390×844및320×844에�
 8개실제썸네일을 한 판으로 비교하고 Formkey, NOCTE, SEAM HOTEL, 스위치조명, 서래커튼, 법률사무소 서안, 수집노트, Banana Black 순으로 정리했다. PC상단두줄은 붉은그래픽/숲과 호텔공간/조형조명으로 묶고, 모바일도 같은 순서로 이어진다. catalog.json과 정적목록HTML및 기존순서계약검사를 맞췄다. 이미지와 샘플코드, 상세경로및 문의/추적은 변경하지 않았다.
 
 실제1440×1000에서 앞4개카드의 left/right배치와 호텔/조명썸네일을 확인했고390×844/320×844에서 동일순서 및 가로넘침0을 확인했다. console error/warn0, npm run check 및diff검사 통과. 증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-website-visual-order-20261008/의01-current-contact-sheet.jpg와04-local-mobile.jpg,05-local-top-rows-PC.jpg다. 공개확인은 배포 후 전달한다.
+
+## 2026-10-08 웹사이트8개 작업 설명
+
+사용자 요청으로8개 상세 페이지의 work-direction본문을 각3문단,393~441자로 수정했다. A01 Voice와 content-plan의 실제 장면/작은 판단/선택 이유 기준, aurora-copy-writing 및 Korean Style QA를 적용했다. 각 데모의 실제 본문과 기능에 근거해 문구를 작성했고 기존 가상 샘플/보관본 구분과 비전송 안내를 유지했다. CSS와 이미지, 데모 원본, 목록 순서는 변경하지 않았다.
+
+1440×1000 Formkey본문과390×844 서래커튼본문을 실제 화면으로 확인했다. 8개상세 모두320×844에서3문단과 문단/페이지 가로넘침0을 확인했고 console error/warn0이었다. npm run check와diff검사를 통과했다. 검수이미지는 Desktop/codex-output/99_최종아님_삭제대기/aurora-portfolio-project-copy-20261008/의01-local-formkey-PC.png,02-local-curtain-mobile.png다. 공개 반영은 배포 후 실제 응답과 화면을 확인해 전달한다.
