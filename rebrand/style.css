@@ -3749,3 +3749,17 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
  .contact-compact .contact-guidance { font-size:16px; }
  .contact-guidance > span { font-size:15px; }
 }
+
+/* A primary inquiry and a quieter portfolio link share one row. */
+.hero-actions { display:flex; flex-wrap:wrap; align-items:center; gap:24px; }
+.hero-portfolio { display:inline-flex; align-items:center; gap:18px; min-height:48px; font-size:15px; color:#eee8f5; }
+.ad-mode .hero-portfolio { display:none; }
+@media(max-width:700px) {
+ .hero-actions { gap:18px; }
+ .hero-portfolio { font-size:14px; gap:10px; }
+}
+@media(max-width:360px) {
+ .hero-actions { gap:10px; }
+ .hero-portfolio { font-size:13px; gap:6px; }
+ .silk-mode .hero-actions .hero-discover { min-width:130px; padding:12px 16px; }
+}
