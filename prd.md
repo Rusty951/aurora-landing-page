@@ -12,7 +12,7 @@ FAQ는 진행 과정, 개별 의뢰, 비용과 일정, 월간 운영의 네 질�
 
 Photo는 직접 촬영한 41장의 다섯 모음, Concepts는 자체 시안 34개, Website는 가상 사업체 샘플 7개와 바나나블랙 보관 홈페이지 1개다. 목록 카드 수는 모음 단위를 포함해 47개다. 작품과 출처는 work/catalog.json 및 docs/PORTFOLIO-SOURCES.json을 따른다. 현재 공개 자료의 사진, AI 제작, 자체 시안과 가상 사례를 구별하고 확인되지 않은 고객명이나 성과를 추가하지 않는다.
 
-분류 순서는 Website, Concepts, Photo이며 category 없는 첫 진입에는 Website를 보여준다. Website는 별도 등급 필터 없이 여덟 작업을 함께 보여준다. Formkey, NOCTE, 서래커튼, 스위치조명, 수집노트, SEAM HOTEL, 법률사무소 서안과 Banana Black 순서로 분야와 화면 분위기의 차이가 드러나게 배치한다. 샘플 웹사이트는 work/demos의 독립된 여덟 디자인을 유지한다. 영상은 현재 공개 목록에 새 작품을 추가하지 않으며 이후 실제 자료와 링크가 제공되면 연결한다.
+분류 순서는 Website, Concepts, Photo이며 category 없는 첫 진입에는 Website를 보여준다. Website는 별도 등급 필터 없이 여덟 작업을 함께 보여준다. Formkey, NOCTE, SEAM HOTEL, 스위치조명, 서래커튼, 법률사무소 서안, 수집노트와 Banana Black 순서로 분야와 화면 분위기의 차이가 드러나게 배치한다. 샘플 웹사이트는 work/demos의 독립된 여덟 디자인을 유지한다. 영상은 현재 공개 목록에 새 작품을 추가하지 않으며 이후 실제 자료와 링크가 제공되면 연결한다.
 
 ## 관리와 완료 기준
 

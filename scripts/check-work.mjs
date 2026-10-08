@@ -137,7 +137,7 @@ for(const legacy of ['website-signature','website-essential']) {
 }
 assert(!gallery.includes('work-website-filters'),'No second website navigation');
 assert(!/data-filter="website-(?:signature|essential)"/.test(gallery));
-assert.deepEqual(catalog.filter(p=>p.category==='website').map(p=>p.slug),['website-formkey','website-nocte','website-bitgyeol','website-haebit','website-neurin','website-seam','website-chaon','website-bananablack'],'Formkey comes first and existing work retains its relative order');
+assert.deepEqual(catalog.filter(p=>p.category==='website').map(p=>p.slug),['website-formkey','website-nocte','website-seam','website-haebit','website-bitgyeol','website-chaon','website-neurin','website-bananablack'],'Impactful graphics and spaces lead the approved website order');
 
 const link=b.links.find(Boolean);
 const secondConcept=catalog.filter(p=>p.category!=='website')[1];

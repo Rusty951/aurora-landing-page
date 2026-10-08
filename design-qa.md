@@ -153,3 +153,9 @@ npm run check와diff검사를통과했다. PC1440×1024,390×844및320×844에�
 실제 PC1440×1000에서 목록8개, 새 카드가 첫 번째이며 상세의 이미지2개가 로드되는 것을 확인했다.390×844목록/상세와320×844목록은 가로 넘침0,console error/warn0이었다. 실제화면 증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-formkey-public-20261008/의01-desktop-capture.jpg,02-mobile-capture.jpg,03-local-list-PC.jpg,04-local-detail-mobile.jpg,05-local-list-mobile.jpg,06-local-list-320.jpg이다. 데모의 기존v59.3모션/제품 시연 QA를 재사용하고 공개용 기본 경로 및 돌아가기 URL을 추가 확인했다. npm run check는47개목록,8개데모와49개문의소비자 및 출처/경로/기존필터/사진검사를 통과했다. 운영 확인은 배포 후 추가한다.
 
 운영 확인: d0bb857의 Vercel Production 배포6936772410 success를 확인했다. 실제/work에서 Website8개와 Formkey첫카드, 상세 페이지와 새 탭의 공개데모를 확인했다. 데모의 Space Grotesk와 hero-orbit, Try버튼의 dialog/검색창 초점 및 Escape닫기를 확인했다. 목록/상세/데모HTML/CSS/JS/캡처와 자산/폰트/아이콘 및 라이선스47개응답이200이며 로컬SHA256과 일치했다. 데모는 noindex,nofollow헤더를 유지하며 내부 README/SOURCES/QA는404다. PC1440×1000 및 모바일390×844운영목록에서 Formkey와 가로 넘침0을 확인하고07-live-list-PC.jpg,08-live-list-mobile.jpg를 직접 열었다. 새 탭 뒤 뷰포트 적용이 다른 탭에 걸린 첫 모바일 캡처는 실제 치수를 확인해 다시 적용/새로고침하고390×844픽셀로 교체했다. 후속문서기록은 검증한 공개바이트를 유지한다.
+
+## 2026-10-08 비주얼 임팩트 중심 목록 순서
+
+8개실제썸네일을 한 판으로 비교하고 Formkey, NOCTE, SEAM HOTEL, 스위치조명, 서래커튼, 법률사무소 서안, 수집노트, Banana Black 순으로 정리했다. PC상단두줄은 붉은그래픽/숲과 호텔공간/조형조명으로 묶고, 모바일도 같은 순서로 이어진다. catalog.json과 정적목록HTML및 기존순서계약검사를 맞췄다. 이미지와 샘플코드, 상세경로및 문의/추적은 변경하지 않았다.
+
+실제1440×1000에서 앞4개카드의 left/right배치와 호텔/조명썸네일을 확인했고390×844/320×844에서 동일순서 및 가로넘침0을 확인했다. console error/warn0, npm run check 및diff검사 통과. 증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-website-visual-order-20261008/의01-current-contact-sheet.jpg와04-local-mobile.jpg,05-local-top-rows-PC.jpg다. 공개확인은 배포 후 전달한다.
