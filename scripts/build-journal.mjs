@@ -16,14 +16,14 @@ const link = (url, label, context='') => `<a class="journal-link${label==='글 �
 const meta = article => `<div class="journal-meta"><span>${escape(article.kind)}</span><span>${escape(article.topic)}</span></div>`;
 const mobileNav = current => `<nav class="journal-mobile-nav" aria-label="모바일 주요 메뉴"><a href="/"${current==='home'?' aria-current="page"':''}>홈</a><a href="/work"${current==='work'?' aria-current="page"':''}>포트폴리오</a><a href="/journal"${current==='journal'?' aria-current="page"':''}>저널</a></nav>`;
 function connectPage(html, current) {
-  html = html.replace(/\/rebrand\/contact\.js\?v=[56]/g, '/rebrand/contact.js?v=7');
+  html = html.replace(/\/rebrand\/contact\.js\?v=[567]/g, '/rebrand/contact.js?v=8');
   html = html.replace(/\/rebrand\/style\.css\?v=4[6789]/g, '/rebrand/style.css?v=50')
     .replace('/rebrand/fonts.css?v=1', '/rebrand/fonts.css?v=2')
     .replace('/work/style.css?v=24', '/work/style.css?v=25')
-    .replace(/\/journal\/journal\.css\?v=[1234]/g, '/journal/journal.css?v=5');
+    .replace(/\/journal\/journal\.css\?v=[12345]/g, '/journal/journal.css?v=6');
   html = html.replace(/href="\/?#atelier">작업과 선택<\/a>/g, 'href="/journal">저널</a>');
   html = html.replace(/<body class="([^"]+)"/, (_, classes) => `<body class="${classes.replace(/\s*journal-connected/g, '')} journal-connected"`);
-  if (!html.includes('href="/journal/journal.css')) html = html.replace('</head>', '<link rel="stylesheet" href="/journal/journal.css?v=5">\n</head>');
+  if (!html.includes('href="/journal/journal.css')) html = html.replace('</head>', '<link rel="stylesheet" href="/journal/journal.css?v=6">\n</head>');
   html = html.replace(/<nav class="journal-mobile-nav".*?<\/nav>/gs, '');
   return html.replace('</header>', mobileNav(current)+'</header>');
 }
@@ -34,7 +34,7 @@ const header = connectPage(shell.match(/<header\b.*?<\/header>/s)[0].replace('hr
 const footer = shell.match(/<footer\b.*?<\/footer>/s)[0].replace(/<aside class="site-notice"[\s\S]*?<\/aside>/, '');
 const sharedHead = shell.match(/<link rel="icon"[\s\S]*?<meta property="og:type"/)[0].replace(/<meta property="og:type"$/, '')
   + shell.match(/<link rel="preconnect"[\s\S]*?<script src="\/work\/work\.js/)[0].replace(/<script src="\/work\/work\.js$/, '')
-  + '<link rel="stylesheet" href="/journal/journal.css?v=5">';
+  + '<link rel="stylesheet" href="/journal/journal.css?v=6">';
 function page(pageTitle, description, main, after='', editorialNote='', route='/journal', image='/assets/aurora-og.png') {
   const canonical = 'https://www.aurorasound.kr'+route;
   const social = `<link rel="canonical" href="${canonical}"><meta property="og:type" content="${editorialNote?'article':'website'}"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="오로라의소리"><meta property="og:title" content="${escape(pageTitle)} | 오로라의소리"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="https://www.aurorasound.kr${escape(image)}"><meta name="twitter:card" content="summary_large_image">`;

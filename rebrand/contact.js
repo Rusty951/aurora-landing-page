@@ -6,7 +6,7 @@
   const primary = document.getElementById('final-cta-btn') || document.querySelector('.work-cta-link');
   const header = document.querySelector('.header');
   const gallery = document.querySelector('.work-gallery, .photography-gallery, .journal-home');
-  const readingAreas = [...document.querySelectorAll('.work-detail-intro, .work-detail-body, .journal-work-reading')];
+  const readingAreas = [...document.querySelectorAll('.work-detail-intro, .work-detail-body, .journal-work-reading, .studio-services')];
   const faq = document.querySelector('.home-faq');
   let scheduled = false;
   const update = () => {
