@@ -2320,6 +2320,7 @@ body:not(.enhanced) .resonate-trigger {
 }
 .showcase-note.showcase-message {
   margin-top: 48px;
+  border-top: 0;
   font-family: "Asta Sans", var(--sans);
   font-size: 28px;
   font-weight: 500;

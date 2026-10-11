@@ -235,3 +235,8 @@ Product Design과 UI UX Designer의 감사 기준으로 현재 로컬 화면을 
 1440px에서 서비스 세 항목과 기존 높낮이 배치를 확인했다. 390px와 320px에서 새 문구의 줄바꿈과 가로 넘침을 확인했고 넘침이 없었다. 390px 검수에서 고정 카카오 버튼이 설명을 가려 모바일 서비스 영역을 기존 읽기 구역의 숨김 조건에 추가했다. 모바일에서 서비스가 보이면 숨기고 영역을 벗어나면 복원하며 PC와 키보드 초점 보호는 유지한다. 기존 검사에 해당 조건과 복원 검사를 보완해 npm run check를 통과했다.
 
 검수 파일은 Desktop/codex-output/99_최종아님_삭제대기/aurora-service-copy-20261011 아래 03-services-PC-final.jpg, 07-services-390-final.jpg, 08-services-390-lower-final.jpg와 09-services-320.jpg와 11-journal-no-underline-final.jpg다. 04, 05와 06은 의도한 서비스 구역이 잡히지 않았고 10은 이동 중 상담 영역이 잡혀 서비스 및 저널 최종 증거로 사용하지 않는다. 서체, 색상과 기존 키보드 검수는 관련 규칙이 바뀌지 않아 재사용한다. 실제 고객의 이해도나 문의 효과를 측정한 결과는 아니다. 운영 반영은 Git 푸시 뒤 Production과 실제 응답을 별도로 확인한다.
+
+
+## 대표 작업 하단 문구의 구분선 제거, 2026-10-11
+
+대표 요청으로 제품의 매력을, 브랜드의 인상으로. 문구 위 border-top을 제거했다. 문구와 서체, 기존 여백은 유지하며 다른 카드 및 저널 구분선은 변경하지 않았다. 공개 CSS 캐시 주소를 v51로 갱신하고 생성 스크립트와 현재 버전 검사도 맞췄다. 1440px, 390px와 320px에서 실제 화면과 border-top 0px을 확인했고 가로 넘침이 없었다. 현재 증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-divider-20261011 아래 01-divider-PC.jpg와 02-divider-mobile.jpg다. npm run check를 통과했다.
