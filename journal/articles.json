@@ -41,7 +41,8 @@
     "related": [
       "show-the-product-in-use",
       "a-photo-needs-a-next-step"
-    ]
+    ],
+    "listTitle": "첫 상담을 위한 안내"
   },
   {
     "slug": "show-the-product-in-use",
@@ -85,7 +86,8 @@
     "related": [
       "before-the-first-consultation",
       "a-photo-needs-a-next-step"
-    ]
+    ],
+    "listTitle": "제품을 이해시키는 장면"
   },
   {
     "slug": "a-photo-needs-a-next-step",
@@ -129,6 +131,7 @@
     "related": [
       "before-the-first-consultation",
       "show-the-product-in-use"
-    ]
+    ],
+    "listTitle": "사진 다음의 행동"
   }
 ]

@@ -11,6 +11,7 @@
 .journal-masthead { display:flex; align-items:flex-end; justify-content:space-between; gap:40px; padding:26px 0 54px; }
 .journal-masthead h1,.journal-home h2 { font:400 clamp(64px,7.8vw,112px)/1 var(--sans); letter-spacing:-.06em; }
 .journal-masthead h1 em,.journal-home h2 em { font-weight:400; }
+.journal-masthead h1,.journal-home .journal-masthead h2 { white-space:nowrap; flex-shrink:0; }
 .journal-masthead>p { max-width:390px; font:400 17px/1.85 "Arita Dotum",sans-serif; word-break:keep-all; }
 .journal-review-note { display:block; margin-top:14px; color:#5a565f; font-size:12px; }
 .journal-feature { display:grid; grid-template-columns:1.25fr 1fr; gap:clamp(32px,5vw,76px); align-items:center; border-top:1px solid #10101630; padding:40px 0 56px; }
@@ -23,7 +24,9 @@
 .journal-feature-summary,.journal-card p { font:400 16px/1.85 "Arita Dotum",sans-serif; color:#494650; word-break:keep-all; }
 .journal-link { display:inline-flex; align-items:center; gap:26px; min-height:48px; margin-top:24px; font:500 15px/1.5 "Asta Sans",sans-serif; border-bottom:1px solid currentColor; }
 .journal-link span { font-size:23px; }
-.journal-read-link { border-bottom:0; }
+.journal-read-link { min-height:44px; padding:10px 19px; border:1px solid #10101630; border-radius:999px; background:#ffffff30; font-size:13px; }
+.journal-read-link:hover { border-color:#10101660; background:#10101608; }
+.journal-feature h2,.journal-card h2,.journal-card h3 { white-space:nowrap; }
 .journal-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:48px; }
 .journal-grid-heading { display:flex; justify-content:space-between; align-items:center; border-top:1px solid #10101630; padding:28px 0; font:500 16px/1.5 "Asta Sans",sans-serif; }
 .journal-grid-heading span { color:#5a565f; font-size:12px; font-weight:400; }
@@ -89,6 +92,7 @@
 .journal-work-reading p { font:400 15px/1.8 "Arita Dotum",sans-serif; color:var(--muted); margin-top:13px; max-width:760px; }
 @media(min-width:1600px) { .journal-home,.journal-consult,.journal-work-reading { padding-left:max(var(--gutter),calc((100vw - 1440px)/2)); padding-right:max(var(--gutter),calc((100vw - 1440px)/2)); } }
 @media(max-width:1000px) {
+ .journal-home .journal-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
  .journal-reading { grid-template-columns:minmax(0,740px); gap:28px; }
  .journal-aside { position:static; }
  .journal-aside nav { flex-direction:row; gap:20px; flex-wrap:wrap; }

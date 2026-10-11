@@ -10,6 +10,7 @@ const articles = JSON.parse(read('journal/articles.json'));
 const catalog = JSON.parse(read('work/catalog.json'));
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const title = article => article.title.replace(/\n/g, ' ');
+const listTitle = article => article.listTitle || title(article);
 const arrow = '<span aria-hidden="true">↗</span>';
 const link = (url, label) => `<a class="journal-link${label==='글 읽기'?' journal-read-link':''}" href="${escape(url)}">${escape(label)}${label==='글 읽기'?'':' '+arrow}</a>`;
 const date = article => `<time datetime="${escape(article.created)}">${escape(article.created.replaceAll('-', '.'))} 작성</time>`;
@@ -36,7 +37,7 @@ function page(pageTitle, description, main, after='', editorialNote='') {
   return `<!doctype html>\n<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">\n<title>${escape(pageTitle)} | 오로라의소리</title><meta name="description" content="${escape(description)}"><meta name="robots" content="noindex, follow">\n${sharedHead}</head>\n<body class="journal-page journal-connected"><a class="skip" href="#main">본문으로 바로가기</a>${header}<main id="main">${main}</main>${after}${pageFooter}</body></html>\n`;
 }
 function card(article, heading='h2') {
-  return `<article class="journal-card"><a class="journal-card-image" href="/journal/${escape(article.slug)}" aria-label="${escape(title(article))}"><img src="${escape(article.hero)}" alt="${escape(article.heroAlt)}" width="1440" height="810" loading="lazy" decoding="async"></a>${meta(article)}<${heading}><a href="/journal/${escape(article.slug)}">${escape(title(article))}</a></${heading}><p>${escape(article.summary)}</p>${link('/journal/'+article.slug,'글 읽기')}</article>`;
+  return `<article class="journal-card"><a class="journal-card-image" href="/journal/${escape(article.slug)}" aria-label="${escape(listTitle(article))}"><img src="${escape(article.hero)}" alt="${escape(article.heroAlt)}" width="1440" height="810" loading="lazy" decoding="async"></a>${meta(article)}<${heading}><a href="/journal/${escape(article.slug)}">${escape(listTitle(article))}</a></${heading}><p>${escape(article.summary)}</p>${link('/journal/'+article.slug,'글 읽기')}</article>`;
 }
 function consult(article) {
   return `<section class="journal-consult" aria-labelledby="journal-consult-title"><div class="journal-consult-inner"><div><span class="journal-kicker">WITH AURORA</span><h2 id="journal-consult-title">${escape(article.service)}</h2></div><div><p>${escape(article.serviceBody)}</p><a class="journal-consult-link" href="/#contact">프로젝트 상담 안내 ${arrow}</a></div></div></section>`;
@@ -44,7 +45,7 @@ function consult(article) {
 const first = articles[0];
 mkdirSync(resolve(root,'journal'),{recursive:true});
 write('journal/index.html',page('Journal / 브랜드를 읽고, 다음을 생각합니다', '사업자가 브랜드를 만들고 운영하는 데 필요한 판단과 오로라의 작업을 살펴보는 저널입니다.',
-  `<div class="journal-shell"><p class="journal-kicker">AURORA SOUND / JOURNAL</p><div class="journal-masthead"><h1>Our <em>journal.</em></h1><p>브랜드를 읽고,<br>우리 사업의 다음을 생각합니다.<span class="journal-review-note">화면 검토용 초안 3편</span></p></div><article class="journal-feature"><a class="journal-feature-image" href="/journal/${first.slug}" aria-label="${escape(title(first))}"><img src="${escape(first.hero)}" alt="${escape(first.heroAlt)}" width="1440" height="810" fetchpriority="high" decoding="async"></a><div><p class="journal-kicker">EDITOR'S PICK</p>${meta(first)}<h2><a href="/journal/${first.slug}">${escape(title(first))}</a></h2><p class="journal-feature-summary">${escape(first.summary)}</p>${link('/journal/'+first.slug,'글 읽기')}</div></article><div class="journal-grid-heading"><h2>이어서 읽기</h2><span>판단, 작업, 운영</span></div><div class="journal-grid">${articles.slice(1).map(a=>card(a)).join('')}</div></div>`,
+  `<div class="journal-shell"><p class="journal-kicker">AURORA SOUND / JOURNAL</p><div class="journal-masthead"><h1>Our <em>journal.</em></h1><p>브랜드를 읽고,<br>우리 사업의 다음을 생각합니다.<span class="journal-review-note">화면 검토용 초안 3편</span></p></div><article class="journal-feature"><a class="journal-feature-image" href="/journal/${first.slug}" aria-label="${escape(listTitle(first))}"><img src="${escape(first.hero)}" alt="${escape(first.heroAlt)}" width="1440" height="810" fetchpriority="high" decoding="async"></a><div><p class="journal-kicker">EDITOR'S PICK</p>${meta(first)}<h2><a href="/journal/${first.slug}">${escape(listTitle(first))}</a></h2><p class="journal-feature-summary">${escape(first.summary)}</p>${link('/journal/'+first.slug,'글 읽기')}</div></article><div class="journal-grid-heading"><h2>이어서 읽기</h2><span>판단, 작업, 운영</span></div><div class="journal-grid">${articles.slice(1).map(a=>card(a)).join('')}</div></div>`,
   consult({service:'우리 사업에 필요한 일부터 이야기합니다.',serviceBody:'홈페이지부터 콘텐츠와 채널 운영까지, 현재 상황을 살펴보고 맡길 범위와 우선순위를 정리합니다. 지금 막히는 지점이 있다면 상담에서 이야기해 주세요.'})));
 for (const article of articles) {
   const project = catalog.find(p=>p.slug===article.project);
