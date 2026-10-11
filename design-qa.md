@@ -240,3 +240,10 @@ Product Design과 UI UX Designer의 감사 기준으로 현재 로컬 화면을 
 ## 대표 작업 하단 문구의 구분선 제거, 2026-10-11
 
 대표 요청으로 제품의 매력을, 브랜드의 인상으로. 문구 위 border-top을 제거했다. 문구와 서체, 기존 여백은 유지하며 다른 카드 및 저널 구분선은 변경하지 않았다. 공개 CSS 캐시 주소를 v51로 갱신하고 생성 스크립트와 현재 버전 검사도 맞췄다. 1440px, 390px와 320px에서 실제 화면과 border-top 0px을 확인했고 가로 넘침이 없었다. 현재 증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-divider-20261011 아래 01-divider-PC.jpg와 02-divider-mobile.jpg다. npm run check를 통과했다.
+
+
+## 홈페이지 전체 보기 버튼 통일, 2026-10-11
+
+대표 요청에 따라 포트폴리오 전체 보기와 저널 전체 보기를 공통 외곽선 버튼으로 맞췄다. 화살표와 밑줄을 제거하고 홈페이지 저널 제목 옆 소개 문구는 생략했다. 저널 목록 페이지의 소개 문구는 유지한다. 두 버튼은 Asta Sans 15px, 높이 48px, 같은 테두리와 배경 및 안쪽 여백을 사용한다. PC에서는 제목 오른쪽, 모바일에서는 제목 아래 24px 간격으로 배치한다. 키보드 초점에는 외곽선을 표시하며 광고 경로의 기존 포트폴리오 숨김 규칙을 유지한다.
+
+1440px, 390px와 320px의 실제 화면을 확인했고 가로 넘침이 없었다. 두 버튼을 각각 눌러 /work와 /journal로 이동했다. 검수 이미지 위치는 Desktop/codex-output/99_최종아님_삭제대기/aurora-section-buttons-20261011이며 01-work-PC.png, 02-journal-PC.png, 03-work-mobile.png, 04-journal-mobile.png와 05-journal-320.png를 직접 열어 확인했다. 공유 CSS와 생성 스크립트의 캐시 주소는 rebrand v52, journal v7로 갱신했다. npm run check와 git diff --check를 통과했다. 실제 문의 효과를 측정한 결과는 아니다.

@@ -3427,42 +3427,41 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 .header .contact-link,
 .silk-mode .hero-discover,
 .contact-action .cta { position: relative; }
-.showcase-heading .showcase-work-link {
-  min-height: 56px;
+.section-view-button { display: inline-flex; }
+.section-view-button,
+.showcase-heading .section-view-button {
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 48px;
   max-width: 100%;
-  padding: 10px 0;
-  gap: 24px;
+  margin: 0;
+  padding: 11px 22px;
+  border: 1px solid #10101655;
+  border-radius: 999px;
+  background: #ffffff30;
   color: #29232f;
-  font-family: "Asta Sans", var(--sans);
-  font-size: 22px;
-  font-weight: 550;
-  line-height: 1.4;
-  letter-spacing: -0.035em;
+  font: 500 15px/1.5 "Asta Sans", var(--sans);
+  letter-spacing: -0.02em;
+  text-decoration: none;
   white-space: nowrap;
-  transition: color .2s;
+  transition: background .2s, border-color .2s;
 }
-.showcase-work-link > span {
-  font-size: 32px;
-  font-weight: 400;
-  line-height: 1;
+.section-view-button:hover,
+.section-view-button:focus-visible {
+  border-color: #6a467f;
+  background: #10101608;
 }
-.showcase-heading .showcase-work-link:hover,
-.showcase-heading .showcase-work-link:focus-visible {
-  color: #6a467f;
-}
-.showcase-heading .showcase-work-link:focus-visible {
-  outline-color: #6a467f;
+.section-view-button:focus-visible {
+  outline: 2px solid #6a467f;
+  outline-offset: 4px;
 }
 @media (max-width: 700px) {
-  .showcase-heading .showcase-work-link {
-    font-size: 18px;
-    gap: 22px;
-    min-height: 50px;
-  }
-  .showcase-work-link > span { font-size: 28px; }
+  .showcase-heading .section-view-button,
+  .journal-home .journal-masthead .section-view-button { margin-top: 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .showcase-heading .showcase-work-link { transition: none; }
+  .section-view-button { transition: none; }
 }
 @media (min-width: 701px) {
   .header .contact-link {
