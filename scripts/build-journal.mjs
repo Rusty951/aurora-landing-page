@@ -11,7 +11,7 @@ const catalog = JSON.parse(read('work/catalog.json'));
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const title = article => article.title.replace(/\n/g, ' ');
 const arrow = '<span aria-hidden="true">↗</span>';
-const link = (url, label) => `<a class="journal-link" href="${escape(url)}">${escape(label)} ${arrow}</a>`;
+const link = (url, label) => `<a class="journal-link${label==='글 읽기'?' journal-read-link':''}" href="${escape(url)}">${escape(label)}${label==='글 읽기'?'':' '+arrow}</a>`;
 const date = article => `<time datetime="${escape(article.created)}">${escape(article.created.replaceAll('-', '.'))} 작성</time>`;
 const meta = article => `<div class="journal-meta"><span>${escape(article.kind)}</span><span>${escape(article.topic)}</span>${date(article)}</div>`;
 const mobileNav = current => `<nav class="journal-mobile-nav" aria-label="모바일 주요 메뉴"><a href="/"${current==='home'?' aria-current="page"':''}>홈</a><a href="/work"${current==='work'?' aria-current="page"':''}>포트폴리오</a><a href="/journal"${current==='journal'?' aria-current="page"':''}>저널</a></nav>`;

@@ -23,6 +23,7 @@
 .journal-feature-summary,.journal-card p { font:400 16px/1.85 "Arita Dotum",sans-serif; color:#494650; word-break:keep-all; }
 .journal-link { display:inline-flex; align-items:center; gap:26px; min-height:48px; margin-top:24px; font:500 15px/1.5 "Asta Sans",sans-serif; border-bottom:1px solid currentColor; }
 .journal-link span { font-size:23px; }
+.journal-read-link { border-bottom:0; }
 .journal-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:48px; }
 .journal-grid-heading { display:flex; justify-content:space-between; align-items:center; border-top:1px solid #10101630; padding:28px 0; font:500 16px/1.5 "Asta Sans",sans-serif; }
 .journal-grid-heading span { color:#5a565f; font-size:12px; font-weight:400; }
