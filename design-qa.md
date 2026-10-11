@@ -165,3 +165,17 @@ npm run check와diff검사를통과했다. PC1440×1024,390×844및320×844에�
 사용자 요청으로8개 상세 페이지의 work-direction본문을 각3문단,393~441자로 수정했다. A01 Voice와 content-plan의 실제 장면/작은 판단/선택 이유 기준, aurora-copy-writing 및 Korean Style QA를 적용했다. 각 데모의 실제 본문과 기능에 근거해 문구를 작성했고 기존 가상 샘플/보관본 구분과 비전송 안내를 유지했다. CSS와 이미지, 데모 원본, 목록 순서는 변경하지 않았다.
 
 1440×1000 Formkey본문과390×844 서래커튼본문을 실제 화면으로 확인했다. 8개상세 모두320×844에서3문단과 문단/페이지 가로넘침0을 확인했고 console error/warn0이었다. npm run check와diff검사를 통과했다. 검수이미지는 Desktop/codex-output/99_최종아님_삭제대기/aurora-portfolio-project-copy-20261008/의01-local-formkey-PC.png,02-local-curtain-mobile.png다. 공개 반영은 배포 후 실제 응답과 화면을 확인해 전달한다.
+
+## 2026-10-11 저널 로컬 목록과 글 상세
+
+기존 홈페이지의 최신 main을 fast-forward로 맞춘 뒤, 같은 서체와 종이색 바탕, 어두운 헤더와 라벤더 CTA를 사용했다. /journal 목록, 세 편의 글 상세, 홈페이지 미리보기와 모바일 메뉴를 연결했다. 서안, Formkey와 스위치조명 포트폴리오에는 관련 글로 돌아가는 링크를 추가했다. 세 편은 화면 검토용 초안이며 실제 고객의 성과로 제시하지 않는다. 운영 배포와 sitemap, Firebase는 변경하지 않았다.
+
+실제 브라우저에서 1440×1024, 390×844와 320px 폭의 화면을 확인했다. 좁은 화면의 실제 높이는 브라우저 배율에 따라 843 또는 844px였고, 폭은 DOM의 innerWidth와 scrollWidth로 확인했다. 목록, 세 글과 기존 포트폴리오 목록에 가로 넘침이 없었다. 390px 본문과 목차 이동, 관련 작업 구역, 기존 상담 안내를 확인했다. 제목과 본문, 대표 이미지와 메뉴가 겹치지 않았다. PC 본문은 제한된 폭과 옆 목차를 유지한다.
+
+목록에서 글 읽기, 목차에서 본문과 관련 작업 이동, 관련 포트폴리오 보기, 포트폴리오에서 저널로 복귀, 글 하단의 프로젝트 상담 안내, 홈페이지의 저널 전체 보기를 직접 눌렀다. 상담 링크는 /#contact에 도착했고 해당 구역의 화면 위치와 기존 카카오 목적지를 확인했다. 실제 카카오 전송은 하지 않았다. 확인한 브라우저 오류 로그는 없었다.
+
+검수 중 대표 이미지의 HTML height가 CSS 비율보다 우선하던 부분에 height:auto를 적용했다. 목차 이동 후 제목 여백과 관련 작업 제목의 모바일 줄바꿈을 보완했다. 모바일 주요 메뉴는 최소 44px의 높이와 폭으로 제공한다. npm run check, git diff --check와 생성 반복 실행 시 결과가 동일한 검사를 통과했다.
+
+화면 증거는 /Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-journal-local-20261011/에 저장했다. 기준 화면은 01-home-before.jpg다. 주요 최종 화면은 02-journal-desktop.jpg, 03-article-desktop.jpg, 04-article-body-desktop.jpg, 05-related-work-desktop.jpg, 07-journal-mobile.jpg, 08-article-mobile.jpg, 09-article-body-mobile.jpg, 10-related-work-mobile.jpg, 11-contact-mobile.jpg, 12-journal-320.jpg, 13-formkey-320.jpg, 14-lighting-320.jpg, 15-article-320.jpg, 16-portfolio-320.jpg와 17-home-journal-desktop.jpg다. 이 검수는 실제 문의나 계약 전환의 효과 검증을 뜻하지 않는다.
+
+후속 정정 반영: 가상 업체 설명을 본문에서 제거하고 글 하단 푸터의 별도 편집 안내로 옮겼다. 제목과 요약, 이미지 설명과 관련 작업 카드에는 해당 표시를 반복하지 않는다. 본문은 실제 고객 수행 보고가 아니라 이런 상황의 사업자에게 어떤 구성과 안내가 필요한지 조건형으로 설명한다. 수정한 본문은 20-article-body-final.jpg로 확인한다. 모바일 홈페이지 저널 미리보기에서 고정 문의가 설명을 가리던 부분은 contact.js v6의 기존 모바일 가림 방지 규칙을 확장해 해결했고, 글 설명의 좁은 화면 줄바꿈을 보완했다. 최종 원고 상태는 docs/JOURNAL.md를 따른다.

@@ -32,6 +32,8 @@ git diff --check
 
 로컬 주소는 http://localhost:4173/다. 페이지와 공개용 연결 자산은 Git 추적 파일로 관리하며 외부 사진 목록 서비스에 의존하지 않는다. 샘플 소스 원본은 별도 Portfolio 저장소이고 `work/demos`는 배포 사본이다. 촬영 원본과 제작 미디어, 권리 및 출처 자료는 각 원래 보관 위치에 유지한다. 코드 적용만으로 Drive ZIP, Obsidian 안내와 실제 배포가 갱신되지는 않는다. 정적 파일의 배포는 GitHub main 변경을 Vercel이 받아 진행한다.
 
+2026-10-11 저널은 로컬 검토 단계다. http://localhost:4173/journal 에서 목록과 세 편의 글 상세를 확인한다. 홈페이지 미리보기, 관련 포트폴리오와 기존 상담 안내로 연결한다. `npm run journal:build`가 검토용 데이터를 정적 HTML에 반영한다. 원고 상태, 생성 방식과 공개 전 확인 범위는 [docs/JOURNAL.md](docs/JOURNAL.md)를 따른다. 현재 운영 배포에 반영된 것으로 해석하지 않는다.
+
 공개 승인된 변경은 검수 후 main에 commit 및 push하고 Vercel Production 성공과 실제 운영 화면을 확인한다. Drive ZIP과 Obsidian 안내를 같은 기준으로 갱신한다. 이미지, 폰트 및 외부 출처의 이용 조건과 광고 및 오가닉 추적 경계를 유지한다.
 
 ## 문서 지도
@@ -40,6 +42,7 @@ git diff --check
 - 디자인 기준: [docs/DESIGN.md](docs/DESIGN.md)
 - 기술과 추적 계약: [docs/TRD.md](docs/TRD.md)
 - 포트폴리오와 출처: [docs/PORTFOLIO.md](docs/PORTFOLIO.md)
+- 저널 로컬 구조와 원고 상태: [docs/JOURNAL.md](docs/JOURNAL.md)
 - 작업과 배포: [docs/WORKFLOWS.md](docs/WORKFLOWS.md)
 - 실제 검수: [design-qa.md](design-qa.md)
 - 기준 결정: [docs/DECISIONS.md](docs/DECISIONS.md)
