@@ -309,3 +309,6 @@ body.work-image-open { overflow:hidden; }
 @media(max-width:360px) {
  .work-controls .work-filters:not([hidden]) { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
 }
+
+/* Narrative portfolio text follows the journal's editorial reading face. */
+.work-detail-lead > p,.work-detail-caption > p:last-child,.work-direction > div > p { font-family:var(--ko-reading); font-weight:400; }
