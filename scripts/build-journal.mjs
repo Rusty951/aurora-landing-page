@@ -17,13 +17,13 @@ const meta = article => `<div class="journal-meta"><span>${escape(article.kind)}
 const mobileNav = current => `<nav class="journal-mobile-nav" aria-label="모바일 주요 메뉴"><a href="/"${current==='home'?' aria-current="page"':''}>홈</a><a href="/work"${current==='work'?' aria-current="page"':''}>포트폴리오</a><a href="/journal"${current==='journal'?' aria-current="page"':''}>저널</a></nav>`;
 function connectPage(html, current) {
   html = html.replace(/\/rebrand\/contact\.js\?v=[56]/g, '/rebrand/contact.js?v=7');
-  html = html.replace(/\/rebrand\/style\.css\?v=4[67]/g, '/rebrand/style.css?v=48')
+  html = html.replace(/\/rebrand\/style\.css\?v=4[678]/g, '/rebrand/style.css?v=49')
     .replace('/rebrand/fonts.css?v=1', '/rebrand/fonts.css?v=2')
     .replace('/work/style.css?v=24', '/work/style.css?v=25')
-    .replace(/\/journal\/journal\.css\?v=[12]/g, '/journal/journal.css?v=3');
+    .replace(/\/journal\/journal\.css\?v=[123]/g, '/journal/journal.css?v=4');
   html = html.replace(/href="\/?#atelier">작업과 선택<\/a>/g, 'href="/journal">저널</a>');
   html = html.replace(/<body class="([^"]+)"/, (_, classes) => `<body class="${classes.replace(/\s*journal-connected/g, '')} journal-connected"`);
-  if (!html.includes('href="/journal/journal.css')) html = html.replace('</head>', '<link rel="stylesheet" href="/journal/journal.css?v=3">\n</head>');
+  if (!html.includes('href="/journal/journal.css')) html = html.replace('</head>', '<link rel="stylesheet" href="/journal/journal.css?v=4">\n</head>');
   html = html.replace(/<nav class="journal-mobile-nav".*?<\/nav>/gs, '');
   return html.replace('</header>', mobileNav(current)+'</header>');
 }
@@ -34,7 +34,7 @@ const header = connectPage(shell.match(/<header\b.*?<\/header>/s)[0].replace('hr
 const footer = shell.match(/<footer\b.*?<\/footer>/s)[0].replace(/<aside class="site-notice"[\s\S]*?<\/aside>/, '');
 const sharedHead = shell.match(/<link rel="icon"[\s\S]*?<meta property="og:type"/)[0].replace(/<meta property="og:type"$/, '')
   + shell.match(/<link rel="preconnect"[\s\S]*?<script src="\/work\/work\.js/)[0].replace(/<script src="\/work\/work\.js$/, '')
-  + '<link rel="stylesheet" href="/journal/journal.css?v=3">';
+  + '<link rel="stylesheet" href="/journal/journal.css?v=4">';
 function page(pageTitle, description, main, after='', editorialNote='') {
   const pageFooter = editorialNote ? footer.replace('<div class="work-footer-meta">', `<aside class="journal-editorial-note" aria-label="편집 안내"><p>${escape(editorialNote)}</p></aside><div class="work-footer-meta">`) : footer;
   return `<!doctype html>\n<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">\n<title>${escape(pageTitle)} | 오로라의소리</title><meta name="description" content="${escape(description)}"><meta name="robots" content="noindex, follow">\n${sharedHead}</head>\n<body class="journal-page journal-connected"><a class="skip" href="#main">본문으로 바로가기</a>${header}<main id="main" tabindex="-1">${main}</main>${after}${pageFooter}</body></html>\n`;

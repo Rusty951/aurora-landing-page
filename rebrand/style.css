@@ -3695,13 +3695,13 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
   .home-faq-intro h2 { margin-top: 24px; font-size: clamp(42px, 11.3vw, 60px); }
   .home-faq-intro h2 br { display: block; }
   .home-faq-intro h2 em { margin-left: 0; }
-  .home-faq-description { font-size: 15px; }
+  .home-faq-description { font-size: 16px; }
   .home-faq-description br { display: block; }
   .home-faq-list summary { grid-template-columns: 18px minmax(0, 1fr) 24px; gap: 12px; min-height: 80px; padding: 22px 0; }
   .home-faq-question { font-size: 17px; line-height: 1.6; }
   .home-faq-number { font-size: 11px; }
   .home-faq-answer { margin: 0 0 22px; padding: 20px; }
-  .home-faq-answer p { font-size: 15px; }
+  .home-faq-answer p { font-size: 16px; }
 }
 .motion-paused .home-faq-answer { animation: none; }
 .motion-paused .home-faq-symbol::after,
@@ -3731,7 +3731,7 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 }
 
 /* Work rationale, representative role and consultation guidance. */
-.home-project-grid .project-reason { max-width:430px; margin-top:18px; padding-top:18px; border-top:1px solid #38313f24; font-family:var(--ko-reading); font-size:14px; line-height:1.85; word-break:keep-all; color:#57535e; }
+.home-project-grid .project-reason { max-width:430px; margin-top:18px; padding-top:18px; border-top:1px solid #38313f24; font-family:var(--ko-reading); font-size:16px; line-height:1.85; word-break:keep-all; color:#57535e; }
 .studio-about { display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:80px; padding-top:40px; border-top:1px solid #c9bad72e; }
 .studio-about .eyebrow { font-size:12px; margin-bottom:20px; }
 .studio-about h3 { font-family:var(--ko-heading); font-size:28px; font-weight:600; line-height:1.6; letter-spacing:-.035em; word-break:keep-all; }
@@ -3742,10 +3742,10 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 .contact-guidance > span { font-size:16px; }
 .site-notice p { word-break:keep-all; }
 @media(max-width:700px) {
- .home-project-grid .project-reason { font-size:14px; margin-top:16px; padding-top:16px; }
+ .home-project-grid .project-reason { font-size:16px; margin-top:16px; padding-top:16px; }
  .studio-about { grid-template-columns:1fr; gap:24px; margin-top:48px; padding-top:32px; }
  .studio-about h3 { font-size:25px; }
- .studio-about > p { font-size:15px; }
+ .studio-about > p { font-size:16px; }
  .contact-compact .contact-invitation > p { font-size:17px; }
  .contact-compact .contact-guidance { font-size:16px; }
  .contact-guidance > span { font-size:15px; }
