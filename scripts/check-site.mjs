@@ -76,7 +76,7 @@ assert(html.includes('<title>오로라의소리 | 웹사이트, 콘텐츠, 사�
 assert(/<meta name="description" content="무엇부터 바꿀지 정하고 필요한 마케팅을 실행합니다\./.test(html), 'Metadata and first-screen role must align.');
 assert(!html.includes('필요한 콘텐츠를 정하고 제작까지 맡습니다'), 'Old V2 positioning remains in metadata or body.');
 assert(!html.includes('콘텐츠 마케팅"'), 'Old V2 Open Graph alt or metadata remains.');
-assert(/href=["']\/rebrand\/style\.css\?v=49["']/.test(html), 'Homepage must load the current stylesheet.');
+assert(/href=["']\/rebrand\/style\.css\?v=50["']/.test(html), 'Homepage must load the current stylesheet.');
 assert(/prefers-reduced-motion/.test(styles), 'Reduced-motion handling is required.');
 assert(/resonance\.webp/.test(html) && /resonance\.webp/.test(styles), 'Hero must keep a static silk fallback.');
 assert(ogCard.includes('외부 마케팅팀') && ogCard.includes('필요한 마케팅을'), 'OG render source must match the approved external marketing team position.');

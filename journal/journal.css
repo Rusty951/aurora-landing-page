@@ -15,7 +15,6 @@
 .journal-masthead h1 em,.journal-home h2 em { font-weight:400; }
 .journal-masthead h1,.journal-home .journal-masthead h2 { white-space:nowrap; flex-shrink:0; }
 .journal-masthead>p { max-width:390px; font:400 17px/1.85 var(--ko-reading); word-break:keep-all; }
-.journal-review-note { display:block; margin-top:14px; color:#5a565f; font-size:12px; }
 .journal-feature { display:grid; grid-template-columns:1.25fr 1fr; gap:clamp(32px,5vw,76px); align-items:center; border-top:1px solid #10101630; padding:40px 0 56px; }
 .journal-feature-image,.journal-card-image { display:block; overflow:hidden; background:#c9c9c8; }
 .journal-feature-image { aspect-ratio:1.37; }

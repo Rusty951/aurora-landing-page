@@ -6,12 +6,21 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = path => readFileSync(resolve(root,path),'utf8');
 const articles = JSON.parse(read('journal/articles.json'));
 const catalog = JSON.parse(read('work/catalog.json'));
+const sitemap = read('sitemap.xml');
+const rewrites = JSON.parse(read('vercel.json')).rewrites;
 assert.equal(new Set(articles.map(a=>a.slug)).size, articles.length, 'Unique article routes');
 const routes = ['journal/index.html',...articles.map(a=>`journal/${a.slug}/index.html`)];
 for (const path of routes) {
   const html = read(path);
   assert.equal((html.match(/<h1\b/g)||[]).length,1,path+' one heading');
-  assert(html.includes('content="noindex, follow"'),'Review fixtures are not indexed');
+  const route = '/'+path.replace(/\/index\.html$/,'');
+  const canonical = 'https://www.aurorasound.kr'+route;
+  assert(html.includes('content="index, follow"'),'Approved journal pages allow indexing');
+  assert(!/noindex|화면 검토용 초안|journal-review-note/.test(html),'No review-only labels on published journal');
+  assert(html.includes(`rel="canonical" href="${canonical}"`),'Page-specific canonical');
+  assert(html.includes(`property="og:url" content="${canonical}"`),'Page-specific share URL');
+  assert.equal((sitemap.match(new RegExp(`<loc>${canonical}</loc>`,'g'))||[]).length,1,'One public sitemap entry');
+  assert(rewrites.some(r=>r.source===route&&r.destination==='/'+path),'Explicit public journal route');
   assert(!html.includes('datePublished'),'Created dates must not become published dates');
   assert(!html.includes('·'),'No middle dots in new copy');
   assert(!/fbq\(|gtag\(|rebrand\/app\.js|work\/work\.js/.test(html),'No conversion or hero runtime on journal');
@@ -40,7 +49,8 @@ for (const article of articles) {
   assert(detail.includes(`href="/work/${article.project}"`),'Article links to portfolio');
   assert(project.includes(`href="/journal/${article.slug}"`),'Portfolio links back to article');
   assert(detail.includes('실제 고객의 성과 사례를 뜻하지 않습니다.'),'Sample evidence boundary');
-  assert(!read('sitemap.xml').includes(`/journal/${article.slug}`),'Drafts absent from public sitemap');
+  assert(detail.includes('property="og:type" content="article"'),'Article share metadata');
+  assert(detail.includes(`property="og:image" content="https://www.aurorasound.kr${article.hero}"`),'Article-specific share image');
   for (const slug of article.related) {
     assert(slug!==article.slug&&articles.some(a=>a.slug===slug),'Valid related article');
     assert(detail.includes(`href="/journal/${slug}"`),'Related article rendered');
@@ -53,3 +63,11 @@ for (const path of ['index.html','work/index.html',...catalog.map(p=>`work/${p.s
   assert.equal((html.match(/class="journal-mobile-nav"/g)||[]).length,1,'One mobile nav per shell');
 }
 console.log(`Journal checks passed: ${articles.length} articles and bidirectional portfolio links.`);
+
+const homeProjects = [...read('index.html').matchAll(/<article class="project[^\"]*">([\s\S]*?)<\/article>/g)];
+assert.equal(homeProjects.length,3,'Three selected works');
+for (const [index,slug] of ['website-haebit','veil','aurora-in-print'].entries()) {
+  assert(homeProjects[index][1].includes(`href="/work/${slug}"`),'Selected work order and destination');
+}
+assert(!homeProjects[0][1].includes('aria-haspopup'),'Website sample opens its portfolio page directly');
+assert(homeProjects[0][1].includes('web-haebit.webp?v=57.2'),'Existing website screenshot is reused');

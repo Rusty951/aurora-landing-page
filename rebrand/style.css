@@ -2830,6 +2830,9 @@ body.project-open {
 .home-project-grid .project-visual img { transform:none; }
 .home-project-grid .project-preserve img { object-fit:contain; }
 .home-project-grid .project-preserve { background:#dfdcd6; }
+.home-project-grid .project-website .project-visual { background:#171513; }
+.home-project-grid .project-website .project-desktop-preview { position:absolute; top:7%; left:0; width:100%; height:auto; object-fit:contain; }
+.home-project-grid .project-website .project-mobile-preview { position:absolute; top:39%; right:7%; width:42%; height:auto; object-fit:contain; border:5px solid #25221d; border-radius:10px; box-shadow:0 12px 35px #0008; }
 .home-project-grid .project-caption { padding-top:16px; }
 .home-project-grid .project-caption p { font-size:14px; margin:0; letter-spacing:0; color:#57535e; }
 .showcase-heading .showcase-work-link { margin:0; flex-shrink:0; }

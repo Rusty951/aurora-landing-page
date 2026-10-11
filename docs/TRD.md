@@ -32,8 +32,8 @@ npm run check는 사이트와 자산 및 경로, renderer와 음악, 추적, 필
 
 ## 저널 로컬 구현
 
-`journal/index.html`과 `journal/<slug>/index.html`은 Node 스크립트가 생성하는 정적 문서다. 외부 CMS나 런타임 의존성을 추가하지 않는다. 공유 스타일 뒤에 `journal/journal.css?v=1`을 로드하고 별도 본문 JavaScript는 사용하지 않는다. 목록과 글 상세에 광고나 오가닉 수집 스크립트를 추가하지 않았다.
+`journal/index.html`과 `journal/<slug>/index.html`은 Node 스크립트가 생성하는 정적 문서다. 외부 CMS나 런타임 의존성을 추가하지 않는다. 공유 스타일 뒤에 `journal/journal.css?v=5`을 로드하고 별도 본문 JavaScript는 사용하지 않는다. 목록과 글 상세에 광고나 오가닉 수집 스크립트를 추가하지 않았다.
 
-`scripts/build-journal.mjs`는 로컬 검토용 `journal/articles.json`과 기존 포트폴리오 목록을 읽는다. 표시 문구는 HTML escape하고 작업과 글의 연결을 확인한다. 홈페이지의 표시된 저널 구역과 기존 포트폴리오의 표시된 읽기 구역, 공통 메뉴를 갱신한다. 여러 번 실행해도 같은 결과를 유지한다. 현재 검토 원고는 `noindex, follow`이고 sitemap, 운영 rewrite와 호스팅 설정은 변경하지 않았다.
+`scripts/build-journal.mjs`는 승인된 사이트 원고 `journal/articles.json`과 기존 포트폴리오 목록을 읽는다. 표시 문구는 HTML escape하고 작업과 글의 연결을 확인한다. 홈페이지의 표시된 저널 구역과 기존 포트폴리오의 표시된 읽기 구역, 공통 메뉴를 갱신한다. 여러 번 실행해도 같은 결과를 유지한다. 공개 원고는 `index, follow`이며 페이지별 canonical과 OG를 제공한다. 목록과 글별 sitemap 및 Vercel rewrite를 중복 없이 생성한다. 내부 created 값은 발행일로 변환하지 않는다.
 
-`scripts/check-journal.mjs`가 로컬 경로와 목차 대상, 양방향 포트폴리오 링크, 상담 목적지, 리뷰 상태와 기존 문서 메뉴 연결을 검사한다. 원고 확정과 Firebase 전환은 별도 요청에서 실제 경로 처리와 색인을 확인한다.
+`scripts/check-journal.mjs`가 로컬 경로와 목차 대상, 양방향 포트폴리오 링크, 상담 목적지, 공개 상태, 검색 및 공유 정보와 기존 문서 메뉴 연결을 검사한다. Firebase 전환은 별도 요청에서 실제 경로 처리를 확인한다. 검색 허용만으로 실제 색인 완료를 주장하지 않는다.

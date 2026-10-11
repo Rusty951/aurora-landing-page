@@ -225,6 +225,22 @@
     {
       "source": "/work/demos/18-formkey-productivity",
       "destination": "/work/demos/18-formkey-productivity/index.html"
+    },
+    {
+      "source": "/journal",
+      "destination": "/journal/index.html"
+    },
+    {
+      "source": "/journal/before-the-first-consultation",
+      "destination": "/journal/before-the-first-consultation/index.html"
+    },
+    {
+      "source": "/journal/show-the-product-in-use",
+      "destination": "/journal/show-the-product-in-use/index.html"
+    },
+    {
+      "source": "/journal/a-photo-needs-a-next-step",
+      "destination": "/journal/a-photo-needs-a-next-step/index.html"
     }
   ],
   "redirects": [
