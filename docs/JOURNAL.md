@@ -32,4 +32,4 @@
 
 법률사무소 서안 이미지의 근거는 `work/demos/13-chaon-law/assets/SOURCES.md`, Formkey는 `work/demos/18-formkey-productivity/assets/SOURCES.md`, 홈페이지 스크린샷은 기존 `work/catalog.json`과 `docs/PORTFOLIO-SOURCES.json`을 따른다. 사진처럼 보이는 자체 생성 장면을 실제 사무소나 고객으로 설명하지 않는다.
 
-기존 DM Sans, Asta Sans, Instrument Serif와 아리따 부리, 아리따 돋움을 그대로 사용한다. 본문은 아리따 돋움, 한글 제목은 아리따 부리다. 폰트 원본과 기존 라이선스 고지를 유지한다.
+기존 DM Sans, Asta Sans, Instrument Serif와 아리따 부리, 아리따 돋움을 그대로 사용한다. 본문은 아리따 돋움, 한글 제목은 아리따 부리다. 상세 본문은 PC 18px에 행간 1.85, 모바일 17px에 행간 1.8이며 제목 자간은 -0.025em이다. 작성 날짜는 목록, 상세와 홈페이지 미리보기에 표시하지 않는다. 폰트 원본과 기존 라이선스 고지를 유지한다.

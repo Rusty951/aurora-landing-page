@@ -6,6 +6,7 @@
   const primary = document.getElementById('final-cta-btn') || document.querySelector('.work-cta-link');
   const header = document.querySelector('.header');
   const gallery = document.querySelector('.work-gallery, .photography-gallery, .journal-home');
+  const readingAreas = [...document.querySelectorAll('.work-detail-intro, .work-detail-body, .journal-work-reading')];
   const faq = document.querySelector('.home-faq');
   let scheduled = false;
   const update = () => {
@@ -16,12 +17,16 @@
     const heroVisible = hero && hero.getBoundingClientRect().bottom > headerBottom;
     const galleryRect = gallery?.getBoundingClientRect();
     const mobileGalleryVisible = window.innerWidth <= 700 && galleryRect && galleryRect.bottom > headerBottom && galleryRect.top < window.innerHeight;
+    const mobileReadingVisible = window.innerWidth <= 700 && readingAreas.some(area => {
+      const rect = area.getBoundingClientRect();
+      return rect.bottom > headerBottom && rect.top < window.innerHeight;
+    });
     const faqRect = faq?.getBoundingClientRect();
     const faqVisible = faqRect && faqRect.bottom > headerBottom && faqRect.top < window.innerHeight;
     const modalOpen = Boolean(document.querySelector('dialog[open]'));
     // A scroll or layout shift must not remove the link while it has keyboard focus.
     const focused = document.activeElement === link;
-    link.hidden = modalOpen || (!focused && Boolean(heroVisible || primaryVisible || mobileGalleryVisible || faqVisible));
+    link.hidden = modalOpen || (!focused && Boolean(heroVisible || primaryVisible || mobileGalleryVisible || mobileReadingVisible || faqVisible));
   };
   const schedule = () => {
     if (scheduled) return;
@@ -34,7 +39,7 @@
   link.addEventListener('blur', schedule);
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(schedule);
-    [hero, primary, gallery, faq].filter(Boolean).forEach(element => observer.observe(element));
+    [hero, primary, gallery, faq, ...readingAreas].filter(Boolean).forEach(element => observer.observe(element));
   }
   if ('MutationObserver' in window) {
     const observer = new MutationObserver(schedule);

@@ -4,7 +4,9 @@
 .journal-page .header { color:var(--white); }
 .journal-page .work-footer { background:#08090e; color:var(--white); }
 .journal-editorial-note { flex:0 0 100%; max-width:980px; color:var(--muted); font:400 12px/1.85 "Asta Sans",sans-serif; word-break:keep-all; }
-.journal-page a:focus-visible,.journal-home a:focus-visible { outline-color:#65499d; }
+.journal-page main a:focus-visible,.journal-related a:focus-visible,.journal-home a:focus-visible { outline-color:#65499d; }
+.journal-page .header a:focus-visible,.journal-page .work-footer a:focus-visible,.journal-consult a:focus-visible { outline-color:var(--accent); }
+.journal-page .header a[aria-current="page"] { color:var(--accent); }
 .journal-shell { max-width:1600px; margin:auto; padding:176px var(--gutter) 100px; }
 .journal-kicker,.journal-meta,.journal-label { font:400 12px/1.6 "DM Sans","Asta Sans",sans-serif; letter-spacing:.08em; }
 .journal-kicker { text-transform:uppercase; }
@@ -12,7 +14,7 @@
 .journal-masthead h1,.journal-home h2 { font:400 clamp(64px,7.8vw,112px)/1 var(--sans); letter-spacing:-.06em; }
 .journal-masthead h1 em,.journal-home h2 em { font-weight:400; }
 .journal-masthead h1,.journal-home .journal-masthead h2 { white-space:nowrap; flex-shrink:0; }
-.journal-masthead>p { max-width:390px; font:400 17px/1.85 "Arita Dotum",sans-serif; word-break:keep-all; }
+.journal-masthead>p { max-width:390px; font:400 17px/1.85 "Arita Dotum","Asta Sans",sans-serif; word-break:keep-all; }
 .journal-review-note { display:block; margin-top:14px; color:#5a565f; font-size:12px; }
 .journal-feature { display:grid; grid-template-columns:1.25fr 1fr; gap:clamp(32px,5vw,76px); align-items:center; border-top:1px solid #10101630; padding:40px 0 56px; }
 .journal-feature-image,.journal-card-image { display:block; overflow:hidden; background:#c9c9c8; }
@@ -20,32 +22,32 @@
 .journal-feature-image img,.journal-card-image img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s; }
 .journal-feature-image:hover img,.journal-card-image:hover img { transform:scale(1.025); }
 .journal-meta { display:flex; gap:14px; flex-wrap:wrap; letter-spacing:.01em; color:#5a565f; }
-.journal-feature h2 { font:600 clamp(30px,3vw,46px)/1.45 "Arita Buri",serif; letter-spacing:-.035em; margin:22px 0; word-break:keep-all; }
-.journal-feature-summary,.journal-card p { font:400 16px/1.85 "Arita Dotum",sans-serif; color:#494650; word-break:keep-all; }
+.journal-feature h2 { font:600 clamp(30px,3vw,46px)/1.4 "Arita Buri","Asta Sans",serif; letter-spacing:-.025em; margin:22px 0; word-break:keep-all; }
+.journal-feature-summary,.journal-card p { font:400 16px/1.85 "Arita Dotum","Asta Sans",sans-serif; color:#494650; word-break:keep-all; }
 .journal-link { display:inline-flex; align-items:center; gap:26px; min-height:48px; margin-top:24px; font:500 15px/1.5 "Asta Sans",sans-serif; border-bottom:1px solid currentColor; }
 .journal-link span { font-size:23px; }
-.journal-read-link { min-height:44px; padding:10px 19px; border:1px solid #10101630; border-radius:999px; background:#ffffff30; font-size:13px; }
+.journal-read-link { min-height:44px; padding:10px 19px; border:1px solid #10101655; border-radius:999px; background:#ffffff30; font-size:14px; }
 .journal-read-link:hover { border-color:#10101660; background:#10101608; }
 .journal-feature h2,.journal-card h2,.journal-card h3 { white-space:nowrap; }
 .journal-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:48px; }
 .journal-grid-heading { display:flex; justify-content:space-between; align-items:center; border-top:1px solid #10101630; padding:28px 0; font:500 16px/1.5 "Asta Sans",sans-serif; }
 .journal-grid-heading span { color:#5a565f; font-size:12px; font-weight:400; }
 .journal-card-image { aspect-ratio:16/9; margin-bottom:22px; }
-.journal-card h2,.journal-card h3 { font:600 clamp(23px,2.2vw,31px)/1.5 "Arita Buri",serif; word-break:keep-all; letter-spacing:-.025em; margin:12px 0; }
+.journal-card h2,.journal-card h3 { font:600 clamp(23px,2.2vw,31px)/1.5 "Arita Buri","Asta Sans",serif; word-break:keep-all; letter-spacing:-.025em; margin:12px 0; }
 .journal-card p { font-size:15px; }
 .journal-card .journal-link { margin-top:14px; }
 .journal-home { background:var(--paper); color:var(--ink); padding:70px var(--gutter) 105px; border-top:1px solid #10101630; }
 .journal-home .journal-masthead { padding-top:22px; padding-bottom:42px; }
 .journal-home .journal-masthead>div { display:flex; flex-direction:column; align-items:flex-start; }
-.journal-home .journal-masthead>div>p { font:400 16px/1.85 "Arita Dotum",sans-serif; word-break:keep-all; }
+.journal-home .journal-masthead>div>p { font:400 16px/1.85 "Arita Dotum","Asta Sans",sans-serif; word-break:keep-all; }
 .journal-home .journal-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:40px; }
 .journal-home h2 { font-size:clamp(56px,6vw,88px); }
 .journal-home .journal-card h3 { font-size:clamp(23px,2vw,29px); }
-.journal-home .journal-card p { font-size:14px; }
+.journal-home .journal-card p { font-size:15px; }
 .journal-article-heading { max-width:1000px; margin:0 auto 48px; }
 .journal-back { display:inline-flex; align-items:center; gap:12px; min-height:44px; font:400 14px/1.5 "Asta Sans",sans-serif; margin-bottom:40px; }
-.journal-article-heading h1 { font:600 clamp(34px,4.1vw,60px)/1.45 "Arita Buri",serif; letter-spacing:-.035em; word-break:keep-all; margin:23px 0 25px; white-space:pre-line; }
-.journal-article-heading .journal-deck { font:400 19px/1.85 "Arita Dotum",sans-serif; color:#494650; max-width:810px; word-break:keep-all; }
+.journal-article-heading h1 { font:600 clamp(34px,4.1vw,60px)/1.35 "Arita Buri","Asta Sans",serif; letter-spacing:-.025em; word-break:keep-all; margin:23px 0 25px; white-space:pre-line; }
+.journal-article-heading .journal-deck { font:400 19px/1.85 "Arita Dotum","Asta Sans",sans-serif; color:#494650; max-width:810px; word-break:keep-all; }
 .journal-hero { margin:0 0 64px; }
 .journal-hero img { display:block; width:100%; height:auto; aspect-ratio:2.05; object-fit:cover; object-position:center bottom; background:#c9c9c8; }
 .journal-hero figcaption,.journal-body figcaption { font:400 12px/1.8 "Asta Sans",sans-serif; color:#5a565f; margin-top:12px; word-break:keep-all; }
@@ -53,34 +55,34 @@
 .journal-aside { align-self:start; position:sticky; top:145px; }
 .journal-aside p { font:400 11px/1.5 "DM Sans",sans-serif; letter-spacing:.08em; margin-bottom:14px; color:#5a565f; }
 .journal-aside nav { display:flex; flex-direction:column; }
-.journal-aside a { font:400 13px/1.7 "Asta Sans",sans-serif; padding:12px 0; border-top:1px solid #10101625; }
+.journal-aside a { display:flex; align-items:center; min-height:44px; font:400 14px/1.65 "Asta Sans",sans-serif; padding:12px 0; border-top:1px solid #10101625; }
 .journal-body { min-width:0; }
-.journal-body p { font:400 18px/1.95 "Arita Dotum",sans-serif; word-break:keep-all; overflow-wrap:break-word; }
-.journal-body .journal-lead { font-size:22px; line-height:1.9; margin-bottom:46px; }
+.journal-body p { font:400 18px/1.85 "Arita Dotum","Asta Sans",sans-serif; letter-spacing:0; word-break:keep-all; overflow-wrap:break-word; }
+.journal-body .journal-lead { font-size:22px; line-height:1.8; margin-bottom:46px; }
 .journal-body section { margin-bottom:48px; scroll-margin-top:24px; }
-.journal-body h2 { font:600 29px/1.5 "Arita Buri",serif; letter-spacing:-.02em; margin-bottom:23px; word-break:keep-all; }
+.journal-body h2 { font:600 29px/1.5 "Arita Buri","Asta Sans",serif; letter-spacing:-.02em; margin-bottom:23px; word-break:keep-all; }
 .journal-body p+p { margin-top:21px; }
 .journal-body figure { margin:54px 0; }
 .journal-body figure img { display:block; width:100%; height:auto; }
 .journal-takeaway { border-left:2px solid #8b76bd; padding:8px 0 8px 26px; margin:54px 0; }
 .journal-takeaway span { font:400 12px/1.5 "Asta Sans",sans-serif; color:#5a565f; }
-.journal-takeaway p { font:600 24px/1.7 "Arita Buri",serif; margin-top:13px; }
+.journal-takeaway p { font:600 24px/1.7 "Arita Buri","Asta Sans",serif; margin-top:13px; }
 .journal-sources { border-top:1px solid #10101630; padding-top:26px; }
 .journal-body .journal-sources h2 { font:500 13px/1.5 "Asta Sans",sans-serif; margin-bottom:13px; }
 .journal-body .journal-sources p { font:400 13px/1.85 "Asta Sans",sans-serif; color:#5a565f; }
 .journal-sources a { text-decoration:underline; text-underline-offset:4px; }
 .journal-project { margin-top:90px; padding-top:45px; border-top:1px solid #10101630; scroll-margin-top:24px; }
 .journal-project-heading { display:flex; justify-content:space-between; align-items:baseline; gap:24px; margin-bottom:30px; }
-.journal-project h2,.journal-related h2 { font:600 30px/1.5 "Arita Buri",serif; word-break:keep-all; }
+.journal-project h2,.journal-related h2 { font:600 30px/1.5 "Arita Buri","Asta Sans",serif; word-break:keep-all; }
 .journal-project-card { display:grid; grid-template-columns:1.2fr 1fr; align-items:center; gap:60px; }
 .journal-project-card img { width:100%; height:auto; display:block; }
 .journal-project-card h3 { font:500 28px/1.4 "Asta Sans",sans-serif; margin:17px 0 15px; }
-.journal-project-card p { font:400 17px/1.85 "Arita Dotum",sans-serif; word-break:keep-all; }
+.journal-project-card p { font:400 17px/1.85 "Arita Dotum","Asta Sans",sans-serif; word-break:keep-all; }
 .journal-project-card .journal-label { color:#5a565f; font-size:12px; }
 .journal-consult { padding:85px var(--gutter); background:#111019; color:var(--white); }
 .journal-consult-inner { max-width:1296px; margin:auto; display:grid; grid-template-columns:1.2fr 1fr; gap:80px; align-items:center; }
-.journal-consult h2 { font:600 clamp(29px,3vw,44px)/1.5 "Arita Buri",serif; word-break:keep-all; margin-top:20px; }
-.journal-consult p { font:400 17px/1.9 "Arita Dotum",sans-serif; color:#c9c5d2; word-break:keep-all; }
+.journal-consult h2 { font:600 clamp(29px,3vw,44px)/1.5 "Arita Buri","Asta Sans",serif; word-break:keep-all; margin-top:20px; }
+.journal-consult p { font:400 17px/1.9 "Arita Dotum","Asta Sans",sans-serif; color:#c9c5d2; word-break:keep-all; }
 .journal-consult-link { display:inline-flex; align-items:center; justify-content:space-between; gap:45px; min-height:56px; margin-top:28px; padding:15px 25px; border-radius:40px; background:linear-gradient(115deg,#c8b3f3,#f2ebfa 50%,#b6c7fa); color:#241934; font:500 15px/1.5 "Asta Sans",sans-serif; box-shadow:inset 0 1px 1px #fff9,0 0 25px #b991ee25; }
 .journal-consult-link span { font-size:22px; }
 .journal-related { padding:70px var(--gutter) 100px; max-width:1600px; margin:auto; }
@@ -88,8 +90,8 @@
 .journal-work-reading { padding:45px var(--gutter); background:#17141f; border-top:1px solid #ffffff25; }
 .journal-work-reading>div { display:grid; grid-template-columns:1fr 2fr; gap:40px; }
 .journal-work-reading h2 { font:500 16px/1.5 "Asta Sans",sans-serif; color:var(--accent); }
-.journal-work-reading h3 { font:600 25px/1.6 "Arita Buri",serif; word-break:keep-all; }
-.journal-work-reading p { font:400 15px/1.8 "Arita Dotum",sans-serif; color:var(--muted); margin-top:13px; max-width:760px; }
+.journal-work-reading h3 { font:600 25px/1.6 "Arita Buri","Asta Sans",serif; word-break:keep-all; }
+.journal-work-reading p { font:400 15px/1.8 "Arita Dotum","Asta Sans",sans-serif; color:var(--muted); margin-top:13px; max-width:760px; }
 @media(min-width:1600px) { .journal-home,.journal-consult,.journal-work-reading { padding-left:max(var(--gutter),calc((100vw - 1440px)/2)); padding-right:max(var(--gutter),calc((100vw - 1440px)/2)); } }
 @media(max-width:1000px) {
  .journal-home .journal-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
@@ -122,6 +124,7 @@
  .journal-card h2,.journal-card h3,.journal-home .journal-card h3 { font-size:25px; }
  .journal-home { padding-top:48px; padding-bottom:65px; }
  .journal-home .journal-masthead { padding-bottom:32px; }
+ .journal-home .journal-masthead>div { margin-top:22px; }
  .journal-home .journal-link { margin-top:16px; }
  .journal-article-heading { margin-bottom:30px; }
  .journal-back { margin-bottom:26px; }
@@ -131,7 +134,7 @@
  .journal-hero img { aspect-ratio:1.25; }
  .journal-body .journal-lead { font-size:19px; margin-bottom:35px; }
  .journal-body h2 { font-size:25px; margin-bottom:18px; }
- .journal-body p { font-size:17px; line-height:1.95; }
+ .journal-body p { font-size:17px; line-height:1.8; }
  .journal-body section { margin-bottom:38px; }
  .journal-body figure { margin:35px 0; }
  .journal-takeaway { padding-left:20px; margin:40px 0; }
