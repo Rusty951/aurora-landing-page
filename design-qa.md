@@ -247,3 +247,10 @@ Product Design과 UI UX Designer의 감사 기준으로 현재 로컬 화면을 
 대표 요청에 따라 포트폴리오 전체 보기와 저널 전체 보기를 공통 외곽선 버튼으로 맞췄다. 화살표와 밑줄을 제거하고 홈페이지 저널 제목 옆 소개 문구는 생략했다. 저널 목록 페이지의 소개 문구는 유지한다. 두 버튼은 Asta Sans 15px, 높이 48px, 같은 테두리와 배경 및 안쪽 여백을 사용한다. PC에서는 제목 오른쪽, 모바일에서는 제목 아래 24px 간격으로 배치한다. 키보드 초점에는 외곽선을 표시하며 광고 경로의 기존 포트폴리오 숨김 규칙을 유지한다.
 
 1440px, 390px와 320px의 실제 화면을 확인했고 가로 넘침이 없었다. 두 버튼을 각각 눌러 /work와 /journal로 이동했다. 검수 이미지 위치는 Desktop/codex-output/99_최종아님_삭제대기/aurora-section-buttons-20261011이며 01-work-PC.png, 02-journal-PC.png, 03-work-mobile.png, 04-journal-mobile.png와 05-journal-320.png를 직접 열어 확인했다. 공유 CSS와 생성 스크립트의 캐시 주소는 rebrand v52, journal v7로 갱신했다. npm run check와 git diff --check를 통과했다. 실제 문의 효과를 측정한 결과는 아니다.
+
+
+## 협업 안내 세로 가운데 정렬, 2026-10-13
+
+대표 요청으로 함께 일하는 방식 영역의 위아래 여백을 균등하게 나눴다. 기존에는 안내 구분선 아래 40px과 서비스 section 하단 여백 158.4px가 합쳐져 PC 내용이 위로 치우쳤다. section의 하단 여백을 안내 영역으로 옮겨 두 방향에 같은 값을 적용한다. PC 1440px에서 위아래 각각 99.2px이며 좌우 내용의 세로 중심 차이는 0.004px 미만이다. 모바일 390px와 320px에서는 한 열을 유지하고 위아래 각각 64px를 적용한다. 안내 영역 밖에 남는 하단 여백은 0px이며 세 화면에 가로 넘침이 없다. 기존 문구, 서체, 서비스 배치와 FAQ는 유지한다.
+
+실제 화면 증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-collaboration-spacing-20261013의 01-PC.png, 02-mobile.png와 03-320.png이며 직접 열어 확인했다. npm run check와 git diff --check를 통과했고 공유 CSS 캐시 주소는 v53으로 갱신했다. 운영 반영은 Git 푸시 뒤 Production과 실제 응답을 확인한다.

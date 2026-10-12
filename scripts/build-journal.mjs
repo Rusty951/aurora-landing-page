@@ -17,7 +17,7 @@ const meta = article => `<div class="journal-meta"><span>${escape(article.kind)}
 const mobileNav = current => `<nav class="journal-mobile-nav" aria-label="모바일 주요 메뉴"><a href="/"${current==='home'?' aria-current="page"':''}>홈</a><a href="/work"${current==='work'?' aria-current="page"':''}>포트폴리오</a><a href="/journal"${current==='journal'?' aria-current="page"':''}>저널</a></nav>`;
 function connectPage(html, current) {
   html = html.replace(/\/rebrand\/contact\.js\?v=[567]/g, '/rebrand/contact.js?v=8');
-  html = html.replace(/\/rebrand\/style\.css\?v=(?:4[6789]|5[01])/g, '/rebrand/style.css?v=52')
+  html = html.replace(/\/rebrand\/style\.css\?v=(?:4[6789]|5[012])/g, '/rebrand/style.css?v=53')
     .replace('/rebrand/fonts.css?v=1', '/rebrand/fonts.css?v=2')
     .replace('/work/style.css?v=24', '/work/style.css?v=25')
     .replace(/\/journal\/journal\.css\?v=[123456]/g, '/journal/journal.css?v=7');
