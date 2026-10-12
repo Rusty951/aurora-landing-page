@@ -254,3 +254,8 @@ Product Design과 UI UX Designer의 감사 기준으로 현재 로컬 화면을 
 대표 요청으로 함께 일하는 방식 영역의 위아래 여백을 균등하게 나눴다. 기존에는 안내 구분선 아래 40px과 서비스 section 하단 여백 158.4px가 합쳐져 PC 내용이 위로 치우쳤다. section의 하단 여백을 안내 영역으로 옮겨 두 방향에 같은 값을 적용한다. PC 1440px에서 위아래 각각 99.2px이며 좌우 내용의 세로 중심 차이는 0.004px 미만이다. 모바일 390px와 320px에서는 한 열을 유지하고 위아래 각각 64px를 적용한다. 안내 영역 밖에 남는 하단 여백은 0px이며 세 화면에 가로 넘침이 없다. 기존 문구, 서체, 서비스 배치와 FAQ는 유지한다.
 
 실제 화면 증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-collaboration-spacing-20261013의 01-PC.png, 02-mobile.png와 03-320.png이며 직접 열어 확인했다. npm run check와 git diff --check를 통과했고 공유 CSS 캐시 주소는 v53으로 갱신했다. 운영 반영은 Git 푸시 뒤 Production과 실제 응답을 확인한다.
+
+
+## 협업 안내 제목 축약, 2026-10-13
+
+대표 요청에 따라 제목을 현재 상황에 맞춰, 필요한 일부터로 끝냈다. 시작합니다.만 제거하고 기존 두 줄, 서체와 가운데 정렬은 유지한다. 실제 1440px, 390px와 320px에서 제목과 가로 넘침을 확인했으며 넘침이 없었다. 위아래 여백은 PC 99.2px, 모바일 64px로 동일하다. 증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-collaboration-title-20261013의 title-1440.png, title-390.png와 title-320.png이며 직접 열어 확인했다. npm run check와 git diff --check를 통과했다.
