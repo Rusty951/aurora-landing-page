@@ -266,3 +266,8 @@ Product Design과 UI UX Designer의 감사 기준으로 현재 로컬 화면을 
 대표가 지정한 두 브라우저 의견을 적용했다. 서비스 제목은 방향을 정하고, 필요한 일을 함께로 끝내며 기존 두 줄과 강조 서체를 유지한다. 제목 오른쪽 업종 및 역할 소개 문단은 삭제했다. 서비스 세 카드의 설명과 결과물, U자 배치와 협업 안내는 그대로 유지한다. npm run check와 git diff --check를 통과했다.
 
 인앱 브라우저의 1440px, 390px와 320px에서 실제 제목과 소개 문구 제거, 세 카드 유지와 가로 넘침이 없음을 확인했다. 검수 파일은 Desktop/codex-output/99_최종아님_삭제대기/aurora-service-intro-20261014의 service-PC-final.png, service-390.png와 service-320.png다. service-1440.png는 등장 애니메이션 진행 중 캡처로 최종 색상 근거로 사용하지 않는다. 이번에는 CSS와 동작을 변경하지 않았다.
+
+
+## 협업 안내 문장 줄바꿈, 2026-10-14
+
+대표 지정 위치에 따라 함께 살펴봅니다. 뒤에 명시적 줄바꿈을 넣었다. 문구, 서체와 기존 가운데 정렬은 유지한다. 인앱 브라우저의 1440px, 390px와 320px에서 문장 사이 줄바꿈과 가로 넘침이 없음을 확인했다. 검수 이미지는 Desktop/codex-output/99_최종아님_삭제대기/aurora-collaboration-linebreak-20261014의 line-1440.png, line-390.png와 line-320.png이며 직접 열어 확인했다. npm run check와 git diff --check를 통과했다.
