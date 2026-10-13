@@ -47,7 +47,7 @@ assert(!html.includes('무료 진단'), 'Do not invent an unconfirmed free diagn
 assert(html.includes('함께 일하는 방식') && html.includes('목표와 예산, 일정에 맞춰 작업 범위를 정하고'), 'Describe the collaboration process');
 assert(!html.includes('대표가 직접') && !html.includes('대표는 초기 상담'), 'Do not reintroduce representative-led sales copy');
 assert(count(html, /<details\b/gi) >= 1, 'FAQ must use native <details>.');
-assert(html.includes('자체 시안') && html.includes('AI 이미지'), 'Generated studies must keep own-concept labels and the AI disclosure.');
+assert(html.includes('제품 이미지 / 자체 시안') && html.includes('브랜드 / 자체 시안'), 'Generated studies must keep own-concept labels; detailed provenance is checked on work pages.');
 
 [
   '외부 마케팅팀',
