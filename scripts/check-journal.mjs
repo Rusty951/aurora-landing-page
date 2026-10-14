@@ -66,8 +66,9 @@ console.log(`Journal checks passed: ${articles.length} articles and bidirectiona
 
 const homeProjects = [...read('index.html').matchAll(/<article class="project[^\"]*">([\s\S]*?)<\/article>/g)];
 assert.equal(homeProjects.length,3,'Three selected works');
-for (const [index,slug] of ['website-seam','veil','aurora-in-print'].entries()) {
-  assert(homeProjects[index][1].includes(`href="/work/${slug}"`),'Selected work order and destination');
+for (const [index,url] of ['/work/demos/16-seam-hotel/','/work/veil','/work/aurora-in-print'].entries()) {
+  assert(homeProjects[index][1].includes(`href="${url}"`),'Selected work order and destination');
 }
-assert(!homeProjects[0][1].includes('aria-haspopup'),'Website sample opens its portfolio page directly');
+assert(homeProjects[0][1].includes('target="_blank" rel="noopener noreferrer"'), 'Sample opens in a protected new tab');
+assert(!homeProjects[0][1].includes('aria-haspopup'),'Website sample opens directly without a modal');
 assert(homeProjects[0][1].includes('web-seam.webp?v=48'),'Existing website screenshot is reused');
