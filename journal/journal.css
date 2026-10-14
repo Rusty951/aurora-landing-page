@@ -158,3 +158,14 @@
  .journal-consult-link { width:100%; gap:16px; }
 }
 @media(prefers-reduced-motion:reduce) { .journal-feature-image img,.journal-card-image img { transition:none; } }
+
+/* The approved Korean publication name keeps the existing editorial typography. */
+.journal-masthead .brand-notes-title { font-family:"Arita Buri","Asta Sans",serif; font-weight:600; font-size:clamp(54px,6vw,88px); line-height:1.25; letter-spacing:-.025em; }
+@media(max-width:700px) {
+ .journal-masthead .brand-notes-title { font-size:48px; }
+ .journal-connected .header .journal-mobile-nav { gap:14px; }
+}
+@media(max-width:360px) {
+ .journal-masthead .brand-notes-title { font-size:44px; }
+ .journal-connected .header .journal-mobile-nav { gap:12px; }
+}
