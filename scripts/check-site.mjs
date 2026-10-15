@@ -79,7 +79,7 @@ assert(!html.includes('콘텐츠 마케팅"'), 'Old V2 Open Graph alt or metadat
 assert(/href=["']\/rebrand\/style\.css\?v=56["']/.test(html), 'Homepage must load the current stylesheet.');
 assert(/prefers-reduced-motion/.test(styles), 'Reduced-motion handling is required.');
 assert(/resonance\.webp/.test(html) && /resonance\.webp/.test(styles), 'Hero must keep a static silk fallback.');
-assert(ogCard.includes('외부 마케팅팀') && ogCard.includes('필요한 마케팅을'), 'OG render source must match the approved external marketing team position.');
+assert(ogCard.includes('리브랜딩 실행 파트너') && ogCard.includes('브랜드가 기억되도록.') && ogCard.includes('/rebrand/assets/resonance.webp'), 'OG render source must match the current silk homepage.');
 
 ['README.md', 'AGENTS.md', 'CLAUDE.md', 'docs/', 'prd.md', 'dev-server.mjs', 'scripts/', 'design-qa.md'].forEach((privatePath) => {
   assert(vercelIgnore.split(/\r?\n/).includes(privatePath), `Internal path must be excluded from Vercel: ${privatePath}`);
@@ -136,7 +136,10 @@ assert(vercel.rewrites?.some((rule) => rule.source === '/interview' && rule.dest
 
 const heroAsset = path.join(projectRoot, 'assets/aurora-wave-bg.png');
 const heroAvifAsset = path.join(projectRoot, 'assets/aurora-wave-bg.avif');
-const ogAsset = path.join(projectRoot, 'assets/aurora-og.png');
+const ogUrl = new URL(html.match(/<meta property="og:image" content="([^"]+)"/)[1]);
+assert(ogUrl.origin === 'https://www.aurorasound.kr', 'Open Graph image must use the production origin.');
+assert(html.includes(`<meta name="twitter:image" content="${ogUrl.href}"`), 'Twitter and Open Graph must use the same share image.');
+const ogAsset = path.join(projectRoot, ogUrl.pathname);
 assert(fs.existsSync(heroAsset), 'Missing hero image asset.');
 assert(fs.existsSync(heroAvifAsset), 'Missing optimized AVIF hero image asset.');
 assert(fs.statSync(heroAvifAsset).size < 200000, 'Optimized AVIF hero asset must stay below 200KB.');

@@ -1,85 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=1200, initial-scale=1" />
-  <title>오로라의소리 OG 카드</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <title>오로라의소리 공유 이미지</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Asta+Sans:wght@400;500&amp;family=DM+Sans:wght@450&amp;family=Instrument+Serif:ital@1&amp;display=swap" rel="stylesheet" />
   <style>
+    @font-face {
+      font-family: "Aurora Hero Sans";
+      src: url("/rebrand/assets/fonts/aurora-hero-450.woff2") format("woff2");
+      font-weight: 450;
+      font-style: normal;
+      font-display: block;
+      unicode-range: U+0042, U+0064-0065, U+006E-006F, U+0079;
+    }
     * { box-sizing: border-box; }
-    html,
-    body { width: 1200px; height: 630px; }
+    html, body { width: 1200px; height: 630px; }
     body {
       position: relative;
       margin: 0;
       overflow: hidden;
-      background: #09090e url("/assets/aurora-wave-bg.avif") center right / cover no-repeat;
-      color: #f5f3f8;
-      font-family: "Pretendard Variable", Pretendard, sans-serif;
+      background: #0a0a10 url("/rebrand/assets/resonance.webp") center / cover no-repeat;
+      color: #f2f0f5;
+      font-family: "Asta Sans", "DM Sans", sans-serif;
+      font-synthesis: none;
       word-break: keep-all;
     }
-    body::after {
+    body::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(5, 5, 9, .28), rgba(5, 5, 9, .04) 67%, rgba(5, 5, 9, .16));
+      background: linear-gradient(90deg, rgba(8,9,14,.62), rgba(8,9,14,.36) 42%, rgba(8,9,14,.10) 78%),
+        linear-gradient(0deg, rgba(8,9,14,.36), transparent 40%);
     }
-    main {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      padding: 60px 72px 52px;
-    }
-    .wordmark {
-      font-size: 22px;
-      font-weight: 770;
-      letter-spacing: -.04em;
-    }
-    .content {
-      margin-top: auto;
-    }
-    .eyebrow {
-      color: #d1bcff;
-      font-size: 18px;
-      font-weight: 700;
-    }
+    main { position: relative; height: 100%; padding: 44px 60px 38px; }
+    .identity { display: flex; align-items: center; gap: 22px; }
+    .wordmark { display: block; width: 196px; height: auto; }
+    .brand-name { margin: 0; font-size: 15px; font-weight: 400; color: #c3bdcc; }
+    .content { margin-top: 73px; }
+    .role { margin: 0 0 18px; font-size: 22px; line-height: 1.35; font-weight: 500; letter-spacing: -.025em; }
     h1 {
-      margin: 20px 0 0;
-      font-size: 62px;
-      font-weight: 820;
-      line-height: 1.06;
-      letter-spacing: -.06em;
+      margin: 0;
+      font-family: "Aurora Hero Sans", "DM Sans", sans-serif;
+      font-size: 106px;
+      line-height: .98;
+      font-weight: 450;
+      letter-spacing: -.065em;
     }
-    h1 span { color: #a276ff; }
-    .footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      margin-top: 32px;
-      padding-top: 22px;
-      border-top: 1px solid rgba(255, 255, 255, .22);
-      color: #cbc7d2;
-      font-size: 17px;
-    }
-    .footer strong {
-      color: #f5f3f8;
-      font-weight: 700;
-    }
+    h1 span { display: block; }
+    h1 em { font-family: "Instrument Serif", serif; font-weight: 400; letter-spacing: -.035em; }
+    .message { margin: 24px 0 0; font-size: 30px; line-height: 1.45; font-weight: 400; letter-spacing: -.015em; }
+    .url { position: absolute; right: 60px; bottom: 38px; margin: 0; font-family: "DM Sans", sans-serif; font-size: 18px; letter-spacing: -.015em; color: #e0dbe9; }
   </style>
 </head>
 <body>
   <main>
-    <p class="wordmark">오로라의소리</p>
-    <div class="content">
-      <p class="eyebrow">외부 마케팅팀</p>
-      <h1>무엇부터 바꿀지 정하고,<br /><span>필요한 마케팅을</span> 실행합니다.</h1>
-      <div class="footer">
-        <p>웹사이트, 콘텐츠, 사진 및 영상 / 월간 운영</p>
-        <p><strong>aurorasound.kr</strong></p>
-      </div>
+    <div class="identity">
+      <img class="wordmark" src="/rebrand/assets/aurora-wordmark.svg?v=2" alt="aurora sound" />
+      <p class="brand-name">오로라의소리</p>
     </div>
+    <div class="content">
+      <p class="role">리브랜딩 실행 파트너</p>
+      <h1 lang="en"><span>Beyond</span><span>the <em>ordinary.</em></span></h1>
+      <p class="message">눈길이 머물고,<br />브랜드가 기억되도록.</p>
+    </div>
+    <p class="url">aurorasound.kr</p>
   </main>
 </body>
 </html>

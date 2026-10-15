@@ -7,6 +7,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = path => readFileSync(resolve(root, path), 'utf8');
 const write = (path, value) => writeFileSync(resolve(root, path), value);
 const articles = JSON.parse(read('journal/articles.json'));
+const defaultShareImage = new URL(read('index.html').match(/<meta property="og:image" content="([^"]+)"/)[1]).pathname;
 const catalog = JSON.parse(read('work/catalog.json'));
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const title = article => article.title.replace(/\n/g, ' ');
@@ -37,7 +38,7 @@ const footer = shell.match(/<footer\b.*?<\/footer>/s)[0].replace(/<aside class="
 const sharedHead = shell.match(/<link rel="icon"[\s\S]*?<meta property="og:type"/)[0].replace(/<meta property="og:type"$/, '')
   + shell.match(/<link rel="preconnect"[\s\S]*?<script src="\/work\/work\.js/)[0].replace(/<script src="\/work\/work\.js$/, '')
   + '<link rel="stylesheet" href="/journal/journal.css?v=8">';
-function page(pageTitle, description, main, after='', editorialNote='', route='/journal', image='/assets/aurora-og.png') {
+function page(pageTitle, description, main, after='', editorialNote='', route='/journal', image=defaultShareImage) {
   const canonical = 'https://www.aurorasound.kr'+route;
   const social = `<link rel="canonical" href="${canonical}"><meta property="og:type" content="${editorialNote?'article':'website'}"><meta property="og:locale" content="ko_KR"><meta property="og:site_name" content="오로라의소리"><meta property="og:title" content="${escape(pageTitle)} | 오로라의소리"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="https://www.aurorasound.kr${escape(image)}"><meta name="twitter:card" content="summary_large_image">`;
   const pageFooter = editorialNote ? footer.replace('<div class="work-footer-meta">', `<aside class="journal-editorial-note" aria-label="편집 안내"><p>${escape(editorialNote)}</p></aside><div class="work-footer-meta">`) : footer;

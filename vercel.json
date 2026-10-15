@@ -3,6 +3,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/assets/aurora-og.png",
+      "destination": "/assets/aurora-og-20261015.png"
+    },
+    {
       "source": "/interview",
       "destination": "/index.html"
     },
