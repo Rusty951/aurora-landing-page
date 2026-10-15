@@ -2898,13 +2898,16 @@ body.project-open {
 .silk-mode .chapter-first .chapter-kicker {
   width: auto;
   max-width: none;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 .silk-mode .hero-role {
   margin-left: 0;
-  font-size: 18px;
+  font-family: "Asta Sans", sans-serif;
+  font-size: 24px;
   font-weight: 500;
-  color: #ded8e8;
+  line-height: 1.35;
+  letter-spacing: -.025em;
+  color: var(--white);
 }
 .silk-mode .hero-title {
   font-size: clamp(84px, 8.6vw, 136px);
@@ -3232,10 +3235,10 @@ footer {
     padding-bottom: 36px;
   }
   .silk-mode .chapter-first .chapter-kicker {
-    margin-bottom: 26px;
+    margin-bottom: 20px;
   }
   .silk-mode .hero-role {
-    font-size: 16px;
+    font-size: 20px;
     text-shadow: none;
   }
   .silk-mode .hero-title {
