@@ -341,3 +341,9 @@ final result: passed
 대표 요청에 따라 현재 홈페이지의 실크 원본, 가로형 로고와 서체로 공유 카드를 다시 구성했다. scripts/og-card.html을 Chrome의 실제 1200×630 뷰포트에서 렌더링하고 이미지 및 글꼴 로딩 후 캡처를 직접 검수했다. 역할 안내, 영문 제목과 두 줄의 한글 소개, 로고와 주소의 겹침이 없다. 검수본은 Desktop/codex-output/99_최종아님_삭제대기/aurora-share-20261015/share-card.jpg이며 PNG 변환 후 치수와 화면을 다시 확인했다.
 
 홈과 /interview의 OG 및 Twitter 이미지 주소를 새 assets/aurora-og-20261015.png로 바꿨다. 이전 이미지 경로는 Vercel rewrite로 같은 새 자산에 연결한다. 브랜드 노트 목록의 기본 이미지도 홈페이지 기준을 사용하며 개별 글의 대표 이미지는 유지한다. 홈페이지 body가 이전 HEAD와 바이트 단위로 같고 화면 CSS 및 동작은 변경하지 않았다. 로컬 홈, /interview와 PNG 응답 200, image/png와 1200×630, npm run check 및 git diff --check를 확인했다. Production 응답과 스레드 미리보기는 배포 후 별도로 확인한다.
+
+### 운영과 스레드 확인
+
+4ba6f03의 Vercel Production success를 확인했다. 운영 홈, /interview와 /journal HTML, 새 PNG 및 이전 이미지 주소가 모두 200이며 Meta crawler user-agent에서 로컬 소스와 SHA256이 일치했다. PNG는 732,311바이트, SHA256 cbd965f6a69a116bf33687c21d46663d33231d62d39b9e8a05b4c46ac648704d다.
+
+Meta 공유 디버거에서 다시 스크랩한 뒤 og:image가 새 주소인 것을 확인했다. 새 스레드 작성창에 https://www.aurorasound.kr/를 넣었을 때 새 실크 이미지가 표시됐다. 이전부터 열려 있던 작성창에는 카드 캐시가 남아 있어 원문을 유지하고 링크를 https://aurorasound.kr/로 다시 연결했다. 해당 주소는 운영 www 홈으로 이동하며 현재 작성 중인 소개글에서도 새 이미지가 보이는 것을 직접 확인했다. 게시하지 않았다. 실제 작성창 캡처는 같은 검수 폴더의 threads-preview.jpg다.
