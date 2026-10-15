@@ -322,3 +322,16 @@ aurora-copy-writing의 자연스러운 문체와 설득력 보강 기준, A01 Vo
 인앱 브라우저의 로컬 1440×1024, 390×844와 320×844에서 실제 화면을 확인했다. 역할 안내가 한 줄이며 높이는 PC 32.4px, 모바일 27px이다. 장식 점이 없고 문구와 영문 제목의 왼쪽 기준선이 일치한다. 가로 넘침과 글자 및 버튼 겹침이 없다. npm run check와 git diff --check를 통과했다. 앞서 실제 클릭으로 검증한 문의 경로와 이번에 변경하지 않은 상호작용의 검수는 재사용한다.
 
 증거는 /Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-hero-role-20261015의 after-1440.jpg, after-390.jpg와 after-320.jpg이며 직접 열어 확인했다. 수정 전 기본 화면은 before-current.jpg, 운영 110% 확대의 1309×931 화면은 before-live-1309.jpg, 로컬 1280×720은 before-local-PC.jpg다. 서로 다른 크기의 수정 전 캡처는 같은 조건의 픽셀 비교 근거로 사용하지 않는다. CSS와 실제 글자 형태를 확인했으며 glyph별 Rendered Fonts 진단은 제공되지 않아 수행하지 않았다.
+
+
+## 첫 화면 한글 비례와 긴 창 여백, 2026-10-15
+
+대표가 Product Design 검수 후 서체를 유지하며 긴 화면의 여백과 한글 두 문구의 크기 및 간격을 함께 맞추도록 승인했다. 역할 안내는 Asta Sans 500, PC 24px와 모바일 20px를 유지한다. 아래 소개는 Asta Sans 400, PC 26px와 모바일 18px로 맞추고 기존 두 줄과 자간을 유지한다. 역할 안내와 영문 제목 사이 16px, 영문 제목과 소개 사이 PC 16px 및 모바일 18px, 소개와 버튼 사이 PC 32px 및 모바일 28px다. 상대 위치 보정 대신 실제 문서 흐름으로 간격을 정리했다. 위쪽 가변 여백은 PC 96px, 모바일 144px에서 제한하고 나머지 공간을 본문 아래로 보낸다. 공유 CSS 캐시는 v56이다.
+
+인앱 브라우저의 같은 로컬 /#home, 스크롤 0, DPR 1, 움직임 정지 및 음악 꺼짐 상태에서 1440×900, 809×1415, 390×844와 320×844의 수정 전후 이미지를 각각 같은 입력에 함께 열어 비교했다. 증거 폴더는 /Users/bananabk/Desktop/codex-output/99_최종아님_삭제대기/aurora-hero-spacing-20261015다. 대응 파일은 before-desktop-1440.jpg와 after-desktop-1440.jpg, before-tall-809.jpg와 after-tall-809.jpg, before-mobile-390.jpg와 after-mobile-390.jpg, before-mobile-320.jpg와 after-mobile-320.jpg다. 배경 모션을 멈춘 시점의 프레임은 서로 달라 배경 픽셀의 동일성은 주장하지 않는다. 배경 자산과 모션 코드, 색상 및 표면 CSS는 변경하지 않았다.
+
+긴 809×1415 창에서 역할 안내 y는 267px, 헤더 아래 간격은 약 157.4px다. 390×1200에서도 역할 안내 y는 276px, 헤더 아래 간격은 166px다. 모바일 두 크기 모두 역할 안내 20px, 소개 18px와 두 줄을 유지한다. 네 기준 크기와 추가 1440×800, 390×1200에서 가로 넘침은 0px이며 글자, 버튼 및 재생 설정의 겹침이 없다. 추가 이미지는 after-desktop-short-1440.jpg와 after-mobile-tall-390.jpg다. 서체 및 굵기, 영문 제목 크기, 색상 토큰과 이미지 자산, 모든 화면 문구는 유지하고 승인된 크기 및 배치 변화만 확인했다. glyph별 Rendered Fonts 진단은 도구에서 제공되지 않아 수행하지 않았다.
+
+변경된 배치에서 첫 화면 프로젝트 문의 버튼을 실제 클릭해 #contact로 이동하고 Let’s talk. 제목이 보이는 것을 확인했다. HTML 53개는 CSS 캐시 주소 외의 변경이 없음을 원본과 비교했다. npm run check를 통과했으며 최종 diff도 확인했다. 이번 변경 범위에 남은 P0, P1, P2 문제는 없다. 앞선 감사에서 별도로 지적한 음악 시작 방식과 배경 대비는 이번 요청 범위에 포함하지 않았다.
+
+final result: passed
