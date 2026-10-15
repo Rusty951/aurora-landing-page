@@ -1,4 +1,4 @@
-import { AuroraScore } from "./audio.js?v=3";
+import { AuroraScore } from "./audio.js?v=4";
 import { initShowcase } from "./showcase.js?v=6";
 const $ = (selector) => document.querySelector(selector);
 const clamp = (n, a = 0, b = 1) => Math.max(a, Math.min(b, n));
@@ -154,6 +154,12 @@ function soundState() {
       : soundWanted && !soundFailed ? "음악 대기" : "음악 켜기";
   });
 }
+score.onError = () => {
+  soundFailed = true;
+  soundState();
+  status.textContent =
+    "배경 음악을 재생할 수 없습니다. 다시 눌러 시도해주세요.";
+};
 function readSoundPreference() {
   try {
     return sessionStorage.getItem("aurora-sound") !== "off";

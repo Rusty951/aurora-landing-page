@@ -18,7 +18,7 @@ assert(statSync(resolve(root, "rebrand/assets/resonance.webp")).size < 300000, "
 assert(!/<audio[^>]*autoplay/.test(html), "Audio uses the policy-aware Web Audio controller");
 assert.match(app, /soundWanted = !posterMode && readSoundPreference\(\)/);
 assert.match(app, /if \(soundWanted && !document.hidden\) void startSound\(true\)/);
-assert.match(app, /audio\.js\?v=3/);
+assert.match(app, /audio\.js\?v=4/);
 console.log("First-release checks passed: approved silk renderer, static fallback, quiet default music and previous UI removal.");
 
 // Exercise the production playback controller with hero and footer controls.
@@ -210,48 +210,119 @@ await soundControls[0].listeners.click();
 playbackContext.sessionStorage.getItem = () => { throw new Error("Storage unavailable"); };
 assert.equal(playbackContext.readSoundPreference(), true, "Default music remains available without storage");
 
-// Exercise the actual score start/stop code independently of device speakers.
-// Delayed browser resume promises must never create duplicate or revived loops.
-const intervals = new Set();
+// Exercise the production streaming engine with delayed device/network replies.
+// Existing controller tests above also cover gesture fallback and remembered mute.
+const timers = new Map();
+let timerId = 0;
 const targets = [];
-const canceledSuspensions = [];
+const elements = [];
+const resumes = [];
+const plays = [];
+let resumeCalls = 0;
+let playCalls = 0;
+let pauseCalls = 0;
+let sourceCount = 0;
+const testDocument = {
+  body: { append(media) { elements.push(media); } },
+  createElement(tag) {
+    assert.equal(tag, "audio");
+    return {
+      paused: true, currentTime: 0, listeners: {},
+      setAttribute() {},
+      addEventListener(name, listener) { this.listeners[name] = listener; },
+      play() {
+        playCalls++;
+        return new Promise((resolvePlay, rejectPlay) => plays.push({
+          resolve: () => { this.paused = false; resolvePlay(); }, reject: rejectPlay,
+        }));
+      },
+      pause() { this.paused = true; pauseCalls++; },
+    };
+  },
+};
+class DeviceContext {
+  state = "suspended";
+  currentTime = 2;
+  destination = {};
+  createGain() {
+    return { connect() {}, gain: { value: 0, cancelScheduledValues() {}, setTargetAtTime(value) { targets.push(value); } } };
+  }
+  createMediaElementSource() { sourceCount++; return { connect() {} }; }
+  resume() {
+    resumeCalls++;
+    return new Promise((resolveResume) => resumes.push(() => { this.state = "running"; resolveResume(); }));
+  }
+  async suspend() { this.state = "suspended"; }
+}
 const Score = runInNewContext(read("rebrand/audio.js").replace("export class AuroraScore", "class AuroraScore") + "\nAuroraScore;", {
-  setInterval(callback) { intervals.add(callback); return callback; },
-  clearInterval(id) { intervals.delete(id); },
-  setTimeout() { return 7; },
-  clearTimeout(id) { canceledSuspensions.push(id); },
+  window: { AudioContext: DeviceContext }, document: testDocument,
+  setTimeout(callback, delay) { const id = ++timerId; timers.set(id, { callback, delay }); return id; },
+  clearTimeout(id) { timers.delete(id); },
 });
 const engine = new Score();
-const resumeWaiters = [];
-let resumeCalls = 0;
-let schedules = 0;
-engine.ctx = { state: "suspended", currentTime: 2, resume() { resumeCalls++; return new Promise((resolveResume) => resumeWaiters.push(resolveResume)); }, suspend() {} };
-engine.master = { gain: { cancelScheduledValues() {}, setTargetAtTime(value) { targets.push(value); } } };
-engine.schedule = () => { schedules++; };
 assert.equal(await engine.start({ automatic: true }), false);
 assert.equal(resumeCalls, 0, "Blocked automatic start avoids a never-settling resume promise");
+assert.equal(playCalls, 0, "Blocked autoplay does not request the recording");
+assert.equal(engine.media.preload, "none");
+assert.equal(engine.media.loop, true);
+assert.equal(engine.media.hidden, true);
+assert.equal(engine.media.src, "/rebrand/assets/audio/close-looking.mp3?v=1");
 const duplicateStart1 = engine.start();
 const duplicateStart2 = engine.start();
-engine.ctx.state = "running";
-resumeWaiters.splice(0).forEach((resolveResume) => resolveResume());
-await Promise.all([duplicateStart1, duplicateStart2]);
-assert.equal(schedules, 1, "Concurrent resume completions schedule music once");
-assert.equal(intervals.size, 1, "Only one music scheduler runs");
-assert(targets[0] > 0 && targets[0] <= 0.02, "Default master output stays very quiet");
+assert.equal(duplicateStart1, duplicateStart2, "Concurrent starts share one network/device operation");
+resumes.splice(0).forEach((finish) => finish());
+plays.splice(0).forEach((reply) => reply.resolve());
+await duplicateStart1;
+assert.equal(engine.enabled, true);
+assert.equal(playCalls, 1);
+assert.equal(sourceCount, 1, "One recording source is connected");
+assert.equal(elements.length, 1, "Only one audio element is created");
+assert.equal(targets.at(-1), 0.22, "Normalized recording is attenuated to quiet background level");
+assert.equal(timers.size, 0, "Successful playback releases its loading timeout");
 engine.stop();
-assert.equal(intervals.size, 0);
-engine.ctx.state = "suspended";
+assert.equal(engine.enabled, false);
+assert.equal(targets.at(-1), 0);
+const oldPauseTimer = [...timers.keys()][0];
+const restart = engine.start();
+assert(!timers.has(oldPauseTimer), "Restart cancels the old fade/suspension timer");
+resumes.splice(0).forEach((finish) => finish());
+plays.splice(0).forEach((reply) => reply.resolve());
+await restart;
+engine.stop();
+[...timers.values()].forEach(({ callback }) => callback());
+timers.clear();
+assert.equal(engine.media.paused, true, "Mute pauses the stream after the short fade");
+assert.equal(engine.ctx.state, "suspended");
 const canceledStart = engine.start();
+const pendingPlay = plays.shift();
 engine.stop();
-engine.ctx.state = "running";
-resumeWaiters.splice(0).forEach((resolveResume) => resolveResume());
-await canceledStart;
-assert.equal(engine.enabled, false, "Stopping during resume prevents audio from returning");
-assert.equal(intervals.size, 0);
-assert(canceledSuspensions.includes(7), "Starting again cancels the old suspension timeout");
+assert.equal(engine.media.paused, true, "Stopping a pending start pauses it immediately");
+pendingPlay.reject(Object.assign(new Error("Interrupted"), { name: "AbortError" }));
+resumes.splice(0).forEach((finish) => finish());
+assert.equal(await canceledStart, false);
+assert.equal(engine.enabled, false, "Stopping during loading cannot resurrect playback");
+const failedStart = engine.start();
+resumes.splice(0).forEach((finish) => finish());
+plays.shift().reject(new Error("Network unavailable"));
+await assert.rejects(failedStart, /Network unavailable/);
+assert.equal(engine.media.paused, true);
+assert.equal(engine.pending, null, "Loading failure leaves playback retryable");
+const stalledStart = engine.start();
+resumes.splice(0).forEach((finish) => finish());
+[...timers.values()].find(({ delay }) => delay === 14000).callback();
+await assert.rejects(stalledStart, /timed out/);
+plays.shift().reject(new Error("Canceled request"));
+assert.equal(engine.enabled, false, "A stalled request cannot leave controls busy indefinitely");
 const permittedAutoplay = engine.start({ automatic: true });
-resumeWaiters.splice(0).forEach((resolveResume) => resolveResume());
+resumes.splice(0).forEach((finish) => finish());
+plays.shift().resolve();
 await permittedAutoplay;
 assert.equal(engine.enabled, true, "Permitted autoplay starts without a separate interaction");
-engine.stop();
-console.log("Playback checks passed: quiet default, gesture fallback, remembered mute, visibility cancellation, synchronized controls and single scheduling.");
+let mediaErrors = 0;
+engine.onError = () => { mediaErrors++; };
+engine.media.listeners.error();
+assert.equal(engine.enabled, false);
+assert.equal(mediaErrors, 1, "A stream error updates the playback controller");
+assert(pauseCalls > 0);
+assert(statSync(resolve(root, "rebrand/assets/audio/close-looking.mp3")).size < 3000000, "Full recording stays under 3 MB");
+console.log("Playback checks passed: lazy streamed recording, quiet gain, retry, mute/visibility cancellation and synchronized controls.");
