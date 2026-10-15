@@ -72,7 +72,9 @@ assert(html.includes('제품 이미지 / 자체 시안') && html.includes('브�
   assert(!html.includes(forbiddenCopy), `Removed or held V2 copy returned: ${forbiddenCopy}`);
 });
 
-assert(html.includes('<title>오로라의소리 | 웹사이트, 콘텐츠, 사진 및 영상과 마케팅 운영</title>'), 'SEO title must match the approved external marketing team position.');
+const approvedTitle = '오로라의소리 | 브랜드의 방향을 정하고, 실행까지 함께합니다';
+assert(html.includes(`<title>${approvedTitle}</title>`), 'Homepage title must match the approved brand direction and execution message.');
+assert(html.includes(`<meta property="og:title" content="${approvedTitle}"`) && html.includes(`<meta name="twitter:title" content="${approvedTitle}"`), 'Social preview titles must match the approved homepage title.');
 assert(/<meta name="description" content="무엇부터 바꿀지 정하고 필요한 마케팅을 실행합니다\./.test(html), 'Metadata and first-screen role must align.');
 assert(!html.includes('필요한 콘텐츠를 정하고 제작까지 맡습니다'), 'Old V2 positioning remains in metadata or body.');
 assert(!html.includes('콘텐츠 마케팅"'), 'Old V2 Open Graph alt or metadata remains.');

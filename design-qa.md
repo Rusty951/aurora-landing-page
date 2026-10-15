@@ -347,3 +347,7 @@ final result: passed
 4ba6f03의 Vercel Production success를 확인했다. 운영 홈, /interview와 /journal HTML, 새 PNG 및 이전 이미지 주소가 모두 200이며 Meta crawler user-agent에서 로컬 소스와 SHA256이 일치했다. PNG는 732,311바이트, SHA256 cbd965f6a69a116bf33687c21d46663d33231d62d39b9e8a05b4c46ac648704d다.
 
 Meta 공유 디버거에서 다시 스크랩한 뒤 og:image가 새 주소인 것을 확인했다. 새 스레드 작성창에 https://www.aurorasound.kr/를 넣었을 때 새 실크 이미지가 표시됐다. 이전부터 열려 있던 작성창에는 카드 캐시가 남아 있어 원문을 유지하고 링크를 https://aurorasound.kr/로 다시 연결했다. 해당 주소는 운영 www 홈으로 이동하며 현재 작성 중인 소개글에서도 새 이미지가 보이는 것을 직접 확인했다. 게시하지 않았다. 실제 작성창 캡처는 같은 검수 폴더의 threads-preview.jpg다.
+
+## 공유 카드 제목 변경, 2026-10-15
+
+대표가 승인한 "오로라의소리 | 브랜드의 방향을 정하고, 실행까지 함께합니다"를 홈과 /interview의 문서 제목, OG 및 Twitter 제목에 적용했다. 기존 실크 공유 이미지, 본문과 설명, 문의 및 추적 설정은 유지한다. 승인 문구의 정확한 일치와 세 제목의 일관성을 기존 사이트 검사에서 확인한다. npm run check 및 git diff --check 통과. 운영 반영과 플랫폼 캐시 갱신은 배포 후 확인한다.

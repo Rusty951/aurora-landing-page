@@ -10,7 +10,7 @@ index.html은 홈과 /interview의 공통 문서다. vercel.json이 광고 경�
 
 ## 서체와 실크
 
-홈페이지와 /interview의 OG 및 Twitter 이미지는 https://www.aurorasound.kr/assets/aurora-og-20261015.png 하나를 사용한다. PNG 1200×630, MIME 유형과 대체 설명을 HTML head에서 제공한다. 이전 /assets/aurora-og.png 요청은 같은 새 파일로 rewrite해 기존 주소의 접근을 유지한다. 브랜드 노트 목록의 기본 공유 이미지는 홈페이지 OG에서 가져오며 글별 대표 이미지는 유지한다. HTML 변경과 이미지 주소 변경만으로 외부 플랫폼의 기존 캐시 갱신 완료를 주장하지 않으며 실제 작성 화면에서 확인한다.
+홈페이지와 /interview의 문서 제목, OG 및 Twitter 제목은 대표가 승인한 "오로라의소리 | 브랜드의 방향을 정하고, 실행까지 함께합니다"로 맞춘다. OG 및 Twitter 이미지는 https://www.aurorasound.kr/assets/aurora-og-20261015.png 하나를 사용한다. PNG 1200×630, MIME 유형과 대체 설명을 HTML head에서 제공한다. 이전 /assets/aurora-og.png 요청은 같은 새 파일로 rewrite해 기존 주소의 접근을 유지한다. 브랜드 노트 목록의 기본 공유 이미지는 홈페이지 OG에서 가져오며 글별 대표 이미지는 유지한다. HTML 변경과 이미지 주소 변경만으로 외부 플랫폼의 기존 캐시 갱신 완료를 주장하지 않으며 실제 작성 화면에서 확인한다.
 
 공통 --sans와 --serif 및 기존 직접 서체 선언을 보존한다. --ko-heading은 Arita Buri와 Asta Sans 대체 경로다. 선택한 한글 큰 제목과 FAQ 질문에 부리 600, FAQ 본문에 돋움 Medium 400을 적용한다. 공식 원본 WOFF 총 2,858,088바이트를 그대로 배포하며 변환, 서브셋 및 글자 수정은 하지 않는다. 원본과 출처 고지는 rebrand/assets/fonts에 있다. 기존 hero의 y 보정 파일과 unicode-range를 유지한다.
 
