@@ -3769,6 +3769,17 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
  .silk-mode .hero-actions .hero-discover { min-width:130px; padding:12px 16px; }
 }
 
-/* Editorial reading face: official Arita Buri Medium, with utility text kept sans. */
-.silk-mode .hero-copy-row .hero-services { font-family:var(--ko-reading); font-weight:400; letter-spacing:-.015em; }
+/* The opening Korean message uses the existing sans, slightly closer to the title. */
+.silk-mode .hero-copy-row .hero-services {
+  position: relative;
+  top: -16px;
+  font-family: "Asta Sans", sans-serif;
+  font-weight: 400;
+  letter-spacing: -.015em;
+}
+@media (max-width: 700px) {
+  .silk-mode .hero-copy-row .hero-services { top: -10px; }
+}
+
+/* Editorial reading face: official Arita Buri Medium. */
 .studio-intro > p,.studio-services p:not(.service-examples) { font-family:var(--ko-reading); font-weight:400; }

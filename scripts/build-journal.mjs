@@ -19,7 +19,7 @@ function connectPage(html, current) {
   html = html.replace(/저널/g, '브랜드 노트');
   html = html.replace(/(<a href="\/journal"[^>]*>브랜드 노트<\/a>)(\s*)(<a href="\/work"[^>]*>포트폴리오<\/a>)/g, '$3$2$1');
   html = html.replace(/\/rebrand\/contact\.js\?v=[567]/g, '/rebrand/contact.js?v=8');
-  html = html.replace(/\/rebrand\/style\.css\?v=(?:4[6789]|5[012])/g, '/rebrand/style.css?v=53')
+  html = html.replace(/\/rebrand\/style\.css\?v=(?:4[6789]|5[0123])/g, '/rebrand/style.css?v=54')
     .replace('/rebrand/fonts.css?v=1', '/rebrand/fonts.css?v=2')
     .replace('/work/style.css?v=24', '/work/style.css?v=25')
     .replace(/\/journal\/journal\.css\?v=[1234567]/g, '/journal/journal.css?v=8');
