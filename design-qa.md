@@ -351,3 +351,7 @@ Meta 공유 디버거에서 다시 스크랩한 뒤 og:image가 새 주소인 �
 ## 공유 카드 제목 변경, 2026-10-15
 
 대표가 승인한 "오로라의소리 | 브랜드의 방향을 정하고, 실행까지 함께합니다"를 홈과 /interview의 문서 제목, OG 및 Twitter 제목에 적용했다. 기존 실크 공유 이미지, 본문과 설명, 문의 및 추적 설정은 유지한다. 승인 문구의 정확한 일치와 세 제목의 일관성을 기존 사이트 검사에서 확인한다. npm run check 및 git diff --check 통과. 운영 반영과 플랫폼 캐시 갱신은 배포 후 확인한다.
+
+### 공유 제목 운영 검증
+
+1d65f25의 Vercel Production success와 운영 / 및 /interview의 200 응답, 로컬 HTML과의 바이트 일치를 확인했다. 페이지 body는 이전 커밋과 같다. Meta 공유 디버거에서 다시 스크랩한 뒤 OG 및 Twitter 제목이 승인 문구와 일치했다. 새 스레드 작성창에 https://www.aurorasound.kr/를 입력해 같은 제목과 기존 실크 이미지가 함께 표시되는 것을 직접 확인했다. 확인용 글은 게시하지 않았다. 증거는 Desktop/codex-output/99_최종아님_삭제대기/aurora-share-title-20261015/threads-title-preview.jpg다.
