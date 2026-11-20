@@ -4,8 +4,7 @@
 
 ## 관리 위치
 
-- Mac Studio 코드 원본: `/Users/bananabk/Documents/Projects/aurora-landing-page`
-- MacBook 코드 원본: `/Users/bananabk/Documents/Projects/aurora-landing-page` (사용자 전달 보고서, 2026-10-05 17:29:41 KST). 경로와 당시 `main`의 clean 상태는 보고서 근거이며 MacBook을 직접 조회한 결과는 아니다.
+- 두 맥에서 확인한 코드 원본은 `~/Documents/Projects/web-projects/aurora-landing-page`입니다.
 - GitHub 원본: https://github.com/Rusty951/aurora-landing-page/tree/main
 - 운영 홈페이지: https://www.aurorasound.kr/
 - 광고 경로: https://www.aurorasound.kr/interview
