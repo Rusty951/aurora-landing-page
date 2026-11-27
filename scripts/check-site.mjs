@@ -78,7 +78,7 @@ assert(html.includes(`<meta property="og:title" content="${approvedTitle}"`) && 
 assert(/<meta name="description" content="무엇부터 바꿀지 정하고 필요한 마케팅을 실행합니다\./.test(html), 'Metadata and first-screen role must align.');
 assert(!html.includes('필요한 콘텐츠를 정하고 제작까지 맡습니다'), 'Old V2 positioning remains in metadata or body.');
 assert(!html.includes('콘텐츠 마케팅"'), 'Old V2 Open Graph alt or metadata remains.');
-assert(/href=["']\/rebrand\/style\.css\?v=56["']/.test(html), 'Homepage must load the current stylesheet.');
+assert(/href=["']\/rebrand\/style\.css\?v=57["']/.test(html), 'Homepage must load the current stylesheet.');
 assert(/prefers-reduced-motion/.test(styles), 'Reduced-motion handling is required.');
 assert(/resonance\.webp/.test(html) && /resonance\.webp/.test(styles), 'Hero must keep a static silk fallback.');
 assert(ogCard.includes('리브랜딩 실행 파트너') && ogCard.includes('브랜드가 기억되도록.') && ogCard.includes('/rebrand/assets/resonance.webp'), 'OG render source must match the current silk homepage.');
@@ -93,7 +93,7 @@ assert(duplicateIds.length === 0, `Duplicate HTML ids: ${[...new Set(duplicateId
 
 const allAnchors = html.match(/<a\b[\s\S]*?<\/a\s*>/gi) || [];
 const trackedElements = allAnchors.filter((tag) => /\bdata-track=/.test(tag));
-const allowedTrackTypes = new Set(['kakao', 'naver_blog', 'instagram', 'youtube', 'email']);
+const allowedTrackTypes = new Set(['kakao', 'naver_blog', 'instagram', 'youtube', 'email', 'contact_guide']);
 const approvedKakaoUrl = 'https://open.kakao.com/o/sMBNyzpi';
 
 assert(trackedElements.length > 0, 'At least one tracked link is required.');
@@ -124,7 +124,7 @@ assert(allKakaoLinks.every((tag) => tag.includes(approvedKakaoUrl)), 'All Kakao 
 assert(/href=["']\/terms\.html["']/.test(html), 'Terms link must be root-relative.');
 assert(/href=["']\/privacy\.html["']/.test(html), 'Privacy link must be root-relative.');
 assert(/type="module" src="\/rebrand\/app\.js\?v=11"/.test(html), 'Production must load the quiet default-music controller.');
-assert(/src=["']\/analytics\.js\?v=8["']/.test(html), 'index.html must load analytics.js?v=8.');
+assert(/src=["']\/analytics\.js\?v=9["']/.test(html), 'index.html must load analytics.js?v=9.');
 
 assert(count(html, /fbq\(['"]track['"],\s*['"]PageView['"]\)/g) === 1, 'Meta PageView must be sent exactly once.');
 assert(!/createElement\(['"]noscript['"]\)/.test(html), 'Do not create a dynamic Meta noscript fallback.');

@@ -1,5 +1,5 @@
 /*
- * 오로라의소리 — analytics.js v8
+ * 오로라의소리 — analytics.js v9
  * 운영 환경 GA4 페이지뷰 · 참여 · 외부 링크 클릭 추적
  */
 
@@ -34,6 +34,10 @@ function getLandingContext() {
     landingType = 'organic_root';
   } else if (path === '/interview' || path === '/interview/') {
     landingType = 'paid_interview';
+  } else if (/^\/work(?:\/|$)/.test(path)) {
+    landingType = 'portfolio';
+  } else if (/^\/journal(?:\/|$)/.test(path)) {
+    landingType = 'journal';
   }
 
   return {
@@ -143,6 +147,7 @@ function metaTrackContactClick(params) {
 /* HTML의 data-track 값을 단일 계약으로 사용한다. */
 (function bindTrackedLinks() {
   var eventNames = {
+    contact_guide: 'click_contact_guide',
     naver_blog: 'click_blog',
     instagram: 'click_instagram',
     youtube: 'click_youtube',

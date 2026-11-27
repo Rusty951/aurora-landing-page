@@ -9,7 +9,8 @@ const links = [...html.matchAll(/<a\b[^>]*data-track=[^>]*>/g)].map(match => {
   const attributes = Object.fromEntries([...match[0].matchAll(/([\w-]+)="([^"]*)"/g)].map(match => [match[1], match[2]]));
   return { id: attributes.id, getAttribute: name => attributes[name] || null };
 });
-assert.equal(links.length, 5, 'Final/floating Kakao, email, YouTube and Instagram links must be tracked.');
+assert.equal(links.filter(link => link.getAttribute('data-track') === 'contact_guide').length, 2);
+assert.equal(links.length, 7);
 const ctas = links.filter(link => link.getAttribute('data-track') === 'kakao');
 assert.equal(ctas.length, 2);
 
@@ -57,6 +58,12 @@ for (const [hostname, pathname, expectedType] of [
     assert.equal(event[2].utm_source, 'release-check');
     assert.equal(event[2].cta_location, cta.id === 'final-cta-btn' ? 'final' : 'floating');
     assert.equal(event[2].is_primary_cta, cta.id === 'final-cta-btn');
+  }
+  for (const link of links.filter(link => link.getAttribute('data-track') === 'contact_guide')) {
+    handlers.click({ target: { closest: () => link } });
+    const event = window.dataLayer.at(-1);
+    assert.equal(event[1], 'click_contact_guide');
+    assert.equal(event[2].cta_location, link.getAttribute('data-cta-location'));
   }
   if (expectedType === 'paid_interview') {
     const meta = window.fbq.queue;

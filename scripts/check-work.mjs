@@ -20,6 +20,7 @@ const config=JSON.parse(read('vercel.json'));
 const pages=['work/index.html',...allCatalog.map(p=>`work/${p.slug}/index.html`)];
 for(const p of pages) {
  const html=read(p);assert.equal((html.match(/<h1\b/g)||[]).length,1,p+' one h1');
+  assert.equal((html.match(/src="\/analytics\.js\?v=9"/g) || []).length, 1, "Load GA4 once per page");
  assert(!/rebrand\/app\.js|fbq\(|gtag\(/.test(html),'No conversion or hero runtime in gallery');
  const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length,'Unique IDs');
  for(const m of html.matchAll(/(?:src|href)="(\/[^"?#]+)(?:[^"<>]*)"/g)) {

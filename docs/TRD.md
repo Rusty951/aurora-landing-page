@@ -28,7 +28,7 @@ index.html은 홈과 /interview의 공통 문서다. vercel.json이 광고 경�
 
 ## 분석 경계
 
-GA4와 Meta는 운영 호스트에서만 실행한다. localhost, Tailscale와 Vercel Preview는 수집 대상이 아니다. Meta PageView는 운영 /interview에서 한 번만 전송된다. 카카오 외부 클릭 Contact는 실제 문의 Lead와 구분한다. HTML data-track, CTA ID와 위치 및 primary 속성, UTM과 최초 유입 맥락을 유지한다. 포트폴리오 문서는 analytics.js를 로드하지 않는다.
+GA4와 Meta는 운영 호스트에서만 실행한다. localhost, Tailscale와 Vercel Preview는 수집 대상이 아니다. Meta PageView는 운영 /interview에서 한 번만 전송된다. 카카오 외부 클릭 Contact는 실제 문의 Lead와 구분한다. HTML data-track, CTA ID와 위치 및 primary 속성, UTM과 최초 유입 맥락을 유지한다. 운영 포트폴리오와 브랜드 노트의 목록 및 상세는 공통 analytics.js로 페이지 조회를 측정한다. 샘플 데모는 별도다. 상담 안내 링크는 click_contact_guide, 카카오 외부 이동은 click_kakao_openchat으로 기록한다. GA4의 페이지 경로로 클릭 위치를 구분한다.
 
 ## 포트폴리오와 검사
 
@@ -38,7 +38,7 @@ npm run check는 사이트와 자산 및 경로, renderer와 음악, 추적, 필
 
 ## 저널 로컬 구현
 
-`journal/index.html`과 `journal/<slug>/index.html`은 Node 스크립트가 생성하는 정적 문서다. 외부 CMS나 런타임 의존성을 추가하지 않는다. 공유 스타일 뒤에 `journal/journal.css?v=5`을 로드하고 별도 본문 JavaScript는 사용하지 않는다. 목록과 글 상세에 광고나 오가닉 수집 스크립트를 추가하지 않았다.
+`journal/index.html`과 `journal/<slug>/index.html`은 Node 스크립트가 생성하는 정적 문서다. 외부 CMS나 런타임 의존성을 추가하지 않는다. 공유 스타일 뒤에 `journal/journal.css?v=5`을 로드하고 별도 본문 JavaScript는 사용하지 않는다. 목록과 글 상세는 운영 호스트에서 GA4를 사용한다.
 
 `scripts/build-journal.mjs`는 승인된 사이트 원고 `journal/articles.json`과 기존 포트폴리오 목록을 읽는다. 표시 문구는 HTML escape하고 작업과 글의 연결을 확인한다. 홈페이지의 표시된 저널 구역과 기존 포트폴리오의 표시된 읽기 구역, 공통 메뉴를 갱신한다. 여러 번 실행해도 같은 결과를 유지한다. 공개 원고는 `index, follow`이며 페이지별 canonical과 OG를 제공한다. 목록과 글별 sitemap 및 Vercel rewrite를 중복 없이 생성한다. 내부 created 값은 발행일로 변환하지 않는다.
 

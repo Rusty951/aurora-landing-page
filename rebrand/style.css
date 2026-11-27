@@ -3802,3 +3802,11 @@ html:has(.floating-cta) { scroll-padding-bottom: 96px; }
 
 /* Editorial reading face: official Arita Buri Medium. */
 .studio-intro > p,.studio-services p:not(.service-examples) { font-family:var(--ko-reading); font-weight:400; }
+
+@media (max-width: 420px) and (max-height: 680px) {
+  .contact-compact { padding: 16px 18px 32px; }
+  .contact-compact .contact-invitation { margin-top: 8px; }
+  .contact-compact .contact-invitation h2 { font-size: 48px; }
+  .contact-compact .contact-invitation > p { margin-top: 12px; line-height: 1.5; }
+  .contact-compact .contact-bottom { margin-top: 16px; gap: 12px; }
+}

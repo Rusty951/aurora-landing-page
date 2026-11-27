@@ -13,6 +13,7 @@ const routes = ['journal/index.html',...articles.map(a=>`journal/${a.slug}/index
 for (const path of routes) {
   const html = read(path);
   assert.equal((html.match(/<h1\b/g)||[]).length,1,path+' one heading');
+  assert.equal((html.match(/src="\/analytics\.js\?v=9"/g) || []).length, 1, "Load GA4 once per page");
   const route = '/'+path.replace(/\/index\.html$/,'');
   const canonical = 'https://www.aurorasound.kr'+route;
   assert(html.includes('content="index, follow"'),'Approved journal pages allow indexing');
